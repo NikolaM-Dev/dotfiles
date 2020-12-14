@@ -1,0 +1,28 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "html",
+    "yaml",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql"
+  ],
+  "eslint.enable": true,
+  "javascript.preferences.quoteStyle": "single",
+
+  "html.autoClosingTags": false,
+  "html.format.indentInnerHtml": false,
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+
+  "diagnostic.displayByAle": true,
+  "emmet.includeLanguages": {
+    "htmldjango": "html",
+    "html-django": "html",
+    "django-html": "html"
+  }
+}

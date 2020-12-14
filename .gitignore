@@ -1,0 +1,4 @@
+nvim/plugged
+.vim/plugged
+configstore
+coc

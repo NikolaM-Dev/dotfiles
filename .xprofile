@@ -1,0 +1,5 @@
+~/.fehbg &
+nm-applet &
+udiskie -t &
+picom &
+nitrogen  --restore &

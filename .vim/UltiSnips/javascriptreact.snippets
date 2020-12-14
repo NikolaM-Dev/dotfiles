@@ -1,0 +1,94 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet clg "console.log()" b
+console.log(${1:'$2', $3});
+endsnippet
+
+snippet imp "import from ''" b
+import ${2:{ $3 }} from '$1';
+endsnippet
+
+snippet fn "() => {}" i
+const $1 = ${2:($3)} => ${4:{
+  $5
+}};
+endsnippet
+
+snippet afn "() => {}" i
+${2:($3)} => ${4:{
+  $5
+}}
+endsnippet
+
+snippet cf "() {}" b
+$1 ($2) {
+  $3
+}
+endsnippet
+
+snippet it "it('', () => {})" b
+it('$1', () => {
+  $2
+})
+endsnippet
+
+snippet desc "describe('', () => {})" b
+describe('$1', () => {
+  $2
+})
+endsnippet
+
+snippet co "const = " b
+const $1 = $2
+endsnippet
+
+snippet obj "= {}" b
+const $1 = {
+  $2
+}
+endsnippet
+
+snippet arr "= []" b
+const $1 = [
+  $2
+]
+endsnippet
+
+snippet des "const {} =" b
+const { $1 } = $2
+endsnippet
+
+snippet rfc "React function component" b
+import React from 'react'
+import { ${4} } from 'react-native'
+
+const $1 = ${2:( $3 )} => (
+  <$4>
+    $5
+  </$4>
+)
+export default $1
+endsnippet
