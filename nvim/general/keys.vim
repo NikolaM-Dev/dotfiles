@@ -94,13 +94,6 @@ nnoremap <C-b> :bd<CR>
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Use <c-space> to trigger completion.
-if &filetype == "javascript" || &filetype == "python"
-  inoremap <c-space> <C-x><C-u>
-else
-  inoremap <silent><expr> <c-space> coc#refresh()
-endif
-
 " Open Terminal
 set splitright
 nnoremap <C-t> :call OpenTerminal()<CR>
