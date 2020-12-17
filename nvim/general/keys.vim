@@ -70,6 +70,8 @@ nnoremap <Leader>gl :Gpull<cr>
 nnoremap <Leader>x :!node %<cr>
 
 " Esc
+:inoremap jk <Esc>
+:inoremap kj <Esc>
 :inoremap jj <Esc>
 
 " Better tabbing
