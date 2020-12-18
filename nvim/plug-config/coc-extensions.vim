@@ -8,7 +8,8 @@ let g:coc_global_extensions = [
       \ 'coc-discord-neovim',
       \ 'coc-marketplace',
       \ 'coc-html',
-      \ 'coc-json'
+      \ 'coc-json',
+      \ 'coc-sql'
       \]
 
 autocmd FileType python let b:coc_suggest_disable = 1

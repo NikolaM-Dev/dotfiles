@@ -115,7 +115,9 @@ alias W="cd ~/workspace/"
 
 # Crud
 alias la="ls -al"
-alias rmv="rm -rf"
+alias rmv="rm -rf -i"
+alias rmvv="rm -rf"
+alias rm="rm -i"
 alias ..="cd .."
 alias purge="sudo apt-get --purge remove"
 alias mc="mkdir"
