@@ -105,3 +105,6 @@ nmap <leader>t :call TrimWhitespace()<CR>
 
 " Ale
 nmap <leader>p :ALEFix<CR>
+
+" RunCode-Python
+nnoremap <Leader>P :!python3 %<cr>

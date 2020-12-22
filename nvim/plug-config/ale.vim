@@ -2,9 +2,12 @@
 let python_highlight_all=1
 
 " ALE
-let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
+let g:ale_linters = {
+  \'python': ['flake8'],
+  \'javascript': ['eslint']
+  \}
 
-" let g:ale_fixers = {'python': ['yapf', 'isort']}
+" \'javascript': ['eslint']
 let g:ale_fixers = {'python': ['black', 'isort']}
 let g:ale_sign_error = ' '
 let g:ale_sign_warning = ' '

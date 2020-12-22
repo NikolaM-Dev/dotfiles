@@ -14,19 +14,16 @@
   ],
   "eslint.enable": true,
   "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
   "html.autoClosingTags": false,
   "html.format.indentInnerHtml": false,
-  "html.filetypes": [
-    "html",
-    "handlebars",
-    "htmldjango",
-    "blade"
-  ],
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
   "diagnostic.displayByAle": true,
   "emmet.includeLanguages": {
     "htmldjango": "html",
     "html-django": "html",
-    "django-html": "html"
+    "django-html": "html",
+    "javascript": "javascriptreact"
   },
   "sql.database": "mysql"
 }

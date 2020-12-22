@@ -40,6 +40,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " autocomplete
 Plug 'sirver/ultisnips'

@@ -31,9 +31,9 @@ filetype indent on
 filetype plugin on
 
 " Javascript
-autocmd BufRead *.js set filetype=javascript.jsx
-autocmd BufRead *.jsx set filetype=javascript.jsx
-augroup filetype javascript syntax=javascript
+" autocmd BufRead *.js set filetype=javascript.jsx
+" autocmd BufRead *.jsx set filetype=javascript.jsx
+" augroup filetype javascript syntax=javascript
 
 "" Searching
 set hlsearch                    " highlight matches
