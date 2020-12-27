@@ -10,6 +10,7 @@ let g:coc_global_extensions = [
       \ 'coc-marketplace',
       \ 'coc-html',
       \ 'coc-json',
+      \ 'coc-css',
       \ 'coc-sql'
       \]
 

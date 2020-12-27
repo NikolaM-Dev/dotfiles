@@ -28,9 +28,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " plugs
-map <Leader>n :NERDTreeFind<CR>
+map <Leader>n :NERDTreeFocus<CR>
 map <Leader>f :Files<CR>
-map <Leader>ag :Ag<CR>
 
 " diagnostics
 nnoremap <Leader>dia  :<C-u>CocList diagnostics<CR>

@@ -15,11 +15,13 @@ so ~/.config/nvim/plug-config/coc-extensions.vim
 so ~/.config/nvim/plug-config/colorizer.vim
 so ~/.config/nvim/plug-config/commentary.vim
 so ~/.config/nvim/plug-config/django.vim
+so ~/.config/nvim/plug-config/fzf.vim
 so ~/.config/nvim/plug-config/kite.vim
 so ~/.config/nvim/plug-config/nerdtree.vim
 so ~/.config/nvim/plug-config/terminal.vim
 so ~/.config/nvim/plug-config/trim-whitespaces.vim
 so ~/.config/nvim/plug-config/ultisnips.vim
+so ~/.config/nvim/plug-config/vim-fugitive.vim
 
 " Themes
 so ~/.config/nvim/plug-config/airline.vim

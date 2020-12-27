@@ -2,12 +2,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 " syntax
 Plug 'sheerun/vim-polyglot'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'yuezk/vim-js'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'flowtype/vim-flow'
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
+"Plug 'flowtype/vim-flow'
+" Plug 'pangloss/vim-javascript'    " JavaScript support
+" Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'norcalli/nvim-colorizer.lua'
 
 " Python
@@ -21,12 +21,12 @@ Plug 'honza/vim-snippets'
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'shinchu/lightline-gruvbox.vim'
+" Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'lifepillar/gruvbox8'
 
-" Tree
+" Tree/
 Plug 'scrooloose/nerdtree'
 
 " typing
@@ -51,7 +51,7 @@ Plug 'janko-m/vim-test'
 
 " IDE
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', " { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'

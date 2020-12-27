@@ -4,6 +4,7 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/nikola/.oh-my-zsh"
+export PATH="$PATH:/home/nikola/.gem/ruby/2.7.0/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,12 +113,13 @@ alias e="exit"
 alias t="tmux"
 alias py="python3"
 alias W="cd ~/workspace/"
+alias trash="cd ~/.local/share/Trash/files/"
 
 # Crud
 alias la="ls -al"
-alias rmv="rm -rf -i"
-alias rmvv="rm -rf"
-alias rm="rm -i"
+alias rmv="rm -rf"
+alias rm="rm"
+alias rr="gio trash"
 alias ..="cd .."
 alias purge="sudo apt-get --purge remove"
 alias mc="mkdir"

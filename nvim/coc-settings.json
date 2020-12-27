@@ -15,6 +15,7 @@
   "eslint.enable": true,
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
   "html.autoClosingTags": false,
   "html.format.indentInnerHtml": false,
   "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
@@ -23,7 +24,8 @@
     "htmldjango": "html",
     "html-django": "html",
     "django-html": "html",
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
   },
   "sql.database": "mysql"
 }

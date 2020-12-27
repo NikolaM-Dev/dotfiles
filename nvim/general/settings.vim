@@ -18,12 +18,12 @@ set cursorline
 set splitbelow
 set splitright
 set background=dark
-set autochdir
 set sw=2
 set showmatch
 set noshowmode
 set autoindent smartindent
 set clipboard=unnamedplus
+highlight Normal ctermbg=NONE
 
 syntax on
 filetype on
