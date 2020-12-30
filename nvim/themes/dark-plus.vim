@@ -1,0 +1,1 @@
+colorscheme dark_plus

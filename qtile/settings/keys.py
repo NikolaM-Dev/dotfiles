@@ -56,7 +56,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "g", lazy.spawn("firefox")),
+    ([mod], "f", lazy.spawn("firefox")),
     ([mod], "b", lazy.spawn("google-chrome-stable")),
 
     # Discord
@@ -78,10 +78,16 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ hardware configs ------------
 
     # Volume
-    ([], "XF86AudioLowerVolume", lazy.spawn(
+    # ([], "XF86AudioLowerVolume", lazy.spawn(
+    #     "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    # )),
+    ([mod], "o", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ -5%"
     )),
-    ([], "XF86AudioRaiseVolume", lazy.spawn(
+    # ([], "XF86AudioRaiseVolume", lazy.spawn(
+    #     "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+    # )),
+    ([mod], "p", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ +5%"
     )),
     ([], "XF86AudioMute", lazy.spawn(

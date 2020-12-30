@@ -1,9 +1,9 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " syntax
-Plug 'sheerun/vim-polyglot'
 " Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'yuezk/vim-js'
+Plug 'sheerun/vim-polyglot'
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 "Plug 'flowtype/vim-flow'
 " Plug 'pangloss/vim-javascript'    " JavaScript support
@@ -21,10 +21,12 @@ Plug 'honza/vim-snippets'
 
 " Themes
 Plug 'morhetz/gruvbox'
-" Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'lifepillar/gruvbox8'
+Plug 'haishanh/night-owl.vim'
+Plug 'dunstontc/vim-vscode-theme'
+Plug 'glepnir/oceanic-material'
 
 " Tree/
 Plug 'scrooloose/nerdtree'
@@ -40,7 +42,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " autocomplete
 Plug 'sirver/ultisnips'

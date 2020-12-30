@@ -28,7 +28,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " plugs
-map <Leader>n :NERDTreeFocus<CR>
+map <Leader>n :NERDTreeFind<CR>
 map <Leader>f :Files<CR>
 
 " diagnostics
@@ -103,7 +103,10 @@ nnoremap <C-t> :call OpenTerminal()<CR>
 nmap <leader>t :call TrimWhitespace()<CR>
 
 " Ale
-nmap <leader>p :ALEFix<CR>
+" nmap <leader>p :ALEFix<CR>
 
 " RunCode-Python
 nnoremap <Leader>P :!python3 %<cr>
+
+" Prettier
+nmap <C-p> :CocCommand prettier.formatFile<cr>
