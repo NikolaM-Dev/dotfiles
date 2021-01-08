@@ -29,6 +29,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " plugs
 map <Leader>n :NERDTreeFind<CR>
+" map <Leader>n :NERDTreeToggle<CR>
 map <Leader>f :Files<CR>
 
 " diagnostics
@@ -67,11 +68,11 @@ nnoremap <Leader>gl :Gpull<cr>
 
 " NodeJs
 nnoremap <Leader>x :!node %<cr>
+nnoremap <Leader>X :!deno run %<cr>
 
 " Esc
-:inoremap jk <Esc>
-:inoremap kj <Esc>
 :inoremap jj <Esc>
+:inoremap ii <Esc>
 
 " Better tabbing
 vnoremap < <gv
@@ -110,3 +111,7 @@ nnoremap <Leader>P :!python3 %<cr>
 
 " Prettier
 nmap <C-p> :CocCommand prettier.formatFile<cr>
+
+" Search for lines
+nnoremap <Leader>W :BLines<cr>
+

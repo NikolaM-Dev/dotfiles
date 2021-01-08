@@ -23,7 +23,7 @@ set showmatch
 set noshowmode
 set autoindent smartindent
 set clipboard=unnamedplus
-highlight Normal ctermbg=NONE
+" highlight Normal ctermbg=NONE
 
 syntax on
 filetype on

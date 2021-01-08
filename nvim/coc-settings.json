@@ -12,13 +12,12 @@
     "typescript.tsx",
     "graphql"
   ],
-  "eslint.enable": true,
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "html.autoClosingTags": false,
-  "html.format.indentInnerHtml": false,
-  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+  // "html.autoClosingTags": false,
+  // "html.format.indentInnerHtml": false,
+  // "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
   "diagnostic.displayByAle": true,
   "emmet.includeLanguages": {
     "htmldjango": "html",
@@ -27,5 +26,6 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "sql.database": "mysql"
+  "sql.database": "mysql",
+  "suggest.noselect": false
 }

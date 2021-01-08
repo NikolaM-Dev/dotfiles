@@ -1,14 +1,14 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " syntax
-" Plug 'HerringtonDarkholme/yats.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-"Plug 'flowtype/vim-flow'
+" Plug 'maxmellon/vim-jsx-pretty'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'flowtype/vim-flow'
 " Plug 'pangloss/vim-javascript'    " JavaScript support
 " Plug 'leafgarland/typescript-vim' " TypeScript syntax
-Plug 'norcalli/nvim-colorizer.lua'
 
 " Python
 Plug 'dense-analysis/ale'
