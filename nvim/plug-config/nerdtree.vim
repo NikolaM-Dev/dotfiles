@@ -8,3 +8,4 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeMapOpenInTab='\t'
 let g:NERDTreeIgnore = ['.git$', 'node_modules']
 let g:javascript_plugin_flow = 1
+" let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'

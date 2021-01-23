@@ -17,7 +17,7 @@
   "prettier.jsxSingleQuote": true,
   // "html.autoClosingTags": false,
   // "html.format.indentInnerHtml": false,
-  // "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
   "diagnostic.displayByAle": true,
   "emmet.includeLanguages": {
     "htmldjango": "html",

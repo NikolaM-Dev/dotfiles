@@ -14,8 +14,3 @@ let g:onedark_termcolors=256
 if(has("termguicolors"))
     hi LineNr ctermbg=NONE guibg=NONE
 endif
-
-colorscheme onedark
-
-let g:gruvbox_italicize_strings = 1
-" colorscheme gruvbox8

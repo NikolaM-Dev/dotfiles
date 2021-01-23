@@ -37,8 +37,8 @@ nnoremap <Leader>dia  :<C-u>CocList diagnostics<CR>
 nnoremap <leader>kp :let @*=expand("%")<CR>
 
 " tabs navigation
-map <Leader>h :tabprevious<CR>
-map <Leader>l :tabnext<CR>
+" map <Leader>h :tabprevious<CR>
+" map <Leader>l :tabnext<CR>
 
 " TAB in general mode will move to next buffer
 nnoremap <TAB> :bnext<CR>
@@ -113,5 +113,5 @@ nnoremap <Leader>P :!python3 %<cr>
 nmap <C-p> :CocCommand prettier.formatFile<cr>
 
 " Search for lines
-nnoremap <Leader>W :BLines<cr>
+nnoremap <Leader>l :BLines<cr>
 

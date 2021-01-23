@@ -56,8 +56,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "g", lazy.spawn("firefox")),
-    ([mod], "b", lazy.spawn("google-chrome-stable")),
+    ([mod], "b", lazy.spawn("firefox-developer-edition")),
+    ([mod], "g", lazy.spawn("google-chrome-stable")),
+    ([mod], "a", lazy.spawn("shutdown now")),
 
     # Discord
     ([mod], "d", lazy.spawn("discord")),
@@ -67,6 +68,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),
+
+    # Editor
+    ([mod], "i", lazy.spawn("code")),
 
     # Redshift
     ([mod], "r", lazy.spawn("redshift -O 6000")),

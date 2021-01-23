@@ -3,12 +3,13 @@ call plug#begin('~/.config/nvim/plugged')
 " syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'yuezk/vim-js'
-" Plug 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'flowtype/vim-flow'
-" Plug 'pangloss/vim-javascript'    " JavaScript support
-" Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'turbio/bracey.vim'
 
 " Python
 Plug 'dense-analysis/ale'
@@ -27,6 +28,7 @@ Plug 'lifepillar/gruvbox8'
 Plug 'haishanh/night-owl.vim'
 Plug 'dunstontc/vim-vscode-theme'
 Plug 'glepnir/oceanic-material'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " Tree/
 Plug 'scrooloose/nerdtree'
@@ -42,7 +44,10 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" CSS
+Plug 'hail2u/vim-css3-syntax'
 
 " autocomplete
 Plug 'sirver/ultisnips'

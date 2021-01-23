@@ -45,25 +45,26 @@ workspaces = lambda: [
 
 primary_widgets = [
     *workspaces(),
+    # widget.Systray(background=colors["dark"], padding=5),
     separator(),
     powerline("color4", "dark"),
     icon(bg="color4", text=" "),  # Icon: nf-fa-download
     widget.Pacman(**base(bg="color4"), update_interval=1800),
     powerline("color3", "color4"),
     icon(bg="color3", text=" "),  # Icon: nf-fa-feed
-    widget.Net(**base(bg="color3"), interface="wlan0"),
+    widget.Net(**base(bg="color3"), interface="enp2s0"),
     powerline("color2", "color3"),
     widget.CurrentLayoutIcon(**base(bg="color2"), scale=0.65),
     widget.CurrentLayout(**base(bg="color2"), padding=5),
     powerline("color1", "color2"),
     icon(bg="color1", fontsize=17, text=" "),  # Icon: nf-mdi-calendar_clock
     widget.Clock(**base(bg="color1"), format="%d/%m/%Y %I:%M %p "),
-    powerline("dark", "color1"),
-    widget.Systray(background=colors["dark"], padding=5),
+    # powerline("dark", "color1"),
 ]
 
 secondary_widgets = [
     *workspaces(),
+    widget.Systray(background=colors["dark"], padding=5),
     separator(),
     powerline("color3", "dark"),
     icon(bg="color3", fontsize=17, text=" "),  # Icon: nf-mdi-calendar_clock
@@ -79,6 +80,6 @@ secondary_widgets = [
 widget_defaults = {
     "font": "UbuntuMono Nerd Font Bold",
     "fontsize": 14,
-    "padding": 1,
+    "padding": 2,
 }
 extension_defaults = widget_defaults.copy()

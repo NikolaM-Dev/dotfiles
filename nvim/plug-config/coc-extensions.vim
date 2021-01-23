@@ -10,7 +10,8 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-eslint',
       \ 'coc-css',
-      \ 'coc-sql'
+      \ 'coc-sql',
+      \ 'coc-css'
       \]
 
 " --------------------------------------------------------
