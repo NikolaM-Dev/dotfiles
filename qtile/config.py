@@ -22,7 +22,7 @@ import os
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([path.join(qtile_path, "autostart.sh")])
-    os.system("xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale /home/nikola/Downloads/wallpaperbetter.com_7680x4320.jpg &").layout.restart()
+    # os.system("xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale /home/nikola/Downloads/wallpaperbetter.com_7680x4320.jpg &").layout.restart()
 
 
 main = None
@@ -33,4 +33,4 @@ bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True
 focus_on_window_activation = "urgent"
-wmname = "Qtile"
+wmname = "Nikola"

@@ -4,12 +4,14 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'flowtype/vim-flow'
 Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
-Plug 'turbio/bracey.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'flowtype/vim-flow'
+
+" CSS3
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'hail2u/vim-css3-syntax'
 
 " Python
 Plug 'dense-analysis/ale'
@@ -18,7 +20,10 @@ Plug 'Vimjas/vim-python-pep8-indent'
 " status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Snippets
 Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -31,7 +36,12 @@ Plug 'glepnir/oceanic-material'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " Tree/
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
+" Icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " typing
 Plug 'alvan/vim-closetag'
@@ -41,16 +51,6 @@ Plug 'tpope/vim-surround'
 " tmux
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
-
-" Icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" CSS
-Plug 'hail2u/vim-css3-syntax'
-
-" autocomplete
-Plug 'sirver/ultisnips'
 
 " test
 Plug 'tyewang/vimux-jest-test'

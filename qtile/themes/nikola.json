@@ -1,0 +1,17 @@
+{
+  "dark": ["#0f101a", "#0f101a"],
+  "grey": ["#353c4a", "#353c4a"],
+  "light": ["#f1ffff", "#f1ffff"],
+  "text": ["#0f101a", "#0f101a"],
+  "focus": ["#a151d3", "#a151d3"],
+  "active": ["#f1ffff", "#f1ffff"],
+  "inactive": ["#4c566a", "#4c566a"],
+  "urgent": ["#F07178", "#F07178"],
+  "color1": ["#e1acff", "#e1acff"],
+  "color2": ["#FFB86C", "#FFB86C"],
+  "color3": ["#FF5555", "#FF5555"],
+  "color4": ["#c3e88d", "#c3e88d"],
+  "color5": ["#8BE9FD", "#8BE9FD"],
+  "color6": ["#82AAFF", "#82AAFF"],
+  "haskell": ["#f1f1f1", "#f1f1f1"]
+}

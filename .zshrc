@@ -93,6 +93,9 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+export VISUAL=nvim;
+export EDITOR=nvim;
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -148,6 +151,7 @@ alias v="nvim"
 alias vv="v ."
 alias c="code"
 alias cc="code ."
+alias rg="ranger"
 alias z="zsh"
 alias b="bash"
 alias h="cd /mnt/c/Users/nikolaDev/"

@@ -28,8 +28,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " plugs
-map <Leader>n :NERDTreeFind<CR>
+" map <Leader>n :NERDTreeFind<CR>
 " map <Leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n <cmd>CHADopen<cr>
 map <Leader>f :Files<CR>
 
 " diagnostics
@@ -114,4 +115,3 @@ nmap <C-p> :CocCommand prettier.formatFile<cr>
 
 " Search for lines
 nnoremap <Leader>l :BLines<cr>
-

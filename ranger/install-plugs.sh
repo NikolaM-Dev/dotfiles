@@ -1,1 +1,1 @@
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins
+git clone https://github.com/alexanderjeurissen/ranger_devicons

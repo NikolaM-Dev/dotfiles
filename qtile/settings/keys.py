@@ -59,6 +59,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "b", lazy.spawn("firefox-developer-edition")),
     ([mod], "g", lazy.spawn("google-chrome-stable")),
     ([mod], "a", lazy.spawn("shutdown now")),
+    ([mod], "t", lazy.spawn("trello")),
 
     # Discord
     ([mod], "d", lazy.spawn("discord")),
@@ -82,23 +83,23 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ hardware configs ------------
 
     # Volume
-    # ([], "XF86AudioLowerVolume", lazy.spawn(
-    #     "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-    # )),
-    ([mod], "o", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    ([], "XF86AudioLowerVolume", lazy.spawn(
+        "pactl set-sink-volume @DEFAULT_SINK@ -2%"
     )),
-    # ([], "XF86AudioRaiseVolume", lazy.spawn(
-    #     "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-    # )),
+    ([mod], "o", lazy.spawn(
+        "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+    )),
+    ([], "XF86AudioRaiseVolume", lazy.spawn(
+        "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+    )),
     ([mod], "p", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+        "pactl set-sink-volume @DEFAULT_SINK@ +2%"
     )),
     ([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
 
     # Brightness
-    ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
-    ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +2%")),
+    ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 2%-")),
 ]]
