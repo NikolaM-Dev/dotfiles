@@ -30,7 +30,7 @@ nmap <silent> gr <Plug>(coc-references)
 " plugs
 " map <Leader>n :NERDTreeFind<CR>
 " map <Leader>n :NERDTreeToggle<CR>
-nnoremap <leader>n <cmd>CHADopen<cr>
+" nnoremap <leader>n <cmd>CHADopen<cr>
 map <Leader>f :Files<CR>
 
 " diagnostics
@@ -111,7 +111,7 @@ nmap <leader>t :call TrimWhitespace()<CR>
 nnoremap <Leader>P :!python3 %<cr>
 
 " Prettier
-nmap <C-p> :CocCommand prettier.formatFile<cr>
+nmap <leader>p :CocCommand prettier.formatFile<cr>
 
 " Search for lines
 nnoremap <Leader>l :BLines<cr>

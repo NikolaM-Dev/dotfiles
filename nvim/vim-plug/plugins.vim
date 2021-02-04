@@ -36,8 +36,13 @@ Plug 'glepnir/oceanic-material'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " Tree/
-" Plug 'scrooloose/nerdtree'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'

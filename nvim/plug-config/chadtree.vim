@@ -15,6 +15,8 @@ let g:chadtree_settings = {
       \}
       \}
 
+nnoremap <leader>n <cmd>CHADopen<cr>
+
 " \"h_split": ["i"],
 " \"v_split": ["s"],
 " \"select": ["w"],
