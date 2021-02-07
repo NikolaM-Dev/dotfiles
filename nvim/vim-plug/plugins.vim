@@ -41,8 +41,8 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " NERDTree
 Plug 'scrooloose/nerdtree'
 Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'preservim/nerdtree' |
+            " \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'

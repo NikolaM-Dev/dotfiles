@@ -4,3 +4,5 @@ function! TrimWhitespace()
   %s/\\\@<!\s\+$//e
   call winrestview(l:save)
 endfunction
+
+autocmd BufWritePre * call TrimWhitespace()

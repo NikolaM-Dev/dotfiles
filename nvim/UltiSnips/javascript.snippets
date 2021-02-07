@@ -1,4 +1,5 @@
-snippet clg "console.log()" b
+# JavaScript
+snippet cl "console.log()" b
 console.log(${1:'$2', $3});
 endsnippet
 
@@ -12,7 +13,7 @@ const $1 = ${2:($3)} => ${4:{
 }};
 endsnippet
 
-snippet afn "() => {}" i
+snippet af "() => {}" i
 ${2:($3)} => ${4:{
   $5
 }}
@@ -24,46 +25,45 @@ $1 ($2) {
 }
 endsnippet
 
-snippet it "it('', () => {})" b
-it('$1', () => {
-  $2
-})
+snippet c "const = " b
+const $1 = $2;
 endsnippet
 
-snippet desc "describe('', () => {})" b
-describe('$1', () => {
-  $2
-})
-endsnippet
-
-snippet co "const = " b
-const $1 = $2
+snippet l "let = " b
+const $1 = $2;
 endsnippet
 
 snippet obj "= {}" b
 const $1 = {
   $2
-}
+};
 endsnippet
 
 snippet arr "= []" b
 const $1 = [
   $2
-]
+];
 endsnippet
 
 snippet des "const {} =" b
-const { $1 } = $2
+const { $1 } = $2;
 endsnippet
 
-snippet rfc "React function component" b
-import React from 'react'
-import { ${4} } from 'react-native'
+# Testing
+snippet desc "describe('', () => {})" b
+describe('$1', () => {
+  $2
+});
+endsnippet
 
-const $1 = ${2:( $3 )} => (
-  <$4>
-    $5
-  </$4>
-)
-export default $1
+snippet test "test('', () => {})" b
+test('should $1', () => {
+  $2
+});
+endsnippet
+
+snippet it "it('', () => {})" b
+it('$1', () => {
+  $2
+});
 endsnippet

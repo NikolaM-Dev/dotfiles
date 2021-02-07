@@ -102,7 +102,7 @@ set splitright
 nnoremap <C-t> :call OpenTerminal()<CR>
 
 " Trim white spaces
-nmap <leader>t :call TrimWhitespace()<CR>
+nmap <M-t> :call TrimWhitespace()<CR>
 
 " Ale
 " nmap <leader>p :ALEFix<CR>

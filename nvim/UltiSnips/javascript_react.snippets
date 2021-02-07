@@ -1,0 +1,83 @@
+snippet imr "import React from 'react'" b
+import React from 'react';
+endsnippet
+
+snippet imrd "import ReactDOM from 'react-dom'" b
+import React-DOM from 'react-dom';
+endsnippet
+
+snippet imrs "import React, { useState } from 'react'" b
+import React, { useState } from 'react';
+endsnippet
+
+snippet rfcp "rfcp" b
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const ${1:`!v expand('%:t:r')`} = (props) => {
+  return (
+  	<>
+		<h1>$1</h1>
+	</>
+  )
+}
+
+$1.propTypes = {}
+
+export default $1;
+endsnippet
+
+snippet rfc "rfc" b
+import React from 'react'
+
+const ${1:`!v expand('%:t:r')`} = (props) => {
+  return (
+  	<>
+		<h1>${2:$1}</h1>
+	</>
+  )
+}
+
+export default $1;
+endsnippet
+
+snippet fm "fragment" b
+<>
+	$1
+</>
+endsnippet
+
+# React Hooks
+snippet us "useState Hook" b
+const [$1, set${1/\w+\s*/\u$0/g}] = useState(${2:'$3'});
+endsnippet
+
+snippet ue "useEffect Hook" b
+useEffect(() => {
+	${1:${0}}
+		}${2});
+endsnippet
+
+snippet uc "useContext Hook" b
+const ${1:context} = useContext(${2});
+endsnippet
+
+snippet urc "useReducer Hook" b
+const [${3:state}, ${4:dispatch}] = useReducer(${5:reducer}, ${2:initial_value});
+endsnippet
+
+snippet uc "useCallback(fn, inputs)" b
+const ${1:callback} = useCallback((${2})) => ${3:{
+	${4}
+}}, [${5}]);
+endsnippet
+
+snippet um "useMemo(fn, inputs)" b
+const ${1:memorized} = useMemo(() => ${2:{
+	${3}
+}}, [${4}]);
+endsnippet
+
+snippet urf "useRef(defaultValue)" b
+const ${1:ref} = useRef(${2:null});
+endsnippet
