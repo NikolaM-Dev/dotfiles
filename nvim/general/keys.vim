@@ -115,3 +115,6 @@ nmap <leader>p :CocCommand prettier.formatFile<cr>
 
 " Search for lines
 nnoremap <Leader>l :BLines<cr>
+
+" Reload
+nnoremap <C-R> :source %<cr>

@@ -39,10 +39,17 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 " NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'PhilRunninger/nerdtree-visual-selection'
+" Plug 'scrooloose/nerdtree'
+" Plug 'PhilRunninger/nerdtree-visual-selection'
 " Plug 'preservim/nerdtree' |
             " \ Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Fern
+Plug 'lambdalisue/fern.vim'
+Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'

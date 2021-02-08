@@ -23,6 +23,8 @@ so ~/.config/nvim/plug-config/nerdtree.vim
 so ~/.config/nvim/plug-config/terminal.vim
 so ~/.config/nvim/plug-config/trim-whitespaces.vim
 so ~/.config/nvim/plug-config/ultisnips.vim
+" so ~/.config/nvim/plug-config/coc-explorer.vim
+so ~/.config/nvim/plug-config/fern.vim
 
 " Themes
 so ~/.config/nvim/plug-config/airline.vim
