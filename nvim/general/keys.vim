@@ -5,11 +5,11 @@ nnoremap <Leader>t :TestNearest<CR>
 nnoremap <Leader>T :TestFile<CR>
 nnoremap <Leader>TT :TestSuite<CR>
 
-" split resize
+" format
 nnoremap <Leader>> 10<C-w>>
 nnoremap <Leader>< 10<C-w><
 
-" quick semi
+" quick
 nnoremap <Leader>; $a;<Esc>
 nnoremap <Leader>, $a,<Esc>
 inoremap LL <Esc>la
@@ -18,8 +18,7 @@ inoremap HH <Esc>ha
 " Exit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>Q :q!<CR>
-nnoremap <leader>z :wq<CR>
+nnoremap <Leader>z :q!<CR>
 
 "CoC
 nmap <silent> gd <Plug>(coc-definition)
@@ -27,19 +26,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" plugs
-" map <Leader>n :NERDTreeFind<CR>
-" map <Leader>n :NERDTreeToggle<CR>
-" nnoremap <leader>n <cmd>CHADopen<cr>
-map <Leader>f :Files<CR>
-
 " diagnostics
 nnoremap <Leader>dia  :<C-u>CocList diagnostics<CR>
 nnoremap <leader>kp :let @*=expand("%")<CR>
-
-" tabs navigation
-" map <Leader>h :tabprevious<CR>
-" map <Leader>l :tabnext<CR>
 
 " TAB in general mode will move to next buffer
 nnoremap <TAB> :bnext<CR>
@@ -48,6 +37,7 @@ nnoremap <S-TAB> :bprevious<CR>
 
 " buffers
 map <Leader>b :Buffers<cr>
+map <Leader>f :Files<CR>
 
 " faster scrolling
 nnoremap <silent> <C-e> 10<C-e>
@@ -56,6 +46,7 @@ nnoremap <silent> <C-y> 10<C-y>
 nmap <Leader>s <Plug>(easymotion-s2)
 
 " Comment code
+nnoremap <C-/> gcap
 nnoremap <space>/ :Commentary<CR>
 vnoremap <space>/ :Commentary<CR>
 
@@ -72,7 +63,6 @@ nnoremap <Leader>x :!node %<cr>
 nnoremap <Leader>X :!deno run %<cr>
 
 " Esc
-:inoremap jj <Esc>
 :inoremap ii <Esc>
 
 " Better tabbing
@@ -117,4 +107,4 @@ nmap <leader>p :CocCommand prettier.formatFile<cr>
 nnoremap <Leader>l :BLines<cr>
 
 " Reload
-nnoremap <C-R> :source %<cr>
+nnoremap <M-r> :source %<cr>
