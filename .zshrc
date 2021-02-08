@@ -224,5 +224,8 @@ ctrlz() {
 zle -N ctrlz
 bindkey '^Z' ctrlz
 
+# tmux
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
