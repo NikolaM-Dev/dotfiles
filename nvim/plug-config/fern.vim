@@ -25,7 +25,11 @@ let g:fern#disable_default_mappings = 1
 let g:fern#default_hidden= 1
 
 " exclude
-let g:fern#default_exclude='node_modules'
+" Add dirs and files inside the brackets that need to remain hidden
+let hide_dirs  = '^\%(\.git\|node_modules\|plugged\)$'  " here you write the dir names
+let hide_files = '\%(\.byebug\|\.ruby-\|\.DS_Store\)\+'    " here you write the file names
+
+let g:fern#default_exclude = hide_dirs . '\|' . hide_files  " here you exclude them
 
 function! FernInit() abort
   nmap <buffer><expr>
@@ -71,5 +75,5 @@ augroup my-glyph-palette
   autocmd FileType nerdtree,startify call glyph_palette#apply()
 augroup END
 
-map <Leader>n :Fern . -reveal=%<CR>
+map <Leader>n :Fern . -reveal=% -wait<CR>
 noremap <silent> <C-m> :Fern . -drawer -reveal=% -toggle -width=30<CR><C-w>=

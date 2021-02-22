@@ -72,8 +72,10 @@ vnoremap > >gv
 " Move selected line / block of text in visual mode
 " shift + k to move up
 " shift + j to move down
-xnoremap K :move '<-2<CR>gv-gv
-xnoremap J :move '>+1<CR>gv-gv
+nnoremap K :m .-2<CR>==
+nnoremap J :m .+1<CR>==
+vnoremap K :move '<-2<CR>gv-gv
+vnoremap J :move '>+1<CR>gv-gv
 
 " Use alt + hjkl to resize windows
 nnoremap <M-k> :resize -2<CR>
@@ -107,4 +109,4 @@ nmap <leader>p :CocCommand prettier.formatFile<cr>
 nnoremap <Leader>l :BLines<cr>
 
 " Reload
-nnoremap <M-r> :source %<cr>
+nnoremap <M-r> :source ~/.config/nvim/init.vim<cr>

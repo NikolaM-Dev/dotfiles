@@ -50,6 +50,10 @@ const { $1 } = $2;
 endsnippet
 
 # Testing
+snippet imj "import '@testing-library/jest-dom'" b
+import '@testing-library/jest-dom';
+endsnippet
+
 snippet desc "describe('', () => {})" b
 describe('$1', () => {
   $2
@@ -57,7 +61,7 @@ describe('$1', () => {
 endsnippet
 
 snippet test "test('', () => {})" b
-test('should $1', () => {
+test('$1', () => {
   $2
 });
 endsnippet

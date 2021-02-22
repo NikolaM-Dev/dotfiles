@@ -59,6 +59,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "b", lazy.spawn("firefox-developer-edition")),
     ([mod], "g", lazy.spawn("google-chrome-stable")),
     ([mod], "a", lazy.spawn("shutdown now")),
+    ([mod], "v", lazy.spawn("alacritty -e tmux")),
     ([mod], "t", lazy.spawn("trello")),
 
     # Discord

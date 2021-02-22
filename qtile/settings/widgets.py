@@ -114,12 +114,12 @@ secondary_widgets = [
         fontsize=17,
         update_interval=1.5,
     ),
-    icon(text="  ", fg="color3"),
-    widget.Memory(
-        font="UbuntuMono Nerd Font",
-        **base(fg="color3"),
-        format='{MemUsed}M/{MemTotal}M',
-        fontsize=17),
+    # icon(text="  ", fg="color3"),
+    # widget.Memory(
+    #     font="UbuntuMono Nerd Font",
+    #     **base(fg="color3"),
+    #     format='{MemUsed}M/{MemTotal}M',
+    #     fontsize=17),
     # widget.Net(**base(fg="color4"),
     #            interface="enp2s0",
     #            format="  {up}  {down}",

@@ -117,9 +117,8 @@ alias t="tmux"
 alias py="python3"
 alias W="cd ~/workspace/"
 alias trash="cd ~/.local/share/Trash/files/"
-alias sc="xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale '/home/nikola/Downloads/background2.jpg'
+alias sc="xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale '/home/nikola/Downloads/wallpapers/mclaren.jpg'
 "
-
 
 # Crud
 alias la="ls -al"
@@ -165,9 +164,8 @@ alias xn="cd ~/.config/xmonad && nvim ."
 alias xb="cd ~/.config/xmobar && nvim ."
 
 # NodeJS
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # fzf
 
@@ -229,3 +227,4 @@ bindkey '^Z' ctrlz
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*}"'
