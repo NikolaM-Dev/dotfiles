@@ -2,12 +2,15 @@ call plug#begin('~/.config/nvim/plugged')
 
 " syntax
 Plug 'sheerun/vim-polyglot'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'yuezk/vim-js'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
 " Plug 'flowtype/vim-flow'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'        " GraphQL syntax
 
 " CSS3
 Plug 'norcalli/nvim-colorizer.lua'

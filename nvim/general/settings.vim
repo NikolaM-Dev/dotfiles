@@ -23,6 +23,9 @@ set showmatch
 set noshowmode
 set autoindent smartindent
 set clipboard=unnamedplus
+set noswapfile
+set nobackup
+set nowb
 " highlight Normal ctermbg=NONE
 
 syntax on
@@ -35,7 +38,7 @@ filetype plugin on
 " autocmd BufRead *.jsx set filetype=javascript.jsx
 " augroup filetype javascript syntax=javascript
 
-"" Searching
+" Searching;
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...

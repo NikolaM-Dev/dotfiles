@@ -61,6 +61,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "a", lazy.spawn("shutdown now")),
     ([mod], "v", lazy.spawn("alacritty -e tmux")),
     ([mod], "t", lazy.spawn("trello")),
+    ([mod], "n", lazy.spawn("notion-app")),
 
     # Discord
     ([mod], "d", lazy.spawn("discord")),

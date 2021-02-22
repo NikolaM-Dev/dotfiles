@@ -51,13 +51,13 @@ workspaces = lambda: [
                     highlight_method="block",
                     urgent_alert_method="block",
                     urgent_border=colors["urgent"],
-                    this_current_screen_border=colors["focus"],
+                    this_current_screen_border=colors["gradient"],
                     this_screen_border=colors["grey"],
                     other_current_screen_border=colors["dark"],
                     other_screen_border=colors["dark"],
                     disable_drag=True),
     separator(),
-    widget.WindowName(**base(fg="focus"), fontsize=14, padding=5),
+    widget.WindowName(**base(fg="gradient"), fontsize=14, padding=5),
     separator(),
 ]
 
@@ -95,9 +95,9 @@ primary_widgets = [
         decode("utf-8").replace('\n', '')),
     icon(fg="color1", fontsize=17, text="  "),  # Icon: nf-mdi-calendar_clock
     widget.Clock(**base(fg="color1"), format="%a %d %b %Y %H:%M "),
-    powerline2("focus", "dark"),
-    widget.CurrentLayoutIcon(**base(bg="focus"), scale=0.65),
-    widget.CurrentLayout(**base(bg="focus"), padding=5),
+    powerline2("gradient", "dark"),
+    widget.CurrentLayoutIcon(**base(bg="gradient", fg="active"), scale=0.65),
+    widget.CurrentLayout(**base(bg="gradient", fg="active"), padding=5),
 ]
 
 secondary_widgets = [
@@ -150,9 +150,9 @@ secondary_widgets = [
         decode("utf-8").replace('\n', '')),
     icon(fg="color1", fontsize=17, text="  "),  # Icon: nf-mdi-calendar_clock
     widget.Clock(**base(fg="color1"), format="%a %d %b %Y %H:%M "),
-    powerline2("focus", "dark"),
-    widget.CurrentLayoutIcon(**base(bg="focus"), scale=0.65),
-    widget.CurrentLayout(**base(bg="focus"), padding=5),
+    powerline2("gradient", "dark"),
+    widget.CurrentLayoutIcon(**base(bg="gradient", fg="active"), scale=0.65),
+    widget.CurrentLayout(**base(bg="gradient", fg="dark"), padding=5),
 ]
 
 widget_defaults = {

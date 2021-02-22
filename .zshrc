@@ -117,7 +117,7 @@ alias t="tmux"
 alias py="python3"
 alias W="cd ~/workspace/"
 alias trash="cd ~/.local/share/Trash/files/"
-alias sc="xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale '/home/nikola/Downloads/wallpapers/mclaren.jpg'
+alias sc="xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale '/home/nikola/Downloads/wallpapers/splash_purple_blue_left.jpg'
 "
 
 # Crud

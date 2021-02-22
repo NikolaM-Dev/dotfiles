@@ -38,6 +38,7 @@ nnoremap <S-TAB> :bprevious<CR>
 " buffers
 map <Leader>b :Buffers<cr>
 map <Leader>f :Files<CR>
+noremap <C-f> :CocSearch
 
 " faster scrolling
 nnoremap <silent> <C-e> 10<C-e>

@@ -1,23 +1,24 @@
 let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-pairs',
-      \ 'coc-tsserver',
       \ 'coc-prettier',
       \ 'coc-emmet',
       \ 'coc-json',
       \ 'coc-discord-neovim',
       \ 'coc-marketplace',
       \ 'coc-json',
-      \ 'coc-eslint',
       \ 'coc-css',
       \ 'coc-sql',
       \ 'coc-css',
+      \ 'coc-eslint',
+      \ 'coc-tsserver',
       \ 'coc-ultisnips'
       \]
 
+
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent><nowait> <space>E  :<C-u>CocList marketplace<cr>
-nnoremap <silent><leader> k :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader>i :CocCommand tsserver.organizeImports<cr>
 
 " " --------------------------------------------------------
