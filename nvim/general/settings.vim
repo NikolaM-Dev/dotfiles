@@ -43,3 +43,4 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+let g:python_host_prog  = '/usr/bin/python3.9'

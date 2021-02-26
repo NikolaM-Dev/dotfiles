@@ -1,25 +1,22 @@
 # Qtile
 
-![Qtile](../../.screenshots/qtile.png)
-
-***Language***
-- [🇪🇸 Español](./README.es.md)
-- 🇺🇸 English
+![Qtile](./qtile.png)
 
 ## Installation
 
 Install Qtile and dependencies:
 
-```
+```sh
 sudo pacman -S qtile pacman-contrib
 yay -S nerd-fonts-ubuntu-mono
+pip install psutil
 ```
 
 Clone this repository and copy my configs:
 
 ```bash
-git clone https://github.com/antoniosarosi/dotfiles.git
-cp -r dotfiles/.config/qtile ~/.config
+git clone https://github.com/NikolaM-Dev/.doftfiles.git
+cp -r .dotfiles/.config/qtile ~/.config
 ```
 
 Test it with **[Xephyr](https://wiki.archlinux.org/index.php/Xephyr)**:
@@ -30,7 +27,7 @@ DISPLAY=:1 qtile
 ```
 
 If the network widget doesn't work check **./settings/widgets.py** and look for
-this line, you should find it inside a list called *primary_widgets*:
+this line, you should find it inside a list called _primary_widgets_:
 
 ```python
 # Change interface arg, use ip address to find which one you need
@@ -46,8 +43,8 @@ for instructions.
 ## Structure
 
 In **config.py**, which is the file where most people write all their config,
-I only have an *autostart* function and some other variables like
-*cursor_warp*.
+I only have an _autostart_ function and some other variables like
+_cursor_warp_.
 
 ```python
 @hook.subscribe.startup_once
@@ -55,7 +52,7 @@ def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 ```
 
-If you want to change *autostart* programs, open  **./autostart.sh**.
+If you want to change _autostart_ programs, open **./autostart.sh**.
 
 ```bash
 #!/bin/sh
@@ -79,4 +76,5 @@ it doesn't exist. It will be created anyway if you don't do it before running
 this config.
 
 ```json
-{"theme": "material-ocean"}
+{ "theme": "big-sur" }
+```

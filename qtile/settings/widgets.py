@@ -11,53 +11,47 @@ from settings.theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
-base = lambda fg="text", bg="dark": {
-    "foreground": colors[fg],
-    "background": colors[bg]
-}
+base = lambda fg="text", bg="dark": {"foreground": colors[fg], "background": colors[bg]}
 
 separator = lambda: widget.Sep(**base(), linewidth=0, padding=5)
 
 icon = lambda fg="text", bg="dark", fontsize=16, text="?": widget.TextBox(
-    **base(fg, bg), fontsize=fontsize, text=text, padding=3)
+    **base(fg, bg), fontsize=fontsize, text=text, padding=3
+)
 
 powerline = lambda fg="light", bg="dark": widget.TextBox(
-    **base(fg, bg),
-    text="",
-    fontsize=37,
-    padding=-2  # Icon: nf-oct-triangle_left
+    **base(fg, bg), text="", fontsize=37, padding=-2  # Icon: nf-oct-triangle_left
 )
 
 powerline2 = lambda fg="light", bg="dark": widget.TextBox(
-    **base(fg, bg),
-    text="",
-    fontsize=37,
-    padding=-2  # Icon: nf-oct-triangle_left
+    **base(fg, bg), text="", fontsize=37, padding=-2  # Icon: nf-oct-triangle_left
 )
 
 workspaces = lambda: [
     separator(),
-    widget.GroupBox(**base(fg="light"),
-                    font="UbuntuMono Nerd Font",
-                    fontsize=19,
-                    margin_y=3,
-                    margin_x=0,
-                    padding_y=8,
-                    padding_x=5,
-                    borderwidth=1,
-                    active=colors["active"],
-                    inactive=colors["inactive"],
-                    rounded=False,
-                    highlight_method="block",
-                    urgent_alert_method="block",
-                    urgent_border=colors["urgent"],
-                    this_current_screen_border=colors["gradient"],
-                    this_screen_border=colors["grey"],
-                    other_current_screen_border=colors["dark"],
-                    other_screen_border=colors["dark"],
-                    disable_drag=True),
+    widget.GroupBox(
+        **base(fg="light"),
+        font="UbuntuMono Nerd Font",
+        fontsize=19,
+        margin_y=3,
+        margin_x=0,
+        padding_y=8,
+        padding_x=5,
+        borderwidth=1,
+        active=colors["active"],
+        inactive=colors["inactive"],
+        rounded=False,
+        highlight_method="block",
+        urgent_alert_method="block",
+        urgent_border=colors["urgent"],
+        this_current_screen_border=colors["gradient"],
+        this_screen_border=colors["grey"],
+        other_current_screen_border=colors["dark"],
+        other_screen_border=colors["dark"],
+        disable_drag=True,
+    ),
     separator(),
-    widget.WindowName(**base(fg="gradient"), fontsize=14, padding=5),
+    widget.WindowName(**base(fg="text"), fontsize=14, padding=5),
     separator(),
 ]
 
@@ -72,32 +66,38 @@ primary_widgets = [
     widget.GenPollText(
         **base(fg="color5"),
         update_interval=60,
-        fmt=' {}',
+        fmt=" {}",
         font="UbuntuMono Nerd Font",
         fontsize=17,
         func=lambda: subprocess.check_output("/home/nikola/.local/bin/battery")
-        .decode("utf-8").replace('\n', '')),
-    widget.GenPollText(**base(fg="color6"),
-                       update_interval=3,
-                       fmt=' {}',
-                       font="UbuntuMono Nerd Font",
-                       fontsize=17,
-                       func=lambda: subprocess.check_output(
-                           "/home/nikola/.local/bin/brightness").decode(
-                               "utf-8").replace('\n', '')),
+        .decode("utf-8")
+        .replace("\n", ""),
+    ),
+    widget.GenPollText(
+        **base(fg="color6"),
+        update_interval=3,
+        fmt=" {}",
+        font="UbuntuMono Nerd Font",
+        fontsize=17,
+        func=lambda: subprocess.check_output("/home/nikola/.local/bin/brightness")
+        .decode("utf-8")
+        .replace("\n", ""),
+    ),
     widget.GenPollText(
         **base(fg="color2"),
-        fmt=' {}',
+        fmt=" {}",
         update_interval=3,
         font="UbuntuMono Nerd Font",
         fontsize=17,
-        func=lambda: subprocess.check_output("/home/nikola/.local/bin/volume").
-        decode("utf-8").replace('\n', '')),
+        func=lambda: subprocess.check_output("/home/nikola/.local/bin/volume")
+        .decode("utf-8")
+        .replace("\n", ""),
+    ),
     icon(fg="color1", fontsize=17, text="  "),  # Icon: nf-mdi-calendar_clock
     widget.Clock(**base(fg="color1"), format="%a %d %b %Y %H:%M "),
-    powerline2("gradient", "dark"),
-    widget.CurrentLayoutIcon(**base(bg="gradient", fg="active"), scale=0.65),
-    widget.CurrentLayout(**base(bg="gradient", fg="active"), padding=5),
+    powerline2("focus", "dark"),
+    widget.CurrentLayoutIcon(**base(bg="focus", fg="active"), scale=0.65),
+    widget.CurrentLayout(**base(bg="focus", fg="dark"), padding=5),
 ]
 
 secondary_widgets = [
@@ -108,7 +108,7 @@ secondary_widgets = [
     widget.Pacman(**base(bg="dark", fg="color1"), update_interval=1800),
     icon(text=" ", fg="color2"),
     widget.CPU(
-        format='({load_percent}%)',
+        format="({load_percent}%)",
         **base(fg="color2"),
         font="UbuntuMono Nerd Font",
         fontsize=17,
@@ -127,36 +127,42 @@ secondary_widgets = [
     widget.GenPollText(
         **base(fg="color5"),
         update_interval=60,
-        fmt=' {}',
+        fmt=" {}",
         font="UbuntuMono Nerd Font",
         fontsize=17,
         func=lambda: subprocess.check_output("/home/nikola/.local/bin/battery")
-        .decode("utf-8").replace('\n', '')),
-    widget.GenPollText(**base(fg="color6"),
-                       update_interval=3,
-                       fmt=' {}',
-                       font="UbuntuMono Nerd Font",
-                       fontsize=17,
-                       func=lambda: subprocess.check_output(
-                           "/home/nikola/.local/bin/brightness").decode(
-                               "utf-8").replace('\n', '')),
+        .decode("utf-8")
+        .replace("\n", ""),
+    ),
     widget.GenPollText(
-        **base(fg="color2"),
-        fmt=' {}',
+        **base(fg="color6"),
+        update_interval=3,
+        fmt=" {}",
+        font="UbuntuMono Nerd Font",
+        fontsize=17,
+        func=lambda: subprocess.check_output("/home/nikola/.local/bin/brightness")
+        .decode("utf-8")
+        .replace("\n", ""),
+    ),
+    widget.GenPollText(
+        **base(fg="color4"),
+        fmt=" {}",
         update_interval=3,
         font="UbuntuMono Nerd Font",
         fontsize=17,
-        func=lambda: subprocess.check_output("/home/nikola/.local/bin/volume").
-        decode("utf-8").replace('\n', '')),
+        func=lambda: subprocess.check_output("/home/nikola/.local/bin/volume")
+        .decode("utf-8")
+        .replace("\n", ""),
+    ),
     icon(fg="color1", fontsize=17, text="  "),  # Icon: nf-mdi-calendar_clock
     widget.Clock(**base(fg="color1"), format="%a %d %b %Y %H:%M "),
-    powerline2("gradient", "dark"),
-    widget.CurrentLayoutIcon(**base(bg="gradient", fg="active"), scale=0.65),
-    widget.CurrentLayout(**base(bg="gradient", fg="dark"), padding=5),
+    powerline2("focus", "dark"),
+    widget.CurrentLayoutIcon(**base(bg="focus", fg="active"), scale=0.65),
+    widget.CurrentLayout(**base(bg="focus", fg="dark"), padding=5),
 ]
 
 widget_defaults = {
-    "font": "UbuntuMono Nerd Font bold",
+    "font": "UbuntuMono Nerd Font Bold",
     "fontsize": 14,
     "padding": 2,
 }

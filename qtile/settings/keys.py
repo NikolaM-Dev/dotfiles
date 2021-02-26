@@ -38,7 +38,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "w", lazy.window.kill()),
 
     # Switch focus of monitors
-    ([mod], "period", lazy.next_screen()),
+    ([mod], "period", lazy.spawn("ibus emoji")),
     ([mod], "comma", lazy.prev_screen()),
 
     # Restart Qtile
@@ -56,7 +56,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "b", lazy.spawn("firefox-developer-edition")),
+    ([mod], "b", lazy.spawn("firefox")),
     ([mod], "g", lazy.spawn("google-chrome-stable")),
     ([mod], "a", lazy.spawn("shutdown now")),
     ([mod], "v", lazy.spawn("alacritty -e tmux")),
@@ -81,6 +81,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Screenshot
     ([mod], "s", lazy.spawn("flameshot gui")),
+    ([mod, "shift"], "s", lazy.spawn("scrot -d 3")),
 
     # ------------ hardware configs ------------
 
