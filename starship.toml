@@ -1,6 +1,5 @@
 # Desactiva la nueva linea al inicio del prompt
 add_newline = false
-
 # Python
 [python]
 symbol = ' '
