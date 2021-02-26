@@ -1,9 +1,9 @@
 ![Neovim](./neovim.png)
 
-**_Lenguaje_**
+**_Language_**
 
 - [🇪🇸 Español](./README.es.md)
-- 🇺🇸 [English](./README.md)
+- 🇺🇸 English
 
 To use this config, first download some dependencies:
 
@@ -17,12 +17,20 @@ sudo pacman -S python python-pip ruby rubygems
 
 # Download neovim packages
 pip install neovim
+python3 -m pip install --user --upgrade pynvim
 gem install neovim
 sudo npm i -g neovim
 
 # Some other dependencies
 sudo pacman -S xsel fzf ripgrep fd the_silver_searcher prettier
 yay -S universal-ctags-git
+```
+
+Copy my configs:
+
+```bash
+git clone https://github.com/NikolaM-Dev/.doftfiles.git
+cp -r .dotfiles/.config/nvim ~/.config
 ```
 
 Then execute `:PlugInstall` inside neovim.
