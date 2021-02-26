@@ -15,7 +15,7 @@ sudo pacman -S rofi papirus-icon-theme
 
 Fuente necesaria:
 <br>
-Descarga la fuente de [**JetBrains**](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip) en `~/Downloads`
+Descarga la fuente [**JetBrains**](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip) en `~/Downloads`
 
 ```sh
 # ~/Downloads
