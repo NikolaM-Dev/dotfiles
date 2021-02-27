@@ -2,10 +2,10 @@
 
 ![Ranger](./ranger.png)
 
-**_language_**
+**_Language_**
 
 - [🇪🇸 Español](./README.es.md)
-- 🇺🇸 [English](./README.md)
+- 🇺🇸 English
 
 ## Install Ranger
 
@@ -17,6 +17,7 @@ sudo pacman -S ranger
 
 ```sh
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 ```
 
 ## Install Ueberzug (only linux)
