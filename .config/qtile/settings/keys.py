@@ -1,4 +1,5 @@
 # Antonio Sarosi
+# Nikola-Dev
 # https://youtube.com/c/antoniosarosi
 # https://github.com/antoniosarosi/dotfiles
 
@@ -44,8 +45,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Restart Qtile
     ([mod, "control"], "r", lazy.restart()),
 
+    # Shutdown Qtile
     ([mod, "control"], "q", lazy.shutdown()),
-    ([mod], "r", lazy.spawncmd()),
 
     # ------------ App Configs ------------
 
@@ -55,12 +56,20 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Window Nav
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
-    # Browser
+    # Browsers
     ([mod], "b", lazy.spawn("firefox")),
     ([mod], "g", lazy.spawn("google-chrome-stable")),
+
+    # Shutdown PC
     ([mod], "a", lazy.spawn("shutdown now")),
+
+    # Terminal + Tmux
     ([mod], "v", lazy.spawn("alacritty -e tmux")),
+
+    # Trello
     ([mod], "t", lazy.spawn("trello")),
+
+    # Notion
     ([mod], "n", lazy.spawn("notion-app")),
 
     # Discord

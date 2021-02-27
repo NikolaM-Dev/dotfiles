@@ -20,6 +20,7 @@ sudo pacman -S python python-pip ruby rubygems
 # Download neovim packages
 pip install neovim
 python3 -m pip install --user --upgrade pynvim
+pip install trash-cli
 gem install neovim
 sudo npm i -g neovim
 
