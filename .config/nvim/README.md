@@ -28,7 +28,7 @@ sudo pacman -S xsel fzf ripgrep fd the_silver_searcher prettier
 yay -S universal-ctags-git
 ```
 
-Copy my configs:
+## Copy my configs:
 
 ```bash
 git clone https://github.com/NikolaM-Dev/.doftfiles.git

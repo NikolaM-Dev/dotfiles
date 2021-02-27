@@ -13,6 +13,13 @@
 sudo pacman -S ranger
 ```
 
+## Copia mis configuraciones
+
+```sh
+git clone https://github.com/NikolaM-Dev/.doftfiles.git
+cp -r .dotfiles/.config/ranger ~/.config
+```
+
 ## Instalacion de los Ranger Devicoins
 
 ```sh

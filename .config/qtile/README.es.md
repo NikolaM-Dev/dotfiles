@@ -2,7 +2,8 @@
 
 ![Qtile](./qtile.png)
 
-***Idioma***
+**_Idioma_**
+
 - 🇪🇸 Español
 - [🇺🇸 English](https://github.com/NikolaM-Dev/.doftfiles/tree/main/.config/qtile)
 
@@ -29,8 +30,8 @@ Xephyr -br -ac -noreset -screen 1280x720 :1 &
 DISPLAY=:1 qtile
 ```
 
-Si el icono de la red no funciona, abre  **./settings/widgets.py** y busca
-esta línea, debería estar dentro de una lista llamada *primary_widgets*:
+Si el icono de la red no funciona, abre **./settings/widgets.py** y busca
+esta línea, debería estar dentro de una lista llamada _primary_widgets_:
 
 ```python
 # Cambia el argumento "interface", usa ip address para saber cuál poner
@@ -54,8 +55,8 @@ para las instrucciones.
 ## Estructura
 
 En el archivo **config.py** que es donde la mayoría suele poner toda su
-configuración, yo solo tengo el *autostart* y algunas variables como
-*cursor_warp*.
+configuración, yo solo tengo el _autostart_ y algunas variables como
+_cursor_warp_.
 
 ```python
 @hook.subscribe.startup_once
@@ -63,7 +64,7 @@ def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 ```
 
-Para cambiar lo que se lanza en el *autostart* abre el archivo 
+Para cambiar lo que se lanza en el _autostart_ abre el archivo
 **./autostart.sh**.
 
 ```bash
@@ -77,7 +78,7 @@ volumeicon &
 
 Si quieres añadir o quitar atajos de teclado, abre **./settings/keys.py**. Para
 añadir o quitar espacios de trabajos, debes modificar **./settings/groups.py**.
-Finalmente, si quieres añadir nuevos *layouts*, abre **./settings/layouts.py**,
+Finalmente, si quieres añadir nuevos _layouts_, abre **./settings/layouts.py**,
 el resto de archivos no hace falta tocarlos.
 
 ## Temas
@@ -87,5 +88,5 @@ su nombre en un archivo llamado **./config.json**, créalo si no lo tienes,
 aunque de todos modos se creará de forma automática al iniciar Qtile:
 
 ```json
-{"theme": "big-sur"}
+{ "theme": "big-sur" }
 ```
