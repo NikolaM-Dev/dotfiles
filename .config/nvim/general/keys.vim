@@ -71,18 +71,18 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Move selected line / block of text in visual mode
-" shift + k to move up
-" shift + j to move down
-nnoremap K :m .-2<CR>==
-nnoremap J :m .+1<CR>==
-vnoremap K :move '<-2<CR>gv-gv
-vnoremap J :move '>+1<CR>gv-gv
+" alt + k to move up
+" alt + j to move down
+nnoremap <M-k> :m .-2<CR>==
+nnoremap <M-j> :m .+1<CR>==
+vnoremap <M-k> :move '<-2<CR>gv-gv
+vnoremap <M-j> :move '>+1<CR>gv-gv
 
-" Use alt + hjkl to resize windows
-nnoremap <M-k> :resize -2<CR>
-nnoremap <M-j> :resize +2<CR>
-nnoremap <M-h> :vertical resize -2<CR>
-nnoremap <M-l> :vertical resize +2<CR>
+" Use directional arrows to resize windows
+nnoremap <Up> :resize -2<CR>
+nnoremap <Down> :resize +2<CR>
+nnoremap <Left> :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
 
 " Close current buffer
 nnoremap <C-b> :bd<CR>
