@@ -1,4 +1,4 @@
-# Desactiva la nueva linea al inicio del prompt
+# Deactivate the new line at the beginning of the promt
 add_newline = false
 # Python
 [python]
