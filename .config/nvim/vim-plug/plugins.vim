@@ -99,6 +99,6 @@ Plug 'tpope/vim-commentary'
 Plug 'haya14busa/is.vim'
 
 " Better display unwanted whitespace.
-Plug 'ntpeters/vim-better-whitespace'
+" Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()

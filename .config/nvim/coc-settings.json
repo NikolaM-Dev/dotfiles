@@ -23,7 +23,7 @@
   // "html.format.indentInnerHtml": false,
   "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
 
-  // Alex
+  // Ale
   "diagnostic.displayByAle": true,
 
   // coc-emmet
@@ -40,7 +40,7 @@
   "suggest.noselect": false,
 
   // coc-emoji
-  "coc.source.emoji.filetypes": ["markdown", "javascript", "python"],
+  "coc.source.emoji.filetypes": ["markdown"],
 
   // coc-explorer
   "explorer.icon.enableNerdfont": true,

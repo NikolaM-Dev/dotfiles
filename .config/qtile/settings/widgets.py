@@ -62,7 +62,15 @@ primary_widgets = [
     widget.Systray(background=colors["dark"], padding=5),
     separator(),
     icon(fg="color1", text=" "),  # Icon: nf-fa-download
-    widget.Pacman(**base(bg="dark", fg="color1"), update_interval=3000),
+    widget.CheckUpdates(
+        background=colors["color4"],
+        colour_have_updates=colors["text"],
+        colour_no_updates=colors["text"],
+        no_update_string="0",
+        display_format="{updates}",
+        update_interval=1800,
+        custom_command="checkupdates",
+    ),
     widget.GenPollText(
         **base(fg="color5"),
         update_interval=60,
@@ -105,7 +113,15 @@ secondary_widgets = [
     *workspaces(),
     separator(),
     icon(fg="color1", text=" "),  # Icon: nf-fa-download
-    widget.Pacman(**base(bg="dark", fg="color1"), update_interval=1800),
+    widget.CheckUpdates(
+        background=colors["color4"],
+        colour_have_updates=colors["text"],
+        colour_no_updates=colors["text"],
+        no_update_string="0",
+        display_format="{updates}",
+        update_interval=1800,
+        custom_command="checkupdates",
+    ),
     icon(text=" ", fg="color2"),
     widget.CPU(
         format="({load_percent}%)",
