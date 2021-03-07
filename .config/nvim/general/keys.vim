@@ -101,10 +101,10 @@ nmap <M-t> :call TrimWhitespace()<CR>
 " nmap <leader>p :ALEFix<CR>
 
 " RunCode-Python
-nnoremap <Leader>P :!python3 %<cr>
+nnoremap <Leader>p :!python3 %<cr>
 
 " Prettier
-nmap <leader>p :CocCommand prettier.formatFile<cr>
+nmap <leader>P :CocCommand prettier.formatFile<cr>
 
 " Search for lines
 nnoremap <Leader>l :BLines<cr>
