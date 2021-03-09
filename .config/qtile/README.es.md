@@ -20,7 +20,7 @@ Clona este repositorio y copia mis configuraciones:
 
 ```bash
 git clone https://github.com/NikolaM-Dev/.dotfiles.git
-cp -r .dotfiles/.config/qtile ~/.config
+cp -r dotfiles/.config/qtile ~/.config
 ```
 
 Pruébalo con **[Xephyr](https://wiki.archlinux.org/index.php/Xephyr)**:

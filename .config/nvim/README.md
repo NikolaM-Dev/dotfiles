@@ -33,7 +33,7 @@ yay -S universal-ctags-git
 
 ```bash
 git clone https://github.com/NikolaM-Dev/.doftfiles.git
-cp -r .dotfiles/.config/nvim ~/.config
+cp -r dotfiles/.config/nvim ~/.config
 ```
 
 Then execute `:PlugInstall` inside neovim.

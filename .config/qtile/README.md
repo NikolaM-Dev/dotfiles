@@ -20,7 +20,7 @@ Clone this repository and copy my configs:
 
 ```bash
 git clone https://github.com/NikolaM-Dev/.doftfiles.git
-cp -r .dotfiles/.config/qtile ~/.config
+cp -r dotfiles/.config/qtile ~/.config
 ```
 
 Test it with **[Xephyr](https://wiki.archlinux.org/index.php/Xephyr)**:
@@ -89,4 +89,3 @@ this config.
 ```json
 { "theme": "big-sur" }
 ```
-

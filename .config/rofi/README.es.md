@@ -28,7 +28,7 @@ sudo mv *.ttf /usr/share/fonts
 
 ```bash
 git clone https://github.com/NikolaM-Dev/.doftfiles.git
-cp -r .dotfiles/.config/rofi ~/.config
+cp -r dotfiles/.config/rofi ~/.config
 ```
 
 Si estás usando mis configuraciones, **mod + m** lanzará

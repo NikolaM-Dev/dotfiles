@@ -17,7 +17,7 @@ sudo pacman -S ranger
 
 ```sh
 git clone https://github.com/NikolaM-Dev/.doftfiles.git
-cp -r .dotfiles/.config/ranger ~/.config
+cp -r dotfiles/.config/ranger ~/.config
 ```
 
 ## Install Ranger Devicoins
