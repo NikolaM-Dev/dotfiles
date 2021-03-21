@@ -1,104 +1,112 @@
 call plug#begin('~/.config/nvim/plugged')
+    " Comment code
+    Plug 'tpope/vim-commentary'
 
-" syntax
-Plug 'sheerun/vim-polyglot'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'yuezk/vim-js'
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
-" Plug 'flowtype/vim-flow'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'        " GraphQL syntax
+    if exists('g:vscode')
+        " Easy motion for VSCode
+        Plug 'asvetliakov/vim-easymotion'
+    else
+        " syntax
+        Plug 'sheerun/vim-polyglot'
+        Plug 'HerringtonDarkholme/yats.vim'
+        Plug 'yuezk/vim-js'
+        Plug 'pangloss/vim-javascript'    " JavaScript support
+        Plug 'maxmellon/vim-jsx-pretty'
+        Plug 'leafgarland/typescript-vim' " TypeScript syntax
+        " Plug 'flowtype/vim-flow'
+        Plug 'peitalin/vim-jsx-typescript'
+        Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+        Plug 'jparise/vim-graphql'        " GraphQL syntax
 
-" CSS3
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'hail2u/vim-css3-syntax'
+        " CSS3
+        Plug 'norcalli/nvim-colorizer.lua'
+        Plug 'hail2u/vim-css3-syntax'
 
-" Python
-Plug 'dense-analysis/ale'
-Plug 'Vimjas/vim-python-pep8-indent'
+        " Python
+        Plug 'dense-analysis/ale'
+        Plug 'Vimjas/vim-python-pep8-indent'
 
-" status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+        " Golang
+        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" Snippets
-Plug 'honza/vim-snippets'
-Plug 'sirver/ultisnips'
+        " status bar
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
 
-" Themes
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'lifepillar/gruvbox8'
-Plug 'haishanh/night-owl.vim'
-Plug 'dunstontc/vim-vscode-theme'
-Plug 'glepnir/oceanic-material'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+        " Snippets
+        Plug 'honza/vim-snippets'
+        Plug 'sirver/ultisnips'
 
-" Trees
-" Chadtree
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+        " Themes
+        Plug 'morhetz/gruvbox'
+        Plug 'joshdick/onedark.vim'
+        Plug 'dracula/vim', { 'as': 'dracula' }
+        Plug 'lifepillar/gruvbox8'
+        Plug 'haishanh/night-owl.vim'
+        Plug 'dunstontc/vim-vscode-theme'
+        Plug 'glepnir/oceanic-material'
+        Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+        Plug 'ayu-theme/ayu-vim'
 
-" NERDTree
-" Plug 'scrooloose/nerdtree'
-" Plug 'PhilRunninger/nerdtree-visual-selection'
-" Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+        " Trees
+        " Chadtree
+        " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
-" Fern
-" Plug 'lambdalisue/fern.vim'
-" Plug 'antoinemadec/FixCursorHold.nvim'
-" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-" Plug 'lambdalisue/nerdfont.vim'
-" Plug 'lambdalisue/glyph-palette.vim'
+        " NERDTree
+        " Plug 'scrooloose/nerdtree'
+        " Plug 'PhilRunninger/nerdtree-visual-selection'
+        " Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        " Fern
+        " Plug 'lambdalisue/fern.vim'
+        " Plug 'antoinemadec/FixCursorHold.nvim'
+        " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+        " Plug 'lambdalisue/nerdfont.vim'
+        " Plug 'lambdalisue/glyph-palette.vim'
 
-" typing
-Plug 'alvan/vim-closetag'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
+        " Icons
+        Plug 'ryanoasis/vim-devicons'
+        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" tmux
-Plug 'benmills/vimux'
-Plug 'christoomey/vim-tmux-navigator'
+        " typing
+        Plug 'alvan/vim-closetag'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'tpope/vim-surround'
 
-" test
-Plug 'tyewang/vimux-jest-test'
-Plug 'janko-m/vim-test'
+        " tmux
+        Plug 'benmills/vimux'
+        Plug 'christoomey/vim-tmux-navigator'
 
-" IDE
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', " { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'easymotion/vim-easymotion'
-Plug 'mhinz/vim-signify'
-Plug 'yggdroot/indentline'
-Plug 'scrooloose/nerdcommenter'
+        " test
+        Plug 'tyewang/vimux-jest-test'
+        Plug 'janko-m/vim-test'
 
-" Prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
-Plug 'Chiel92/vim-autoformat'
+        " IDE
+        Plug 'editorconfig/editorconfig-vim'
+        Plug 'junegunn/fzf', " { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+        Plug 'terryma/vim-multiple-cursors'
+        Plug 'easymotion/vim-easymotion'
+        Plug 'mhinz/vim-signify'
+        Plug 'yggdroot/indentline'
+        Plug 'scrooloose/nerdcommenter'
 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
+        " Prettier
+        Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
+        Plug 'Chiel92/vim-autoformat'
 
-" Intellisense
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        " git
+        Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-repeat'
 
-" Comment code
-Plug 'tpope/vim-commentary'
+        " Intellisense
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Automatically clear search highlights after you move your cursor.
-Plug 'haya14busa/is.vim'
 
-" Better display unwanted whitespace.
-" Plug 'ntpeters/vim-better-whitespace'
+        " Automatically clear search highlights after you move your cursor.
+        Plug 'haya14busa/is.vim'
 
+        " Better display unwanted whitespace.
+        " Plug 'ntpeters/vim-better-whitespace'
+    endif
 call plug#end()

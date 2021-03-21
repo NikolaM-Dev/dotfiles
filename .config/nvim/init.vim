@@ -7,7 +7,7 @@ so ~/.config/nvim/vim-plug/plugins.vim
 
 if exists('g:vscode')
     so ~/.config/nvim/vscode/settings.vim
-    so ~/.config/nvim/plug-config
+    so ~/.config/nvim/plug-config/easymotion.vim
 else
 " Base Plugin
     so ~/.config/nvim/plug-config/coc.vim
@@ -33,5 +33,5 @@ else
     " Themes
     so ~/.config/nvim/plug-config/airline.vim
     so ~/.config/nvim/general/colors.vim
-    so ~/.config/nvim/themes/gruvbox.vim
+    so ~/.config/nvim/themes/ayu.vim
 endif

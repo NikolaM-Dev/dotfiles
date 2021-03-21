@@ -72,6 +72,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Notion
     ([mod], "n", lazy.spawn("notion-app")),
 
+    # Figma
+    ([mod], "f", lazy.spawn("figma-linux")),
+
     # Discord
     ([mod], "d", lazy.spawn("discord")),
 

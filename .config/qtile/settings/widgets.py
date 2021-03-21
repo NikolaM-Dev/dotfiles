@@ -9,6 +9,7 @@ from typing import List  # noqa: F401
 from libqtile import widget
 from settings.theme import colors
 
+myTerm = "alacritty"
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
 base = lambda fg="text", bg="dark": {"foreground": colors[fg], "background": colors[bg]}
@@ -62,12 +63,21 @@ primary_widgets = [
     widget.Systray(background=colors["dark"], padding=5),
     separator(),
     icon(fg="color1", text=" "),  # Icon: nf-fa-download
+    # widget.CheckUpdates(
+    #     colour_have_updates=colors["color1"],
+    #     colour_no_updates=colors["color1"],
+    # no_update_string="0",
+    #     display_format="{updates}",
+    #     update_interval=1800,
+    # ),
     widget.CheckUpdates(
-        colour_have_updates=colors["color1"],
         colour_no_updates=colors["color1"],
+        colour_have_updates=colors["color1"],
+        update_interval = 1800,
+        distro = "Arch_checkupdates",
         no_update_string="0",
-        display_format="{updates}",
-        update_interval=1800,
+        display_format = "{updates}",
+        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
     ),
     widget.GenPollText(
         **base(fg="color5"),
@@ -111,12 +121,21 @@ secondary_widgets = [
     *workspaces(),
     separator(),
     icon(fg="color1", text=" "),  # Icon: nf-fa-download
+    # widget.CheckUpdates(
+    #     colour_have_updates=colors["color1"],
+    #     colour_no_updates=colors["color1"],
+    #     no_update_string="0",
+    #     display_format="{updates}",
+    #     update_interval=1800,
+    # ),
     widget.CheckUpdates(
-        colour_have_updates=colors["color1"],
         colour_no_updates=colors["color1"],
+        colour_have_updates=colors["color1"],
+        update_interval = 1800,
+        distro = "Arch_checkupdates",
         no_update_string="0",
-        display_format="{updates}",
-        update_interval=1800,
+        display_format = "{updates}",
+        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
     ),
     icon(text=" ", fg="color2"),
     widget.CPU(

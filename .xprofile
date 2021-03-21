@@ -1,5 +1,6 @@
 # Env vars
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export QT_STYLE_OVERRIDE=kvantum
 
 # Screens

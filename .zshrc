@@ -164,6 +164,9 @@ alias C="u && cd ./AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbw
 alias f="source ~/.zshrc"
 alias xn="cd ~/.config/xmonad && nvim ."
 alias xb="cd ~/.config/xmobar && nvim ."
+alias l='exa -la --group-directories-first'
+alias tree='exa -T'
+alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
 
 # promt
 eval "$(starship init zsh)"

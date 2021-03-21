@@ -11,7 +11,8 @@ if (has('termguicolors'))
 endif
 
 let g:material_terminal_italics = 1
-let g:material_theme_style = 'darker-community'
+let g:material_theme_style = 'ocean-community'
 colorscheme material
 let g:material_terminal_italics = 1
 let g:airline_theme = 'material'
+hi Normal guibg=NONE ctermbg=NONE

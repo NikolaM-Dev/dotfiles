@@ -34,4 +34,4 @@ bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True
 focus_on_window_activation = "urgent"
-wmname = "Nikola"
+wmname = "LG3D"

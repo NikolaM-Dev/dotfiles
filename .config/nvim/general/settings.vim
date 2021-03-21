@@ -1,3 +1,7 @@
+if !exists('g:vscode')
+    let g:mapleader = "\<Space>"
+endif
+
 set number relativenumber
 set colorcolumn=81
 set laststatus=0
