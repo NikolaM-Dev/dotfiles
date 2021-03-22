@@ -73,11 +73,10 @@ primary_widgets = [
     widget.CheckUpdates(
         colour_no_updates=colors["color1"],
         colour_have_updates=colors["color1"],
-        update_interval = 1800,
-        distro = "Arch_checkupdates",
+        update_interval=1800,
+        distro="Arch_checkupdates",
         no_update_string="0",
-        display_format = "{updates}",
-        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
+        display_format="{updates}",
     ),
     widget.GenPollText(
         **base(fg="color5"),
@@ -131,11 +130,10 @@ secondary_widgets = [
     widget.CheckUpdates(
         colour_no_updates=colors["color1"],
         colour_have_updates=colors["color1"],
-        update_interval = 1800,
-        distro = "Arch_checkupdates",
+        update_interval=1800,
+        distro="Arch_checkupdates",
         no_update_string="0",
-        display_format = "{updates}",
-        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
+        display_format="{updates}",
     ),
     icon(text=" ", fg="color2"),
     widget.CPU(
