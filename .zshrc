@@ -167,6 +167,7 @@ alias xb="cd ~/.config/xmobar && nvim ."
 alias l='exa -la --group-directories-first'
 alias tree='exa -T'
 alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
+alias grep='grep --color=auto'
 
 # promt
 eval "$(starship init zsh)"
