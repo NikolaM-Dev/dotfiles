@@ -25,6 +25,24 @@ function! s:openWhichKeyInVisualMode()
     endif
 endfunction
 
+function! s:showCommands()
+    let startLine = line("v")
+    let endLine = line(".")
+    call VSCodeNotifyRange("workbench.action.showCommands", startLine, endLine, 1)
+endfunction
+
+function! s:showCommands()
+    let startPos = getpos("v")
+    let endPos = getpos(".")
+    call VSCodeNotifyRangePos("workbench.action.showCommands", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+endfunction
+
+command! -complete=file -nargs=? Split call <SID>split('h', <q-args>)
+command! -complete=file -nargs=? Vsplit call <SID>split('v', <q-args>)
+command! -complete=file -nargs=? New call <SID>split('h', '__vscode_new__')
+command! -complete=file -nargs=? Vnew call <SID>split('v', '__vscode_new__')
+command! -bang Only if <q-bang> == '!' | call <SID>closeOtherEditors() | else | call VSCodeNotify('workbench.action.joinAllGroups') | endif
+
 " Better Navigation
 nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
 xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
@@ -35,14 +53,31 @@ xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
 nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
+nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
+
 " Bind C-/ to vscode commentary since calling from vscode produces double comments due to multiple cursors
 xnoremap <expr> <C-/> <SID>vscodeCommentary()
 nnoremap <expr> <C-/> <SID>vscodeCommentary() . '_'
 
-nnoremap <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorWidths')<CR>
+nnoremap <silent> <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorWidths')<CR>
+nnoremap <silent> <Space>w :call VSCodeNotify('workbench.action.files.save')<CR>
+nnoremap <silent> <Space>f :call VSCodeNotify('workbench.action.quickOpen')<CR>
+nnoremap <silent> <Space>p :call VSCodeNotify('workbench.action.showCommands')<CR>
+nnoremap <silent> <Space>i :call VSCodeNotify('workbench.action.splitEditorDown')<CR>
+nnoremap <silent> <Space>v :call VSCodeNotify('workbench.action.splitEditorRight')<CR>
+nnoremap <silent> <Space>t :call VSCodeNotify('workbench.action.terminal.focus')<CR>
 
-nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
-xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+
+nnoremap <silent> <Space>q <Cmd>Wq<CR>
+nnoremap <silent> <Space>z <Cmd>Quit!<CR>
 
 xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
-xnoremap <silent> <Space> :<C-u>call <SID>openWhichKeyInVisualMode()<CR>
+
+nmap gc  <Plug>VSCodeCommentary
+xmap gc  <Plug>VSCodeCommentary
+omap gc  <Plug>VSCodeCommentary
+nmap gcc <Plug>VSCodeCommentaryLine
+
+nnoremap <silent> ? <Cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
+
+nnoremap <silent> <C-w>gd <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>

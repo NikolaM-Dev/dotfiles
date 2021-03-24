@@ -2,14 +2,15 @@
 so ~/.config/nvim/general/settings.vim
 
 " General
-so ~/.config/nvim/general/keys.vim
-so ~/.config/nvim/vim-plug/plugins.vim
+    so ~/.config/nvim/vim-plug/plugins.vim
 
 if exists('g:vscode')
     so ~/.config/nvim/vscode/settings.vim
+    so ~/.config/nvim/vscode/keys.vim
     so ~/.config/nvim/plug-config/easymotion.vim
 else
-" Base Plugin
+    so ~/.config/nvim/general/keys.vim
+    " Base Plugin
     so ~/.config/nvim/plug-config/coc.vim
 
     " Plugins
