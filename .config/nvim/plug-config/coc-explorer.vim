@@ -43,7 +43,7 @@ let g:coc_explorer_global_presets = {
 " let g:loaded_netrw  = 1
 " let g:loaded_netrwPlugin = 1
 " let g:loaded_netrwSettings = 1
-let g:loaded_netrwFileHandlers = 1
+" let g:loaded_netrwFileHandlers = 1
 
 " function! AuCocNvimInit()
 "     if @% == '' || @% == '.'

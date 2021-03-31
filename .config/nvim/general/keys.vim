@@ -79,10 +79,10 @@ vnoremap <M-k> :move '<-2<CR>gv-gv
 vnoremap <M-j> :move '>+1<CR>gv-gv
 
 " Use directional arrows to resize windows
-nnoremap <Up> :resize -2<CR>
-nnoremap <Down> :resize +2<CR>
-nnoremap <Left> :vertical resize -2<CR>
-nnoremap <Right> :vertical resize +2<CR>
+" nnoremap <Up> :resize -2<CR>
+" nnoremap <Down> :resize +2<CR>
+" nnoremap <Left> :vertical resize -2<CR>
+" nnoremap <Right> :vertical resize +2<CR>
 
 " Close current buffer
 nnoremap <C-b> :bd<CR>

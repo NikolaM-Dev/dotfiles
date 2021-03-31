@@ -53,6 +53,9 @@ xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
 nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
+nnoremap gd <Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>
+nnoremap gy <Cmd>call VSCodeNotify('editor.action.goToTypeDefinition')<CR>
+nnoremap gi <Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>
 nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
 
 " Bind C-/ to vscode commentary since calling from vscode produces double comments due to multiple cursors
@@ -65,13 +68,8 @@ nnoremap <silent> <Space>f :call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <silent> <Space>p :call VSCodeNotify('workbench.action.showCommands')<CR>
 nnoremap <silent> <Space>i :call VSCodeNotify('workbench.action.splitEditorDown')<CR>
 nnoremap <silent> <Space>v :call VSCodeNotify('workbench.action.splitEditorRight')<CR>
-nnoremap <silent> <Space>t :call VSCodeNotify('workbench.action.terminal.focus')<CR>
-
-
-nnoremap <silent> <Space>q <Cmd>Wq<CR>
-nnoremap <silent> <Space>z <Cmd>Quit!<CR>
-
-xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
+nnoremap <silent> <Space>/ :call VSCodeNotify('editor.action.commentLine')<CR>
+nnoremap <silent> <Space>rn :call VSCodeNotify('editor.action.rename')<CR>
 
 nmap gc  <Plug>VSCodeCommentary
 xmap gc  <Plug>VSCodeCommentary
@@ -81,3 +79,15 @@ nmap gcc <Plug>VSCodeCommentaryLine
 nnoremap <silent> ? <Cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
 
 nnoremap <silent> <C-w>gd <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
+
+nmap <Space>to :Tabonly<CR>
+nmap <Space>h _
+nmap <Space>l $
+nnoremap <silent> <Space>q <Cmd>Wq<CR>
+nnoremap <silent> <Space>z <Cmd>Quit!<CR>
+
+nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+
+xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
+xnoremap <silent> <Space> :<C-u>call <SID>openWhichKeyInVisualMode()<CR>
