@@ -3,3 +3,9 @@ add_newline = false
 # Python
 [python]
 symbol = ' '
+# Git promt
+[git_branch]
+symbol = " "
+# Package version
+[package]
+symbol = " "

@@ -5,4 +5,4 @@ let g:airline_theme = 'gruvbox'
 let g:gruvbox_italicize_strings=1
 colorscheme gruvbox
 let g:gruvbox_italicize_strings=1
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE

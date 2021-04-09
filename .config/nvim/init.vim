@@ -34,5 +34,5 @@ else
     " Themes
     so ~/.config/nvim/plug-config/airline.vim
     so ~/.config/nvim/general/colors.vim
-    so ~/.config/nvim/themes/ayu.vim
+    so ~/.config/nvim/themes/gruvbox.vim
 endif
