@@ -23,12 +23,12 @@ colors:
     foreground: '0xc5c9de'
 font:
   bold:
-    family: UbuntuMono Nerd Font
+    family: Caskaydia Cove Nerd Font
   italic:
-    family: UbuntuMono Nerd Font
+    family: Caskaydia Cove Nerd Font
   normal:
-    family: UbuntuMono Nerd Font
-  size: 13.5
+    family: Caskaydia Cove Nerd Font
+  size: 12.0
 window:
   padding:
     x: 3

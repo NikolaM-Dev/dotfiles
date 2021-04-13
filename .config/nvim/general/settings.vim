@@ -32,12 +32,21 @@ set nobackup
 set nowb
 " highlight Normal ctermbg=NONE
 
+" wrapping / line length
+set linebreak
+set wrap
+autocmd VimResized * | set columns=80
+set textwidth=80
+set colorcolumn=+1
+
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
 
 " Javascript
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " autocmd BufRead *.js set filetype=javascript.jsx
 " autocmd BufRead *.jsx set filetype=javascript.jsx
 " augroup filetype javascript syntax=javascript
@@ -47,4 +56,6 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+
+" python
 let g:python_host_prog  = '/usr/bin/python3.9'

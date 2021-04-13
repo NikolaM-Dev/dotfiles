@@ -32,3 +32,6 @@ set statusline+=%m
 set statusline+=\ %f
 set statusline+=%=
 set statusline+=\ %{LinterStatus()}
+
+" Ale
+" nmap <leader>p :ALEFix<CR>

@@ -20,40 +20,18 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>z :q!<CR>
 
-"CoC
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" diagnostics
-nnoremap <Leader>dia  :<C-u>CocList diagnostics<CR>
-nnoremap <leader>kp :let @*=expand("%")<CR>
-
 " TAB in general mode will move to next buffer
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go to prev buffer
 nnoremap <S-TAB> :bprevious<CR>
 
-" buffers
-map <Leader>b :Buffers<cr>
-map <Leader>f :Files<CR>
-noremap <C-f> :CocSearch
-
 " faster scrolling
-nnoremap <silent> <C-e> 10<C-e>
-nnoremap <silent> <C-y> 10<C-y>
-
-nmap <Leader>s <Plug>(easymotion-s2)
-
-" Comment code
-nnoremap <C-/> gcap
-nnoremap <space>/ :Commentary<CR>
-vnoremap <space>/ :Commentary<CR>
+nnoremap <silent> <C-e> }
+nnoremap <silent> <C-y> {
 
 " Prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-noremap <C-s> :Autoformat<CR>
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" noremap <C-s> :Autoformat<CR>
 
 nnoremap <Leader>G :G<cr>
 nnoremap <Leader>gp :Gpush<cr>
@@ -61,6 +39,7 @@ nnoremap <Leader>gl :Gpull<cr>
 
 " NodeJs
 nnoremap <Leader>x :!node %<cr>
+" Deno
 nnoremap <Leader>X :!deno run %<cr>
 
 " Esc
@@ -79,26 +58,13 @@ vnoremap <M-k> :move '<-2<CR>gv-gv
 vnoremap <M-j> :move '>+1<CR>gv-gv
 
 " Use directional arrows to resize windows
-" nnoremap <Up> :resize -2<CR>
-" nnoremap <Down> :resize +2<CR>
-" nnoremap <Left> :vertical resize -2<CR>
-" nnoremap <Right> :vertical resize +2<CR>
+nnoremap <M-K> :resize -2<CR>
+nnoremap <M-J> :resize +2<CR>
+nnoremap <M-H> :vertical resize -2<CR>
+nnoremap <M-L> :vertical resize +2<CR>
 
 " Close current buffer
 nnoremap <C-b> :bd<CR>
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Open Terminal
-set splitright
-nnoremap <C-t> :call OpenTerminal()<CR>
-
-" Trim white spaces
-nmap <M-t> :call TrimWhitespace()<CR>
-
-" Ale
-" nmap <leader>p :ALEFix<CR>
 
 " RunCode-Python
 nnoremap <Leader>p :!python3 %<cr>
@@ -106,8 +72,5 @@ nnoremap <Leader>p :!python3 %<cr>
 " Prettier
 nmap <leader>P :CocCommand prettier.formatFile<cr>
 
-" Search for lines
-nnoremap <Leader>l :BLines<cr>
-
 " Reload
-nnoremap <M-r> :source ~/.config/nvim/init.vim<cr>
+nnoremap <M-r> :source %<cr>

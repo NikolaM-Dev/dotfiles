@@ -42,3 +42,6 @@ augroup terminal_settings
     \   call nvim_input('<CR>') |
     \ endif
 augroup END
+
+" Open Terminal
+nnoremap <C-t> :call OpenTerminal()<CR>

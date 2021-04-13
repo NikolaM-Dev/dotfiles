@@ -6,3 +6,6 @@ function! TrimWhitespace()
 endfunction
 
 autocmd BufWritePre * call TrimWhitespace()
+
+" Trim white spaces
+nmap <M-t> :call TrimWhitespace()<CR>

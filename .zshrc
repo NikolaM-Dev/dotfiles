@@ -108,19 +108,23 @@ export EDITOR=nvim;
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+function openNvim {
+  if [ $# -eq 0 ]; then
+    nvim ./
+  else
+    nvim $1
+  fi
+}
 
 # Configs
 alias zc="v ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias update="sudo apt update && sudo apt upgrade"
+alias update="sudo pacman -Syu"
 alias e="exit"
 alias t="tmux"
 alias py="python3"
 alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
 alias trash="cd ~/.local/share/Trash/files/"
-alias sc="xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off & feh --no-fehbg --bg-scale '/home/nikola/Downloads/wallpapers/splash_purple_blue_left.jpg'
-"
 
 # Crud
 alias la="ls -al"
@@ -136,20 +140,20 @@ alias to="touch"
 alias gs="git status"
 alias gc="git commit -m"
 alias gp="git push"
-alias gpp="git pull"
+alias gpl="git pull"
 alias gd="git diff"
 alias gl="git log"
 alias ga="git add ."
 alias gb="git branch"
 alias gi="git init"
+alias gct="git checkout"
 
 # npm
-alias ni="npm init"
+alias ni="npm init -y && gi"
 alias nd="nodemon"
 
 # ID
-alias v="nvim"
-alias vv="v ."
+alias v=openNvim
 alias c="code"
 alias cc="code ."
 alias rg="ranger"

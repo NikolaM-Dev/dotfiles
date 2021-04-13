@@ -8,37 +8,45 @@ call plug#begin('~/.config/nvim/plugged')
     else
         " syntax
         Plug 'sheerun/vim-polyglot'
-        Plug 'HerringtonDarkholme/yats.vim'
-        Plug 'yuezk/vim-js'
-        Plug 'pangloss/vim-javascript'    " JavaScript support
-        Plug 'maxmellon/vim-jsx-pretty'
-        Plug 'leafgarland/typescript-vim' " TypeScript syntax
+        " Plug 'HerringtonDarkholme/yats.vim'
+        " Plug 'yuezk/vim-js'
         " Plug 'flowtype/vim-flow'
-        Plug 'peitalin/vim-jsx-typescript'
-        Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+        " javascript & typescript
+        Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+        Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
+        Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']}
+        Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript.tsx'] }
         Plug 'jparise/vim-graphql'        " GraphQL syntax
+
+        " rainbow_parentheses
+        Plug 'kien/rainbow_parentheses.vim'
+
+        " markdown
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
         " CSS3
         Plug 'norcalli/nvim-colorizer.lua'
-        Plug 'hail2u/vim-css3-syntax'
+        " Plug 'hail2u/vim-css3-syntax'
 
         " Python
         Plug 'dense-analysis/ale'
         Plug 'Vimjas/vim-python-pep8-indent'
 
         " Golang
-        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
         " status bar
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
 
         " Snippets
-        Plug 'honza/vim-snippets'
+        " Plug 'honza/vim-snippets'
         Plug 'sirver/ultisnips'
 
         " Themes
         Plug 'morhetz/gruvbox'
+        Plug 'sainnhe/gruvbox-material'
         Plug 'joshdick/onedark.vim'
         Plug 'dracula/vim', { 'as': 'dracula' }
         Plug 'lifepillar/gruvbox8'
@@ -58,11 +66,12 @@ call plug#begin('~/.config/nvim/plugged')
         " Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 
         " Fern
-        " Plug 'lambdalisue/fern.vim'
-        " Plug 'antoinemadec/FixCursorHold.nvim'
-        " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-        " Plug 'lambdalisue/nerdfont.vim'
-        " Plug 'lambdalisue/glyph-palette.vim'
+        Plug 'lambdalisue/fern.vim'
+        Plug 'lambdalisue/nerdfont.vim'
+        Plug 'lambdalisue/glyph-palette.vim'
+        Plug 'lambdalisue/fern-git-status.vim'
+        Plug 'antoinemadec/FixCursorHold.nvim'
+        Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
         " Icons
         Plug 'ryanoasis/vim-devicons'
@@ -85,15 +94,15 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'editorconfig/editorconfig-vim'
         Plug 'junegunn/fzf', " { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
-        Plug 'terryma/vim-multiple-cursors'
+        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
         Plug 'easymotion/vim-easymotion'
         Plug 'mhinz/vim-signify'
         Plug 'yggdroot/indentline'
-        Plug 'scrooloose/nerdcommenter'
+        " Plug 'scrooloose/nerdcommenter'
 
         " Prettier
         Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
-        Plug 'Chiel92/vim-autoformat'
+        " Plug 'Chiel92/vim-autoformat'
 
         " git
         Plug 'tpope/vim-fugitive'
@@ -101,7 +110,6 @@ call plug#begin('~/.config/nvim/plugged')
 
         " Intellisense
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
         " Automatically clear search highlights after you move your cursor.
         Plug 'haya14busa/is.vim'
