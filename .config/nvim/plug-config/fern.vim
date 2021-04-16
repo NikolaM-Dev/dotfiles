@@ -54,7 +54,7 @@ function! FernInit() abort
   nmap <buffer> b <Plug>(fern-action-open:split)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
   nmap <buffer><nowait> u <Plug>(fern-action-leave)
-  nmap <buffer><nowait> c <Plug>(fern-action-enter)
+  nmap <buffer><nowait> C <Plug>(fern-action-enter)<Plug>(fern-action-cd)
 endfunction
 
 augroup FernGroup

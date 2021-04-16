@@ -1,5 +1,5 @@
 let $FZF_DEFAULT_OPTS='--layout=reverse'
-let g:_fzf_file_preview_options = '--ansi --preview "bat --theme="OneHalfDark" --style full --decorations always --color always {}"'
+let g:_fzf_file_preview_options = '--ansi --preview "bat --theme="gruvbox-material" --style full --decorations always --color always {}"'
 let g:_fzf_find_preview_options = '--delimiter : --nth 4..' . ' ' . g:_fzf_file_preview_options
 let g:_fzf_preview_size = 'down:80%'
 
@@ -34,19 +34,13 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit',
   \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
 
-" Allow passing optional flags into the Rg command.
-"   Example: :Rg myterm -g '*.md'
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \ "rg --column --line-number --no-heading --color=always --smart-case " .
-  \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
-
 " finder files
 nnoremap <leader>f :call Fuzzy_Files()<cr>
 " finder global
 nnoremap <leader>a :call Fuzzy_Find()<cr>
+" Rg
+nnoremap <leader>rg :Rg<cr>
 " buffers
 map <Leader>b :Buffers<cr>
 " Search for lines
 nnoremap <Leader>l :BLines<cr>
-

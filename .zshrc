@@ -110,7 +110,7 @@ export EDITOR=nvim;
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 function openNvim {
   if [ $# -eq 0 ]; then
-    nvim ./
+    nvim .
   else
     nvim $1
   fi
@@ -231,7 +231,7 @@ bindkey '^Z' ctrlz
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*}"'
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

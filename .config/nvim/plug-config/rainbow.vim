@@ -1,24 +1,15 @@
-let g:rbpt_colorpairs = [
-    \ ['brown',       'Gold'],
-    \ ['Darkblue',    'Orchid'],
-    \ ['darkgray',    'LightSkyBlue'],
-    \ ['darkgreen',   'Gold'],
-    \ ['darkcyan',    'Orchid'],
-    \ ['darkred',     'LightSkyBlue'],
-    \ ['darkmagenta', 'Gold'],
-    \ ['brown',       'Orchid'],
-    \ ['gray',        'LightSkyBlue'],
-    \ ['black',       'Gold'],
-    \ ['darkmagenta', 'Orchid'],
-    \ ['Darkblue',    'LightSkyBlue'],
-    \ ['darkgreen',   'Gold'],
-    \ ['darkcyan',    'Orchid'],
-    \ ['darkred',     'LightSkyBlue'],
-    \ ['red',         'Gold'],
-    \ ]
+let g:rainbow_active = 1
 
-let g:rbpt_max = 16
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+let g:rainbow_conf = {
+\	'guifgs': ['Gold', 'Orchid', 'LightSkyBlue'],
+\	'ctermfgs': ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta'],
+\	'operators': '_,_',
+\	'parentheses': map(['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'], 'v:val." fold"'),
+\	'parentheses_options': 'contains=@NoSpell',
+\	'separately': {
+\		'csv': {
+\			'parentheses': ['start=/\v[^,]*\,/ step=// end=/$/ keepend'],
+\		},
+\		'coq': 0,
+\	}
+\}

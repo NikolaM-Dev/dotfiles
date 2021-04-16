@@ -12,10 +12,11 @@ let g:coc_global_extensions = [
       \ 'coc-ultisnips',
       \ 'coc-stylelintplus',
       \ 'coc-eslint',
-      \ 'coc-prettier'
+      \ 'coc-prettier',
+      \ 'coc-explorer',
+      \ 'coc-gitignore'
       \]
 
-      " \ 'coc-explorer',
       " \ 'coc-sql',
       " \ 'coc-prettier',
       " \ 'coc-eslint',

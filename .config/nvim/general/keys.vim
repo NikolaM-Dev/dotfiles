@@ -26,8 +26,8 @@ nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
 
 " faster scrolling
-nnoremap <silent> <C-e> }
-nnoremap <silent> <C-y> {
+nnoremap <silent> <C-e> 10<C-e>
+nnoremap <silent> <C-y> 10<C-y>
 
 " Prettier
 " command! -nargs=0 Prettier :CocCommand prettier.formatFile

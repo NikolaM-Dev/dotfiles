@@ -20,7 +20,8 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'jparise/vim-graphql'        " GraphQL syntax
 
         " rainbow_parentheses
-        Plug 'kien/rainbow_parentheses.vim'
+        " Plug 'kien/rainbow_parentheses.vim'
+        " Plug 'luochen1990/rainbow'
 
         " markdown
         Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -33,7 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'dense-analysis/ale'
         Plug 'Vimjas/vim-python-pep8-indent'
 
-        " Golang
+       "Golang
         " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
         " status bar
@@ -61,17 +62,21 @@ call plug#begin('~/.config/nvim/plugged')
         " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
         " NERDTree
-        " Plug 'scrooloose/nerdtree'
+        " Plug 'preservim/nerdtree'
+        " " git-nerdtree
+        " Plug 'Xuyuanp/nerdtree-git-plugin'
+        " " seccions
+        " " Plug 'scrooloose/nerdtree-project-plugin'
+        " " Multi selection
         " Plug 'PhilRunninger/nerdtree-visual-selection'
-        " Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 
         " Fern
-        Plug 'lambdalisue/fern.vim'
-        Plug 'lambdalisue/nerdfont.vim'
-        Plug 'lambdalisue/glyph-palette.vim'
-        Plug 'lambdalisue/fern-git-status.vim'
-        Plug 'antoinemadec/FixCursorHold.nvim'
-        Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+        " Plug 'lambdalisue/fern.vim'
+        " Plug 'lambdalisue/nerdfont.vim'
+        " Plug 'lambdalisue/glyph-palette.vim'
+        " " Plug 'lambdalisue/fern-git-status.vim'
+        " Plug 'antoinemadec/FixCursorHold.nvim'
+        " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
         " Icons
         Plug 'ryanoasis/vim-devicons'
@@ -92,13 +97,12 @@ call plug#begin('~/.config/nvim/plugged')
 
         " IDE
         Plug 'editorconfig/editorconfig-vim'
-        Plug 'junegunn/fzf', " { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'mg979/vim-visual-multi', {'branch': 'master'}
         Plug 'easymotion/vim-easymotion'
         Plug 'mhinz/vim-signify'
         Plug 'yggdroot/indentline'
-        " Plug 'scrooloose/nerdcommenter'
 
         " Prettier
         Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }

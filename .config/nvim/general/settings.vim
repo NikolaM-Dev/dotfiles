@@ -30,19 +30,13 @@ set clipboard=unnamedplus
 set noswapfile
 set nobackup
 set nowb
-" highlight Normal ctermbg=NONE
-
-" wrapping / line length
-set linebreak
-set wrap
-autocmd VimResized * | set columns=80
-set textwidth=80
-set colorcolumn=+1
+set nowrap
 
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
+" highlight Normal ctermbg=NONE
 
 " Javascript
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
