@@ -11,6 +11,8 @@ call plug#begin('~/.config/nvim/plugged')
         " Plug 'HerringtonDarkholme/yats.vim'
         " Plug 'yuezk/vim-js'
         " Plug 'flowtype/vim-flow'
+        " Plug 'yuezk/vim-js'
+        " Plug 'maxmellon/vim-jsx-pretty'
 
         " javascript & typescript
         Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
@@ -21,7 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
 
         " rainbow_parentheses
         " Plug 'kien/rainbow_parentheses.vim'
-        " Plug 'luochen1990/rainbow'
+        Plug 'luochen1990/rainbow'
 
         " markdown
         Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -46,6 +48,7 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'sirver/ultisnips'
 
         " Themes
+        Plug 'phanviet/vim-monokai-pro'
         Plug 'morhetz/gruvbox'
         Plug 'sainnhe/gruvbox-material'
         Plug 'joshdick/onedark.vim'

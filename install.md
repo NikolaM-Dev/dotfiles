@@ -30,7 +30,7 @@ ln -s ~/dotfiles/.config/qtile ~/.config
 ln -s ~/dotfiles/.config/ranger ~/.config
 ln -s ~/dotfiles/.config/rofi ~/.config
 ln -s ~/dotfiles/.config/nvim ~/.config
-ln -s ~/dotfiles/starship.toml ~/.config
+ln -s ~/dotfiles/.config/starship.toml ~/.config
 ln -s ~/dotfiles/.local/bin ~/.local/
 ln -s ~/dotfiles/.xprofile ~/
 ln -s ~/dotfiles/.tmux.conf ~/
