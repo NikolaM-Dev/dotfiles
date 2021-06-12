@@ -1,7 +1,3 @@
-if !exists('g:vscode')
-    let g:mapleader = "\<Space>"
-endif
-
 set number relativenumber
 set colorcolumn=81
 set laststatus=0
@@ -30,7 +26,7 @@ set clipboard=unnamedplus
 set noswapfile
 set nobackup
 set nowb
-set nowrap
+" set nowrap
 
 syntax on
 filetype on

@@ -49,9 +49,9 @@
   "emmet.includeLanguages": {
     "htmldjango": "html",
     "html-django": "html",
-    "django-html": "html",
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
+    "django-html": "html"
+    //"javascript": "javascriptreact",
+    //"typescript": "typescriptreact"
   },
 
   // coc-sql
