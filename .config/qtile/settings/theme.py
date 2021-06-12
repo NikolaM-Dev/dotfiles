@@ -1,8 +1,3 @@
-# Antonio Sarosi
-# Nikola-Dev
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
 # Theming for Qtile
 
 from os import path
