@@ -116,62 +116,82 @@ function openNvim {
   fi
 }
 
+
+function openCode {
+  if [ $# -eq 0 ]; then
+    code .
+  else
+    code $1
+  fi
+}
+
+function fgd {
+  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
+}
+
 # Configs
 alias zc="v ~/.zshrc"
-alias update="sudo pacman -Syu"
-alias e="exit"
-alias t="tmux"
-alias py="python3"
 alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
 alias trash="cd ~/.local/share/Trash/files/"
+alias V="cd ~/.config/nvim && nvim ."
+alias A="cd ~/.config/alacritty && nvim alacritty.yml"
+alias Q="cd ~/.config/qtile && nvim ."
+alias xn="cd ~/.config/xmonad && nvim ."
+alias xb="cd ~/.config/xmobar && nvim ."
+
 
 # Crud
-alias la="ls -al"
 alias rmv="rm -rf"
 alias rm="rm"
 alias rr="gio trash"
 alias ..="cd .."
-alias purge="sudo apt-get --purge remove"
 alias mc="mkdir"
 alias to="touch"
 
 # Git
-alias gs="git status"
+alias gs="git status -sb"
 alias gc="git commit -m"
 alias gp="git push"
+alias gpo="git push origin"
 alias gpl="git pull"
-alias gd="git diff"
-alias gl="git log"
-alias ga="git add ."
+alias gd=fgd
+alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias ga="git add --all"
 alias gb="git branch"
 alias gi="git init"
 alias gct="git checkout"
 
-# npm
-alias ni="npm init -y && gi"
-alias nd="nodemon"
+# yarn
+alias yi="yarn init"
+alias ya="yarn add"
+alias yad="yarn add -D"
 
-# ID
+# IDE
 alias v=openNvim
-alias c="code"
-alias cc="code ."
+alias c=openCode
 alias rg="ranger"
-alias z="zsh"
-alias b="bash"
-alias h="cd /mnt/c/Users/nikolaDev/"
-alias u="cd /mnt/c/Users/juan1"
-alias V="cd ~/.config/nvim && nvim ."
-alias A="cd ~/.config/alacritty && nvim alacritty.yml"
-alias Q="cd ~/.config/qtile && nvim ."
-alias C="u && cd ./AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState && nvim settings.json"
 alias f="source ~/.zshrc"
-alias xn="cd ~/.config/xmonad && nvim ."
-alias xb="cd ~/.config/xmobar && nvim ."
 alias l='exa -la --group-directories-first'
 alias tree='exa -T'
 alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
 alias grep='grep --color=auto'
+alias update="sudo pacman -Syu"
+alias e="exit"
+alias t="tmux"
+alias py="python3"
+
+# Colors
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=magenta'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=magenta'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
 
 # promt
 eval "$(starship init zsh)"
@@ -207,12 +227,14 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
+
 zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
+
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Palanca
