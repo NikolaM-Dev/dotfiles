@@ -11,7 +11,7 @@
     "json",
     "graphql"
   ],
-  "tsserver.log": "verbose",
+  "tsserver.log": "terse",
 
   // coc-stylelintplus
   "css.validate": false,
@@ -21,12 +21,13 @@
   "stylelintplus.autoFixOnSave": true,
   "stylelintplus.validateOnType": true,
 
-  // coc-snippes
+  // coc-snippests
   "snippets.priority": 99,
 
   // coc-tsserver
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
+  "suggest.autoTrigger": "always",
 
   // coc-eslint
   "eslint.autoFixOnSave": true,

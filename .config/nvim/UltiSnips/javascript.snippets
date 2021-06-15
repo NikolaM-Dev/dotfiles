@@ -3,8 +3,24 @@ snippet cl "console.log()" b
 console.log(${1:'$2', $3});
 endsnippet
 
+snippet ce "console.erro()" b
+console.error(${1:'$2', error});
+endsnippet
+
 snippet imp "import from ''" b
 import ${2:{ $3 }} from '$1';
+endsnippet
+
+snippet req "const = require('')" b
+const ${2:{ $3 }} = require ('$1');
+endsnippet
+
+snippet ed "export default" i
+export default $1
+endsnippet
+
+snippet me "module exports" i
+module.exports = ${1:{$2}}
 endsnippet
 
 snippet fn "() => {}" i

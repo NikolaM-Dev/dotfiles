@@ -1,9 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
-
     " syntax
     Plug 'sheerun/vim-polyglot'
     " Plug 'HerringtonDarkholme/yats.vim'
-    " Plug 'yuezk/vim-js'
     " Plug 'flowtype/vim-flow'
     " Plug 'yuezk/vim-js'
     " Plug 'maxmellon/vim-jsx-pretty'
@@ -20,7 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'luochen1990/rainbow'
 
     " markdown
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
     " CSS3
     Plug 'norcalli/nvim-colorizer.lua'

@@ -51,6 +51,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Window Nav
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
+    # Emoji
+    ([mod, "shift"], "e", lazy.spawn("rofi -show emoji -modi emoji")),
+
     # Browsers
     ([mod], "b", lazy.spawn("firefox")),
     ([mod], "g", lazy.spawn("google-chrome-stable")),
