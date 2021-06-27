@@ -168,7 +168,7 @@ alias ya="yarn add"
 alias yad="yarn add -D"
 
 # IDE
-alias v=openNvim
+alias v=nvim
 alias c=openCode
 alias rg="ranger"
 alias f="source ~/.zshrc"
