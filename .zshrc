@@ -2,6 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/nikola/.oh-my-zsh"
 export PATH="$PATH:/home/nikola/.gem/ruby/2.7.0/bin"
@@ -174,7 +177,8 @@ alias rg="ranger"
 alias f="source ~/.zshrc"
 alias l='exa -la --group-directories-first'
 alias tree='exa -T'
-alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
+# alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
+alias cat='bat'
 alias grep='grep --color=auto'
 alias update="sudo pacman -Syu"
 alias e="exit"
