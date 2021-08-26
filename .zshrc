@@ -97,8 +97,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export VISUAL=nvim;
-export EDITOR=nvim;
+export VISUAL=code;
+export EDITOR=code;
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -136,12 +136,14 @@ function fgd {
 alias zc="v ~/.zshrc"
 alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
+alias C="cd ~/.config/"
 alias trash="cd ~/.local/share/Trash/files/"
 alias V="cd ~/.config/nvim && nvim ."
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias Q="cd ~/.config/qtile && nvim ."
 alias xn="cd ~/.config/xmonad && nvim ."
 alias xb="cd ~/.config/xmobar && nvim ."
+alias nn="nvm use --lts"
 
 
 # Crud
@@ -149,6 +151,7 @@ alias rmv="rm -rf"
 alias rm="rm"
 alias rr="gio trash"
 alias ..="cd .."
+alias ...="cd ..."
 alias mc="mkdir"
 alias to="touch"
 
@@ -177,8 +180,7 @@ alias rg="ranger"
 alias f="source ~/.zshrc"
 alias l='exa -la --group-directories-first'
 alias tree='exa -T'
-# alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
-alias cat='bat'
+alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
 alias grep='grep --color=auto'
 alias update="sudo pacman -Syu"
 alias e="exit"
