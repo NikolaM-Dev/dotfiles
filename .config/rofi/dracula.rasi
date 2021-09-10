@@ -11,13 +11,14 @@
     selected-active-background: @active-background;
     separatorcolor: @active-background;
     bordercolor: @active-background;
+    normal-foreground: @foreground;
 }
 
 #window {
     background-color: @background;
     border:           1;
     border-radius: 6;
-    /* border-color: @bordercolor; */
+    // border-color: @bordercolor;
     padding:          5;
 }
 #mainbox {
@@ -39,6 +40,16 @@
     spacing:      2px ;
     scrollbar:    false;
     padding:      2px 0px 0px ;
+}
+#element-text {
+    background-color: inherit;
+    text-color: inherit;
+    margin-right: 3px;
+}
+#element-icon {
+    // background-color: inherit;
+    // text-color: inherit;
+    padding: 0 2px;
 }
 #element {
     border:  0;
