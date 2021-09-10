@@ -25,6 +25,7 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [nodejs]
 format = "[$symbol($version )]($style)"
+symbol = " "
 
 [php]
 format = "[$symbol($version )]($style)"
@@ -36,3 +37,4 @@ symbol = " "
 
 [rust]
 format = "[$symbol($version )]($style)"
+
