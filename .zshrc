@@ -128,6 +128,14 @@ function openCode {
   fi
 }
 
+function dockerComposeUp {
+  if [ $# -eq 0 ]; then
+    "bad command 😥"
+  else
+    docker-compose -d up $1
+  fi
+}
+
 function fgd {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
@@ -181,11 +189,17 @@ alias f="source ~/.zshrc"
 alias l='exa -la --group-directories-first'
 alias tree='exa -T'
 alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
-alias grep='grep --color=auto'
+alias grep='grep --color=auto'282a36
 alias update="sudo pacman -Syu"
 alias e="exit"
 alias t="tmux"
 alias py="python3"
+
+# Docker
+alias ssd="systemctl start docker.service"
+alias dcps="docker-compose ps"
+alias dps="docker ps"
+alias dcupd="docker-compose up -d"
 
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
