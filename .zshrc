@@ -8,6 +8,9 @@ export LC_ALL=en_US.UTF-8
 # Path to your oh-my-zsh installation.
 export ZSH="/home/nikola/.oh-my-zsh"
 export PATH="$PATH:/home/nikola/.gem/ruby/2.7.0/bin"
+export PATH="$PATH:/home/nikola/flutter/bin"
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+export PATH=$JAVA_HOME/bin:$PATH
 PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -141,7 +144,7 @@ function fgd {
 }
 
 # Configs
-alias zc="v ~/.zshrc"
+alias zc="c ~/.zshrc"
 alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
 alias C="cd ~/.config/"
@@ -165,6 +168,7 @@ alias to="touch"
 
 # Git
 alias gs="git status -sb"
+alias gsw="git switch"
 alias gc="git commit -m"
 alias gp="git push"
 alias gpo="git push origin"
@@ -194,12 +198,16 @@ alias update="sudo pacman -Syu"
 alias e="exit"
 alias t="tmux"
 alias py="python3"
+alias unlockdb="sudo rm /var/lib/pacman/db.lck"
 
 # Docker
 alias ssd="systemctl start docker.service"
 alias dcps="docker-compose ps"
+alias dcu="docker-compose up"
+alias dcb="docker-compose build"
 alias dps="docker ps"
 alias dcupd="docker-compose up -d"
+alias dcd='docker-compose down'
 
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
