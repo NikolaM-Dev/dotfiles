@@ -51,7 +51,6 @@ configuration {
 	window-format: "{w}    {c}   {t}";
 	click-to-exit: true;
 	show-match: true;
-	theme: "~/.config/rofi/dracula.rasi";
 	/* theme: "onedark"; */
 	max-history-size: 25;
 	combi-hide-mode-prefix: false;
@@ -130,3 +129,4 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 }
 
+@theme "~/.config/rofi/dracula.rasi"
