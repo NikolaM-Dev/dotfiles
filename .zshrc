@@ -84,9 +84,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -105,8 +105,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export VISUAL=code;
-export EDITOR=code;
+export VISUAL=code
+export EDITOR=code
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -234,7 +234,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots) # Include hidden files.
 
 # vi mode
 bindkey -v
@@ -290,7 +290,5 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{n
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-alias luamake=/home/nikola/lua-language-server/3rd/luamake/luamake
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
