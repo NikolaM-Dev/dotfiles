@@ -127,20 +127,13 @@ function openNvim {
   fi
 }
 
-
 function openCode {
   if [ $# -eq 0 ]; then
     code .
+  elif [$# -eq 2]; then
+    code $1 $2
   else
     code $1
-  fi
-}
-
-function dockerComposeUp {
-  if [ $# -eq 0 ]; then
-    "bad command 😥"
-  else
-    docker-compose -d up $1
   fi
 }
 
@@ -154,6 +147,7 @@ alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
 alias C="cd ~/.config/"
 alias trash="cd ~/.local/share/Trash/files/"
+alias ctrash="gio trash --empty"
 alias V="cd ~/.config/nvim && nvim ."
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias Q="cd ~/.config/qtile && nvim ."
@@ -161,14 +155,11 @@ alias xn="cd ~/.config/xmonad && nvim ."
 alias xb="cd ~/.config/xmobar && nvim ."
 alias nn="nvm use --lts"
 
-
 # Crud
-alias rmv="rm -rf"
-alias rm="rm"
+alias rmf="rm -rf"
 alias rr="gio trash"
 alias ..="cd .."
 alias ...="cd ..."
-alias mc="mkdir"
 alias to="touch"
 
 # Git
@@ -186,9 +177,10 @@ alias gi="git init"
 alias gct="git checkout"
 
 # yarn
-alias yi="yarn init"
+alias yi="npm init -y"
 alias ya="yarn add"
 alias yad="yarn add -D"
+alias yrm="yarn remove"
 
 # IDE
 alias v=nvim
@@ -202,7 +194,6 @@ alias grep='grep --color=auto'282a36
 alias update="sudo pacman -Syu"
 alias e="exit"
 alias t="tmux"
-alias py="python3"
 alias unlockdb="sudo rm /var/lib/pacman/db.lck"
 
 # Docker
