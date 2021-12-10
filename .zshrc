@@ -130,7 +130,7 @@ function openNvim {
 function openCode {
   if [ $# -eq 0 ]; then
     code .
-  elif [$# -eq 2]; then
+  elif  [ $# -eq 2 ]; then
     code $1 $2
   else
     code $1
