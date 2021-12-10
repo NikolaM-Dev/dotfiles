@@ -9,9 +9,14 @@ export LC_ALL=en_US.UTF-8
 export ZSH="/home/nikola/.oh-my-zsh"
 export PATH="$PATH:/home/nikola/.gem/ruby/2.7.0/bin"
 export PATH="$PATH:/home/nikola/flutter/bin"
-export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
-export PATH=$JAVA_HOME/bin:$PATH
-PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
+
+# React Native
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
