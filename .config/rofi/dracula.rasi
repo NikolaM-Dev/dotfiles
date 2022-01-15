@@ -17,16 +17,17 @@
 #window {
     background-color: @background;
     border:           1;
-    border-radius: 6;
-    // border-color: @bordercolor;
-    padding:          5;
+    border-radius: 10;
+    border-color: @bordercolor;
+    padding:         10;
 }
 #mainbox {
     border:  0;
     padding: 2;
 }
 #message {
-    border:       1px dash 0px 0px ;
+    border:       1px dash 0px 0px;
+    border-radius: 5px;
     border-color: @separatorcolor;
     padding:      3px ;
 }
@@ -35,11 +36,11 @@
 }
 #listview {
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    border:       2px solid 0px 0px;
     border-color: @bordercolor;
-    spacing:      2px ;
+    spacing:      2px;
     scrollbar:    false;
-    padding:      2px 0px 0px ;
+    padding:      2px 0px 0px;
 }
 #element-text {
     background-color: inherit;
@@ -47,9 +48,11 @@
     margin-right: 3px;
 }
 #element-icon {
-    // background-color: inherit;
-    // text-color: inherit;
-    padding: 0 2px;
+    background-color: @background;
+    border: 1px solid;
+    text-color: inherit;
+    padding: 4px;
+    border-radius: 5px;
 }
 #element {
     border:  0;
@@ -70,6 +73,7 @@
 #element.selected.normal {
     background-color: @selected-background;
     text-color:       @foreground;
+    border-radius: 5px;
 }
 #element.selected.urgent {
     background-color: @selected-urgent-background;
@@ -108,7 +112,7 @@
 #inputbar {
     spacing:    0;
     text-color: @foreground;
-    padding:    1px ;
+    padding:    2px ;
 }
 #case-indicator {
     spacing:    0;
