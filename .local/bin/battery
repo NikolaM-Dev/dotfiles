@@ -2,18 +2,18 @@
 
 # If this script doesn't work look at the output of upower -e and upower -d
 
-bat=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
+bat=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
     grep percentage |
-    sed 's/ *percentage: *//g'`
+    sed 's/ *percentage: *//g')
 
-state=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
+state=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
     grep state |
-    sed 's/ *state: *//'`
+    sed 's/ *state: *//')
 
-if [ $state == "charging" -o $state == "fully-charged" ]; then
+if [ "$state" = "charging" ] || [ "$state" = "fully-charged" ]; then
     echo -n " "
 else
-    echo -n "$(percentage $bat       ) "
+    echo -n "$(percentage "$bat"    ) "
 fi
 
 echo -n "$bat "
