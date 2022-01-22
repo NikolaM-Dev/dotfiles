@@ -1,5 +1,5 @@
 #!/bin/bash
 
-(( br = $(brightnessctl get) * 100 / 255 ))
+((br = $(brightnessctl get) * 100 / 255))
 
- echo -n "$(percentage $br        ) $br "
+echo -n "$(percentage $br    ) $br "
