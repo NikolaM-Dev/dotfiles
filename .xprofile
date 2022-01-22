@@ -1,11 +1,12 @@
-# Env vars
-export PATH=$HOME/.local/bin:$PATH
+#!/bin/sh
+## Env vars
+export PATH="$HOME"/.local/bin:"$PATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
-export PATH=$HOME/go/bin:$PATH
+export PATH="$HOME"/go/bin:"$PATH"
 export QT_STYLE_OVERRIDE=kvantum
 
-# Screens
-hdmi=`xrandr | grep ' connected' | grep 'HDMI' | awk '{print $1}'`
+## Screens
+hdmi=$(xrandr | grep ' connected' | grep 'HDMI' | awk '{print $1}')
 
 if [ "$hdmi" = "HDMI-2" ]; then
   xrandr --output eDP-1 --primary --mode 1366x768 --pos 202x1080 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 0x0 --rotate normal &
@@ -13,7 +14,7 @@ else
   xrandr --output eDP-1 --primary --mode 1366x768 --pos 218x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --off
 fi
 
-# Elements
+## Elements
 picom &
 nm-applet &
 udiskie -t &
