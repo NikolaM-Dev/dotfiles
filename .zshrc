@@ -19,6 +19,8 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Golang
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 export PATH="$PATH:$HOME/go/bin"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -133,7 +135,7 @@ function openNvim {
 function openCode {
   if [ $# -eq 0 ]; then
     code .
-  elif  [ $# -eq 2 ]; then
+  elif [ $# -eq 2 ]; then
     code $1 $2
   else
     code $1
@@ -145,7 +147,7 @@ function fgd {
 }
 
 # Configs
-alias zc="c ~/.zshrc"
+alias zc="c ~/dotfiles"
 alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
 alias C="cd ~/.config/"
@@ -154,9 +156,6 @@ alias ctrash="gio trash --empty"
 alias V="cd ~/.config/nvim && nvim ."
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias Q="cd ~/.config/qtile && nvim ."
-alias xn="cd ~/.config/xmonad && nvim ."
-alias xb="cd ~/.config/xmobar && nvim ."
-alias nn="nvm use --lts"
 
 # Crud
 alias rmf="rm -rf"
@@ -181,8 +180,8 @@ alias gct="git checkout"
 
 # yarn
 alias yi="npm init -y"
-alias ya="yarn add"
-alias yad="yarn add -D"
+alias ya="yarn add -E"
+alias yad="yarn add -D -E"
 alias yrm="yarn remove"
 
 # IDE
