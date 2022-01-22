@@ -1,9 +1,10 @@
 #!/bin/bash
 
-vol=`pamixer --get-volume`
+vol=$(pamixer --get-volume)
+is_mute=$(pamixer --get-mute)
 
-if [[ `pamixer --get-mute` == "true" ]]; then
+if [ "$is_mute" == "true" ]; then
     echo -n "ﱝ  $vol% "
 else
-    echo -n "$(percentage $vol   奔 墳  ) $vol%"
+    echo -n "$(percentage "$vol"  奔 墳 ) $vol%"
 fi
