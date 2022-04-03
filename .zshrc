@@ -9,7 +9,7 @@ export LC_ALL=en_US.UTF-8
 export ZSH="/home/nikola/.oh-my-zsh"
 export PATH="$PATH:/home/nikola/.gem/ruby/2.7.0/bin"
 export PATH="$PATH:/home/nikola/flutter/bin"
-PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
+# PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 
 # React Native
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -92,6 +92,8 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -147,15 +149,18 @@ function fgd {
 }
 
 # Configs
-alias zc="c ~/dotfiles"
+alias zc="code ~/.zshrc"
 alias W="cd ~/workspace/"
 alias D="cd ~/dotfiles/"
 alias C="cd ~/.config/"
+alias G="cd ~/go/src/github.com/NikolaM-Dev"
 alias trash="cd ~/.local/share/Trash/files/"
 alias ctrash="gio trash --empty"
 alias V="cd ~/.config/nvim && nvim ."
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias Q="cd ~/.config/qtile && nvim ."
+alias gparq="git config --local user.email "juan.merchan@parqco.com"
+git config --local user.name "juan.merchan""
 
 # Crud
 alias rmf="rm -rf"
@@ -179,6 +184,9 @@ alias ga="git add --all"
 alias gb="git branch"
 alias gi="git init"
 alias gct="git checkout"
+alias gundo="git reset --soft HEAD~1"
+alias gmfqa="git merge --no-ff --no-edit qa && gp"
+alias gmfdev="git merge --no-ff --no-edit develop && gp"
 
 # yarn
 alias yi="npm init -y"
@@ -191,10 +199,11 @@ alias v=nvim
 alias c=openCode
 alias rg="ranger"
 alias f="source ~/.zshrc"
-alias l='exa -la --group-directories-first'
-alias tree='exa -T'
-alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
-alias grep='grep --color=auto'282a36
+alias l="exa -la --group-directories-first"
+alias tree="exa -T"
+alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint""
+alias cat="bat --style=plain --paging=never"
+alias grep="grep --color=auto"
 alias update="sudo pacman -Syu"
 alias e="exit"
 alias t="tmux"
@@ -207,7 +216,7 @@ alias dcu="docker-compose up"
 alias dcb="docker-compose build"
 alias dps="docker ps"
 alias dcupd="docker-compose up -d"
-alias dcd='docker-compose down'
+alias dcd="docker-compose down"
 
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -221,13 +230,18 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=blue'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
 ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
 
-# promt
+# Promt
 eval "$(starship init zsh)"
 
-# Basic auto/tab complete:
-autoload -U compinit
+# Autocomplete
+setopt autocd
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' \
+  'm:{a-z\-}={A-Z\_}' \
+  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+  'r:|?=** m:{a-z\-}={A-Z\_}'
 zmodload zsh/complist
+autoload -Uz compinit
 compinit
 _comp_options+=(globdots) # Include hidden files.
 
@@ -240,18 +254,15 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-    [[ ${KEYMAP} == viins ]] ||
-    [[ ${KEYMAP} = '' ]] ||
-    [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+function zle-keymap-select() {
+  case $KEYMAP in
+    vicmd) echo -ne '\e[1 q';;      # block
+    viins|main) echo -ne '\e[5 q';; # beam
+  esac
 }
 zle -N zle-keymap-select
 
@@ -264,7 +275,7 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Palanca
+# Crowbar
 ctrlz() {
   if [[ $#BUFFER == 0 ]]; then
     fg >/dev/null 2>&1 && zle redisplay
@@ -274,6 +285,15 @@ ctrlz() {
 }
 zle -N ctrlz
 bindkey '^Z' ctrlz
+
+# Source plugins
+if [[ -f $sudo ]]; then
+  source $sudo
+  bindkey -M vicmd '^[s' sudo-command-line # ALT + s
+  bindkey -M viins '^[s' sudo-command-line # ALT + s
+fi
+[[ -f $autosuggestions ]] && source $autosuggestions
+[[ -f $syntax ]] && source $syntax
 
 # tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
