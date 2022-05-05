@@ -8,5 +8,5 @@
     fg-col2: #df736d;
     grey: #5b5e5f;
     width: 1000;
-		height: 500;
+    height: 500;
 }
