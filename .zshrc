@@ -197,7 +197,7 @@ alias yrm="yarn remove"
 # IDE
 alias v=nvim
 alias c=openCode
-alias rg="ranger"
+alias r="ranger"
 alias f="source ~/.zshrc"
 alias l="exa -la --group-directories-first"
 alias tree="exa -T"
@@ -208,6 +208,7 @@ alias update="sudo pacman -Syu && yay -Syu"
 alias e="exit"
 alias t="tmux"
 alias unlockdb="sudo rm /var/lib/pacman/db.lck"
+alias luamake=/home/nikola/lua-language-server/3rd/luamake/luamake
 
 # Docker
 alias ssd="systemctl start docker.service"
