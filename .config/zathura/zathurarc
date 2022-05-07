@@ -1,0 +1,36 @@
+# Zathura configuration file
+# See man `man zathurarc'
+
+# Options
+set recolor "true"
+set render-loading "true"
+set recolor "true"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+set selection-clipboard clipboard
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+# Stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+# Zoom settings
+set zoom-min 10
+set guioptions ""
+
+set font "inconsolata 15"
+set render-loading "false"
+set scroll-step 50
+
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+# Theme
+include themes/gruvchad
