@@ -16,7 +16,7 @@ configuration{
     terminal: "alacritty";
 }
 
-@theme "onedark"
+@theme "gruvchad"
 
 element-text,
 element-icon,
