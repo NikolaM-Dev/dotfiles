@@ -217,7 +217,7 @@ alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" 
 alias e="exit"
 alias f="source ~/.zshrc"
 alias grep="grep --color=auto"
-alias l="exa -la --group-directories-first"
+alias l="exa -laGh --group-directories-first --icons --color-scale"
 alias luamake=/home/nikola/lua-language-server/3rd/luamake/luamake
 alias r="ranger"
 alias t="tmux"
