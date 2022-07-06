@@ -159,7 +159,7 @@ function cdir {
 function gundo {
   if [ $# -gt 1 ]; then
     echo "Use: gundo || gundo <number_of_commits>"
-  else if [ $# -eq 1 ]; then
+  elif [ $# -eq 1 ]; then
     git reset --soft HEAD~$1
   else
     git reset --soft HEAD~1
@@ -202,7 +202,7 @@ alias gpl="git pull"
 alias gpo="git push origin"
 alias gs="git status -sb"
 alias gsw="git switch"
-alias gundo=undo
+alias gundo=gundo
 
 # yarn
 alias ya="yarn add -E"
