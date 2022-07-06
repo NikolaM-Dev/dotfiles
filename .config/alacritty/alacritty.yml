@@ -14,11 +14,12 @@ colors:
     cyan: '#98e4ff'
     green: '#cdea9f'
     magenta: '#d3a7ee'
-    red: '#F07178'
+    red: '#f07178'
     white: '#bfd5de'
     yellow: '#ffd47e'
   primary:
-    background: '#0f101a'
+    # background: '#0f101a'
+    background: '#282a36'
     foreground: '#c5c9de'
 font:
   bold:
@@ -29,7 +30,11 @@ font:
     family: Caskaydia Cove Nerd Font
   size: 12.0
 window:
-  opacity: 0.97
+  opacity: 0.95
   padding:
     x: 2
 padding: 0
+mouse:
+  hide_when_typing: true
+env:
+  TERM: xterm-256color
