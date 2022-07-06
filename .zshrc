@@ -148,6 +148,14 @@ function fgd {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
 
+function cdir {
+  if [ $# -eq 1 ]; then
+    mkdir $1 && cd $1
+  else
+    echo "Use: cdir <file_name>"
+  fi
+}
+
 # Configs
 alias zc="code ~/.zshrc"
 alias W="cd ~/workspace/"
