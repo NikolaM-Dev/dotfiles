@@ -126,7 +126,7 @@ export EDITOR=code
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-function openNvim {
+function open_nvim {
   if [ $# -eq 0 ]; then
     nvim .
   else
@@ -134,7 +134,7 @@ function openNvim {
   fi
 }
 
-function openCode {
+function open_code {
   if [ $# -eq 0 ]; then
     code .
   elif [ $# -eq 2 ]; then
@@ -167,75 +167,73 @@ function gundo {
 }
 
 # Configs
-alias zc="code ~/.zshrc"
-alias W="cd ~/workspace/"
-alias D="cd ~/dotfiles/"
-alias C="cd ~/.config/"
-alias G="cd ~/go/src/github.com/NikolaM-Dev"
-alias trash="cd ~/.local/share/Trash/files/"
-alias ctrash="gio trash --empty"
-alias V="cd ~/.config/nvim && nvim ."
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
-alias Q="cd ~/.config/qtile && nvim ."
-alias gparq="git config --local user.email "juan.merchan@parqco.com"
-git config --local user.name "juan.merchan""
+alias C="cd ~/.config"
+alias D="cd ~/dotfiles"
+alias G="cd ~/go/src/github.com/NikolaM-Dev"
+alias V="cd ~/.config/nvim && nvim ."
+alias W="cd ~/workspace"
+alias zc="nvim ~/.zshrc"
 
 # Crud
+alias ...="cd ..."
+alias ..="cd .."
+alias cdir=cdir
+alias ctrash="gio trash --empty"
 alias rmf="rm -rf"
 alias rr="gio trash"
-alias ..="cd .."
-alias ...="cd ..."
 alias to="touch"
+alias trash="cd ~/.local/share/Trash/files"
 
 # Git
-alias gs="git status -sb"
-alias gsw="git switch"
+alias ga="git add --all"
+alias gb="git branch"
 alias gc="git commit -m"
 alias gca="git commit --amend"
 alias gcanedit="git commit --amend --no-edit"
-alias gp="git push"
-alias gpo="git push origin"
-alias gpl="git pull"
-alias gd=fgd
-alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-alias ga="git add --all"
-alias gb="git branch"
-alias gi="git init"
 alias gct="git checkout"
-alias gundo="git reset --soft HEAD~1"
-alias gmfqa="git merge --no-ff --no-edit qa && gp"
+alias gd=fgd
+alias gi="git init"
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gmfdev="git merge --no-ff --no-edit develop && gp"
+alias gmfqa="git merge --no-ff --no-edit qa && gp"
+alias gp="git push"
+alias gpl="git pull"
+alias gpo="git push origin"
+alias gs="git status -sb"
+alias gsw="git switch"
+alias gundo=undo
 
 # yarn
-alias yi="npm init -y"
 alias ya="yarn add -E"
 alias yad="yarn add -D -E"
+alias yi="npm init -y"
 alias yrm="yarn remove"
 
 # IDE
-alias v=nvim
-alias c=openCode
-alias r="ranger"
-alias f="source ~/.zshrc"
-alias l="exa -la --group-directories-first"
-alias tree="exa -T"
-alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint""
+alias c=open_code
 alias cat="bat --style=plain --paging=never"
-alias grep="grep --color=auto"
-alias update="sudo pacman -Syu && yay -Syu"
+alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint""
 alias e="exit"
-alias t="tmux"
-alias unlockdb="sudo rm /var/lib/pacman/db.lck"
+alias f="source ~/.zshrc"
+alias grep="grep --color=auto"
+alias l="exa -la --group-directories-first"
 alias luamake=/home/nikola/lua-language-server/3rd/luamake/luamake
+alias r="ranger"
+alias t="tmux"
+alias tree="exa -T"
+alias unlockdb="sudo rm /var/lib/pacman/db.lck"
+alias update="sudo pacman -Syu && yay -Syu"
+alias v=nvim
 
 # Docker
-alias ssd="systemctl start docker.service"
+alias dcb="docker-compose build"
+alias dcd="docker-compose down"
 alias dcps="docker-compose ps"
 alias dcu="docker-compose up"
-alias dcb="docker-compose build"
-alias dps="docker ps"
 alias dcupd="docker-compose up -d"
-alias dcd="docker-compose down"
+alias dps="docker ps"
+alias ssd="systemctl start docker.service"
 
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
