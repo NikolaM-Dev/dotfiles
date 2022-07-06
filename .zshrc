@@ -156,6 +156,16 @@ function cdir {
   fi
 }
 
+function gundo {
+  if [ $# -gt 1 ]; then
+    echo "Use: gundo || gundo <number_of_commits>"
+  else if [ $# -eq 1 ]; then
+    git reset --soft HEAD~$1
+  else
+    git reset --soft HEAD~1
+  fi
+}
+
 # Configs
 alias zc="code ~/.zshrc"
 alias W="cd ~/workspace/"
