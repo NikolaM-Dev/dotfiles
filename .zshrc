@@ -302,3 +302,7 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
+
+# fnm
+export PATH=/home/nikola/.fnm:$PATH
+eval "`fnm env`"
