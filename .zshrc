@@ -7,16 +7,6 @@ export LC_ALL=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/nikola/.oh-my-zsh"
-export PATH="$PATH:/home/nikola/.gem/ruby/2.7.0/bin"
-export PATH="$PATH:/home/nikola/flutter/bin"
-# PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
-
-# React Native
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Golang
 export GOPATH=$HOME/go
@@ -126,6 +116,7 @@ export EDITOR=code
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 function open_nvim {
   if [ $# -eq 0 ]; then
     nvim .
@@ -170,6 +161,8 @@ function gundo {
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias C="cd ~/.config"
 alias D="cd ~/dotfiles"
+alias dbnvim="rm -rf ~/.local/share/nvim && rm -rf ~/.cache/nvim"
+alias dc="cd ~/Documents"
 alias G="cd ~/go/src/github.com/NikolaM-Dev"
 alias V="cd ~/.config/nvim && nvim ."
 alias W="cd ~/workspace"
