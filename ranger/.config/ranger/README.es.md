@@ -23,7 +23,7 @@ cp -r dotfiles/.config/ranger ~/.config
 ## Instalacion de los Ranger Devicoins
 
 ```sh
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+`git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons`
 echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 ```
 
