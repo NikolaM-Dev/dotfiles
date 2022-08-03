@@ -1,0 +1,4 @@
+\.xprofile
+\.config/nvim/*
+\.config/gtk/*
+\.config/qtile/
