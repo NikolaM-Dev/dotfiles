@@ -1,0 +1,65 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 5
+    y: 0
+  opacity: 0.95
+
+font:
+  normal:
+    family: CaskaydiaCove Nerd Font
+    style: Book
+  bold:
+    family: CaskaydiaCove Nerd Font
+  italic:
+    family: CaskaydiaCove Nerd Font
+    style: Italic
+  bold_italic:
+    family: CaskaydiaCove Nerd Font
+  size: 12.0
+
+colors:
+  primary:
+    # background: '#282a36'
+    background: '#0f101a'
+    foreground: '#c5c9de'
+  normal:
+    black: '#181a29'
+    blue: '#93bbff'
+    cyan: '#98e4ff'
+    green: '#cdea9f'
+    magenta: '#d3a7ee'
+    red: '#f07178'
+    white: '#bfd5de'
+    yellow: '#ffd47e'
+  bright:
+    black: '#282a40'
+    blue: '#a3c5ff'
+    cyan: '#98fffd'
+    green: '#e0ffad'
+    magenta: '#d6afed'
+    red: '#eb7f84'
+    white: '#d1e5ed'
+    yellow: '#ffee7e'
+
+cursor:
+  vi_mode_style: Block
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: H, mods: Control|Shift, chars: "\x1b[72;6u" }
+  - { key: J, mods: Control|Shift, chars: "\x1b[74;6u" }
+  - { key: K, mods: Control|Shift, chars: "\x1b[75;6u" }
+  - { key: L, mods: Control|Shift, chars: "\x1b[76;6u" }
+
+  - { key: I, mods: Control, chars: "\x1b[105;5u" }
+
+  - { key: Period, mods: Control, chars: "\x1b[46;5u" }
+  - { key: Comma, mods: Control, chars: "\x1b[44;5u" }
+  - { key: Semicolon, mods: Control, chars: "\x1b[59;5u" }
+
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
