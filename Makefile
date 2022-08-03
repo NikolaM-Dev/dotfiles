@@ -1,5 +1,7 @@
+IGNORED_CONFS=nvim, qtile
+
 all:
-	stow --verbose --target=$$HOME --ignore=nvim --restow */
+	stow --verbose --target=$$HOME --ignore=$(IGNORED_CONFS) --restow */
 
 delete:
-	stow --verbose --target=$$HOME --delete */
+	stow --verbose --target=$$HOME --ignore=$(IGNORED_CONFS) --delete */
