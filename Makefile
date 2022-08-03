@@ -1,7 +1,10 @@
-IGNORED_CONFS=nvim, qtile, gtk, .screenshots, .local
-
 all:
-	stow --verbose --target=$$HOME --ignore=$(IGNORED_CONFS) --restow */
+	stow --verbose --target=$$HOME --restow */
+	rm -rf $$HOME/.config/gtk
+	rm -rf $$HOME/.config/nvim
+	rm -rf $$HOME/.config/qtile
+	rm -rf $$HOME/.xprofile
+
 
 delete:
-	stow --verbose --target=$$HOME --ignore=$(IGNORED_CONFS) --delete */
+	stow --verbose --target=$$HOME  --delete */
