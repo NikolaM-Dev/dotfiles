@@ -2,7 +2,6 @@
   "editor.autoClosingBrackets": "always",
   "editor.bracketPairColorization.enabled": true,
   // "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
-  "editor.cursorStyle": "line",
   // "editor.fontFamily": "JetBrainsMono Nerd Font, CaskaydiaCove Nerd Font, Dank Mono, Hack, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontFamily": "Cascadia Code, UbuntuMono Nerd Font, JetBrainsMono Nerd Font, CaskaydiaCove Nerd Font, Dank Mono, Hack, Menlo, Monaco, 'Courier New', monospace",
   "editor.wrappingIndent": "indent",
@@ -10,7 +9,7 @@
   "editor.rulers": [80],
   // "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
   "editor.fontLigatures": "'calt', 'ss01'",
-  "editor.fontSize": 17,
+  "editor.fontSize": 16,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.indentation": false,
@@ -32,7 +31,6 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.pinnedTabSizing": "compact",
-  "workbench.list.automaticKeyboardNavigation": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 4,
@@ -502,7 +500,6 @@
       "terminal.ansiBrightYellow": "#d19a66"
     }
   },
-  "sync.gist": "30db776b2e6fa5fd10cbbb5558c541a1",
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path.linux": "/home/nikola/.vs-kubernetes/tools/helm/linux-amd64/helm",
     "vscode-kubernetes.kubectl-path.linux": "/home/nikola/.vs-kubernetes/tools/kubectl/kubectl",
@@ -530,8 +527,11 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  },
   "breadcrumbs.enabled": false,
-  "amVim.useSystemClipboard": true,
   "cSpell.enabled": false,
   "shellformat.effectLanguages": [
     // "shellscript",
@@ -548,7 +548,6 @@
   ],
   // "workbench.editor.showTabs": false,
   "workbench.colorTheme": "oh-lucy",
-
   "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.incsearch": true,
@@ -740,5 +739,6 @@
   "editor.emptySelectionClipboard": true,
   "explorer.confirmDelete": false,
   "workbench.activityBar.visible": false,
-  "auto-close-tag.disableOnLanguage": ["typescript"]
+  "auto-close-tag.disableOnLanguage": ["typescript"],
+  "editor.experimental.stickyScroll.enabled": true
 }
