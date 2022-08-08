@@ -1,4 +1,5 @@
 all:
+	cp ./.stow-global-ignore $$HOME
 	stow --verbose --target=$$HOME --restow */
 
 delete:
