@@ -79,11 +79,8 @@ export PATH="$PATH:$HOME/go/bin"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   zsh-autosuggestions
   zsh-syntax-highlighting
-  docker
-  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,7 +122,7 @@ function open_nvim {
   fi
 }
 
-function open_code {
+function c {
   if [ $# -eq 0 ]; then
     code .
   elif [ $# -eq 2 ]; then
@@ -135,7 +132,7 @@ function open_code {
   fi
 }
 
-function fgd {
+function gd {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
 
@@ -157,13 +154,44 @@ function gundo {
   fi
 }
 
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+function ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   tar xf $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 # Configs
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias C="cd ~/.config"
 alias D="cd ~/dotfiles"
 alias dbnvim="rm -rf ~/.local/share/nvim && rm -rf ~/.cache/nvim"
 alias dc="cd ~/Documents"
+alias dl="cd ~/Downloads"
 alias G="cd ~/go/src/github.com/NikolaM-Dev"
+alias grubc="sudo nvim /etc/default/grub"
+alias P="cd ~/Pictures"
+alias pacmanc"sudo nvim /etc/pacman.conf"
 alias V="cd ~/.config/nvim && nvim ."
 alias W="cd ~/workspace"
 alias zc="nvim ~/.zshrc"
@@ -171,10 +199,9 @@ alias zc="nvim ~/.zshrc"
 # Crud
 alias ...="cd ..."
 alias ..="cd .."
-alias cdir=cdir
 alias ctrash="gio trash --empty"
+alias gt="gio trash"
 alias rmf="rm -rf"
-alias rr="gio trash"
 alias to="touch"
 alias trash="cd ~/.local/share/Trash/files"
 
@@ -185,17 +212,16 @@ alias gc="git commit -m"
 alias gca="git commit --amend"
 alias gcanedit="git commit --amend --no-edit"
 alias gct="git checkout"
-alias gd=fgd
+alias gfa="git fetch --all -p"
 alias gi="git init"
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gmfdev="git merge --no-ff --no-edit develop && gp"
 alias gmfqa="git merge --no-ff --no-edit qa && gp"
 alias gp="git push"
 alias gpl="git pull"
-alias gpo="git push origin"
+alias gpo="git push origin -u HEAD"
 alias gs="git status -sb"
 alias gsw="git switch"
-alias gundo=gundo
 
 # yarn
 alias ya="yarn add -E"
@@ -204,19 +230,21 @@ alias yi="npm init -y"
 alias yrm="yarn remove"
 
 # IDE
-alias c=open_code
 alias cat="bat --style=plain --paging=never"
 alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint""
 alias e="exit"
-alias f="source ~/.zshrc"
 alias grep="grep --color=auto"
 alias l="exa -lah --group-directories-first --icons"
-alias luamake=/home/nikola/lua-language-server/3rd/luamake/luamake
+alias mnvmrc="node -v >> .nvmrc"
 alias r="ranger"
+alias sr="sudo reboot"
+alias ssn="sudo shutdown now"
+alias szsh="source ~/.zshrc"
 alias t="tmux"
 alias tree="exa -T"
-alias unlockdb="sudo rm /var/lib/pacman/db.lck"
-alias update="sudo pacman -Syu && yay -Syu"
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias update="sudo pacman -Syyu && yay -Syu"
 alias v=nvim
 
 # Docker
