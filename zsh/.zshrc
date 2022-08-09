@@ -156,8 +156,7 @@ function gundo {
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
-function ex ()
-{
+function ex () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
