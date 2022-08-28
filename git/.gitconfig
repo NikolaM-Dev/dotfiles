@@ -4,3 +4,6 @@ email = juan1014166@gmail.com
 
 [core]
 editor = code --wait
+
+[init]
+	defaultBranch = main
