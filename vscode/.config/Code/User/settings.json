@@ -259,6 +259,8 @@
   },
 
   "[lua]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
     "editor.renderWhitespace": "boundary",
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
