@@ -740,7 +740,11 @@
   },
   "editor.emptySelectionClipboard": true,
   "explorer.confirmDelete": false,
-  "workbench.activityBar.visible": false,
   "auto-close-tag.disableOnLanguage": ["typescript"],
-  "editor.experimental.stickyScroll.enabled": true
+  "workbench.iconTheme": "material-icon-theme",
+  "rapidapi.terminalLink.enabled": false,
+  "cSpell.diagnosticLevel": "Hint",
+  "git.mergeEditor": false,
+  "workbench.colorTheme": "oh-lucy",
+  "workbench.activityBar.visible": false
 }
