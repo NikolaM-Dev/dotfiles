@@ -218,6 +218,7 @@ alias gmfdev="git merge --no-ff --no-edit develop && gp"
 alias gmfqa="git merge --no-ff --no-edit qa && gp"
 alias gp="git push"
 alias gpl="git pull"
+alias gpof="git push origin -f HEAD"
 alias gpo="git push origin -u HEAD"
 alias gs="git status -sb"
 alias gsw="git switch"
@@ -231,6 +232,7 @@ alias yrm="yarn remove"
 # IDE
 alias cat="bat --style=plain --paging=never"
 alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint""
+alias cva="yarn create vite"
 alias e="exit"
 alias grep="grep --color=auto"
 alias l="exa -lah --group-directories-first --icons"
@@ -245,6 +247,7 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias update="sudo pacman -Syyu && yay -Syu"
 alias v=nvim
+alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo systemctl start keyd && setxkbmap -option compose:menu"
 
 # Docker
 alias dcb="docker-compose build"
