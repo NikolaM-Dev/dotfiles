@@ -196,7 +196,7 @@ alias W="cd ~/workspace"
 alias zc="nvim ~/.zshrc"
 
 # Crud
-alias ...="cd ..."
+alias ...="cd ../.."
 alias ..="cd .."
 alias ctrash="gio trash --empty"
 alias gt="gio trash"
