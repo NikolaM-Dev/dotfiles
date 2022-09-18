@@ -1,4 +1,5 @@
-\.xprofile
-\.config/nvim/*
 \.config/gtk/*
+\.config/nvim/*
 \.config/qtile/*
+\keyd/default.conf
+\.xprofile
