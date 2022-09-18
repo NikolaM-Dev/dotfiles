@@ -13,8 +13,8 @@ sigint_symbol = "ﭦ"
 map_symbol = true
 
 [git_branch]
-symbol = " "
 format = "[$symbol$branch]($style) "
+symbol = " "
 
 [package]
 format = "[$symbol$version]($style) "
