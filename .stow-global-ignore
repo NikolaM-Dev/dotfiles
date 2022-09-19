@@ -2,4 +2,4 @@
 \.config/nvim/*
 \.config/qtile/*
 \keyd/default.conf
-\.xprofile
+\.xprofile-old
