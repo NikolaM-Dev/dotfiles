@@ -1,5 +1,4 @@
 \.config/gtk/*
 \.config/nvim/*
 \.config/qtile/*
-\keyd/default.conf
 \.xprofile-old
