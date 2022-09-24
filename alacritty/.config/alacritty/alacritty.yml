@@ -10,7 +10,7 @@ window:
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Book
+    style: Regular
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
