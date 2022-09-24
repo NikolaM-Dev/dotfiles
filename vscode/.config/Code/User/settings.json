@@ -54,6 +54,7 @@
 
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": false,
 
   "files.defaultLanguage": "typescript",
   "files.exclude": {
@@ -121,7 +122,7 @@
   },
 
   // Material Icons
-  "material-icon-theme.activeIconPack": "nest",
+  "material-icon-theme.activeIconPack": "react",
   "material-icon-theme.showWelcomeMessage": false,
 
   // Ident Rainbow
@@ -503,25 +504,24 @@
     }
   },
   "vs-kubernetes": {
-    "vscode-kubernetes.helm-path.linux": "/home/nikola/.vs-kubernetes/tools/helm/linux-amd64/helm",
-    "vscode-kubernetes.kubectl-path.linux": "/home/nikola/.vs-kubernetes/tools/kubectl/kubectl",
-    "vscode-kubernetes.minikube-path.linux": "/home/nikola/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
+    "vscode-kubernetes.helm-path.linux": "/home/nikola/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vscode-kubernetes.kubectl-path.linux": "/home/nikola/.local/state/vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.minikube-path.linux": "/home/nikola/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
   },
   "gitConfigUser.profiles": [
     {
       "label": "parq",
-      "email": "juan.merchan@parqco.com",
       "userName": "juan.merchan",
-      "selected": true
+      "email": "juan.merchan@parqco.com",
+      "selected": false
     },
     {
       "label": "NikolaM-Dev",
-      "userName": "Juan David Merchan Torres",
       "email": "juan1014166@gmail.com",
-      "selected": false
+      "userName": "Juan David Merchan Torres",
+      "selected": true
     }
   ],
-  "workbench.iconTheme": "material-icon-theme",
   "editor.inlineSuggest.enabled": true,
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -548,8 +548,6 @@
     "azcli",
     "bats"
   ],
-  // "workbench.editor.showTabs": false,
-  "workbench.colorTheme": "oh-lucy",
   "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.incsearch": true,
