@@ -245,6 +245,7 @@ alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo
 alias l="exa -lah --group-directories-first --icons"
 alias mnvmrc="node -v >> .nvmrc"
 alias r="ranger"
+alias compile-dwm="cd ~/.config/chadwm/chadwm && sudo make clean install && cd -"
 alias sr="sudo reboot"
 alias ssn="sudo shutdown now"
 alias szsh="source ~/.zshrc"
