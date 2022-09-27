@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# envs
+export QT_STYLE_OVERRIDE=kvantum
+
 # Remove suspend
 xset -dpms
 xset s noblank
