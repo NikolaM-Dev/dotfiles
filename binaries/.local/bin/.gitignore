@@ -1,8 +1,10 @@
 /*
 !.gitignore
 
-!percentage
-!volume
 !battery
 !brightness
+!percentage
+!t
+!tt
+!volume
 !zsh_history_fix
