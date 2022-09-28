@@ -353,3 +353,6 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{n
 # fnm
 export PATH=/home/nikola/.fnm:$PATH
 eval "`fnm env`"
+
+# zoxide
+eval "$(zoxide init zsh)"
