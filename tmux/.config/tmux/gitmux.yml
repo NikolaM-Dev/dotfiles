@@ -1,4 +1,7 @@
 ---
+gitmux config
+---
+
 tmux:
   symbols:
     branch: ''
