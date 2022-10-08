@@ -4,16 +4,16 @@ gitmux config
 
 tmux:
   symbols:
-    branch: ''
-    hashprefix: ':'
     ahead: ' '
     behind: ' '
-    staged: ' '
-    conflict: ' '
-    untracked: ' '
-    modified: ' '
-    stashed: 'ﮅ '
+    branch: ''
     clean: ''
+    conflict: ' '
+    hashprefix: ':'
+    modified: ' '
+    staged: ' '
+    stashed: 'ﮅ '
+    untracked: 'ﲉ '
   styles:
     state: '#[fg=red,nobold]'
     branch: '#[fg=white,nobold]'
