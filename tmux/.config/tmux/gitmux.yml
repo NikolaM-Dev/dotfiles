@@ -1,7 +1,3 @@
----
-gitmux config
----
-
 tmux:
   symbols:
     ahead: ' '
@@ -15,13 +11,13 @@ tmux:
     stashed: 'ﮅ '
     untracked: 'ﲉ '
   styles:
-    branch: '#[fg=magenta,nobold]'
-    clean: '#[fg=gray,nobold]'
+    branch: '#[fg=magenta,bold]'
+    clean: '#[fg=green,nobold]'
     conflict: '#[fg=red,nobold]'
-    divergence: '#[fg=cyan,nobold]'
-    modified: '#[fg=blue,bold]'
+    divergence: '#[fg=yellow,nobold]'
+    modified: '#[fg=blue,nobold]'
     staged: '#[fg=green,nobold]'
-    stashed: '#[fg=brightred,nobold]'
+    stashed: '#[fg=cyan,nobold]'
     state: '#[fg=red,nobold]'
     untracked: '#[fg=#41a6b5,nobold]'
   layout: [branch, divergence, ' ', flags, ' ']
