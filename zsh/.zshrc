@@ -246,6 +246,7 @@ alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo
 alias l="exa -lah --group-directories-first --icons"
 alias lg="lazygit"
 alias mnvmrc="node -v >> .nvmrc"
+alias pn=pnpm
 alias r="ranger"
 alias sr="sudo reboot"
 alias ssn="sudo shutdown now"
