@@ -2,3 +2,4 @@
 \.config/nvim/*
 \.config/qtile/*
 \.xprofile-old
+\.xprofile
