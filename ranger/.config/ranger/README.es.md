@@ -32,5 +32,5 @@ echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 Ueberzug es un previsualizador de imagenes y muchos mas...
 
 ```sh
-yay -S python-ueberzug-git
+pip install ueberzug
 ```
