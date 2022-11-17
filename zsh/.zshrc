@@ -209,7 +209,6 @@ alias to="touch"
 alias trash="cd ~/.local/share/Trash/files"
 
 # Git
-alias gr="git remote"
 alias ga="git add --all"
 alias gb="git branch"
 alias gca="git commit --amend"
@@ -225,6 +224,9 @@ alias gp="git push"
 alias gpl="git pull"
 alias gpof="git push origin -f HEAD"
 alias gpo="git push origin -u HEAD"
+alias grank="git shortlog -sn --no-merges"
+alias gfresh="git reset --hard HEAD && git clean -f -d"
+alias gr="git remote"
 alias gs="git status -sb"
 alias gsw="git switch"
 
