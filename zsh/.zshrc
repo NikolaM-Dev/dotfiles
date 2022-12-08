@@ -158,6 +158,15 @@ function gundo {
   fi
 }
 
+function schange-date {
+  if [ $# -eq 1 ]; then
+    HOUR=$(date | awk '{print $4}')
+    sudo timedatectl set-time "$1 $HOUR"
+  else
+    echo "Use: schange-date <yyyy-MM-dd>"
+  fi
+}
+
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
 function ex () {
