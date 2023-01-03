@@ -29,3 +29,6 @@ set scroll-step 50
 
 # Theme
 include themes/gruvchad
+
+map d scroll half-down
+map u scroll half-up
