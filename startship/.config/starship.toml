@@ -4,6 +4,9 @@ scan_timeout = 60
 [cmd_duration]
 format = "[$duration]($style) "
 
+[git_metrics]
+disabled = false
+
 [status]
 disabled = false
 format = "[$symbol $status]($style) "
