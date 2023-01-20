@@ -83,6 +83,7 @@ export PATH="$PNPM_HOME:$PATH"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_DISABLE_COMPFIX="true"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
