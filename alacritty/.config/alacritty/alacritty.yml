@@ -32,11 +32,7 @@ mouse:
   hide_when_typing: true
 
 shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - 'tmux attach || tmux'
+  program: /usr/bin/tmux
 
 key_bindings:
   - { key: H, mods: Control|Shift, chars: "\x1b[72;6u" }
