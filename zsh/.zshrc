@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 export EDITOR=nvim
+export PAGER=most
 export TERMINAL=alacritty
 export VISUAL=nvim
 
