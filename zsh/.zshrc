@@ -112,7 +112,8 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 export EDITOR=nvim
-export PAGER=most
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 export TERMINAL=alacritty
 export VISUAL=nvim
 
