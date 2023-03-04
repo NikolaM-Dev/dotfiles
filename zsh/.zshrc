@@ -208,7 +208,7 @@ function ex () {
 alias A="cd ~/.config/alacritty && nvim alacritty.yml"
 alias C="cd ~/.config"
 alias csessions="gio trash ~/.local/share/nvim/sessions/"
-alias dbnvim="rm -rf ~/.local/share/nvim && rm -rf ~/.cache/nvim"
+alias dbnvim="rm -rf ~/.local/share/nvim && rm -rf ~/.cache/nvim/lazy"
 alias dc="cd ~/Documents"
 alias D="cd ~/dotfiles && nvim"
 alias dl="cd ~/Downloads"
