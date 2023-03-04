@@ -253,6 +253,8 @@ alias gpo="git push origin -u HEAD"
 alias grank="git shortlog -sn --no-merges"
 alias gr="git remote"
 alias gs="git status -sb"
+alias gsl="git stash list"
+alias gst="git stash -um"
 alias gsw="git switch"
 
 # yarn
@@ -260,6 +262,9 @@ alias yad="yarn add -D -E"
 alias ya="yarn add -E"
 alias yi="npm init -y"
 alias yrm="yarn remove"
+
+# Golang
+alias gmi="go mod init"
 
 # IDE
 alias cat="bat --style=plain --paging=never"
