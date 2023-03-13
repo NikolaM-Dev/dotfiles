@@ -48,4 +48,4 @@ key_bindings:
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
 
 import:
-  - ~/.config/alacritty/themes/tokyonight-night.yml
+  - ~/.config/alacritty/themes/catppuccin-mocha.yml
