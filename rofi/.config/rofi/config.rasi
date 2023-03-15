@@ -10,7 +10,7 @@ configuration{
     icon-theme: "ePapirus-Dark";
     lines: 5;
     location: 0;
-    modi: "drun,window,emoji";
+    modi: "drun,window,emoji,run";
     show-icons: true;
     sidebar-mode: true;
     terminal: "alacritty";
