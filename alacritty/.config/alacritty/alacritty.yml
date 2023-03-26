@@ -30,9 +30,6 @@ cursor:
 mouse:
   hide_when_typing: true
 
-shell:
-  program: /usr/bin/tmux
-
 key_bindings:
   - { key: H, mods: Control|Shift, chars: "\x1b[72;6u" }
   - { key: J, mods: Control|Shift, chars: "\x1b[74;6u" }
