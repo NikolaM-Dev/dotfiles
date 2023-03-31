@@ -285,18 +285,18 @@ alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo
 alias l="exa -lah --group-directories-first --icons"
 alias lg="lazygit"
 alias mnvmrc="node -v >> .nvmrc"
-alias pdfs="/run/media/nikola/GREY/pdfs && ranger && cd -"
+alias pdfs="~/grey/ && ranger && cd -"
 alias pn=pnpm
 alias r="ranger"
 alias sr="sudo reboot"
-alias ssn="sudo shutdown now"
+alias ssn="rclone -v sync /home/nikola/grey drive:grey && sudo shutdown now"
 alias szsh="source ~/.zshrc"
 alias tree="exa -T"
 alias t="tmux"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias update-nvim="cd ~/neovim && git pull && sudo make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install && cd -"
-alias update="sudo pacman -Syyu && yay -Syu"
+alias update="sudo pacman -Syyu && yay -Syu && update-nvim && omz update"
 alias v=nvim
 
 # Docker
