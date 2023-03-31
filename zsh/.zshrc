@@ -323,18 +323,6 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
 # Promt
 eval "$(starship init zsh)"
 
-# Autocomplete
-setopt autocd
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list '' \
-  'm:{a-z\-}={A-Z\_}' \
-  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
-  'r:|?=** m:{a-z\-}={A-Z\_}'
-zmodload zsh/complist
-autoload -Uz compinit
-compinit
-_comp_options+=(globdots) # Include hidden files.
-
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
