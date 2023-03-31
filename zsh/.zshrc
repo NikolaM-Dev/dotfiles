@@ -393,7 +393,7 @@ fi
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
 
 # fnm
-export PATH=/home/nikola/.fnm:$PATH
+export PATH="/home/nikola/.local/share/fnm:$PATH"
 eval "`fnm env`"
 
 # zoxide
