@@ -1,6 +1,6 @@
 configuration{
     disable-history: false;
-    display-drun: "   Apps ";
+    display-drun: "   Apps "; /*  */
     display-emoji: "  Emojis ";
     display-run: "   Run ";
     display-window: " 﩯  windows ";
@@ -18,8 +18,8 @@ configuration{
 
 @theme "gruvchad"
 
-element-text,
 element-icon,
+element-text,
 mode-switcher {
     background-color: inherit;
     text-color: inherit;
@@ -27,9 +27,9 @@ mode-switcher {
 
 window {
     background-color: @bg-col;
+    border: 3px;
     border-color: @border-col;
     border-radius: 6;
-    border: 3px;
     height: @height;
 }
 
@@ -73,9 +73,9 @@ listview {
 }
 
 element {
-    padding: 5px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    padding: 5px;
+    text-color: @fg-col;
 }
 
 element-icon {
@@ -92,11 +92,11 @@ mode-switcher {
 }
 
 button {
-    padding: 10px;
     background-color: @bg-col-light;
+    horizontal-align: 0.5;
+    padding: 10px;
     text-color: @grey;
     vertical-align: 0.5;
-    horizontal-align: 0.5;
 }
 
 button selected {
