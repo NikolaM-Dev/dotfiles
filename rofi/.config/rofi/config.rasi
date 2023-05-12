@@ -1,9 +1,9 @@
 configuration{
     disable-history: false;
-    display-drun: "   Apps "; /*  */
-    display-emoji: "  Emojis ";
-    display-run: "   Run ";
-    display-window: " 﩯  windows ";
+    display-drun: "   Apps ";
+    display-emoji: " 󰞅  Emojis ";
+    display-run: "    Run ";
+    display-window: "󰕰  windows ";
     drun-display-format: "{icon} {name}";
     font: "Sarasa Nerd Font 14";
     hide-scrollbar: true;
