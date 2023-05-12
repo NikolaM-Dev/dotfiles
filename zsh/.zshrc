@@ -179,6 +179,21 @@ function schange-date {
   fi
 }
 
+function nvims() {
+  items=("default" "adi" )
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+
+  NVIM_APPNAME=$config nvim $@
+}
+
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
 function ex () {
@@ -245,9 +260,11 @@ alias gfa="git fetch --all -p"
 alias gfresh="git reset --hard HEAD && git clean -f -d"
 alias gi="git init"
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-alias gmfdev="git merge --no-ff --no-edit develop && gp"
-alias gmfqa="git merge --no-ff --no-edit qa && gp"
 alias gma="git merge --abort"
+alias gmfbc="git pull origin qa && gp"
+alias gmfdev="git merge --no-ff --no-edit develop && gp"
+alias gmfmain="git merge --no-ff --no-edit qa && gp"
+alias gmfqa="git merge --no-ff --no-edit qa && gp"
 alias gm="git merge --no-ff --no-edit"
 alias gp="git push"
 alias gpl="git pull"
