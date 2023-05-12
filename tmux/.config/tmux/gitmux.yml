@@ -19,8 +19,8 @@ tmux:
     staged: '#[fg=green,nobold]'
     stashed: '#[fg=cyan,nobold]'
     state: '#[fg=red,nobold]'
-    untracked: '#[fg=#41a6b5,nobold]'
-  layout: [branch, divergence, ' ', flags, ' ']
+    untracked: '#[fg=grey,nobold]'
+  layout: [branch, divergence, flags, 'stats', ' ']
   options:
     branch_max_len: 0
     branch_trim: right
