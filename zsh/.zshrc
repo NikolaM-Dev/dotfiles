@@ -312,8 +312,7 @@ alias tree="exa -T"
 alias t="tmux"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias update-nvim="cd ~/neovim && git pull && sudo make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install && cd -"
-alias update="sudo pacman -Syyu && yay -Syu && update-nvim && omz update"
+alias update="sudo pacman -Syyu && yay -Syu && omz update"
 alias v=nvim
 
 # Docker
