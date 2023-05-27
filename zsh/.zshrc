@@ -276,6 +276,8 @@ alias gs="git status -sb"
 alias gsl="git stash list"
 alias gst="git stash -um"
 alias gsw="git switch"
+alias gta="git tag -a v"
+alias gtl="git tag -l"
 
 # yarn
 alias yad="yarn add -D -E"
