@@ -19,6 +19,9 @@ symbol = " "
 format = "[$symbol$branch]($style) "
 symbol = " "
 
+[golang]
+symbol = " "
+
 [package]
 format = "[$symbol$version]($style) "
 symbol = " "
