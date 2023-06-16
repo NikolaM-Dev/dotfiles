@@ -292,7 +292,7 @@ alias compile-dwm="cd ~/.config/chadwm/chadwm && sudo make clean install && cd -
 alias cva="yarn create vite"
 alias dautotime="sudo timedatectl set-ntp 0" 
 alias disable-suspend="sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target"
-alias eautotime="sudo timedatectl set-ntp 1" 
+alias eautotime="sudo timedatectl set-ntp 1"
 alias e="exit"
 alias go=richgo
 alias grep="grep --color=auto"
