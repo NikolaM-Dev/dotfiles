@@ -20,10 +20,6 @@ export PATH="$PATH:$HOME/.cargo/env"
 export DENO_INSTALL="/home/nikola/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# Pnpm
-export PNPM_HOME="/home/nikola/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
