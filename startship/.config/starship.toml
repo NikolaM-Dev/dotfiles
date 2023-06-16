@@ -7,7 +7,7 @@ format = "[$duration]($style) "
 disabled = false
 
 [git_branch]
-format = "[$symbol$branch]($style) "
+format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
 
 [status]
