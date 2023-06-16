@@ -20,6 +20,7 @@ sigint_symbol = " "
 symbol = " "
 
 [golang]
+format = '[$symbol($version )($mod_version )]($style)'
 symbol = " "
 
 [package]
