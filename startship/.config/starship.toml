@@ -24,7 +24,7 @@ symbol = " "
 
 [package]
 format = "[$symbol$version]($style) "
-symbol = " "
+symbol = "󰏖 "
 
 [python]
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
