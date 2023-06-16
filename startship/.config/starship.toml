@@ -33,17 +33,6 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 format = "[$symbol($version )]($style)"
 symbol = "󰋘 "
 
-[php]
-format = "[$symbol($version )]($style)"
-symbol = " "
-
-[java]
-format = "[${symbol}(${version} )]($style)"
-symbol = " "
-
-[rust]
-format = "[$symbol($version )]($style)"
-
 [aws]
 format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 symbol = " "
