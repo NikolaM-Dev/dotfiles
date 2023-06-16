@@ -6,6 +6,10 @@ format = "[$duration]($style) "
 [git_metrics]
 disabled = false
 
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+
 [status]
 disabled = false
 format = "[$symbol $status]($style) "
@@ -14,10 +18,6 @@ not_executable_symbol = " "
 not_found_symbol = " "
 sigint_symbol = " "
 symbol = " "
-
-[git_branch]
-format = "[$symbol$branch]($style) "
-symbol = " "
 
 [golang]
 symbol = " "
