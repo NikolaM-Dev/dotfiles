@@ -302,7 +302,6 @@ alias l="exa -lah --group-directories-first --icons"
 alias lg="lazygit"
 alias mnvmrc="node -v >> .nvmrc"
 alias pdfs="~/grey/ && ranger && cd -"
-alias pn=pnpm
 alias r="ranger"
 alias sr="sudo reboot"
 alias ssn="rclone -v sync /home/nikola/grey drive:grey && sudo shutdown now"
