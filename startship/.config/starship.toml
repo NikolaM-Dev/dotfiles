@@ -9,14 +9,15 @@ disabled = false
 [status]
 disabled = false
 format = "[$symbol $status]($style) "
-not_found_symbol = ""
-not_executable_symbol = ""
-sigint_symbol = "ﭦ"
 map_symbol = true
+not_executable_symbol = " "
+not_found_symbol = " "
+sigint_symbol = " "
+symbol = " "
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-symbol = " "
+symbol = " "
 
 [package]
 format = "[$symbol$version]($style) "
@@ -27,7 +28,7 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [nodejs]
 format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = "󰋘 "
 
 [php]
 format = "[$symbol($version )]($style)"
