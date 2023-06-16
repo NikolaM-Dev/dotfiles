@@ -11,6 +11,20 @@ disabled = false
 format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
 
+[git_status]
+ahead = " ${count} "
+behind = " ${count} "
+conflicted = " ${count} "
+deleted = " ${count} "
+diverged = "󰔪 ${count} "
+format = "[| $all_status$ahead_behind]($style)"
+modified = " ${count} "
+renamed = " ${count} "
+staged = " ${count} "
+stashed = " ${count} "
+style = 'bold cyan'
+untracked = " ${count} "
+
 [status]
 disabled = false
 format = "[$symbol $status]($style) "
