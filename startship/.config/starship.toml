@@ -4,8 +4,10 @@ scan_timeout = 60
 format = "[$duration]($style) "
 
 [git_metrics]
-format = "([ $added]($added_style) )([ $deleted]($deleted_style) )"
+added_style = 'green'
+deleted_style = 'red'
 disabled = false
+format = "([ $added]($added_style) )([ $deleted]($deleted_style) )"
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
