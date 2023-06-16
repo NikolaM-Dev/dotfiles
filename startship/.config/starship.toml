@@ -12,18 +12,18 @@ format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
 
 [git_status]
-ahead = " ${count} "
-behind = " ${count} "
-conflicted = " ${count} "
-deleted = " ${count} "
-diverged = "󰔪 ${count} "
+ahead = "[ ${count} ](yellow)"
+behind = "[ ${count} ](yellow)"
+conflicted = "[ ${count} ](red)"
+deleted = "[ ${count} ](red)"
+diverged = "[󰔪 ${count} ](red)"
 format = "[| $all_status$ahead_behind]($style)"
-modified = " ${count} "
-renamed = " ${count} "
-staged = " ${count} "
-stashed = " ${count} "
-style = 'bold cyan'
-untracked = " ${count} "
+modified = "[ ${count} ](blue)"
+renamed = "[ ${count} ](blue)"
+staged = "[ ${count} ](green)"
+stashed = "[ ${count} ](cyan)"
+style = 'black'
+untracked = "[ ${count} ](white)"
 
 [status]
 disabled = false
