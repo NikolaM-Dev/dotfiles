@@ -1,5 +1,7 @@
 local wezterm = require('wezterm')
 
+local base_font_family = 'JetBrainsMono NF'
+
 local function font(opts)
 	return wezterm.font_with_fallback({
 		opts,
@@ -10,14 +12,14 @@ end
 local config = {
 	color_scheme = 'Catppuccin Mocha',
 
-	font = font({ family = 'JetBrainsMono NF', weight = 'Regular' }),
+	font = font({ family = base_font_family, weight = 'Regular' }),
 	font_size = 11,
 	font_rules = {
 		{
 			italic = true,
 			intensity = 'Normal',
 			font = font({
-				family = 'JetBrainsMono NF',
+				family = base_font_family,
 				style = 'Italic',
 			}),
 		},
@@ -25,7 +27,7 @@ local config = {
 			italic = true,
 			intensity = 'Half',
 			font = font({
-				family = 'JetBrainsMono NF',
+				family = base_font_family,
 				style = 'Italic',
 				weight = 'Medium',
 			}),
@@ -34,7 +36,7 @@ local config = {
 			italic = true,
 			intensity = 'Bold',
 			font = font({
-				family = 'JetBrainsMono NF',
+				family = base_font_family,
 				style = 'Italic',
 				weight = 'Bold',
 			}),
