@@ -51,6 +51,11 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 format = "[$symbol($version )]($style)"
 symbol = "󰋘 "
 
+[lua]
+format = "[$symbol($version )]($style)"
+style = "#42a5f5"
+symbol = " "
+
 [aws]
 format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 symbol = " "
