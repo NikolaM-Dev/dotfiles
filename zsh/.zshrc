@@ -283,7 +283,9 @@ alias yi="npm init -y"
 alias yrm="yarn remove"
 
 # Golang
+alias gcoverage="go test -coverprofile=coverage.out && go tool cover -html=coverage.out"
 alias gmi="go mod init"
+alias gtest="go test -v -cover ./..."
 
 # IDE
 alias cat="bat --style=plain --paging=never"
