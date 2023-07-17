@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
-export TERMINAL=wezterm
+export TERMINAL=alacritty
 export VISUAL=nvim
 
 # Compilation flags
