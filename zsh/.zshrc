@@ -316,6 +316,21 @@ alias update="sudo pacman -Syyu && yay -Syu && omz update"
 alias v=nvim
 
 # Docker
+alias dclsa="docker container ls -a"
+alias dcls="docker container ls"
+alias dcr="docker container run"
+alias dcrm="docker container rm"
+alias dcrmf="docker container rm -f"
+alias dcstart="docker container start"
+alias dcstop="docker container stop"
+alias dilsa="docker image ls -a"
+alias dils="docker image ls"
+alias dirm="docker image rm"
+alias dirmf="docker image rm -f"
+alias dpull="docker pull"
+alias dcprune="dcker container prune"
+alias diprune="docker image prune"
+
 alias dcb="docker-compose build"
 alias dcd="docker-compose down"
 alias dcps="docker-compose ps"
