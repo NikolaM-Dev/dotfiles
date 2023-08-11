@@ -8,21 +8,21 @@ window:
 
 font:
   normal:
-    family: JetBrainsMono NF
-    style: Regular
+    family: Cascadia Code
+    style: SemiLight
   bold:
-    family: JetBrainsMono NF
+    family: Cascadia Code
     style: Bold
   italic:
-    family: JetBrainsMono NF
+    family: Cascadia Code
     style: Italic
   bold_italic:
-    family: JetBrainsMono NF
+    family: Cascadia Code
     style: Bold Italic
-  size: 12.0
+  size: 12.5
   offset:
     x: -1
-    y: 0
+    y: 1
 
 cursor:
   vi_mode_style: Block
