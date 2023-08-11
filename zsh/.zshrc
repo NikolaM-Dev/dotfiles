@@ -20,6 +20,13 @@ export PATH="$PATH:$HOME/.cargo/env"
 export DENO_INSTALL="/home/nikola/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# Bun
+export BUN_INSTALL="/home/nikola/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Bun completions
+[ -s "/home/nikola/.bun/_bun" ] && source "/home/nikola/.bun/_bun"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
