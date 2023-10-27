@@ -43,6 +43,7 @@ xset s off
 # Daemons
 flameshot &
 nm-applet &
+obsidian &
 picom -b --config ~/.config/picom/picom.conf &
 sh .fehbg &
 udiskie -t &
