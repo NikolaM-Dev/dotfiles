@@ -27,6 +27,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Bun completions
 [ -s "/home/nikola/.bun/_bun" ] && source "/home/nikola/.bun/_bun"
 
+# Starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
