@@ -338,7 +338,7 @@ alias dils="docker image ls"
 alias dirm="docker image rm"
 alias dirmf="docker image rm -f"
 alias dpull="docker pull"
-alias dcprune="dcker container prune"
+alias dcprune="docker container prune"
 alias diprune="docker image prune"
 
 alias dcb="docker-compose build"
