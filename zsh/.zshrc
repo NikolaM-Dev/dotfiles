@@ -322,7 +322,7 @@ alias tree="exa -T"
 alias t="tmux"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias update="sudo pacman -Syyu && yay -Syu && omz update"
+alias update="sudo pacman -Syyu --noconfirm && yay -Syu --noconfirm && omz update"
 alias v=nvim
 
 # Docker
