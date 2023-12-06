@@ -341,6 +341,7 @@ alias dpull="docker pull"
 alias dcprune="docker container prune"
 alias diprune="docker image prune"
 
+# Docker Compose
 alias dcb="docker-compose build"
 alias dcd="docker-compose down"
 alias dcps="docker-compose ps"
