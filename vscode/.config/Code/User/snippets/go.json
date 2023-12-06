@@ -1,7 +1,0 @@
-{
-  ":=": {
-    "prefix": ";",
-    "body": ":= $0",
-    "description": "Short hand declaration"
-  }
-}
