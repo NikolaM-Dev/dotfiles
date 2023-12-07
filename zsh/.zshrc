@@ -350,6 +350,11 @@ alias dcupd="docker-compose up -d"
 alias dps="docker ps"
 alias ssd="systemctl start docker.service"
 
+# Rclone
+alias rcsync="rclone sync /home/nikola/Documents/drive drive:"
+alias rcltr="rclone copy /home/nikola/Documents/drive drive:"
+alias rcrtl="rclone copy drive: /home/nikola/Documents/drive"
+
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=magenta'
