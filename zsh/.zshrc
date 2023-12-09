@@ -179,7 +179,7 @@ function gundo {
 function schange-date {
   if [ $# -eq 1 ]; then
     HOUR=$(date +%H:%M:%S)
-    sudo timedatectl set-time "$1 $HOUR"
+    dautotime && sudo timedatectl set-time "$1 $HOUR"
   else
     echo "Use: schange-date <yyyy-MM-dd>"
   fi
