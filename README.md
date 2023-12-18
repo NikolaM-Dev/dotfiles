@@ -6,6 +6,7 @@
 - [ ] Add git sub modules
 - [ ] Improve .gitignore system
 - [ ] Add .local things
+- [ ] Remove install.md
 
 ![Qtile](.screenshots/qtile.png)
 
