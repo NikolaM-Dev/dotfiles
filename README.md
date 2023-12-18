@@ -1,5 +1,12 @@
 # Dotfiles & Configs
 
+# ✅ TODO's
+
+- [ ] Change docs
+- [ ] Add git sub modules
+- [ ] Improve .gitignore system
+- [ ] Add .local things
+
 ![Qtile](.screenshots/qtile.png)
 
 **_Language_**
