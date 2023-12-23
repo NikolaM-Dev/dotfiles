@@ -351,7 +351,8 @@ alias dps="docker ps"
 alias ssd="systemctl start docker.service"
 
 # Rclone
-alias rcsync="rclone -v sync /home/nikola/Documents/drive drive:"
+alias rcsltr="rclone -v sync /home/nikola/Documents/drive drive:"
+alias rcsrtl="rclone -v sync drive: /home/nikola/Documents/drive"
 alias rcltr="rclone -v copy /home/nikola/Documents/drive drive:"
 alias rcrtl="rclone -v copy drive: /home/nikola/Documents/drive"
 
