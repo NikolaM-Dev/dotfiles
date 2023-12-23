@@ -25,7 +25,9 @@
     "editor.tabSize": 4
   },
   "[go][go.mod]": {
-    "editor.codeActionsOnSave": { "source.organizeImports": "explicit" }
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -141,16 +143,16 @@
   "git.mergeEditor": false,
   "gitConfigUser.profiles": [
     {
-      "email": "juan.merchan@parqco.com",
       "label": "parq",
-      "selected": false,
-      "userName": "juan.merchan"
+      "userName": "juan.merchan",
+      "email": "juan.merchan@parqco.com",
+      "selected": false
     },
     {
-      "email": "juan1014166@gmail.com",
       "label": "NikolaM-Dev",
-      "selected": true,
-      "userName": "Juan David Merchan Torres"
+      "email": "juan1014166@gmail.com",
+      "userName": "Juan David Merchan Torres",
+      "selected": true
     }
   ],
   "gitlens.advanced.messages": {
@@ -274,11 +276,11 @@
   "typescript.preferences.jsxAttributeCompletionStyle": "auto",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.easymotion": true,
+  "vim.easymotionKeys": "asdghklqwertyuiopzxcvbnmfj",
   "vim.easymotionMarkerBackgroundColor": "#1a1d27",
   "vim.easymotionMarkerForegroundColorOneChar": " #af98e6",
   "vim.easymotionMarkerForegroundColorTwoCharFirst": "#af98e6",
   "vim.easymotionMarkerForegroundColorTwoCharSecond": "#af98e6",
-  "vim.easymotionKeys": "asdghklqwertyuiopzxcvbnmfj",
   "vim.foldfix": true,
   "vim.handleKeys": {
     "<C-.>:": false,
@@ -462,7 +464,9 @@
       "editorInlayHint.background": "#1a1a1a",
       "editorInlayHint.foreground": "#8c8c8cbb"
     },
-    "[Field Lights]": { "editorInlayHint.background": "#1a1f28" },
+    "[Field Lights]": {
+      "editorInlayHint.background": "#1a1f28"
+    },
     "[Monokai Pro]": {
       "statusBarItem.remoteBackground": "#FF6188",
       "statusBarItem.remoteForeground": "#fff"
