@@ -2,7 +2,7 @@
 
 ## 😀 Pacman
 
-> [!seealso]- Packages
+> [!NOTE]
 >
 > - alacritty
 > - base-devel
@@ -69,7 +69,7 @@ sudo pacman -Syu alacritty base-devel btop curl dbeaver exa fd feh flameshot fzf
 
 ## 🔥 Yay
 
-> [!seealso]+ Packages
+> [!NOTE]
 >
 > - anki
 > - beekpeeper-studio-bin
