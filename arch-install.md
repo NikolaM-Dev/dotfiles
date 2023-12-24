@@ -120,7 +120,7 @@ git clone https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-~/
 ## 🪟 TPM
 
 ```sh
- git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ## 📦 FNM
