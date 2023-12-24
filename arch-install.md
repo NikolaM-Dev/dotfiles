@@ -104,7 +104,9 @@ curl -fsSL https://bun.sh/install | bash
 ## 🔐 SSH
 
 ```sh
-ssh-keygen -t rsa -b 4096 -C "email"
+# Change email by your email
+
+ssh-keygen -t rsa -b 4096 -C "<email>"
 ```
 
 ## 🌈 OMZ
