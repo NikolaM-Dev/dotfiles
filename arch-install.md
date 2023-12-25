@@ -22,6 +22,7 @@
 > - lazygit
 > - libnotify
 > - lxappearance
+> - mediainfo
 > - mpv
 > - neovim
 > - network-manager-applet
@@ -64,7 +65,7 @@
 > - zsh
 
 ```sh
-sudo pacman -Syu alacritty base-devel btop curl dbeaver exa fd feh flameshot fzf git github-cli glib2 gvfs kvantum lazygit libnotify lxappearance mpv neovim network-manager-applet notification-daemon noto-fonts ntfs-3g obsidian obsidian obs-studio openssh os-prober pacman-contrib pamixer pavucontrol pcmanfm picom pulseaudio ranger rclone redshift ripgrep rofi rofi-emoji scrot simple-mtpfs starship tldr tmux trayer ttf-dejavu ttf-liberation udiskie vlc volumeicon which xorg-xsetroot xsel zathura zoxide zsh
+sudo pacman -Syu alacritty base-devel btop curl dbeaver exa fd feh flameshot fzf git github-cli glib2 gvfs kvantum lazygit libnotify lxappearance mediainfo mpv neovim network-manager-applet notification-daemon noto-fonts ntfs-3g obsidian obsidian obs-studio openssh os-prober pacman-contrib pamixer pavucontrol pcmanfm picom pulseaudio ranger rclone redshift ripgrep rofi rofi-emoji scrot simple-mtpfs starship tldr tmux trayer ttf-dejavu ttf-liberation udiskie vlc volumeicon which xorg-xsetroot xsel zathura zoxide zsh
 ```
 
 ## 🔥 Yay
