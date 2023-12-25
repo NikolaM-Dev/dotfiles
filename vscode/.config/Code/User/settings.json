@@ -316,7 +316,6 @@
   "vim.normalModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [
     { "before": ["<C-q>"], "commands": [":q"] },
-    { "before": ["<Esc>"], "commands": [":noh"] },
     {
       "before": ["g", "r"],
       "commands": ["editor.action.rename"]
