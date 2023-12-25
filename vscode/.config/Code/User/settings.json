@@ -143,16 +143,16 @@
   "git.mergeEditor": false,
   "gitConfigUser.profiles": [
     {
-      "label": "parq",
-      "userName": "juan.merchan",
       "email": "juan.merchan@parqco.com",
-      "selected": false
+      "label": "parq",
+      "selected": true,
+      "userName": "juan.merchan"
     },
     {
-      "label": "NikolaM-Dev",
       "email": "juan1014166@gmail.com",
-      "userName": "Juan David Merchan Torres",
-      "selected": true
+      "label": "NikolaM-Dev",
+      "selected": false,
+      "userName": "Juan David Merchan Torres"
     }
   ],
   "gitlens.advanced.messages": {
@@ -301,14 +301,14 @@
   "vim.hlsearch": true,
   "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
-    { "after": ["<Esc>", "l", "a"], "before": ["L", "L"] },
-    { "after": ["<Esc>", "h", "a"], "before": ["H", "H"] },
+    { "after": ["<esc>", "l", "a"], "before": ["L", "L"] },
+    { "after": ["<esc>", "h", "a"], "before": ["H", "H"] },
     {
-      "after": ["<Esc>", ":", "w", "<CR>"],
+      "after": ["<esc>", ":", "w", "<CR>"],
       "before": ["<C-s>"]
     },
     {
-      "after": ["<Esc>", ":", "q", "<CR>"],
+      "after": ["<esc>", ":", "q", "<CR>"],
       "before": ["<C-q>"]
     }
   ],
@@ -390,7 +390,7 @@
       "before": ["<leader>", "5"],
       "commands": ["vscode-harpoon.gotoEditor5"]
     },
-    { "before": ["<Leader>", "c"], "commands": [":noh"] },
+    { "before": ["<leader>", "c"], "commands": [":noh"] },
     {
       "before": ["<leader>", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
