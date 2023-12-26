@@ -316,7 +316,7 @@ alias mnvmrc="node -v >> .nvmrc"
 alias pdfs="~/grey/ && ranger && cd -"
 alias r="ranger"
 alias sr="sudo reboot"
-alias ssn="rcsltr && sudo shutdown now"
+alias ssn="rcpl && rcp && sudo shutdown now"
 alias szsh="source ~/.zshrc"
 alias tree="exa -T"
 alias t="tmux"
@@ -353,8 +353,8 @@ alias ssd="systemctl start docker.service"
 # Rclone
 alias rcsltr="rclone -v sync /home/nikola/Documents/drive drive:"
 alias rcsrtl="rclone -v sync drive: /home/nikola/Documents/drive"
-alias rcltr="rclone -v copy /home/nikola/Documents/drive drive:"
-alias rcrtl="rclone -v copy drive: /home/nikola/Documents/drive"
+alias rcp="rclone -v copy /home/nikola/Documents/drive drive:"
+alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
 
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
