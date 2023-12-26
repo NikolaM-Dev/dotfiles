@@ -141,20 +141,6 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": false,
   "git.mergeEditor": false,
-  "gitConfigUser.profiles": [
-    {
-      "email": "juan.merchan@parqco.com",
-      "label": "parq",
-      "selected": true,
-      "userName": "juan.merchan"
-    },
-    {
-      "email": "juan1014166@gmail.com",
-      "label": "NikolaM-Dev",
-      "selected": false,
-      "userName": "Juan David Merchan Torres"
-    }
-  ],
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": true
   },
