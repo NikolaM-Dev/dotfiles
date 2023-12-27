@@ -287,8 +287,6 @@
   "vim.hlsearch": true,
   "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
-    { "after": ["<esc>", "l", "a"], "before": ["L", "L"] },
-    { "after": ["<esc>", "h", "a"], "before": ["H", "H"] },
     {
       "after": ["<esc>", ":", "w", "<CR>"],
       "before": ["<C-s>"]
