@@ -193,5 +193,19 @@
   {
     "key": "ctrl+alt+a",
     "command": "-tailwind-fold.toggleAutoFold"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "-rust-analyzer.joinLines",
+    "when": "editorTextFocus && editorLangId == 'rust'"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "-workbench.action.search.toggleQueryDetails",
+    "when": "inSearchEditor || searchViewletFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "json.sort"
   }
 ]
