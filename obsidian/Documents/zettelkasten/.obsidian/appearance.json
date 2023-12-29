@@ -1,0 +1,10 @@
+{
+  "accentColor": "#00ff62",
+  "cssTheme": "AnuPpuccin",
+  "theme": "obsidian",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font",
+  "textFontFamily": "IBM Plex Sans",
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "baseFontSize": 16
+}
