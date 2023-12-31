@@ -356,6 +356,10 @@ alias rcsrtl="rclone -v sync drive: /home/nikola/Documents/drive"
 alias rcp="rclone -v copy /home/nikola/Documents/drive drive:"
 alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
 
+# Youtube
+alias ytaudio="yt-dlp -f 'ba' -x --no-playlist"
+alias ytplaylist="yt-dlp -f 'ba' -x"
+
 # Colors
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=magenta'
