@@ -85,10 +85,11 @@ sudo pacman -Syu alacritty base-devel btop curl dbeaver exa fd feh flameshot fzf
 > - simple-mtpfs
 > - ueberzug
 > - visual-studio-code-bin
+> - yt-dlp
 > - zathura-pdf-mupdf
 
 ```sh
-sudo yay -Syu anki beekpeeper-studio-bin catppuccin-gtk-theme-mocha gitmux google-chrome pandoc-cli papirus-folders-catppuccin-git papirus-icon-theme-git postman-bin simple-mtpfs ueberzug visual-studio-code-bin zathura-pdf-mupdf
+sudo yay -Syu anki beekpeeper-studio-bin catppuccin-gtk-theme-mocha gitmux google-chrome pandoc-cli papirus-folders-catppuccin-git papirus-icon-theme-git postman-bin simple-mtpfs ueberzug visual-studio-code-bin yt-dlp zathura-pdf-mupdf
 ```
 
 ## 🦀 Rust
