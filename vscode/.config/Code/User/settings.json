@@ -508,5 +508,8 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.indent": 4
+  "workbench.tree.indent": 4,
+  "workbench.editorAssociations": {
+    "*.xlsx": "gc-excelviewer-excel-editor"
+  }
 }
