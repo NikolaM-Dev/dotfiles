@@ -1,5 +1,4 @@
 {
-  "Lua.telemetry.enable": false,
   "[c]": {
     "editor.semanticHighlighting.enabled": true,
     "editor.suggest.insertMode": "replace",
@@ -13,11 +12,15 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "[go.mod]": {
-    "editor.codeActionsOnSave": { "source.organizeImports": true },
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
     "editor.formatOnSave": true
   },
   "[go]": {
-    "editor.codeActionsOnSave": { "source.organizeImports": true },
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "boundary",
@@ -33,7 +36,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascriptreact]": {
@@ -53,15 +58,23 @@
     "editor.formatOnSave": true,
     "editor.renderWhitespace": "boundary"
   },
-  "[makefile]": { "editor.insertSpaces": false, "editor.tabSize": 4 },
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[python]": { "editor.insertSpaces": true, "editor.tabSize": 4 },
+  "[python]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[shellscript]": { "editor.tabSize": 4 },
+  "[shellscript]": {
+    "editor.tabSize": 4
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "typescript.preferences.importModuleSpecifier": "relative"
@@ -136,7 +149,10 @@
     ".next": true,
     "USE_GITIGNORE": true
   },
-  "files.watcherExclude": { "/.next/": true, "/node_modules/": true },
+  "files.watcherExclude": {
+    "/.next/": true,
+    "/node_modules/": true
+  },
   "git.autofetch": false,
   "git.confirmSync": false,
   "git.enableSmartCommit": false,
@@ -192,6 +208,7 @@
   ],
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
+  "Lua.telemetry.enable": false,
   "material-icon-theme.activeIconPack": "nest",
   "mdb.sendTelemetry": false,
   "prettier.bracketSpacing": true,
@@ -237,7 +254,9 @@
   "todohighlight.keywords": [
     {
       "backgroundColor": "#4ec9b0",
-      "before": { "contentText": "" },
+      "before": {
+        "contentText": ""
+      },
       "color": "#212121",
       "fontStyle": "italic",
       "fontWeight": "400",
@@ -300,7 +319,10 @@
   "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [
-    { "before": ["<C-q>"], "commands": [":q"] },
+    {
+      "before": ["<C-q>"],
+      "commands": [":q"]
+    },
     {
       "before": ["g", "r"],
       "commands": ["editor.action.rename"]
@@ -309,8 +331,14 @@
       "after": ["<leader>", "<leader>", "<leader>", "j"],
       "before": ["f"]
     },
-    { "after": ["<C-d>", "z", "z"], "before": ["<C-d>"] },
-    { "after": ["<C-u>", "z", "z"], "before": ["<C-u>"] },
+    {
+      "after": ["<C-d>", "z", "z"],
+      "before": ["<C-d>"]
+    },
+    {
+      "after": ["<C-u>", "z", "z"],
+      "before": ["<C-u>"]
+    },
     {
       "before": ["<leader>", "w"],
       "commands": ["workbench.action.files.saveAll"]
@@ -339,14 +367,38 @@
       "before": ["<leader>", "w"],
       "commands": ["workbench.action.files.saveAll"]
     },
-    { "after": ["g", "j"], "before": ["j"] },
-    { "after": ["g", "k"], "before": ["k"] },
-    { "before": ["<leader>", "z"], "commands": [":q!"] },
-    { "after": ["<C-w>", "h"], "before": ["<C-h>"] },
-    { "before": ["<C-q>"], "commands": [":q"] },
-    { "after": ["<C-w>", "j"], "before": ["<C-j>"] },
-    { "after": ["<C-w>", "k"], "before": ["<C-k>"] },
-    { "after": ["<C-w>", "l"], "before": ["<C-l>"] },
+    {
+      "after": ["g", "j"],
+      "before": ["j"]
+    },
+    {
+      "after": ["g", "k"],
+      "before": ["k"]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "commands": [":q!"]
+    },
+    {
+      "after": ["<C-w>", "h"],
+      "before": ["<C-h>"]
+    },
+    {
+      "before": ["<C-q>"],
+      "commands": [":q"]
+    },
+    {
+      "after": ["<C-w>", "j"],
+      "before": ["<C-j>"]
+    },
+    {
+      "after": ["<C-w>", "k"],
+      "before": ["<C-k>"]
+    },
+    {
+      "after": ["<C-w>", "l"],
+      "before": ["<C-l>"]
+    },
     {
       "before": ["<leader>", "a"],
       "commands": ["vscode-harpoon.addEditor"]
@@ -375,13 +427,22 @@
       "before": ["<leader>", "5"],
       "commands": ["vscode-harpoon.gotoEditor5"]
     },
-    { "before": ["<leader>", "c"], "commands": [":noh"] },
+    {
+      "before": ["<leader>", "c"],
+      "commands": [":noh"]
+    },
     {
       "before": ["<leader>", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
-    { "after": ["_"], "before": ["<leader>", "h"] },
-    { "after": ["$"], "before": ["<leader>", "l"] },
+    {
+      "after": ["_"],
+      "before": ["<leader>", "h"]
+    },
+    {
+      "after": ["$"],
+      "before": ["<leader>", "l"]
+    },
     {
       "before": ["<leader>", "t"],
       "commands": ["workbench.action.toggleActivityBarVisibility"]
@@ -451,6 +512,24 @@
     "[Field Lights]": {
       "editorInlayHint.background": "#1a1f28"
     },
+    "[lucy-evening]": {
+      "terminal.ansiBlack": "#000000",
+      "terminal.ansiBlue": "#82aaff",
+      "terminal.ansiBrightBlack": "#4a4a4a",
+      "terminal.ansiBrightBlue": "#82aaff",
+      "terminal.ansiBrightCyan": "#89ddff",
+      "terminal.ansiBrightGreen": "#c3e88d",
+      "terminal.ansiBrightMagenta": "#c792ea",
+      "terminal.ansiBrightRed": "#ff5370",
+      "terminal.ansiBrightWhite": "#ffffff",
+      "terminal.ansiBrightYellow": "#ffcb6b",
+      "terminal.ansiCyan": "#89ddff",
+      "terminal.ansiGreen": "#c3e88d",
+      "terminal.ansiMagenta": "#c792ea",
+      "terminal.ansiRed": "#ff5370",
+      "terminal.ansiWhite": "#ffffff",
+      "terminal.ansiYellow": "#ffcb6b"
+    },
     "[Monokai Pro]": {
       "statusBarItem.remoteBackground": "#FF6188",
       "statusBarItem.remoteForeground": "#fff"
@@ -474,24 +553,6 @@
       "terminal.ansiWhite": "#abb2bf",
       "terminal.ansiYellow": "#d19a66",
       "terminal.foreground": "#abb2bf"
-    },
-    "[lucy-evening]": {
-      "terminal.ansiBlack": "#000000",
-      "terminal.ansiBlue": "#82aaff",
-      "terminal.ansiBrightBlack": "#4a4a4a",
-      "terminal.ansiBrightBlue": "#82aaff",
-      "terminal.ansiBrightCyan": "#89ddff",
-      "terminal.ansiBrightGreen": "#c3e88d",
-      "terminal.ansiBrightMagenta": "#c792ea",
-      "terminal.ansiBrightRed": "#ff5370",
-      "terminal.ansiBrightWhite": "#ffffff",
-      "terminal.ansiBrightYellow": "#ffcb6b",
-      "terminal.ansiCyan": "#89ddff",
-      "terminal.ansiGreen": "#c3e88d",
-      "terminal.ansiMagenta": "#c792ea",
-      "terminal.ansiRed": "#ff5370",
-      "terminal.ansiWhite": "#ffffff",
-      "terminal.ansiYellow": "#ffcb6b"
     },
     "editorBracketHighlight.foreground1": "#ffd700",
     "editorBracketHighlight.foreground2": "#da70d6",
