@@ -49,7 +49,6 @@
 > - rofi
 > - rofi-emoji
 > - scrot
-> - simple-mtpfs
 > - starship
 > - tldr
 > - tmux
