@@ -116,6 +116,7 @@
   "editor.quickSuggestionsDelay": 6,
   "editor.rulers": [80],
   "editor.semanticHighlighting.enabled": true,
+  "editor.stickyScroll.enabled": true,
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
