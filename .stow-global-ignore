@@ -1,4 +1,5 @@
 \.config/gtk/*
 \.config/qtile/*
+\Documents
 \.xprofile
 \.xprofile-old
