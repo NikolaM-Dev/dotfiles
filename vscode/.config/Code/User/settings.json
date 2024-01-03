@@ -122,7 +122,6 @@
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "onlySnippets",
   "editor.tabSize": 2,
-  "editor.tokenColorCustomizations": { "[One Dark Pro]": {} },
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
   "editor.wrappingIndent": "indent",
