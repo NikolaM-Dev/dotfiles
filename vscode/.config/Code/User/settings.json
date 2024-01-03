@@ -125,7 +125,10 @@
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
   "editor.wrappingIndent": "indent",
-  "emmet.includeLanguages": { "reason": "javascriptreact", "svelte": "html" },
+  "emmet.includeLanguages": {
+    "reason": "javascriptreact",
+    "svelte": "html"
+  },
   "emmet.triggerExpansionOnTab": true,
   "eslint.validate": [
     "vue",
