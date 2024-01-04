@@ -1,60 +1,64 @@
 {
   "main": {
-    "id": "20fae30faae37818",
+    "id": "1e46ac620d2edb73",
     "type": "split",
     "children": [
       {
-        "id": "91a71a855ca59e04",
+        "id": "c222f0ea0026f499",
         "type": "tabs",
         "children": [
           {
-            "id": "c175d902670932a1",
+            "id": "c91129c9bfeab96b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Refold.md",
+                "file": "PARQ/Mr.James recomendation.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7e298dcd0ccd50aa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Como crear apps apartir de AppImages.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "e64417c73386e00f",
+    "id": "6e66b2a67bab0769",
     "type": "split",
     "children": [
       {
-        "id": "27f6c514fd85c379",
+        "id": "637ceddaf1ec29c7",
         "type": "tabs",
         "children": [
           {
-            "id": "1c2b8c185c66c6eb",
+            "id": "8a959988b45bc7e8",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byCreatedTime"
+                "sortOrder": "alphabetical"
               }
             }
           },
           {
-            "id": "12a872260cfb0a95",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Refold.md"
-              }
-            }
-          },
-          {
-            "id": "0772e3ba82e28a43",
+            "id": "affceb312471001d",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -69,7 +73,7 @@
             }
           },
           {
-            "id": "716cf7204963a41c",
+            "id": "00ef5024a731c0e9",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -80,24 +84,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 506.5
+    "width": 300
   },
   "right": {
-    "id": "16129f54f2c59d70",
+    "id": "8f931ebecf6af18f",
     "type": "split",
     "children": [
       {
-        "id": "7c8dc661fd5a244d",
+        "id": "0c71383ba417f566",
         "type": "tabs",
-        "dimension": 39.21800947867299,
         "children": [
           {
-            "id": "79b8b2d4ed049201",
+            "id": "b5eafec0aef3278d",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Refold.md",
+                "file": "Como crear apps apartir de AppImages.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,19 +112,19 @@
             }
           },
           {
-            "id": "c597659ff85818d2",
+            "id": "ddbc16fde996902a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Refold.md",
+                "file": "Como crear apps apartir de AppImages.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "4c11b6131afad1eb",
+            "id": "e5aef0a8aea197e3",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -132,7 +135,17 @@
             }
           },
           {
-            "id": "513985ef169ab777",
+            "id": "457a08c864bdc53b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Como crear apps apartir de AppImages.md"
+              }
+            }
+          },
+          {
+            "id": "3479e1220397632e",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -144,7 +157,7 @@
             }
           },
           {
-            "id": "76c84ec767ce8ad7",
+            "id": "e13e661fc4172136",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -152,114 +165,62 @@
             }
           }
         ],
-        "currentTab": 4
-      },
-      {
-        "id": "d01feaaa09ca91fa",
-        "type": "tabs",
-        "dimension": 60.781990521327,
-        "children": [
-          {
-            "id": "4f439d8969c13220",
-            "type": "leaf",
-            "state": {
-              "type": "localgraph",
-              "state": {
-                "file": "Refold.md",
-                "options": {
-                  "collapse-filter": true,
-                  "search": "",
-                  "localJumps": 1,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": true,
-                  "colorGroups": [],
-                  "collapse-display": false,
-                  "showArrow": false,
-                  "textFadeMultiplier": -3,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": true,
-                  "centerStrength": 0.518713248970312,
-                  "repelStrength": 10,
-                  "linkStrength": 1,
-                  "linkDistance": 250,
-                  "scale": 0.4444444444444444,
-                  "close": true
-                }
-              }
-            }
-          }
-        ]
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 283.5
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": true,
-      "graph:Open graph view": true,
-      "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
+      "switcher:Open quick switcher": true,
+      "graph:Open graph view": true,
       "command-palette:Open command palette": true,
-      "obsidian-trim-whitespace:Trim whitespace": true,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "templater-obsidian:Templater": false,
+      "obsidian-trim-whitespace:Trim whitespace": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "periodic-notes:Open today": false
     }
   },
-  "active": "c175d902670932a1",
+  "active": "7e298dcd0ccd50aa",
   "lastOpenFiles": [
-    "Calendar/Daily/2023-12-28.md",
-    "diga.md",
-    "Native Language.md",
+    "PARQ/Mr.James recomendation.md",
+    "Como crear apps apartir de AppImages.md",
+    "Calendar/Daily/2024-01-04.md",
+    "Calendar/Daily/2024-01-03.md",
+    "PARQ/Duvan Report.md",
+    "Arch Install Docs.md",
+    "Gym.md",
+    "Immersion.md",
+    "Improve Family.md",
+    "Learn About Economy.md",
+    "Learn English.md",
+    "Learn Golang.md",
+    "Anki docs.md",
+    "Anki.md",
+    "2024 Goals.md",
+    "Target Language.md",
     "Sprint 39.md",
-    "Refold.md",
-    "h4.md",
-    "PARQ/Diagnostics Report.md",
-    "Readwise/Books/Atomic Note-Taking.md",
-    "Readwise/Books/Atomic Note Taking.pdf.md",
-    "Readwise/Books/Atomic Note-Taking-2.md",
+    "Refold Course.md",
+    "Learn SQL.md",
+    "Learn Soft Skills.md",
+    "Learn React.md",
     "PARQ/Hotel Bogota Plaza Estimaciones.md",
-    "Readwise/Tweets/Tweets From Miguel Ángel Durán.md",
-    "Readwise/Tweets/Tweets From Garima Chaudhary.md",
-    "Readwise/Tweets/Tweets from 💙💛 Vadym Kazulkin 🇺🇦🇮🇱.md",
-    "Readwise/Tweets/Tweets from Golang News & Libs & Jobs - human 🗣️ , no 🤖.md",
-    "Readwise/Tweets/Tweets From Google Colombia.md",
-    "Readwise/Tweets/Tweets From Alejo 𝕏.md",
-    "Readwise/Tweets/Tweets From Supabase.md",
-    "Readwise/Tweets/Tweets From Hussein Nasser.md",
-    "Readwise/Tweets/Tweets from Ben  Crecimiento de audiencia & IA.md",
-    "Readwise/Tweets/Tweets From Lean Mind.md",
-    "Readwise/Tweets/Tweets From Ashish Pratap Singh.md",
-    "Readwise/Tweets/Tweets From Thiago Ghisi.md",
-    "Readwise/Tweets/Tweets From Manu Arora.md",
-    "Readwise/Tweets/Tweets From Addy Osmani.md",
-    "Readwise/Tweets/Tweets From Adam.md",
+    "PARQ/HP Report.md",
+    "Read 12 books.md",
+    "Pasted image 20231221093107.png.md",
+    "Readwise/Tweets/Tweets From Obsidian.md.md",
     "Readwise/Books",
     "Readwise/Articles",
     "Readwise/Tweets",
     "Readwise",
-    "Untitled.canvas",
-    "Untitled 1.canvas",
     "Calendar/Monthly",
     "Calendar/Quarterly",
     "Calendar/Yearly",
     "Calendar/Weekly",
-    "PARQ/Diagnostics Report.html",
-    "Pasted image 20231221103038.png",
-    "check-in.png",
-    "Pasted image 20231221093107.png",
     "Templates",
-    "Pasted image 20231219151834.png",
-    "Pasted image 20231218153419.png",
-    "Pasted image 20231218153112.png",
-    "Pasted image 20231218153251.png"
+    "PARQ"
   ]
 }

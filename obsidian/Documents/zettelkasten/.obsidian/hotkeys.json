@@ -1,18 +1,13 @@
 {
   "switcher:open": [
     {
-      "modifiers": [
-        "Mod"
-      ],
+      "modifiers": ["Mod"],
       "key": "P"
     }
   ],
   "command-palette:open": [
     {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
+      "modifiers": ["Mod", "Shift"],
       "key": "P"
     }
   ],
@@ -21,9 +16,7 @@
   "editor:toggle-italics": [],
   "workspace:close": [
     {
-      "modifiers": [
-        "Mod"
-      ],
+      "modifiers": ["Mod"],
       "key": "Q"
     }
   ]

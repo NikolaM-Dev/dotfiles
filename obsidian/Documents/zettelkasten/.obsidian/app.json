@@ -1,21 +1,3 @@
 {
-  "focusNewTab": true,
-  "strictLineBreaks": false,
-  "propertiesInDocument": "source",
-  "showLineNumber": true,
-  "spellcheck": false,
-  "vimMode": true,
-  "trashOption": "local",
-  "alwaysUpdateLinks": true,
-  "showInlineTitle": true,
-  "useTab": true,
-  "pdfExportSettings": {
-    "includeName": true,
-    "pageSize": "A4",
-    "landscape": false,
-    "margin": "0",
-    "downscalePercent": 100
-  },
-  "showUnsupportedFiles": true,
-  "promptDelete": false
+  "vimMode": true
 }
