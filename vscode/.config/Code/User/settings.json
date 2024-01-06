@@ -214,6 +214,7 @@
   "Lua.telemetry.enable": false,
   "material-icon-theme.activeIconPack": "nest",
   "mdb.sendTelemetry": false,
+  "pgFormatter.keepNewline": true,
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
   "rapidapi.terminalLink.enabled": false,
