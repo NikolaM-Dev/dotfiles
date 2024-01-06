@@ -1,13 +1,18 @@
 {
   "switcher:open": [
     {
-      "modifiers": ["Mod"],
+      "modifiers": [
+        "Mod"
+      ],
       "key": "P"
     }
   ],
   "command-palette:open": [
     {
-      "modifiers": ["Mod", "Shift"],
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
       "key": "P"
     }
   ],
@@ -16,8 +21,28 @@
   "editor:toggle-italics": [],
   "workspace:close": [
     {
-      "modifiers": ["Mod"],
+      "modifiers": [
+        "Mod"
+      ],
       "key": "Q"
+    }
+  ],
+  "markdown:toggle-preview": [],
+  "file-explorer:open": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "E"
+    }
+  ],
+  "editor:toggle-source": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "E"
     }
   ]
 }
