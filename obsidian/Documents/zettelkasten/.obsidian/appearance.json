@@ -5,6 +5,8 @@
   "monospaceFontFamily": "JetBrainsMono Nerd Font",
   "textFontFamily": "IBM Plex Sans",
   "showViewHeader": true,
-  "nativeMenus": true,
-  "baseFontSize": 16
+  "nativeMenus": false,
+  "baseFontSize": 16,
+  "interfaceFontFamily": "IBM Plex Sans",
+  "baseFontSizeAction": true
 }
