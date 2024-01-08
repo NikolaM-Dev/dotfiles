@@ -7,5 +7,6 @@
   "newFileLocation": "current",
   "attachmentFolderPath": "Assets",
   "showLineNumber": true,
-  "defaultViewMode": "source"
+  "defaultViewMode": "source",
+  "showUnsupportedFiles": true
 }
