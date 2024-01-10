@@ -1,6 +1,6 @@
 " Better up/down
-nmap j gj
-nmap k gk
+nmap J gj
+nmap K gk
 
 " Togge fold
 exmap togglefold obcommand editor:toggle-fold
