@@ -5,7 +5,7 @@
   "trashOption": "local",
   "alwaysUpdateLinks": true,
   "newFileLocation": "current",
-  "attachmentFolderPath": "Assets",
+  "attachmentFolderPath": "00-Assets",
   "showLineNumber": true,
   "defaultViewMode": "source",
   "showUnsupportedFiles": true
