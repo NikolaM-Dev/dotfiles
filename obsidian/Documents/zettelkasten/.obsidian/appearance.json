@@ -2,7 +2,7 @@
   "accentColor": "#87b0f9",
   "cssTheme": "AnuPpuccin",
   "theme": "obsidian",
-  "monospaceFontFamily": "JetBrainsMono Nerd Font",
+  "monospaceFontFamily": "Cascadia Code SemiLight,JetBrainsMono Nerd Font",
   "textFontFamily": "IBM Plex Sans",
   "showViewHeader": true,
   "nativeMenus": false,
