@@ -1,5 +1,8 @@
 scan_timeout = 60
 
+[character]
+vimcmd_symbol = '[](bold green)'
+
 [cmd_duration]
 format = "[$duration]($style) "
 
