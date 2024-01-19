@@ -99,9 +99,9 @@ ZSH_DISABLE_COMPFIX="true"
 plugins=(
   bun
   fnm
-  vi-mode
   fzf
   sudo
+  vi-mode
   zsh-autocomplete
   zsh-autosuggestions
   zsh-syntax-highlighting
