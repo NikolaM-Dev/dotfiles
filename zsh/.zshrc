@@ -424,15 +424,6 @@ ctrlz() {
 zle -N ctrlz
 bindkey '^Z' ctrlz
 
-# Source plugins
-if [[ -f $sudo ]]; then
-  source $sudo
-  bindkey -M vicmd '^[s' sudo-command-line # ALT + s
-  bindkey -M viins '^[s' sudo-command-line # ALT + s
-fi
-[[ -f $autosuggestions ]] && source $autosuggestions
-[[ -f $syntax ]] && source $syntax
-
 # tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
