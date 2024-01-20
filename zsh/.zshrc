@@ -380,12 +380,12 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=blue'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
 ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
 
+# vi-mode plugin
+export VI_MODE_SET_CURSOR=true
+export KEYTIMEOUT=20
+
 # Promt
 eval "$(starship init zsh)"
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
 # Crowbar
 ctrlz() {
