@@ -305,8 +305,6 @@ alias gmi="go mod init"
 alias gtest="go test -v -cover ./..."
 
 # IDE
-alias cat="bat --style=plain --paging=never"
-alias ccat="ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint""
 alias compile-dwm="cd ~/.config/chadwm/chadwm && sudo make clean install && cd -"
 alias cva="yarn create vite"
 alias dautotime="sudo timedatectl set-ntp 0"
