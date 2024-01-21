@@ -104,7 +104,7 @@ plugins=(
   vi-mode
   zsh-autocomplete
   zsh-autosuggestions
-  zsh-syntax-highlighting
+  fast-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -367,18 +367,6 @@ alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
 alias play="vlc -I ncurses --novideo --random --loop --playlist-autostart ~/Music"
 alias ytaudio="yt-dlp -f 'ba' -x --no-playlist"
 alias ytplaylist="yt-dlp -f 'ba' -x"
-
-# Colors
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-ZSH_HIGHLIGHT_STYLES[redirection]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
 
 # vi-mode plugin
 export VI_MODE_SET_CURSOR=true
