@@ -329,6 +329,8 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias update="sudo pacman -Syyu --noconfirm && yay -Syu --noconfirm && omz update"
 alias v=nvim
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # Docker
 alias dclsa="docker container ls -a"
