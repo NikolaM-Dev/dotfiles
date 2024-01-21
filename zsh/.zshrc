@@ -162,7 +162,7 @@ function c {
 }
 
 function gd {
-  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
+    git diff --name-only --relative --diff-filter=d "$@" ":(exclude)package-lock.json" ":(exclude)*.lock" | xargs bat --diff
 }
 
 function cdir {
