@@ -1,54 +1,43 @@
 {
   "switcher:open": [
     {
-      "modifiers": [
-        "Mod"
-      ],
+      "modifiers": ["Mod"],
       "key": "P"
     }
   ],
   "command-palette:open": [
     {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
+      "modifiers": ["Mod", "Shift"],
       "key": "P"
     }
   ],
-  "obsidian-emoji-toolbar:emoji-picker:open-picker": [],
-  "editor:delete-paragraph": [],
-  "editor:toggle-italics": [],
   "workspace:close": [
     {
-      "modifiers": [
-        "Mod"
-      ],
+      "modifiers": ["Mod"],
       "key": "Q"
     }
   ],
-  "markdown:toggle-preview": [],
   "file-explorer:open": [
     {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
+      "modifiers": ["Mod", "Shift"],
       "key": "E"
     }
   ],
   "editor:toggle-source": [
     {
-      "modifiers": [
-        "Mod"
-      ],
+      "modifiers": ["Mod"],
       "key": "E"
     }
-  ]
+  ],
   "templater-obsidian:create-new-note-from-template": [
     {
       "modifiers": ["Mod"],
       "key": "T"
     }
   ],
+  "editor:delete-paragraph": [],
+  "editor:toggle-italics": [],
+  "markdown:toggle-preview": [],
+  "obsidian-emoji-toolbar:emoji-picker:open-picker": [],
+  "workspace:new-tab": []
 }
