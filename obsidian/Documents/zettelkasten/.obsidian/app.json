@@ -1,4 +1,5 @@
 {
+  "promptDelete": true,
   "vimMode": true,
   "spellcheck": false,
   "propertiesInDocument": "source",
