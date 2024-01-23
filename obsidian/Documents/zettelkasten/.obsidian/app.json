@@ -1,13 +1,13 @@
 {
-  "promptDelete": true,
-  "vimMode": true,
-  "spellcheck": false,
-  "propertiesInDocument": "source",
-  "trashOption": "local",
   "alwaysUpdateLinks": true,
-  "newFileLocation": "current",
   "attachmentFolderPath": "00-Assets",
-  "showLineNumber": true,
   "defaultViewMode": "source",
-  "showUnsupportedFiles": true
+  "newFileLocation": "current",
+  "promptDelete": true,
+  "propertiesInDocument": "source",
+  "showLineNumber": true,
+  "showUnsupportedFiles": true,
+  "spellcheck": false,
+  "trashOption": "local",
+  "vimMode": true
 }
