@@ -1,0 +1,76 @@
+# 🧼 D1
+- [ ] Mermelada
+- [ ] Cafe
+- [ ] Garlic
+- [ ] Vinagre
+- [ ] Ketchup
+- [ ] Mayonesa
+- [ ] Salsa Negra
+- [ ] Aceite
+- [ ] Aceite de Oliva
+- [ ] Queso
+- [ ] Jamon
+- [ ] Papel
+- [ ] Trapero
+- [ ] Guantes
+- [ ] Servilletas
+- [ ] Arena para la gata
+- [ ] Brilla King
+- [ ] Limpido
+- [ ] Bonaropa
+- [ ] Suavizante
+- [ ] Jabon Liquido
+- [ ] Seda Dental
+- [ ] Bolsas de Basura
+- [ ] Bolsas del Bano
+- [ ] Panitos
+- [ ] Desorantes
+- [ ] Cepillo
+- [ ] Enjuage Bucal
+- [ ] Toallas Higienicas
+- [ ] Protectores
+- [ ] Jabon de Manos
+
+# 🌽 Mercar
+- [ ] Atun
+- [ ] Sardinas
+- [ ] Sal
+- [ ] Salero
+- [ ] Arina Az de oros
+- [ ] Masamorra
+- [ ] Maiz pira
+- [ ] Espagueti
+- [ ] Penes
+- [ ] Conchas
+- [ ] Lentejas
+- [ ] Frijoles
+- [ ] Arberja
+- [ ] Azucar
+- [ ] Pimienta
+- [ ] Bicarbonato
+- [ ] Chocolate
+- [ ] Maicena
+- [ ] Avena
+- [ ] Leche
+- [ ] Bocadillo
+- [ ] Crema de leche
+- [ ] Pan de Sandwich
+- [ ] Papel de arepas
+- [ ] Platos o Utencilios
+- [ ] Salchichas
+- [ ] Jabon rey
+- [ ] Jabon supremo
+- [ ] Guantes transparentes
+- [ ] Sabras
+- [ ] Jabon de Loza
+- [ ] Miringo
+- [ ] Shampo
+- [ ] Crema dental
+- [ ] Jabon para el cuerpo
+- [ ] Alcohol
+- [ ] Golocina del mes
+- [ ] Saltinas
+- [ ] Ducales
+- [ ] Mantequilla
+- [ ] Rasuradora
+- [ ] Arroz
