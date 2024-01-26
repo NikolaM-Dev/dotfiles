@@ -98,13 +98,13 @@ ZSH_DISABLE_COMPFIX="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   bun
+  fast-syntax-highlighting
   fnm
   fzf
   sudo
   vi-mode
   zsh-autocomplete
   zsh-autosuggestions
-  fast-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
