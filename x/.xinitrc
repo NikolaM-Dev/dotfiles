@@ -43,7 +43,6 @@ xset s off
 # Daemons
 flameshot &
 nm-applet &
-~/apps/Obsidian-1.5.3.AppImage &
 picom -b --config ~/.config/picom/picom.conf &
 sh .fehbg &
 udiskie -t &
