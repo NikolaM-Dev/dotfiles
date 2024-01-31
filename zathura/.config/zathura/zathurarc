@@ -28,7 +28,7 @@ set render-loading "false"
 set scroll-step 50
 
 # Theme
-include themes/gruvchad
+include themes/readwise
 
 map d scroll half-down
 map u scroll half-up
