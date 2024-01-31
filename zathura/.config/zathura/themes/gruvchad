@@ -33,3 +33,5 @@ set recolor-lightcolor "#1e2122" #00
 
 set statusbar-bg "#2c2f30" #01
 set statusbar-fg "#d4be98" #04
+
+# vim:ft=config
