@@ -1,0 +1,37 @@
+set completion-bg "#36393a" #02
+set completion-fg "#86b17f" #0C
+
+set completion-highlight-bg "#86b17f" #0C
+set completion-highlight-fg "#36393a" #02
+
+set default-bg "#0f1821" #00
+set default-fg "#2c2f30" #01
+
+set highlight-active-color "#7daea3" #0D
+set highlight-color "#e0c080" #0A
+
+set index-active-bg "#86b17f"
+set index-active-fg "#1e2122"
+
+set index-bg "#1e2122"
+set index-fg "#86b17f"
+
+set inputbar-bg "#1e2122" #00
+set inputbar-fg "#d4be98" #02
+
+set notification-bg "#a9b665" #0B
+set notification-fg "#1e2122" #00
+
+set notification-error-bg "#ec6b64" #08
+set notification-error-fg "#1e2122" #00
+
+set notification-warning-bg "#ec6b64" #08
+set notification-warning-fg "#1e2122" #00
+
+set recolor-darkcolor "#dfdddd" #06
+set recolor-lightcolor "#1c2632" #00
+
+set statusbar-bg "#2c2f30" #01
+set statusbar-fg "#d4be98" #04
+
+# vim:ft=config
