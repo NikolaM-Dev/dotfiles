@@ -41,7 +41,8 @@ symbol = " "
 
 [golang]
 format = '[$symbol($version )($mod_version )]($style)'
-symbol = " "
+style = "#00acc1"
+symbol = " "
 
 [package]
 format = "[$symbol$version]($style) "
