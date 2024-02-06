@@ -8,6 +8,7 @@
   "showLineNumber": true,
   "showUnsupportedFiles": true,
   "spellcheck": false,
+  "strictLineBreaks": false,
   "trashOption": "local",
   "vimMode": true
 }

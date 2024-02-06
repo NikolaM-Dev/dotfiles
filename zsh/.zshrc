@@ -300,7 +300,7 @@ alias yi="npm init -y"
 alias yrm="yarn remove"
 
 # Golang
-alias gcoverage="go test -coverprofile=coverage.out && go tool cover -html=coverage.out"
+alias gcoverage="go test -coverprofile=coverage.out; go tool cover -o coverage.html -html=coverage.out; google-chrome-stable coverage.html"
 alias gmi="go mod init"
 alias gtest="go test -v -cover ./..."
 

@@ -3,10 +3,10 @@
   "cssTheme": "AnuPpuccin",
   "theme": "obsidian",
   "monospaceFontFamily": "Cascadia Code SemiLight,JetBrainsMono Nerd Font",
-  "textFontFamily": "IBM Plex Sans",
+  "textFontFamily": "Cascadia Code SemiLight,IBM Plex Sans",
   "showViewHeader": true,
   "nativeMenus": false,
   "baseFontSize": 16,
-  "interfaceFontFamily": "IBM Plex Sans",
+  "interfaceFontFamily": "Cascadia Code SemiLight,IBM Plex Sans",
   "baseFontSizeAction": true
 }
