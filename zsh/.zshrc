@@ -151,6 +151,10 @@ function open_nvim {
   fi
 }
 
+function setup-work-user {
+  echo '[user]\nname = juan.merchan\nemail = juan.merchan@parqco.com' >> .git/config
+}
+
 function c {
   if [ $# -eq 0 ]; then
     code .
