@@ -5,9 +5,8 @@ pager = delta
 diffFilter = delta --color-only
 
 [delta]
-light = false
+line-numbers = true
 navigate = true
-side-by-side = true
 
 [merge]
 conflictstyle = diff3
