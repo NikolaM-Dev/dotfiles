@@ -306,7 +306,6 @@
     "<C-g>": false,
     "<C-k>": false,
     "<C-p>": false,
-    "<C-v>": false,
     "<C-x>": false,
     "<C-y>": false,
     "<C-z>": false
