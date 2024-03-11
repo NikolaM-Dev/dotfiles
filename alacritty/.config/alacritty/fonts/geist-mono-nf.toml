@@ -1,0 +1,22 @@
+[font]
+size = 12
+
+[font.bold]
+family = "GeistMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "GeistMono Nerd Font"
+style = "SemiLight"
+
+[font.offset]
+x = -1
+y = -2
