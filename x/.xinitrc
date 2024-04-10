@@ -40,6 +40,11 @@ xset -dpms
 xset s noblank
 xset s off
 
+# Apps
+obsidian &
+brave &
+alacritty -e tmux &
+
 # Daemons
 flameshot &
 nm-applet &
