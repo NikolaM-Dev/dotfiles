@@ -187,6 +187,11 @@ function gundo {
   fi
 }
 
+function backup-commit {
+    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
+    git add . && git commit -m "feat: Add backup $time_stamp" && git push origin HEAD
+}
+
 function schange-date {
   if [ $# -eq 1 ]; then
     HOUR=$(date +%H:%M:%S)
