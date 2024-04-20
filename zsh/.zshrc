@@ -188,8 +188,12 @@ function gundo {
 }
 
 function backup-commit {
+    cd ~/Documents/second-brain.md
+
     time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
     git add . && git commit -m "feat: Add backup $time_stamp" && git push origin HEAD
+
+    cd -
 }
 
 function schange-date {
