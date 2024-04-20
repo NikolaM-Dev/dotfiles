@@ -41,9 +41,8 @@ xset s noblank
 xset s off
 
 # Apps
-obsidian &
-brave &
 alacritty -e tmux &
+brave &
 
 # Daemons
 flameshot &
