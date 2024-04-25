@@ -1,0 +1,22 @@
+[font]
+size = 12
+
+[font.bold]
+family = "BlexMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "BlexMono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "BlexMono Nerd Font"
+style = "Text Italic"
+
+[font.normal]
+family = "BlexMono Nerd Font"
+style = "Text"
+
+[font.offset]
+x = -1
+y = -2
