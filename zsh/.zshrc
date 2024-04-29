@@ -196,6 +196,11 @@ function backup-commit {
     cd -
 }
 
+function backup-system {
+    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
+    sudo timeshift --create --comments "Backup $time_stamp"
+}
+
 function schange-date {
   if [ $# -eq 1 ]; then
     HOUR=$(date +%H:%M:%S)
