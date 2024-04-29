@@ -41,7 +41,7 @@ xset s noblank
 xset s off
 
 # Apps
-alacritty -e tmux &
+wezterm -e tmux &
 brave &
 
 # Daemons
