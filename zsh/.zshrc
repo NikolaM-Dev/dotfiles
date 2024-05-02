@@ -128,7 +128,7 @@ export FILE="ranger"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export READER="zathura"
-export TERMINAL="alacritty"
+export TERMINAL="wezterm"
 export VISUAL="nvim"
 
 # Compilation flags
