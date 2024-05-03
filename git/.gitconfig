@@ -12,4 +12,4 @@ defaultBranch = main
 rebase = false
 
 [include]
-path = ~/.config/delta/delta.gitconfing
+path = ~/.config/delta/delta.gitconfig
