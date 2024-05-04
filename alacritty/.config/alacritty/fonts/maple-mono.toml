@@ -1,0 +1,22 @@
+[font]
+size = 12
+
+[font.bold]
+family = "Maple Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Maple Mono"
+style = "BoldItalic"
+
+[font.italic]
+family = "Maple Mono"
+style = "Italic"
+
+[font.normal]
+family = "Maple Mono"
+style = "Regular"
+
+[font.offset]
+x = -1
+y = -2
