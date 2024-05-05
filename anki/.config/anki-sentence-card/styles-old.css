@@ -1,0 +1,107 @@
+:root {
+  --accent-color: rgb(56, 189, 248);
+  --bg-color: rgb(15, 23, 42);
+  --border-color: rgb(55 65 81);
+  --fg-color: rgb(248, 250, 252);
+  --hr-color: rgb(255 255 255 / 0.05);
+  --lavander-color: rgb(165 180 252 / 1);
+  --soft-bg-color: rgb(30, 41, 59);
+}
+
+.card {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding: 36px;
+}
+
+.card.nightMode {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+}
+
+.flashcard {
+  background-color: var(--soft-bg-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 32px;
+}
+
+.audio__wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flashcard__word,
+.flashcard__sentence {
+  color: var(--accent-color);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.flashcard__word-translation::first-letter,
+.flashcard__definitions::first-letter,
+.flashcard__word-phonetic::first-letter,
+.flashcard__sentence-translation::first-letter,
+.flashcard__sentence::first-letter,
+.flashcard__word::first-letter {
+  text-transform: uppercase;
+}
+
+.flashcard__word-translation,
+.flashcard__definitions,
+.flashcard__word-phonetic,
+.flashcard__sentence-translation .hit {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.flashcard__definitions {
+  margin-top: 8px;
+}
+
+.flashcard__word-translation,
+.flashcard__definitions {
+  color: var(--fg-color);
+}
+
+.flashcard__word-phonetic,
+.flashcard__sentence-translation,
+.hint {
+  color: var(--lavander-color);
+}
+
+.flashcard__divider {
+  border: 1px solid var(--hr-color);
+  margin: 24px 0;
+}
+
+.flashcard__picture {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 24px;
+}
+
+.replay-button svg {
+  height: 40px;
+  width: 40px;
+}
+
+.replay-button svg circle {
+  fill: var(--soft-bg-color);
+  stroke-width: 3;
+  stroke: var(--border-color);
+}
+
+.replay-button svg path {
+  transform: scale(0.6) translate(19px, 20px);
+}
+
+.replay-button svg path {
+  fill: var(--accent-color);
+}

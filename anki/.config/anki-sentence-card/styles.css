@@ -1,0 +1,126 @@
+:root {
+  --accent-color: #38bdf8;
+  --bg-color: #0f172a;
+  --border-color: #374151;
+  --fg-color: #f8fafc;
+  --hr-color: #ffffff0d;
+  --lavander-color: #a5b4fc;
+  --secondary-fg-color: #94a3b8;
+  --soft-bg-color: #1e293b;
+  --bg-label: #7dd3fc1a;
+  --fg-label: #7dd3fc;
+}
+
+.card.nightMode {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  font-family: 'Cascadia Code SemiLight', 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.flashcard {
+  background-color: var(--soft-bg-color);
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 28px;
+}
+
+.flashcard__sentence::first-letter,
+.flashcard__word::first-letter,
+.flashcard__sentence-translation::first-letter,
+.flashcard__word-translation::first-letter,
+.flashcard__sentence-pronunciation::first-letter,
+.flashcard__word-pronunciation::first-letter {
+  text-transform: capitalize;
+}
+
+ul {
+  margin: 0;
+  margin-bottom: 12px;
+
+  padding: 0 24px;
+}
+
+li {
+  font-size: 14px;
+}
+
+.flashcard__sentence-translation,
+.flashcard__word-translation {
+  color: var(--secondary-fg-color);
+}
+
+.flashcard__sentence-phonetic,
+.flashcard__word-phonetic {
+  color: var(--secondary-fg-color);
+}
+
+.flashcard__sentence-pronunciation,
+.flashcard__word-pronunciation {
+  color: var(--lavander-color);
+}
+
+.flashcard__word {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.flashcard__divider {
+  background-color: transparent;
+  border: 1px solid var(--hr-color);
+  margin: 24px 0;
+}
+
+.flashcard__label {
+  background-color: var(--bg-label);
+  border-radius: 12px;
+  color: var(--fg-label);
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 2px 12px;
+}
+
+img {
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.flashcard__audios,
+.flashcard__word,
+img {
+  margin-top: 24px;
+}
+
+.flashcard__audios {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.replay-button svg {
+  height: 40px;
+  width: 40px;
+}
+
+.replay-button svg circle {
+  fill: var(--soft-bg-color);
+  stroke-width: 3;
+  stroke: var(--border-color);
+}
+
+.replay-button svg path {
+  transform: scale(0.6) translate(19px, 20px);
+}
+
+.replay-button svg path {
+  fill: var(--accent-color);
+}
