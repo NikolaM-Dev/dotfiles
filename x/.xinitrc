@@ -45,6 +45,7 @@ wezterm -e tmux &
 brave &
 
 # Daemons
+backup-second-brain &
 flameshot &
 nm-applet &
 picom -b --config ~/.config/picom/picom.conf &
