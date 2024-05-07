@@ -1,5 +1,5 @@
 # Zathura configuration file
-# See man `man zathurarc'
+# See man `man zathurarc' & `man zathura`
 
 # Options
 set recolor "true"
