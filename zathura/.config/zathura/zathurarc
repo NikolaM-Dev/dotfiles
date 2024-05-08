@@ -26,6 +26,9 @@ set guioptions ""
 set font "JetBrainsMono Nerd Font 13"
 set render-loading "false"
 set scroll-step 50
+# status bar
+set statusbar-page-percent "true" # show page number & percentage [10/20 (50%)]
+set statusbar-home-tilde "true" # show ~ instead of $HOME in statusbar
 
 # Theme
 include themes/readwise
