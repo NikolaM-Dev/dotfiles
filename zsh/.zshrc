@@ -247,6 +247,12 @@ function ex () {
   fi
 }
 
+function working-directories {
+  mkdir -p ~/go/src/github.com/NikolaM-Dev
+  mkdir -p ~/workspace/work
+  mkdir -p ~/Documents/second-brain.md
+}
+
 # Configs
 alias A="cd ~/.config/alacritty && nvim alacritty.toml"
 alias C="cd ~/.config"
