@@ -206,7 +206,7 @@ function schange-date {
   fi
 }
 
-function nvims() {
+function nvims {
   items=("default" "adi" )
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
 
@@ -223,7 +223,7 @@ function nvims() {
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
-function ex () {
+function ex {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
