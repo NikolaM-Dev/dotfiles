@@ -335,7 +335,6 @@ alias eautotime="sudo timedatectl set-ntp 1"
 alias e="exit"
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias go=richgo
 alias grep="grep --color=auto"
 alias install-ex-dependencies="sudo pacman -Syu p7zip unrar tar rsync unzip"
 alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo systemctl start keyd && setxkbmap -option compose:menu"
