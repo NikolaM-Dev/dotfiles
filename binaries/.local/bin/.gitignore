@@ -2,6 +2,7 @@
 !.gitignore
 
 !battery
+!backup-second-brain
 !brightness
 !percentage
 !t
