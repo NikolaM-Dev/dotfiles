@@ -406,9 +406,6 @@ ctrlz() {
 zle -N ctrlz
 bindkey '^Z' ctrlz
 
-# tmux
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
