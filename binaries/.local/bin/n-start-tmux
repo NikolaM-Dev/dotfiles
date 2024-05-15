@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
+# Check if TMUX is not active
 if [ -z "$TMUX" ]; then
+    # If not active, create and attach to the session named '󱂵 home'
     tmux new-session -s '󱂵 home'
 
+    # Create new sessions with specific names and directories
+    # Change directory to ~/Documents/second-brain.md and create a new session named ' second brain'
     cd ~/Documents/second-brain.md && tmux new-session -s ' second brain'
+    # Change directory to ~/dotfiles and create a new session named ' dotfiles'
     cd ~/dotfiles && tmux new-session -s ' dotfiles'
+    # Change directory to ~/.config/nvim and create a new session named ' nvim'
     cd ~/.config/nvim && tmux new-session -s ' nvim'
 
+    # Attach to the session named '󱂵 home'
     tmux attach -t '󱂵 home'
 fi
