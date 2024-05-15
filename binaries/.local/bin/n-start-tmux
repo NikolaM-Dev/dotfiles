@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ -z "$TMUX" ]; then
+    tmux new-session -s '󱂵 home'
+
+    cd ~/Documents/second-brain.md && tmux new-session -s ' second brain'
+    cd ~/dotfiles && tmux new-session -s ' dotfiles'
+    cd ~/.config/nvim && tmux new-session -s ' nvim'
+
+    tmux attach -t '󱂵 home'
+fi
