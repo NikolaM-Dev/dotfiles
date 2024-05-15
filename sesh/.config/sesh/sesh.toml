@@ -1,0 +1,61 @@
+[[session]]
+name = "󱂵 home"
+path = "~"
+
+[[session]]
+name = "󰚌 work"
+path = "~/workspace/work"
+
+[[session]]
+name = "󰏃 entities"
+path = "~/workspace/work/entities/"
+
+[[session]]
+name = "󰏃 users"
+path = "~/workspace/work/users"
+
+[[session]]
+name = "󰏃 management"
+path = "~/workspace/work/management"
+
+[[session]]
+name = " drive"
+path = "~/Documents/drive"
+startup_command = "ranger"
+
+[[session]]
+name = " downloads"
+path = "~/Downloads"
+startup_command = "ranger"
+
+[[session]]
+name = " pictures"
+path = "~/Pictures"
+startup_command = "ranger"
+
+[[session]]
+name = "󰏃 services"
+path = "~/workspace/work/services"
+
+[[session]]
+name = "󰏃 payments"
+path = "~/workspace/work/payments"
+
+[[session]]
+name = "󰏃 dashboard"
+path = "~/workspace/work/dashboard"
+
+[[session]]
+name = " dotfiles"
+path = "~/dotfiles"
+startup_command = "nvim"
+
+[[session]]
+name = " nvim"
+path = "~/.config/nvim"
+startup_command = "nvim"
+
+[[session]]
+name = " second brain"
+path = "~/Documents/second-brain.md"
+startup_command = "nvim +ObsidianQuickSwitch"
