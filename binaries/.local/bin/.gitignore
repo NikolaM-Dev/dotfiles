@@ -1,8 +1,8 @@
 /*
 !.gitignore
 
-!battery
 !backup-second-brain
+!battery
 !brightness
 !percentage
 !t
