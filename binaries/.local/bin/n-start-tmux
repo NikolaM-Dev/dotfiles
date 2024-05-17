@@ -12,7 +12,4 @@ if [ -z "$TMUX" ]; then
 
     # Attach to the session named '󱂵 home'
     tmux attach -t '󱂵 home'
-else
-    # Attach to the session named '󱂵 home'
-    tmux attach -t '󱂵 home'
 fi
