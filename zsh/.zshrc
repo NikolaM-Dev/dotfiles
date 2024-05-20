@@ -410,7 +410,7 @@ bindkey '^Z' ctrlz
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
 export FZF_DEFAULT_OPTS=" \
---prompt='  ' \
+--ansi \
 --pointer='' \
 --reverse \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
