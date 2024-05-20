@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+sesh_list() {
+	sesh list -i | fzf-tmux -p 40%,30% \
+		--bind 'ctrl-a:change-prompt(  )+reload(sesh list -i)' \
+		--bind 'ctrl-c:change-prompt(  )+reload(sesh list -ic)' \
+		--bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(  )+reload(sesh list)' \
+		--bind 'ctrl-f:change-prompt(  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+		--bind 'ctrl-t:change-prompt(  )+reload(sesh list -it)' \
+		--bind 'ctrl-x:change-prompt(  )+reload(sesh list -iz)' \
+		--border-label '  󰍒 Sesh List  ' \
+		--header '[ ^-a all  ^t tmux  ^x zoxide  ^c config  ^d tmux kill  ^f find ]' \
+		--no-sort
+}
+
+sesh connect "$(sesh_list)"
