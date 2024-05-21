@@ -21,17 +21,14 @@ path = "~/workspace/work/management"
 [[session]]
 name = " drive"
 path = "~/Documents/drive"
-startup_command = "ranger"
 
 [[session]]
 name = " downloads"
 path = "~/Downloads"
-startup_command = "ranger"
 
 [[session]]
 name = " pictures"
 path = "~/Pictures"
-startup_command = "ranger"
 
 [[session]]
 name = "󰏃 services"
@@ -52,14 +49,11 @@ path = "~/workspace/work/deploy"
 [[session]]
 name = " dotfiles"
 path = "~/dotfiles"
-startup_command = "nvim"
 
 [[session]]
 name = " nvim"
 path = "~/.config/nvim"
-startup_command = "nvim"
 
 [[session]]
 name = " second brain"
 path = "~/Documents/second-brain.md"
-startup_command = "nvim +ObsidianQuickSwitch"
