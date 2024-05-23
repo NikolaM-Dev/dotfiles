@@ -61,3 +61,7 @@ path = "~/.config/nvim"
 [[session]]
 name = " second brain"
 path = "~/Documents/second-brain.md"
+
+[[session]]
+name = "󱎫 multi-timer"
+path = "~/workspace/multi-timer"
