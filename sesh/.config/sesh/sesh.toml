@@ -43,6 +43,10 @@ name = "󰏃 dashboard"
 path = "~/workspace/work/dashboard"
 
 [[session]]
+name = "󰏃 operator-app"
+path = "~/workspace/work/operator-app"
+
+[[session]]
 name = " deploy"
 path = "~/workspace/work/deploy"
 
