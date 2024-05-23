@@ -1,7 +1,7 @@
 tmux:
   symbols:
-    ahead: ' '
-    behind: ' '
+    ahead: '  '
+    behind: '  '
     branch: ' '
     clean: ''
     conflict: ' '
