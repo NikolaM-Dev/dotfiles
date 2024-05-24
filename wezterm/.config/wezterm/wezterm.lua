@@ -1,7 +1,7 @@
-local wezterm = require('wezterm')
+local c = require('config')
 
 local base_font_family = 'JetBrainsMono NF'
-
+local config = c.get_config()
 local function font(opts)
 	return wezterm.font_with_fallback({
 		opts,
