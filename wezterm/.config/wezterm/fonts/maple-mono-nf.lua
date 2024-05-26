@@ -5,7 +5,7 @@ local font = f.get_font()
 local M = {}
 
 function M.setup_font(config)
-	local scale = 0.98
+	local SCALE = 0.98
 
 	config.font_size = 13
 	config.cell_width = 0.9
@@ -13,28 +13,28 @@ function M.setup_font(config)
 
 	config.font = font({
 		family = 'Maple Mono NF',
-		scale = scale,
+		scale = SCALE,
 		weight = 'Light',
 	})
 
 	config.font_rules = {
 		{
-			font = font({ family = 'Maple Mono NF', weight = 'Bold', style = 'Normal', scale = scale }),
+			font = font({ family = 'Maple Mono NF', weight = 'Bold', style = 'Normal', scale = SCALE }),
 			intensity = 'Bold',
 			italic = false,
 		},
 		{
-			font = font({ family = 'Maple Mono NF', scale = scale, style = 'Italic', weight = 'Regular' }),
+			font = font({ family = 'Maple Mono NF', scale = SCALE, style = 'Italic', weight = 'Regular' }),
 			intensity = 'Bold',
 			italic = true,
 		},
 		{
-			font = font({ family = 'Maple Mono NF', weight = 'Regular', style = 'Italic', scale = scale }),
+			font = font({ family = 'Maple Mono NF', weight = 'Regular', style = 'Italic', scale = SCALE }),
 			intensity = 'Half',
 			italic = true,
 		},
 		{
-			font = font({ family = 'Maple Mono NF', style = 'Italic', scale = scale }),
+			font = font({ family = 'Maple Mono NF', style = 'Italic', scale = SCALE }),
 			intensity = 'Normal',
 			italic = true,
 		},
