@@ -7,14 +7,10 @@ local M = {}
 function M.setup_font(config)
 	local SCALE = 0.98
 
-	config.font_size = 13
 	config.cell_width = 0.9
+	config.font_size = 13
 
-	config.font = font({
-		family = 'Maple Mono NF',
-		scale = SCALE,
-		weight = 'Light',
-	})
+	config.font = font({ family = 'Maple Mono NF', scale = SCALE, weight = 'Light' })
 
 	config.font_rules = {
 		{
