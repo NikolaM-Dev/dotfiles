@@ -1,16 +1,9 @@
 local c = require('config')
+local f = require('fonts.maple-mono-nf')
 
-local base_font_family = 'JetBrainsMono NF'
 local config = c.get_config()
-local function font(opts)
-	return wezterm.font_with_fallback({
-		opts,
-		'Symbols Nerd Font Mono',
-	})
-end
 
-local config = {
-	color_scheme = 'Catppuccin Mocha',
+f.setup_font(config)
 
 	font = font({ family = base_font_family, weight = 'Regular' }),
 	font_size = 11,
