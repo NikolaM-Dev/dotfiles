@@ -19,48 +19,24 @@ function M.setup_font(config)
 
 	config.font_rules = {
 		{
+			font = font({ family = 'Maple Mono NF', weight = 'Bold', style = 'Normal', scale = scale }),
 			intensity = 'Bold',
 			italic = false,
-			-- font = font({ family = 'JetBrainsMono Nerd Font', weight = 'Bold', style = 'Normal', scale = 0.98 }),
-			font = font({
-				family = 'Maple Mono NF',
-				weight = 'Bold',
-				style = 'Normal',
-				scale = scale,
-				-- scale = 0.98
-			}),
 		},
 		{
+			font = font({ family = 'Maple Mono NF', scale = scale, style = 'Italic', weight = 'Regular' }),
 			intensity = 'Bold',
 			italic = true,
-			font = font({
-				family = 'Maple Mono NF',
-				weight = 'Regular',
-				style = 'Italic',
-				-- scale = 0.98
-				scale = scale,
-			}),
 		},
 		{
-			italic = true,
+			font = font({ family = 'Maple Mono NF', weight = 'Regular', style = 'Italic', scale = scale }),
 			intensity = 'Half',
-			font = font({
-				family = 'Maple Mono NF',
-				weight = 'Regular',
-				style = 'Italic',
-				-- scale = 0.98
-				scale = scale,
-			}),
+			italic = true,
 		},
 		{
-			italic = true,
+			font = font({ family = 'Maple Mono NF', style = 'Italic', scale = scale }),
 			intensity = 'Normal',
-			font = font({
-				family = 'Maple Mono NF',
-				style = 'Italic',
-				-- scale = 0.98
-				scale = scale,
-			}),
+			italic = true,
 		},
 	}
 end
