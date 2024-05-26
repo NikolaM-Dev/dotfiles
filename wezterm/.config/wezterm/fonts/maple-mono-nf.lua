@@ -9,7 +9,6 @@ function M.setup_font(config)
 
 	config.font_size = 13
 	config.cell_width = 0.9
-	-- config.line_height = 1.2
 
 	config.font = font({
 		family = 'Maple Mono NF',
