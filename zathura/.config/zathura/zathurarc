@@ -11,8 +11,9 @@ set recolor "true"                  # dark mode by default
 set selection-clipboard "clipboard" # copy to system clipboard
 set selection-notification "false"  # don't show notification on selection
 
-# One page per row by default
-set pages-per-row 1
+## status bar
+set statusbar-page-percent "true"   # show page number & percentage [10/20 (50%)]
+set statusbar-home-tilde "true"     # show ~ instead of $HOME in statusbar
 
 # Stop at page boundries
 set scroll-page-aware "true"
