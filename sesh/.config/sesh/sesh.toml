@@ -55,6 +55,10 @@ name = " dotfiles"
 path = "~/dotfiles"
 
 [[session]]
+name = " workspace"
+path = "~/workspace"
+
+[[session]]
 name = " nvim"
 path = "~/.config/nvim"
 
