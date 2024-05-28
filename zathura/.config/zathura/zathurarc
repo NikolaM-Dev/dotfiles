@@ -7,8 +7,9 @@ set recolor-keephue "true"          # keep original hue
 set recolor-reverse-video "true"    # don't invert colors for images
 set recolor "true"                  # dark mode by default
 
-# Open document in fit-width mode by default
-set adjust-open "best-fit"
+## selection
+set selection-clipboard "clipboard" # copy to system clipboard
+set selection-notification "false"  # don't show notification on selection
 
 # One page per row by default
 set pages-per-row 1
