@@ -12,7 +12,7 @@ set default-bg "#0f1821" #00
 set default-fg "#2c2f30" #01
 
 set highlight-active-color "#7daea3" #0D
-set highlight-color "#d0b007" #0A
+set highlight-color "rgba(208, 175, 7, 0.5)" #0A
 
 set index-active-bg "#1c2632"
 set index-active-fg "#76b2ed"
