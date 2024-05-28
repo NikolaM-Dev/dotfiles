@@ -1,12 +1,11 @@
 # Zathura configuration file
 # See man `man zathurarc' & `man zathura`
 
-# Options
-set recolor "true"
-set render-loading "true"
-set recolor-reverse-video "true"
-set recolor-keephue "true"
-set selection-clipboard clipboard
+# options
+## recolor
+set recolor-keephue "true"          # keep original hue
+set recolor-reverse-video "true"    # don't invert colors for images
+set recolor "true"                  # dark mode by default
 
 # Open document in fit-width mode by default
 set adjust-open "best-fit"
