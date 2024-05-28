@@ -17,8 +17,8 @@ format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
 
 [git_status]
-ahead = "[ ${count} ](yellow)"
-behind = "[ ${count} ](yellow)"
+ahead = "[  ${count} ](yellow)"
+behind = "[  ${count} ](yellow)"
 conflicted = "[ ${count} ](red)"
 deleted = "[ ${count} ](red)"
 diverged = "[󰔪 ${count} ](red)"
