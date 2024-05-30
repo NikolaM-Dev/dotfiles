@@ -18,9 +18,8 @@ set statusbar-home-tilde "true"     # show ~ instead of $HOME in statusbar
 ## scroll
 set scroll-step 80                  # scroll step in pixels
 
-# Zoom settings
-set zoom-min 10
-set guioptions "s"
+## font
+set font "Maple Mono NF Light 13"   # set font
 
 set font "JetBrainsMono Nerd Font 13"
 set render-loading "false"
