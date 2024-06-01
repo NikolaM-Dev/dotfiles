@@ -4,6 +4,7 @@
 if [ -z "$TMUX" ]; then
     # Create new sessions with specific names and directories in the background
     tmux new-session -d -s ' dotfiles' -c ~/dotfiles
+    tmux new-session -d -s ' downloads' -c ~/Downloads
     tmux new-session -d -s '󱂵 home' -c ~
     tmux new-session -d -s ' nvim' -c ~/.config/nvim
     tmux new-session -d -s ' second brain' -c ~/Documents/second-brain.md
