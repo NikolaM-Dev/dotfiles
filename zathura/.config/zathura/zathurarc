@@ -30,3 +30,5 @@ map u scroll half-up                # Change to use <u> instead of <C-u>
 map K zoom in                       # Change to use <K> instead of <+>
 map J zoom out                      # Change to use <J> isnted of <->
 map <C-m> feedkeys ":exec zathura-bookmark $FILE $PAGE ''<Left>" # create bookmark using zathura-bookmark script
+# map <C-l> feedkeys ":blist <Tab>"
+# map <C-m> feedkeys ":bmark '"
