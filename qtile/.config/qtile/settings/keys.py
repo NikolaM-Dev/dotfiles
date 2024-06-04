@@ -91,7 +91,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Screenshot
     ([mod], "s", lazy.spawn("flameshot gui")),
-    ([mod, "shift"], "s", lazy.spawn("scrot -d 3")),
+    ([mod, "shift"], "s", lazy.spawn("scrot -u -d 3")),
 
     # ------------ hardware configs ------------
 
