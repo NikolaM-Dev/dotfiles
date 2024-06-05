@@ -64,6 +64,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Database manager
     ([mod], "d", lazy.spawn("beekeeper-studio")),
 
+    # Rest client
+    ([mod], "p", lazy.spawn("postman")),
+
     # File Explorer
     ([mod], "e", lazy.spawn("pcmanfm")),
 
