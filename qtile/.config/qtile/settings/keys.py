@@ -80,10 +80,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "e", lazy.spawn("pcmanfm")),
 
     # Terminal
-    ([mod], "Return", lazy.spawn("alacritty")),
-
-    # Editor
-    ([mod], "i", lazy.spawn("code")),
+    ([mod], "Return", lazy.spawn("wezterm")),
 
     # Redshift
     ([mod], "r", lazy.spawn("redshift -O 6000")),
