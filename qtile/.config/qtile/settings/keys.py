@@ -61,19 +61,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Shutdown PC
     ([mod], "a", lazy.spawn("shutdown now")),
 
-    # Terminal + Tmux
-    ([mod], "v", lazy.spawn("alacritty -e tmux")),
-
-    # Trello
-    ([mod], "t", lazy.spawn("trello")),
-
-    # Notion
-    ([mod], "n", lazy.spawn("notion-app")),
-
-    # Figma
-    ([mod], "f", lazy.spawn("figma-linux")),
-
-    # Discord
+    # Database manager
     ([mod], "d", lazy.spawn("beekeeper-studio")),
 
     # File Explorer
