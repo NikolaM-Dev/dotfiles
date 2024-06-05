@@ -99,15 +99,15 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86AudioLowerVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ -2%"
     )),
-    ([mod], "o", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -2%"
-    )),
+    # ([mod], "o", lazy.spawn(
+    #     "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+    # )),
     ([], "XF86AudioRaiseVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ +2%"
     )),
-    ([mod], "p", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +2%"
-    )),
+    # ([mod], "p", lazy.spawn(
+    #     "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+    # )),
     ([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
