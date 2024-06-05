@@ -74,7 +74,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "f", lazy.spawn("figma-linux")),
 
     # Discord
-    ([mod], "d", lazy.spawn("discord")),
+    ([mod], "d", lazy.spawn("beekeeper-studio")),
 
     # File Explorer
     ([mod], "e", lazy.spawn("pcmanfm")),
