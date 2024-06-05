@@ -52,7 +52,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "m", lazy.spawn("rofi -show window")),
 
     # Emoji
-    ([mod, "shift"], "e", lazy.spawn("rofi -show emoji -modi emoji")),
+    ([mod, "shift"], "e", lazy.spawn("rofi -show emoji")),
 
     # Browsers
     ([mod], "b", lazy.spawn("firefox")),
