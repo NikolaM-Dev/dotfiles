@@ -55,8 +55,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "e", lazy.spawn("rofi -show emoji")),
 
     # Browsers
-    ([mod], "b", lazy.spawn("firefox")),
-    ([mod], "g", lazy.spawn("google-chrome-stable")),
+    ([mod], "w", lazy.spawn("brave")),
+    ([mod], "g", lazy.spawn("chromium")),
 
     # Shutdown PC
     ([mod], "a", lazy.spawn("shutdown now")),
