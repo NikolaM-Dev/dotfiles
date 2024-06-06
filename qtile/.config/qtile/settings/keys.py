@@ -4,6 +4,13 @@ from libqtile.command import lazy
 from libqtile.config import Key
 from libqtile import qtile
 
+@lazy.function
+def use_u(qtile):
+  qtile.current_group.layout = 'monadtall'
+
+@lazy.function
+def use_shift_u(qtile):
+  qtile.current_group.layout = 'max'
 
 mod = "mod4"
 
@@ -33,6 +40,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Kill window
     ([mod], "q", lazy.window.kill()),
+
+    # Kill window
+    ([mod], "u", use_u()),
+    ([mod, "shift"], "u", use_shift_u()),
 
     # Switch focus of monitors
     ([mod], "period", lazy.next_screen()),
