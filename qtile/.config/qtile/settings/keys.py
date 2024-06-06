@@ -59,7 +59,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "g", lazy.spawn("chromium")),
 
     # Shutdown PC
-    ([mod], "a", lazy.spawn("shutdown now")),
+    ([mod, "control"], "s", lazy.spawn("shutdown now")),
 
     # Database manager
     ([mod], "d", lazy.spawn("beekeeper-studio")),
