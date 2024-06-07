@@ -41,7 +41,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Kill window
     ([mod], "q", lazy.window.kill()),
 
-    # Kill window
+    # Main layouts
     ([mod], "u", use_u()),
     ([mod, "shift"], "u", use_shift_u()),
 
