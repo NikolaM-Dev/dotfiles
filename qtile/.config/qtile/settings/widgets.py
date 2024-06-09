@@ -9,8 +9,7 @@ from typing import List  # noqa: F401
 from libqtile import widget
 from settings.theme import colors
 
-myTerm = "alacritty"
-# Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
+myTerm = "wezterm"
 
 base = lambda fg="text", bg="dark": {"foreground": colors[fg], "background": colors[bg]}
 
