@@ -11,7 +11,7 @@ set completion-highlight-fg "#76b2ed" #02
 set default-bg "#0f1821" #00
 set default-fg "#2c2f30" #01
 
-set highlight-active-color "#7daea3" #0D
+set highlight-active-color "rgba(125, 174, 163, 0.75)" #0D
 set highlight-color "rgba(208, 175, 7, 0.5)" #0A
 
 set index-active-bg "#1c2632"
