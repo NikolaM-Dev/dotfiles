@@ -353,6 +353,9 @@
       "commands": ["workbench.action.files.saveAll"]
     },
     {
+      "before": ["<leader>", "g"],
+      "commands": ["git-graph.view"]
+    },
       "before": ["<leader>", "s"],
       "commands": ["editor.action.sortLinesAscending"]
     },
