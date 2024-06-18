@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function backup-commit {
+    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
+
+    git add . && git commit -m "feat: Add backup $time_stamp"
+}
+
+while true; do
+    cd ~/Documents/second-brain.md
+
+    backup-commit;
+
+    sleep 3m;
+done
