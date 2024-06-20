@@ -258,7 +258,7 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "terminal.integrated.fontFamily": "JetBrainsMono NF",
+  "terminal.integrated.fontFamily": "Maple Mono NF",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.gpuAcceleration": "on",
   "todohighlight.keywords": [
