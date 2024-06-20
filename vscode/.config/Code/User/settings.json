@@ -116,7 +116,7 @@
   "editor.guides.indentation": false,
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": false,
-  "editor.lineHeight": 25,
+  "editor.lineHeight": 23,
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestionsDelay": 6,
