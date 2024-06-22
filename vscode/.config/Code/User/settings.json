@@ -356,6 +356,11 @@
       "before": ["<leader>", "g"],
       "commands": ["git-graph.view"]
     },
+    {
+      "before": ["<leader>", "o", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
       "before": ["<leader>", "s"],
       "commands": ["editor.action.sortLinesAscending"]
     },
