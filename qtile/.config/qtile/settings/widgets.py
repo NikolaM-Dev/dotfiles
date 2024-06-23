@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 import socket
 import subprocess
 from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from typing import List  # noqa: F401
