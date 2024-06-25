@@ -75,5 +75,7 @@ name = " second brain"
 path = "~/Documents/second-brain.md"
 
 [[session]]
+name = "  music"
+path = "/run/media/nikola/PURPLE/4-archives/music/chill"
 name = "󱎫 multi-timer"
 path = "~/workspace/multi-timer"
