@@ -424,6 +424,7 @@ export FZF_DEFAULT_OPTS=" \
 # fnm
 export PATH="/home/nikola/.local/share/fnm:$PATH"
 eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
 
 # zoxide
 eval "$(zoxide init zsh)"
