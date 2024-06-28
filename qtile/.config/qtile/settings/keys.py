@@ -27,6 +27,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "l", lazy.layout.grow()),
     ([mod, "shift"], "h", lazy.layout.shrink()),
 
+    ([mod], "i", lazy.layout.grow()),
+    ([mod, "shift"], "i", lazy.layout.shrink()),
+    ([mod], "n", lazy.layout.reset()),
+
     # Toggle floating
     ([mod, "shift"], "f", lazy.window.toggle_floating()),
 
