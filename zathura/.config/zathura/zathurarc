@@ -3,32 +3,32 @@
 
 # options
 ## recolor
-set recolor-keephue "true"          # keep original hue
-set recolor-reverse-video "true"    # don't invert colors for images
-set recolor "true"                  # dark mode by default
+set recolor-keephue "true"          #  keep original hue
+set recolor-reverse-video "true"    #  don't invert colors for images
+set recolor "true"                  #  dark mode by default
 
 ## selection
-set selection-clipboard "clipboard" # copy to system clipboard
-set selection-notification "false"  # don't show notification on selection
+set selection-clipboard "clipboard" #  copy to system clipboard
+set selection-notification "false"  #  don't show notification on selection
 
 ## status bar
-set statusbar-page-percent "true"   # show page number & percentage [10/20 (50%)]
-set statusbar-home-tilde "true"     # show ~ instead of $HOME in statusbar
+set statusbar-page-percent "true"   #  show page number & percentage [10/20 (50%)]
+set statusbar-home-tilde "true"     #  show ~ instead of $HOME in statusbar
 
 ## scroll
-set scroll-step 80                  # scroll step in pixels
+set scroll-step 80                  #  scroll step in pixels
 
 ## font
-set font "Maple Mono NF Light 13"   # set font
+set font "Maple Mono NF Light 13"   #  set font
 
 ## theme
-include themes/readwise             # readwise
+include themes/readwise             #  readwise
 
 ## keymaps
-map d scroll half-down              # Change to use <d> instead of <C-d>
-map u scroll half-up                # Change to use <u> instead of <C-u>
-map K zoom in                       # Change to use <K> instead of <+>
-map J zoom out                      # Change to use <J> isnted of <->
+map d scroll half-down              #  Change to use <d> instead of <C-d>
+map u scroll half-up                #  Change to use <u> instead of <C-u>
+map K zoom in                       #  Change to use <K> instead of <+>
+map J zoom out                      #  Change to use <J> isnted of <->
 map <C-m> feedkeys ':exec n-zathura-bookmark $FILE $PAGE ""<Left>' # create bookmark using zathura-bookmark script
 # map <C-l> feedkeys ":blist <Tab>"
 # map <C-m> feedkeys ":bmark '"
