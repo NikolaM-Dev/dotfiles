@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Add a bookmark to a markdown file for a book from zathura
+
+# Usage: zathura-bookmark <file_full_path> <page> <bookmark>
+file_full_path=$1
+page=$2
+
+file_name=$(basename "$file_full_path")
+file_without_extension="${file_name%.*}"
+fleeting_note_file="${file_without_extension}.md"
+
+shift 2
+
+bookmark=$@
+
+cd ~/Documents/second-brain.md/z/FN/
+
+if [ -f "$fleeting_note_file" ]; then
+    echo "" >> $fleeting_note_file
+    echo "- [ ]" "$bookmark." "\`page:$page\`" >> $fleeting_note_file
+else
+    file_without_author=$(echo "$file_without_extension" | sed 's/__.*//')
+    fleeting_note_title=$(echo "$file_without_author" | tr '-' ' ' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)) }1')
+
+    echo "---" >> $fleeting_note_file
+    echo "aliases: [${fleeting_note_title}]" >> $fleeting_note_file
+    echo "tags: [books, status/in-progress, zathura]" >> $fleeting_note_file
+    echo "---" >> $fleeting_note_file
+    echo "" >> $fleeting_note_file
+    echo "# ${fleeting_note_title}" >> $fleeting_note_file
+    echo "" >> $fleeting_note_file
+    echo "- [ ]" "$bookmark." "\`page:$page\`" >> $fleeting_note_file
+fi
