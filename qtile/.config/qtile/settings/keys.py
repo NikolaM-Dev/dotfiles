@@ -89,6 +89,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Terminal
     ([mod], "Return", lazy.spawn("wezterm")),
 
+    # Anki
+    ([mod], "a", lazy.spawn("anki")),
+
     # Redshift
     ([mod], "r", lazy.spawn("redshift -O 6000")),
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
