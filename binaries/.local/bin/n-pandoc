@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+     # -f gfm \
+pandoc \
+    /home/nikola/Documents/second-brain.md/z/FN/20240413151203-for-the-love-of-go.md \
+    --output=/home/nikola/Documents/second-brain.md/z/FN/20240413151203-for-the-love-of-go.pdf \
+    --highlight-style=zenburn \
+     --pdf-engine=lualatex \
+    --toc \
+    -V geometry:a4paper \
+    -V geometry:margin=2cm \
+    -V fontsize=12pt \
+    -V linkcolor=blue \
+    -V urlcolor=blue \
+    -V filecolor=blue \
+    -V colorlinks=true \
+    --include-in-header /home/nikola/dotfiles/binaries/.local/bin/chapter_break.tex \
+    --standalone \
+    --top-level-division=chapter \
+    -V toc-title="Table of Contents" \
+    -V mainfont:'Geist Regular' \
+    -V monofont:'Maple Mono NF' \
+    -V sansfont:'Geist Regular'
+
