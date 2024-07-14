@@ -6,10 +6,15 @@ function backup-commit {
     git add . && git commit -m "feat: Add backup $time_stamp"
 }
 
-while true; do
+
+function main {
     cd ~/Documents/second-brain.md
 
-    backup-commit;
+    while true; do
+        backup-commit;
 
-    sleep 3m;
-done
+        sleep 3m;
+    done
+}
+
+main
