@@ -9,7 +9,7 @@ xset s noblank
 xset s off
 
 # Daemons
-n-backup-second-brain &
+# n-backup-second-brain &
 # rclone mount google-drive: ~/Documents/drive &
 flameshot &
 nm-applet &
