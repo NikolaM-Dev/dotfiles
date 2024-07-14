@@ -8,6 +8,8 @@ if [ -z "$TMUX" ]; then
     tmux new-session -d -s '󱂵 home' -c ~
     tmux new-session -d -s ' nvim' -c ~/.config/nvim
     tmux new-session -d -s ' second brain' -c ~/Documents/second-brain.md
+    tmux new-window -t ' second brain' -n "editor" "nvim -c ':ObsidianDailies'"
+    tmux new-window -t ' second brain' -n "commit-job" "n-backup-second-brain"
 
     # Attach to the session named '󱂵 home'
     tmux attach -t '󱂵 home'
