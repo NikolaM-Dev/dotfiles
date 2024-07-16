@@ -13,7 +13,11 @@ function main {
     while true; do
         backup-commit;
 
-        sleep 3m;
+        if [ $# -eq 1 ]; then
+            sleep $1
+        else
+            sleep 3m;
+        fi
     done
 }
 
