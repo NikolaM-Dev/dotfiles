@@ -73,6 +73,7 @@ path = "~/.config/nvim"
 [[session]]
 name = " second brain"
 path = "~/Documents/second-brain.md"
+startup_script = 'n-start-second-brain-tmux-session'
 
 [[session]]
 name = "  music"
