@@ -55,10 +55,6 @@ name = "󰏃 admin"
 path = "~/workspace/work/admin"
 
 [[session]]
-name = " deploy"
-path = "~/workspace/work/deploy"
-
-[[session]]
 name = " dotfiles"
 path = "~/dotfiles"
 
@@ -82,7 +78,3 @@ path = "/run/media/nikola/PURPLE/4-archives/music/chill"
 [[session]]
 name = "󰂾 library"
 path = "~/library"
-
-[[session]]
-name = "󱎫 multi-timer"
-path = "~/workspace/multi-timer"
