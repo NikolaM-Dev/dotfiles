@@ -41,11 +41,11 @@ xset s noblank
 xset s off
 
 # Apps
-wezterm -e tmux &
-brave &
+# wezterm -e tmux &
+# brave &
 
 # Daemons
-backup-second-brain &
+# backup-second-brain &
 flameshot &
 nm-applet &
 picom -b --config ~/.config/picom/picom.conf &
