@@ -41,6 +41,7 @@ xset s noblank
 xset s off
 
 # Apps
+brave --app=https://ticktick.com &
 
 # Daemons
 flameshot &
