@@ -248,9 +248,13 @@ function ex {
 }
 
 function working-directories {
-  mkdir -p ~/go/src/github.com/NikolaM-Dev
-  mkdir -p ~/workspace/work
   mkdir -p ~/Documents/second-brain.md
+  mkdir -p ~/go/src/github.com/NikolaM-Dev
+  mkdir -p ~/library
+  mkdir -p ~/Pictures
+  mkdir -p ~/Videos
+  mkdir -p ~/workspace/open-source
+  mkdir -p ~/workspace/work
 }
 
 # Configs
