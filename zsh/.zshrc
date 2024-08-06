@@ -440,5 +440,3 @@ export GUM_INPUT_PLACEHOLDER="What's up?"
 export GUM_INPUT_PROMPT=" "
 export GUM_INPUT_PROMPT_FOREGROUND="#0FF"
 export GUM_INPUT_WIDTH=80
-
-n-start-tmux
