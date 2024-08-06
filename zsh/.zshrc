@@ -277,6 +277,7 @@ alias sb="cd ~/Documents/second-brain.md && nvim"
 alias ss="sudo -E -s"
 alias V="cd ~/.config/nvim && nvim"
 alias W="cd ~/workspace"
+alias year='cal -mwy'
 alias zc="nvim ~/.zshrc"
 
 # Crud
