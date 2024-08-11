@@ -24,12 +24,12 @@ function M.setup_font(config)
 			italic = true,
 		},
 		{
-			font = font({ family = 'Maple Mono NF', weight = 'Regular', style = 'Italic', scale = SCALE }),
+			font = font({ family = 'Maple Mono NF', weight = 'Light', style = 'Italic', scale = SCALE }),
 			intensity = 'Half',
 			italic = true,
 		},
 		{
-			font = font({ family = 'Maple Mono NF', style = 'Italic', scale = SCALE }),
+			font = font({ family = 'Maple Mono NF', weight = 'Light', style = 'Italic', scale = SCALE }),
 			intensity = 'Normal',
 			italic = true,
 		},
