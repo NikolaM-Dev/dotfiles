@@ -169,6 +169,17 @@ function gd {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
 
+## Change remote to ssh
+function change-remote-to-ssh {
+  if [ "$#" -ne 1 ]; then
+      echo "Usage: $0 <project_name_in_github>"
+
+      return
+  fi
+
+  git remote add origin git@github.com:NikolaM-Dev/$1.git
+}
+
 function cdir {
   if [ $# -eq 1 ]; then
     mkdir $1 && cd $1
