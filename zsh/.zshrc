@@ -171,7 +171,7 @@ function gd {
 
 ## Change remote to ssh
 function change-remote-to-ssh {
-  if [ "$#" -ne 1 ]; then
+  if [[ "$#" -ne 1 ]]; then
       echo "Usage: $0 <project_name_in_github>"
 
       return
