@@ -1,6 +1,8 @@
 /*
 !.gitignore
 
+!extensions.txt
 !keybindings.json
+!Makefile
 !settings.json
 !snippets
