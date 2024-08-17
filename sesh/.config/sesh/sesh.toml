@@ -78,3 +78,7 @@ path = "/run/media/nikola/PURPLE/4-archives/music/chill"
 [[session]]
 name = "󰂾 library"
 path = "~/library"
+
+[[session]]
+name = " chadwm"
+path = "~/.config/chadwm"
