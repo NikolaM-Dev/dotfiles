@@ -146,6 +146,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
   "files.defaultLanguage": "typescript",
   "files.exclude": {
     "**/.DS_Store": true,
