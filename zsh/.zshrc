@@ -124,7 +124,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 export EDITOR="nvim"
-export FILE="ranger"
+export FILE="yazi"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export READER="zathura"
