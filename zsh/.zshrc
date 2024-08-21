@@ -291,6 +291,13 @@ alias W="cd ~/workspace"
 alias year='cal -mwy'
 alias zc="nvim ~/.zshrc"
 
+# Pacman
+alias padd="sudo pacman -S"
+alias pfind="sudo pacman -Ss"
+alias prm="sudo pacman -Rsun"
+alias psc="yay -Sc"
+alias pupdate="sudo pacman -Syu && yay -Syu && omz update"
+
 # Crud
 alias ...="cd ../.."
 alias ..="cd .."
