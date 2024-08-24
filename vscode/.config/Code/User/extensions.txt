@@ -1,4 +1,5 @@
 angular.ng-template
+bierner.markdown-preview-github-styles
 bradlc.vscode-tailwindcss
 cweijan.epub-reader
 dbaeumer.vscode-eslint
@@ -8,6 +9,7 @@ golang.go
 grapecity.gc-excelviewer
 hermitter.oh-lucy-vscode
 inferrinizzard.prettier-sql-vscode
+jgclark.vscode-todo-highlight
 johnnymorganz.stylua
 kisstkondoros.vscode-gutter-preview
 meganrogge.template-string-converter
