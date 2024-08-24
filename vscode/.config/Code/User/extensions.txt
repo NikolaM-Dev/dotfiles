@@ -5,6 +5,7 @@ cweijan.epub-reader
 dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
+fivethree.vscode-svelte-snippets
 golang.go
 grapecity.gc-excelviewer
 hermitter.oh-lucy-vscode
@@ -15,11 +16,13 @@ kisstkondoros.vscode-gutter-preview
 meganrogge.template-string-converter
 mhutchie.git-graph
 pflannery.vscode-versionlens
+pivaszbs.svelte-autoimport
 pkief.material-icon-theme
 premparihar.gotestexplorer
 redhat.vscode-xml
 redhat.vscode-yaml
 shahilkumar.docxreader
+simonsiefke.svg-preview
 sumneko.lua
 supermaven.supermaven
 svelte.svelte-vscode
