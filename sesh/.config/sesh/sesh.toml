@@ -80,5 +80,10 @@ name = "󰂾 library"
 path = "~/library"
 
 [[session]]
+name = "  english"
+path = "~/Downloads/english"
+startup_command = 'play'
+
+[[session]]
 name = " chadwm"
 path = "~/.config/chadwm"
