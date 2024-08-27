@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main {
-    tmux send-keys "nvim -c ':ObsidianYesterday'" Enter
+    tmux send-keys "nvim -c ':ObsidianDailies -1'" Enter
     tmux new-window -n 'commit job' n-backup-second-brain
     tmux select-window -t :1
 }
