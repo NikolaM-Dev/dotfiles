@@ -10,6 +10,7 @@ function main() {
         tmux new-session -d -s ' dotfiles' -c ~/dotfiles
         tmux new-session -d -s ' downloads' -c ~/Downloads
         tmux new-session -d -s ' nvim' -c ~/.config/nvim
+        tmux new-session -d -s '  english' -c ~/Downloads/english
         sesh connect " second brain"
 
         tmux attach -t "$HOME_SESSION_NAME"
