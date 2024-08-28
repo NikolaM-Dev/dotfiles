@@ -374,6 +374,18 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias v=nvim
 
+function r {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+
+	yazi "$@" --cwd-file="$tmp"
+
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+
+	rm -f -- "$tmp"
+}
+
 # Docker
 alias dclsa="docker container ls -a"
 alias dcls="docker container ls"
