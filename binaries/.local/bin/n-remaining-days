@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function main {
+    current_days=$(date +%j)
+    remaining_days=$((365 - $current_days))
+
+    echo $remaining_days
+}
+
+main
