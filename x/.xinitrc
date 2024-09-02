@@ -36,12 +36,7 @@ fi
 export QT_STYLE_OVERRIDE=kvantum
 
 # Remove suspend
-xset -dpms
-xset s noblank
-xset s off
-
-# Apps
-brave --app=https://ticktick.com &
+n-remove-system-suspend
 
 # Daemons
 flameshot &
