@@ -165,6 +165,11 @@ function c {
   fi
 }
 
+function gbp {
+  for branch in $(git branch --merged develop | egrep -v "(^\*| main| develop| qa| release)"); do
+      git branch -d $branch
+  done
+}
 function gd {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
