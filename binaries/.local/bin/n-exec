@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+commands=(
+  "Sesh List:n-sesh-list"
+  "Remaining Days:n-remaining-days"
+)
+
+# Utiliza fzf para seleccionar un comando
+selected_command=$(printf "%s\n" "${commands[@]}" | fzf --prompt="Selecciona un comando: " --header="Busca y selecciona un comando para ejecutar")
+
+# Extrae y ejecuta el comando seleccionado
+if [ -n "$selected_command" ]; then
+  command_to_run=$(echo "$selected_command" | awk -F: '{print $2}')
+  eval "$command_to_run"
+else
+  echo "No seleccionaste ningún comando."
+fi
