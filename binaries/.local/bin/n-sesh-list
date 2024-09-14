@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sesh_list() {
-	sesh list -itc | fzf-tmux -p 40%,30% \
+	sesh list -i | fzf-tmux -p 40%,30% \
 		--bind 'ctrl-a:change-prompt(  )+reload(sesh list -i)' \
 		--bind 'ctrl-c:change-prompt(  )+reload(sesh list -ic)' \
 		--bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(  )+reload(sesh list)' \
