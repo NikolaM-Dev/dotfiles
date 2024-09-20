@@ -516,10 +516,10 @@ keybinding:
     recentRepos: <enter>
     allBranchesLogGraph: a
   files:
-    commitChanges: c
+    commitChanges: C
     commitChangesWithoutHook: w
     amendLastCommit: A
-    commitChangesWithEditor: C
+    commitChangesWithEditor: c
     findBaseCommitForFixup: <c-f>
     confirmDiscard: x
     ignoreFile: i
