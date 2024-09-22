@@ -9,7 +9,7 @@ function main {
     fi
 
     # Get the original file name
-    original_file="$1"
+    original_file=$(basename "$1")
 
     # Extract the file extension
     extension="${original_file##*.}"
