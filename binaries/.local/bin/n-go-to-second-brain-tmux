@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function main {
+    SESSION_NAME=" second brain"
+    SESSION_EXISTS=$(tmux list-sessions | grep "$SESSION_NAME")
+
+    if [[ -z "$SESSION_EXISTS" ]]; then
+        # tmux display-message "Creating new session: $SESSION_NAME"
+
+        tmux new-session -d -s "$SESSION_NAME" -c ~/Documents/second-brain.md
+
+        tmux send-keys -t "$SESSION_NAME" "nvim -c ':ObsidianToday -1'" Enter
+        tmux new-window -t "$SESSION_NAME" -n 'commit job' n-backup-second-brain
+        tmux select-window -t "$SESSION_NAME:1"
+
+        tmux switch-client -t "$SESSION_NAME"
+    else
+        # tmux display-message "Attaching to session: $SESSION_NAME"
+
+        tmux switch-client -t "$SESSION_NAME"
+    fi
+}
+
+main
