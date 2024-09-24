@@ -3,7 +3,7 @@
 function main() {
     HOME_SESSION_NAME="󱂵 home"
 
-    if tmux has-session -t "$HOME_SESSION_NAME" 2>/dev/null; then
+    if n-tmux-is-running; then
         tmux attach
     else
         tmux new-session -d -s "$HOME_SESSION_NAME" -c ~
