@@ -5,9 +5,9 @@ function main {
     # If tmux is running, return 0 (success). Otherwise, return 1 (failure).
     if tmux run 2>/dev/null; then
         return 0  # Success: tmux is running.
-    else
-        return 1  # Failure: tmux is not running.
     fi
+
+    return 1  # Failure: tmux is not running.
 }
 
 # Call the main function to perform the tmux check.
