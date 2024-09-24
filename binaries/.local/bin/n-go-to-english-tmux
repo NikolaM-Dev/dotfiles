@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function main {
+    SESSION_NAME="  english"
+    SESSION_EXISTS=$(tmux list-sessions | grep "$SESSION_NAME")
+
+    if ![[ -z "$SESSION_EXISTS" ]]; then
+        # tmux display-message "Creating new session: $SESSION_NAME"
+
+        tmux new-session -d -s "$SESSION_NAME" -c ~/Downloads/english
+        tmux send-keys -t "$SESSION_NAME" "play" Enter
+        tmux switch-client -t "$SESSION_NAME"
+    else
+        # tmux display-message "Attaching to session: $SESSION_NAME"
+
+        tmux switch-client -t "$SESSION_NAME"
+    fi
+}
+
+main
