@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function main {
+    # Check if tmux is running by executing 'tmux run' and suppressing error output.
+    # If tmux is running, return 0 (success). Otherwise, return 1 (failure).
+    if tmux run 2>/dev/null; then
+        return 0  # Success: tmux is running.
+    else
+        return 1  # Failure: tmux is not running.
+    fi
+}
+
+# Call the main function to perform the tmux check.
+main
