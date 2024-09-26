@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function main() {
+    if tmux has-session -t "$1" 2>/dev/null; then
+        return 0  # Success: tmux has a session with the given name.
+    fi
+
+    return 1  # Failure: tmux does not have a session with the given name.
+}
+
+main "$@"
