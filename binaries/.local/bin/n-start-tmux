@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 function main() {
-    DEFAULT_SESSION="󱂵 home"
-
-    if n-tmux-is-running; then
+    if  n-tmux-is-running; then
         tmux attach
-    else
-        tmux new-session -d -s "$DEFAULT_SESSION" -c ~
-        tmux new-session -d -s ' dotfiles' -c ~/dotfiles
-        tmux new-session -d -s ' downloads' -c ~/Downloads
-        tmux new-session -d -s ' nvim' -c ~/.config/nvim
 
-        sesh connect "  english"
+        return
     fi
+
+    tmux new-session -d -s "󱂵 home" -c ~
+    tmux new-session -d -s ' dotfiles' -c ~/dotfiles
+    tmux new-session -d -s ' downloads' -c ~/Downloads
+    tmux new-session -d -s ' nvim' -c ~/.config/nvim
+
+    sesh connect "  english"
 }
 
 main
