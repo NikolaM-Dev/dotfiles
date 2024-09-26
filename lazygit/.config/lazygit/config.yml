@@ -1,7 +1,7 @@
 # Config relating to the Lazygit UI
 gui:
   # The number of lines you scroll by when scrolling the main window
-  scrollHeight: 2
+  scrollHeight: 12
 
   # If true, allow scrolling past the bottom of the content in the main window
   scrollPastBottom: true
