@@ -29,3 +29,6 @@ eval "$(starship init zsh)"
 
 # Golang
 export PATH="$PATH:$HOME/go/bin"
+
+# Rust
+export PATH="$PATH:$HOME/.cargo/env"
