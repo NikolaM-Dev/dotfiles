@@ -39,3 +39,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 ## Bun completions
 [ -s "/home/nikola/.bun/_bun" ] && source "/home/nikola/.bun/_bun"
+
+# GUM
+export GUM_INPUT_CURSOR_FOREGROUND="#FF0"
+export GUM_INPUT_PLACEHOLDER="What's up?"
+export GUM_INPUT_PROMPT=" "
+export GUM_INPUT_PROMPT_FOREGROUND="#0FF"
+export GUM_INPUT_WIDTH=80
