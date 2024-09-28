@@ -26,3 +26,6 @@ export VI_MODE_SET_CURSOR=true
 # Starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
+
+# Golang
+export PATH="$PATH:$HOME/go/bin"
