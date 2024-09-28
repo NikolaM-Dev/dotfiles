@@ -22,3 +22,7 @@ export ZSH="/home/nikola/.oh-my-zsh"
 ### vi-mode plugin
 export KEYTIMEOUT=20
 export VI_MODE_SET_CURSOR=true
+
+# Starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
