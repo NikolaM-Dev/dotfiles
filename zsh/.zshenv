@@ -46,6 +46,18 @@ export GUM_INPUT_PLACEHOLDER="What's up?"
 export GUM_INPUT_PROMPT=" "
 export GUM_INPUT_PROMPT_FOREGROUND="#0FF"
 export GUM_INPUT_WIDTH=80
+
+# fnm
+FNM_PATH="/home/nikola/.local/share/fnm"
+
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/nikola/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+  # WARN: Don't work currently
+  # eval "$(fnm env --use-on-cd)"
+  # eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
 # zoxide
 eval "$(zoxide init zsh)"
 
