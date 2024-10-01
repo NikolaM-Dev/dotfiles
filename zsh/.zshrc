@@ -78,14 +78,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export EDITOR="nvim"
-export FILE="yazi"
-export MANPAGER='nvim +Man!'
-export MANWIDTH=999
-export READER="zathura"
-export TERMINAL="wezterm"
-export VISUAL="nvim"
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
