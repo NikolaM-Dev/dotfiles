@@ -81,7 +81,7 @@ path = "~/library"
 
 [[session]]
 name = "  english"
-path = "~/Downloads/english"
+path = "~/Documents/english/passive-audio"
 startup_command = 'play'
 
 [[session]]
