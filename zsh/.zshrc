@@ -241,7 +241,7 @@ ctrlz() {
 zle -N ctrlz
 bindkey '^Z' ctrlz
 
-# fzf
+[[ -f ~/.config/zsh/aliases.sh  ]] && source ~/.config/zsh/aliases.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
 export FZF_DEFAULT_OPTS=" \
