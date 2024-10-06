@@ -595,3 +595,9 @@ keybinding:
     bulkMenu: b
   commitMessage:
     commitMenu: <c-o>
+
+customCommands:
+  - key: 'c'
+    command: 'git commit -v'
+    context: 'files'
+    subprocess: true
