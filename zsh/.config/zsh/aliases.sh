@@ -28,3 +28,8 @@ alias padd="sudo pacman -S"
 alias pfind="sudo pacman -Ss"
 alias prm="sudo pacman -Rsun"
 alias pupdate="sudo pacman -Syu && yay -Syu && omz update"
+
+# Yay
+alias yadd="yay -S"
+alias yfind="yay -Ss"
+alias ysc="yay -Sc"
