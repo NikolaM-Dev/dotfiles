@@ -33,3 +33,12 @@ alias pupdate="sudo pacman -Syu && yay -Syu && omz update"
 alias yadd="yay -S"
 alias yfind="yay -Ss"
 alias ysc="yay -Sc"
+
+# Crud
+alias ...="cd ../.."
+alias ..="cd .."
+alias ctrash="gio trash --empty"
+alias gt="gio trash"
+alias rmf="rm -rf"
+alias to="touch"
+alias trash="cd ~/.local/share/Trash/files"
