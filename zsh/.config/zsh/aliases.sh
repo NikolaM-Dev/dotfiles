@@ -22,3 +22,9 @@ alias V="cd ~/.config/nvim && nvim"
 alias W="cd ~/workspace"
 alias year='cal -mwy'
 alias zc="nvim ~/.zshrc"
+
+# Pacman
+alias padd="sudo pacman -S"
+alias pfind="sudo pacman -Ss"
+alias prm="sudo pacman -Rsun"
+alias pupdate="sudo pacman -Syu && yay -Syu && omz update"
