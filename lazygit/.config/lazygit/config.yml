@@ -312,7 +312,7 @@ git:
     replace: ''
 
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
-  branchPrefix: 'feature-PARQ-1'
+  branchPrefix: ''
 
   # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
   # (This should really be under 'gui', not 'git')
