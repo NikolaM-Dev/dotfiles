@@ -47,3 +47,8 @@ alias yad="yarn add -D -E"
 alias ya="yarn add -E"
 alias yi="npm init -y"
 alias yrm="yarn remove"
+
+# Golang
+alias gcoverage="go test -coverprofile=coverage.out; go tool cover -o coverage.html -html=coverage.out; google-chrome-stable coverage.html"
+alias gdtelemetry="go run golang.org/x/telemetry/cmd/gotelemetry@latest off"
+alias gmi="go mod init"
