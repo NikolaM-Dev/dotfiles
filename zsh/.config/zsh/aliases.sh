@@ -42,3 +42,8 @@ alias gt="gio trash"
 alias rmf="rm -rf"
 alias to="touch"
 alias trash="cd ~/.local/share/Trash/files"
+# yarn
+alias yad="yarn add -D -E"
+alias ya="yarn add -E"
+alias yi="npm init -y"
+alias yrm="yarn remove"
