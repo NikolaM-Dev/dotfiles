@@ -126,3 +126,12 @@ alias dirmf="docker image rm -f"
 alias dpull="docker pull"
 alias dcprune="docker container prune"
 alias diprune="docker image prune"
+
+# Docker Compose
+alias dcb="docker-compose build"
+alias dcd="docker-compose down"
+alias dcps="docker-compose ps"
+alias dcu="docker-compose up"
+alias dcupd="docker-compose up -d"
+alias dps="docker ps"
+alias ssd="systemctl start docker.service"
