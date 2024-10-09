@@ -85,3 +85,28 @@ alias gcoverage="go test -coverprofile=coverage.out; go tool cover -o coverage.h
 alias gdtelemetry="go run golang.org/x/telemetry/cmd/gotelemetry@latest off"
 alias gmi="go mod init"
 alias gtest="go test -v -cover ./..."
+
+# IDE
+alias cd="z"
+alias compile-dwm="cd ~/.config/chadwm/chadwm && sudo make clean install && cd -"
+alias cva="yarn create vite"
+alias dautotime="sudo timedatectl set-ntp 0"
+alias disable-suspend="sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target"
+alias eautotime="sudo timedatectl set-ntp 1"
+alias e="exit"
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias grep="grep --color=auto"
+alias install-ex-dependencies="sudo pacman -Syu p7zip unrar tar rsync unzip"
+alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo systemctl start keyd && setxkbmap -option compose:menu"
+alias l="eza -ahl --group-directories-first --icons"
+alias lg="lazygit"
+alias mnvmrc="node -v >> .nvmrc"
+alias pdfs="~/grey/ && ranger && cd -"
+alias sr="sudo reboot"
+alias ssn="sudo shutdown now"
+alias szsh="source ~/.zshrc"
+alias tree="eza -hT --group-directories-first --icons"
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias v=nvim
