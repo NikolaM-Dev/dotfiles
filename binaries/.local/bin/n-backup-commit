@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function main {
+    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
+
+    git add . && git commit -m "feat: Add backup $time_stamp"
+}
+
+main
