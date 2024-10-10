@@ -141,3 +141,8 @@ alias rcsltr="rclone -v sync /home/nikola/Documents/drive drive:"
 alias rcsrtl="rclone -v sync drive: /home/nikola/Documents/drive"
 alias rcp="rclone -v copy /home/nikola/Documents/drive drive:"
 alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
+
+# Youtube
+alias play="vlc -I ncurses --novideo --random --loop --playlist-autostart ."
+alias ytaudio="yt-dlp -f 'ba' -x --no-playlist"
+alias ytplaylist="yt-dlp -f 'ba' -x"
