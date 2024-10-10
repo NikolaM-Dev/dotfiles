@@ -135,3 +135,9 @@ alias dcu="docker-compose up"
 alias dcupd="docker-compose up -d"
 alias dps="docker ps"
 alias ssd="systemctl start docker.service"
+
+# Rclone
+alias rcsltr="rclone -v sync /home/nikola/Documents/drive drive:"
+alias rcsrtl="rclone -v sync drive: /home/nikola/Documents/drive"
+alias rcp="rclone -v copy /home/nikola/Documents/drive drive:"
+alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
