@@ -127,6 +127,7 @@ function change-remote-to-ssh {
       return
   fi
 
+  git remote remove origin
   git remote add origin git@github.com:NikolaM-Dev/$1.git
 }
 
