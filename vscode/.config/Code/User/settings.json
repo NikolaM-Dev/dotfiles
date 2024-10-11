@@ -1,4 +1,5 @@
 {
+  "Lua.telemetry.enable": false,
   "[c]": {
     "editor.semanticHighlighting.enabled": true,
     "editor.suggest.insertMode": "replace",
@@ -218,7 +219,6 @@
   ],
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
-  "Lua.telemetry.enable": false,
   "material-icon-theme.activeIconPack": "nest",
   "mdb.sendTelemetry": false,
   "pgFormatter.keepNewline": true,
@@ -530,24 +530,6 @@
     "[Field Lights]": {
       "editorInlayHint.background": "#1a1f28"
     },
-    "[lucy-evening]": {
-      "terminal.ansiBlack": "#000000",
-      "terminal.ansiBlue": "#82aaff",
-      "terminal.ansiBrightBlack": "#4a4a4a",
-      "terminal.ansiBrightBlue": "#82aaff",
-      "terminal.ansiBrightCyan": "#89ddff",
-      "terminal.ansiBrightGreen": "#c3e88d",
-      "terminal.ansiBrightMagenta": "#c792ea",
-      "terminal.ansiBrightRed": "#ff5370",
-      "terminal.ansiBrightWhite": "#ffffff",
-      "terminal.ansiBrightYellow": "#ffcb6b",
-      "terminal.ansiCyan": "#89ddff",
-      "terminal.ansiGreen": "#c3e88d",
-      "terminal.ansiMagenta": "#c792ea",
-      "terminal.ansiRed": "#ff5370",
-      "terminal.ansiWhite": "#ffffff",
-      "terminal.ansiYellow": "#ffcb6b"
-    },
     "[Monokai Pro]": {
       "statusBarItem.remoteBackground": "#FF6188",
       "statusBarItem.remoteForeground": "#fff"
@@ -571,6 +553,24 @@
       "terminal.ansiWhite": "#abb2bf",
       "terminal.ansiYellow": "#d19a66",
       "terminal.foreground": "#abb2bf"
+    },
+    "[lucy-evening]": {
+      "terminal.ansiBlack": "#000000",
+      "terminal.ansiBlue": "#82aaff",
+      "terminal.ansiBrightBlack": "#4a4a4a",
+      "terminal.ansiBrightBlue": "#82aaff",
+      "terminal.ansiBrightCyan": "#89ddff",
+      "terminal.ansiBrightGreen": "#c3e88d",
+      "terminal.ansiBrightMagenta": "#c792ea",
+      "terminal.ansiBrightRed": "#ff5370",
+      "terminal.ansiBrightWhite": "#ffffff",
+      "terminal.ansiBrightYellow": "#ffcb6b",
+      "terminal.ansiCyan": "#89ddff",
+      "terminal.ansiGreen": "#c3e88d",
+      "terminal.ansiMagenta": "#c792ea",
+      "terminal.ansiRed": "#ff5370",
+      "terminal.ansiWhite": "#ffffff",
+      "terminal.ansiYellow": "#ffcb6b"
     },
     "editorBracketHighlight.foreground1": "#ffd700",
     "editorBracketHighlight.foreground2": "#da70d6",
