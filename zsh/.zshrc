@@ -243,33 +243,3 @@ zle -N ctrlz
 bindkey '^Z' ctrlz
 
 [[ -f ~/.config/zsh/aliases.sh  ]] && source ~/.config/zsh/aliases.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
-export FZF_DEFAULT_OPTS=" \
---ansi \
---border rounded \
---color=bg+:#313244,bg:-1,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---pointer='' \
---prompt='  ' \
---reverse \
-"
-
-# fnm
-FNM_PATH="/home/nikola/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/nikola/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-  eval "$(fnm env --use-on-cd)"
-fi
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-# gum
-export GUM_INPUT_CURSOR_FOREGROUND="#FF0"
-export GUM_INPUT_PLACEHOLDER="What's up?"
-export GUM_INPUT_PROMPT=" "
-export GUM_INPUT_PROMPT_FOREGROUND="#0FF"
-export GUM_INPUT_WIDTH=80
