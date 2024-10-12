@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+function main {
+    # Create a Lute workspace
+    mkdir -p ~/Documents/english/lute
+    cd ~/Documents/english/lute
+
+    # Set up virtual environment.  If this line gives an error, see "system reqs" above.
+    python3 -m venv myenv
+    source myenv/bin/activate
+
+    # Install or upgrade lute
+    pip install --upgrade lute3
+
+    # Start lute
+    python -m lute.main
+}
+
+main
