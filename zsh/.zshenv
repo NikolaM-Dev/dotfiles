@@ -57,6 +57,10 @@ if [ -d "$FNM_PATH" ]; then
   # WARN: Don't work currently
   # eval "$(fnm env --use-on-cd)"
   # eval "$(fnm env --use-on-cd --shell zsh)"
+
+  if [[ "$(pwd)" == "$HOME/workspace/work/dashboard" ]]; then
+    eval "$(fnm env --use-on-cd --shell zsh)"
+  fi
 fi
 
 # zoxide
