@@ -16,8 +16,9 @@
       "pattern": "https?://app.todoist.com/*"
     },
     {
-      "passKeys": "d",
-      "pattern": "https?://www.youtube.com/*"
+      "passKeys": "",
+      "pattern": "https?://excalidraw.com/*"
+    },
     },
     {
       "passKeys": "a",
@@ -42,10 +43,6 @@
     {
       "passKeys": "t",
       "pattern": "https?://*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://excalidraw.com/*"
     }
   ]
 }
