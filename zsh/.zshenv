@@ -32,6 +32,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 # Rust
 export PATH="$PATH:$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 # Bun
 export BUN_INSTALL="/home/nikola/.bun"
