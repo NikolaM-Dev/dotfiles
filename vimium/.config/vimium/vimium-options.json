@@ -19,6 +19,10 @@
       "passKeys": "",
       "pattern": "https?://excalidraw.com/*"
     },
+    {
+      "passKeys": "",
+      "pattern": "https?://ticktick.com/*"
+    },
     },
     {
       "passKeys": "a",
