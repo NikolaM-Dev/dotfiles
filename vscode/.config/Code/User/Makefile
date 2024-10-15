@@ -1,9 +1,4 @@
-.PHONY: freeze-extensions install-extensions
-
-freeze-extensions:
-	@echo "Listing installed extensions..."
-	@code --list-extensions > extensions.txt
-	@echo "Extensions have been listed in extensions.txt"
+.PHONY: install-extensions freeze-extensions
 
 install-extensions:
 	@echo "Installing extensions from extensions.txt..."
@@ -14,3 +9,8 @@ install-extensions:
 		echo "extensions.txt not found. Please run 'make freeze-extensions' first."; \
 		exit 1; \
 	fi
+
+freeze-extensions:
+	@echo "Listing installed extensions..."
+	@code --list-extensions > extensions.txt
+	@echo "Extensions have been listed in extensions.txt"
