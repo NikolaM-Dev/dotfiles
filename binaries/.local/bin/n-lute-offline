@@ -10,7 +10,7 @@ function main {
     source myenv/bin/activate
 
     # Start lute
-    python -m lute.main
+    python -m lute.main --port 1873
 }
 
 main
