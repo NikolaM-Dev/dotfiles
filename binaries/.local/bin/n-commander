@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+commands=$(fd "n-*" $HOME/.local/bin --exec basename)
+
+selected_command=$(printf "%s\n" "${commands[@]}" | fzf --prompt="Select a command> ")
+
+# Ejecuta el comando seleccionado si no es vacío
+if [[ ! -n $selected_command ]]; then
+  echo "No command selected"
+fi
+
+echo "Executing: $selected_command"
+eval "$selected_command"
