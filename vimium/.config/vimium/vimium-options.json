@@ -23,6 +23,9 @@
       "passKeys": "",
       "pattern": "https?://ticktick.com/*"
     },
+    {
+      "passKeys": "",
+      "pattern": "https?://localhost:1873/*"
     },
     {
       "passKeys": "a",
