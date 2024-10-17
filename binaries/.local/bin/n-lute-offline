@@ -11,6 +11,9 @@ function main {
 
     # Start lute
     python -m lute.main --port 1873
+
+    # Open the browser
+    xdg-open http://localhost:1873
 }
 
 main
