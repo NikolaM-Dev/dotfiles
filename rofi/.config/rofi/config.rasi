@@ -13,7 +13,7 @@ configuration{
     modi: "drun,window,emoji,run";
     show-icons: true;
     sidebar-mode: true;
-    terminal: "alacritty";
+    terminal: "wezterm";
 }
 
 @theme "gruvchad"
