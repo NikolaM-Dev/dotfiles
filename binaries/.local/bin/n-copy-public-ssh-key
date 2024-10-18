@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function main {
+  cat ~/.ssh/id_rsa.pub | xsel -ib
+}
+
+main
