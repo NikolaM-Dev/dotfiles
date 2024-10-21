@@ -13,7 +13,10 @@ function main {
     pip install --upgrade lute3
 
     # Start lute
-    python -m lute.main --port 1873
+    python -m lute.main --port 1873 &
+
+    # Wait for lute to start
+    sleep 2
 
     # Open the browser
     xdg-open http://localhost:1873
