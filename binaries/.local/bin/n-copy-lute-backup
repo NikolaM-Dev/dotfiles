@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function main {
+    cp $(ls -t ~/.local/share/Lute3/backups/manual* | head -n 1) ~/Downloads
+    cd ~/Downloads
+    eza -ahl --group-directories-first --icons
+}
+
+main
