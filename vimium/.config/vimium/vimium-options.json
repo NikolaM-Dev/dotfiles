@@ -52,7 +52,7 @@
       "pattern": "https?://*"
     },
     {
-      "passKeys": "t",
+      "passKeys": "b",
       "pattern": "https?://*"
     }
   ]
