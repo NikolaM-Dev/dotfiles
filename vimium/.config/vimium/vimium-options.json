@@ -25,6 +25,10 @@
     },
     {
       "passKeys": "",
+      "pattern": "https?://meet.google.com/*"
+    },
+    {
+      "passKeys": "",
       "pattern": "https?://localhost:1873/*"
     },
     {
