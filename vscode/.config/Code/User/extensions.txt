@@ -16,6 +16,7 @@ inferrinizzard.prettier-sql-vscode
 irnas.auto-comment-blocks-single-star
 jgclark.vscode-todo-highlight
 johnnymorganz.stylua
+johnpapa.angular2
 kisstkondoros.vscode-gutter-preview
 meganrogge.template-string-converter
 mhutchie.git-graph
@@ -27,6 +28,7 @@ pflannery.vscode-versionlens
 pivaszbs.svelte-autoimport
 pkief.material-icon-theme
 premparihar.gotestexplorer
+qwtel.sqlite-viewer
 redhat.vscode-xml
 redhat.vscode-yaml
 shahilkumar.docxreader
