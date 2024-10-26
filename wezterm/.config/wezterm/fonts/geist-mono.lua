@@ -10,7 +10,7 @@ function M.setup_font(config)
 	config.cell_width = 0.9
 	config.font_size = 13
 
-	config.font = font({ family = 'Geist Mono', scale = SCALE, weight = 'Regular' })
+	config.font = font({ family = 'Geist Mono', scale = SCALE, weight = 'Medium' })
 
 	config.font_rules = {
 		{
