@@ -44,5 +44,6 @@ nm-applet &
 picom -b --config ~/.config/picom/picom.conf &
 sh .fehbg &
 udiskie -t &
+dunst &
 
 exec ~/.config/chadwm/chadwm/./autostart.sh
