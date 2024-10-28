@@ -6,7 +6,7 @@ configuration{
     display-run: "    Run ";
     display-window: "󰕰  windows ";
     drun-display-format: "{icon} {name}";
-    font: "Sarasa Nerd Font 14";
+    font: "JetBrainsMono Nerd Font 12";
     hide-scrollbar: true;
     icon-theme: "ePapirus-Dark";
     lines: 5;
