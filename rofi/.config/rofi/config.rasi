@@ -1,5 +1,6 @@
 configuration{
     disable-history: false;
+    display-calc: "  Calc";
     display-drun: "   Apps ";
     display-emoji: " 󰞅  Emojis ";
     display-run: "    Run ";
