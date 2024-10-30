@@ -1,0 +1,91 @@
+{
+  "theme": "auto",
+  "startWeekOn": "sunday",
+  "timeFormat": "12-hour",
+  "dailyResetTime": 10800000,
+  "trackTabs": true,
+  "dailySummary": false,
+  "sendDailySummary": 75600000,
+  "popupPosition": "center",
+  "ignoreWebsites": [],
+  "focusWebsites": ["youtube.com"],
+  "focusSchedules": {
+    "1EgClM1RjgQj2tiCZ_uBr": {
+      "id": "1EgClM1RjgQj2tiCZ_uBr",
+      "name": "Night",
+      "days": [
+        "sunday",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday"
+      ],
+      "allDay": false,
+      "startTime": 81900000,
+      "endTime": 86340000
+    },
+    "JQB_xET9pRNVZB061nKu2": {
+      "id": "JQB_xET9pRNVZB061nKu2",
+      "name": "Day",
+      "days": [
+        "sunday",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday"
+      ],
+      "allDay": false,
+      "startTime": 0,
+      "endTime": 25200000
+    }
+  },
+  "websiteLimits": {
+    "-3mzzJcmUIqDnrfcVCM1Q": {
+      "id": "-3mzzJcmUIqDnrfcVCM1Q",
+      "version": 3,
+      "appId": "x.com",
+      "duration": 900000,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "OahTZQfbaBIsmDvuR-kAR": {
+      "id": "OahTZQfbaBIsmDvuR-kAR",
+      "version": 3,
+      "appId": "instagram.com",
+      "duration": 600000,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "fA1y6OW0IcXOumS1ptai_": {
+      "id": "fA1y6OW0IcXOumS1ptai_",
+      "version": 3,
+      "appId": "fr.pornhub.com",
+      "duration": 0,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "fd_6K5djApYblcMJbfYmP": {
+      "id": "fd_6K5djApYblcMJbfYmP",
+      "version": 3,
+      "appId": "twitch.tv",
+      "duration": 600000,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    }
+  },
+  "limitsOnTheGoWebsites": [],
+  "limitsOnTheGoSchedules": {},
+  "limitsOnTheGoCoolDown": 0
+}
