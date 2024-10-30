@@ -27,6 +27,7 @@ oouo-diogo-perdigao.docthis
 pflannery.vscode-versionlens
 pivaszbs.svelte-autoimport
 pkief.material-icon-theme
+pmndrs.pmndrs
 premparihar.gotestexplorer
 qwtel.sqlite-viewer
 redhat.vscode-xml
