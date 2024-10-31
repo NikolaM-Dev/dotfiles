@@ -334,6 +334,10 @@
       "commands": [":q"]
     },
     {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    {
       "before": ["g", "r"],
       "commands": ["editor.action.rename"]
     },
