@@ -262,7 +262,7 @@ git:
     manualCommit: false
 
     # Extra args passed to `git merge`, e.g. --no-ff
-    args: ''
+    args: '--no-ff'
 
     # The commit message to use for a squash merge commit. Can contain "{{selectedRef}}" and "{{currentBranch}}" placeholders.
     squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
