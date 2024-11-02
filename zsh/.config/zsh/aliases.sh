@@ -27,6 +27,7 @@ alias zc="nvim ~/.zshrc"
 alias padd="sudo pacman -S"
 alias pfind="sudo pacman -Ss"
 alias prm="sudo pacman -Rsun"
+alias prmu="sudo pacman -Rns $(pacman -Qtdq)"
 alias pupdate="sudo pacman -Syu && yay -Syu && omz update"
 
 # Yay
