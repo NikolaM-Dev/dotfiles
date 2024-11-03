@@ -1,9 +1,9 @@
 {
   "theme": "auto",
-  "startWeekOn": "sunday",
-  "timeFormat": "12-hour",
+  "startWeekOn": "monday",
+  "timeFormat": "24-hour",
   "dailyResetTime": 10800000,
-  "trackTabs": true,
+  "trackTabs": false,
   "dailySummary": false,
   "sendDailySummary": 75600000,
   "popupPosition": "center",
@@ -30,42 +30,58 @@
       "id": "JQB_xET9pRNVZB061nKu2",
       "name": "Day",
       "days": [
-        "sunday",
         "monday",
         "tuesday",
         "wednesday",
         "thursday",
         "friday",
-        "saturday"
+        "saturday",
+        "sunday"
       ],
       "allDay": false,
       "startTime": 0,
-      "endTime": 25200000
+      "endTime": 24300000
+    },
+    "V9mIo-jqbfqpXpO1ILFVI": {
+      "id": "V9mIo-jqbfqpXpO1ILFVI",
+      "name": "Anki",
+      "days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "allDay": false,
+      "startTime": 24300000,
+      "endTime": 28800000
     }
   },
   "websiteLimits": {
-    "-3mzzJcmUIqDnrfcVCM1Q": {
-      "id": "-3mzzJcmUIqDnrfcVCM1Q",
+    "OrqFjYdT4bGtm03s1Emji": {
+      "id": "OrqFjYdT4bGtm03s1Emji",
       "version": 3,
-      "appId": "x.com",
-      "duration": 900000,
+      "appId": "twitch.tv",
+      "duration": 0,
       "limitType": "web",
       "metricType": "usage-time",
       "warningType": "block",
       "isCrossPlatform": false
     },
-    "OahTZQfbaBIsmDvuR-kAR": {
-      "id": "OahTZQfbaBIsmDvuR-kAR",
+    "REtXjCtjuC75CD4wPu57w": {
+      "id": "REtXjCtjuC75CD4wPu57w",
       "version": 3,
-      "appId": "instagram.com",
-      "duration": 600000,
+      "appId": "linkedin.com",
+      "duration": 0,
       "limitType": "web",
       "metricType": "usage-time",
       "warningType": "block",
       "isCrossPlatform": false
     },
-    "fA1y6OW0IcXOumS1ptai_": {
-      "id": "fA1y6OW0IcXOumS1ptai_",
+    "RxYUCw2Dek3Bd39POyQrP": {
+      "id": "RxYUCw2Dek3Bd39POyQrP",
       "version": 3,
       "appId": "fr.pornhub.com",
       "duration": 0,
@@ -74,11 +90,51 @@
       "warningType": "block",
       "isCrossPlatform": false
     },
-    "fd_6K5djApYblcMJbfYmP": {
-      "id": "fd_6K5djApYblcMJbfYmP",
+    "SQgrHg5xxessrg88S6z3W": {
+      "id": "SQgrHg5xxessrg88S6z3W",
       "version": 3,
-      "appId": "twitch.tv",
-      "duration": 600000,
+      "appId": "x.com",
+      "duration": 0,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "YFRLu7-AYv5kSCOzK8NhF": {
+      "id": "YFRLu7-AYv5kSCOzK8NhF",
+      "version": 3,
+      "appId": "kick.com",
+      "duration": 0,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "_tU3GFf1fuKNPFHsvBSSp": {
+      "id": "_tU3GFf1fuKNPFHsvBSSp",
+      "version": 3,
+      "appId": "instagram.com",
+      "duration": 0,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "rnkqcQMT7h5m1GCawFfJu": {
+      "id": "rnkqcQMT7h5m1GCawFfJu",
+      "version": 3,
+      "appId": "facebook.com",
+      "duration": 0,
+      "limitType": "web",
+      "metricType": "usage-time",
+      "warningType": "block",
+      "isCrossPlatform": false
+    },
+    "toqYPKlaVZiF3fgXv_Fxh": {
+      "id": "toqYPKlaVZiF3fgXv_Fxh",
+      "version": 3,
+      "appId": "reddit.com",
+      "duration": 0,
       "limitType": "web",
       "metricType": "usage-time",
       "warningType": "block",
