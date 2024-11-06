@@ -600,14 +600,17 @@ customCommands:
   - key: 'c'
     command: 'git commit -v'
     context: 'files'
+    description: 'Commit all staged files'
     subprocess: true
 
   - key: 'u'
     command: 'git reset --soft HEAD~1'
     context: 'commits'
+    description: 'Undo last commit'
     subprocess: false
 
   - key: 'b'
     command: 'n-backup-commit'
     context: 'files'
+    description: 'Commit all files in stage and unstaged with a timestamp message'
     subprocess: false
