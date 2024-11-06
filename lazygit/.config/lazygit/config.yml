@@ -601,10 +601,12 @@ customCommands:
     command: 'git commit -v'
     context: 'files'
     subprocess: true
+
   - key: 'u'
     command: 'git reset --soft HEAD~1'
     context: 'commits'
     subprocess: false
+
   - key: 'b'
     command: 'n-backup-commit'
     context: 'files'
