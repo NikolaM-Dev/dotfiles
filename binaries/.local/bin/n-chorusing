@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+import os
+
+HOME = os.getenv('HOME')
+
+term_config_path = f'{HOME}/.config/wezterm/wezterm.lua'
+
+with open(term_config_path, 'r') as file:
+    lines = file.readlines()
+
+for i in range(len(lines)):
+    if 'config.window_background_opacity = 0.95' in lines[i]:
+        lines[i] = 'config.window_background_opacity = 0.6\n'
+    elif 'config.window_background_opacity = 0.6' in lines[i]:
+        lines[i] = 'config.window_background_opacity = 0.95\n'
+
+with open(term_config_path, 'w') as file:
+    file.writelines(lines)
