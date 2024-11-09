@@ -2,7 +2,7 @@
 
 commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
 
-selected_command=$(printf "%s\n" "${commands[@]}" | fzf --prompt="Select a command> ")
+selected_command=$(printf "%s\n" "${commands[@]}" | fzf-tmux)
 
 # Ejecuta el comando seleccionado si no es vacío
 if [[ ! -n $selected_command ]]; then
