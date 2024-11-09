@@ -9,5 +9,4 @@ if [[ ! -n $selected_command ]]; then
   echo "No command selected"
 fi
 
-echo "Executing: $selected_command"
 eval "$selected_command"
