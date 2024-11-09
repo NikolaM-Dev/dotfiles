@@ -14,7 +14,7 @@ function M.setup_font(config)
 
 	config.font_rules = {
 		{
-			font = font({ family = 'JetBrainsMono Nerd Font', weight = 'Bold', style = 'Normal', scale = SCALE }),
+			font = font({ family = 'Maple Mono NF', weight = 'Bold', style = 'Normal', scale = SCALE }),
 			intensity = 'Bold',
 			italic = false,
 		},

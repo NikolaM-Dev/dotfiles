@@ -1,5 +1,5 @@
 local c = require('config')
-local f = require('fonts.jetbrains-mono-nf')
+local f = require('fonts.maple-mono-nf')
 
 local config = c.get_config()
 
