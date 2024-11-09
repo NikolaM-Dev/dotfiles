@@ -4,9 +4,8 @@ commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
 
 selected_command=$(printf "%s\n" "${commands[@]}" | fzf-tmux)
 
-# Ejecuta el comando seleccionado si no es vacío
 if [[ ! -n $selected_command ]]; then
-  echo "No command selected"
+  return
 fi
 
 eval "$selected_command"
