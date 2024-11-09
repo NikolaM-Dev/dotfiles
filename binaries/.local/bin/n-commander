@@ -2,7 +2,7 @@
 
 commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
 
-selected_command=$(printf "%s\n" "${commands[@]}" | fzf-tmux)
+selected_command=$(printf "%s\n" "${commands[@]}" | fzf-tmux -p 40%,30% --border-label '  Commander ')
 
 if [[ ! -n $selected_command ]]; then
   return
