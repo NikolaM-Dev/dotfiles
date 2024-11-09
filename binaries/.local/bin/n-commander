@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-commands=$(fd "n-*" $HOME/.local/bin --exec basename)
+commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
 
 selected_command=$(printf "%s\n" "${commands[@]}" | fzf --prompt="Select a command> ")
 
