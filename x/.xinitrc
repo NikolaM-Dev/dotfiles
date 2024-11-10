@@ -45,5 +45,6 @@ picom -b --config ~/.config/picom/picom.conf &
 sh .fehbg &
 udiskie -t &
 dunst &
+n-clip-board &
 
 exec ~/.config/chadwm/chadwm/./autostart.sh
