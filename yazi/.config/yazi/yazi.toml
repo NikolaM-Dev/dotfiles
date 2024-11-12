@@ -106,6 +106,8 @@ preloaders = [
 ]
 previewers = [
 	{ name = "*/", run = "folder", sync = true },
+	# JavaScript
+	{ name = "*.js", run = "code"  },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
