@@ -145,8 +145,8 @@
     "typescriptreact"
   ],
   "explorer.compactFolders": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": true,
   "extensions.ignoreRecommendations": true,
   "files.defaultLanguage": "typescript",
   "files.exclude": {
