@@ -73,7 +73,7 @@ startup_command = 'n-start-second-brain-tmux-session'
 
 [[session]]
 name = "  music"
-path = "/run/media/nikola/PURPLE/4-archives/music/chill"
+path = "~/Music"
 
 [[session]]
 name = "󰂾 library"
