@@ -599,7 +599,7 @@ keybinding:
 customCommands:
   - key: 'c'
     command: 'git commit -v'
-    context: 'files'
+    context: 'global'
     description: 'Commit all staged files'
     subprocess: true
 
