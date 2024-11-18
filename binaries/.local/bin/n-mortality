@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Fecha de inicio en formato YYYY-MM-DD
+start_date="2000-10-07"
+
+# Fecha actual
+current_date=$(date +%Y-%m-%d)
+
+# Convertir las fechas a segundos desde el epoch
+start_seconds=$(date -d "$start_date" +%s)
+current_seconds=$(date +%s)
+
+# Calcular la diferencia en segundos
+diff_seconds=$((current_seconds - start_seconds))
+
+# Calcular años, meses y días usando date
+years=$(($(date -d "@$diff_seconds" +%Y) - 1970))
+months=$(($(date -d "@$diff_seconds" +%m) - 1))
+days=$(($(date -d "@$diff_seconds" +%d) - 1))
+
+# Calcular horas y minutos
+hours=$((diff_seconds / 3600 % 24))
+minutes=$((diff_seconds / 60 % 60))
+
+# Mostrar el resultado en el formato solicitado
+echo "$years years $months months $days days $hours hours $minutes mins"
