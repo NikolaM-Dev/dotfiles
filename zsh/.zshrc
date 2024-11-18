@@ -245,3 +245,5 @@ bindkey '^Z' ctrlz
 [[ -f ~/.config/zsh/aliases.sh  ]] && source ~/.config/zsh/aliases.sh
 [[ -f ~/.config/zsh/functions.sh  ]] && source ~/.config/zsh/functions.sh
 [[ -f ~/.config/zsh/keymaps.sh  ]] && source ~/.config/zsh/keymaps.sh
+
+n-mortality
