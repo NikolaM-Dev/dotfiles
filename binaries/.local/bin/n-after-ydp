@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Recorrer todos los archivos en el directorio actual
+for file in *; do
+  # Usar expresión regular para eliminar '[*]'
+  new_name=$(echo "$file" | sed 's/\s*\[[^]]*\]//g')
+
+  # Renombrar el archivo si el nombre ha cambiado
+  if [ "$file" != "$new_name" ]; then
+    mv "$file" "$new_name"
+    echo "Renamed: $file -> $new_name"
+  fi
+done
