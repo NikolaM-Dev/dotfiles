@@ -11,9 +11,11 @@ def main():
         lines = file.readlines()
 
     for i in range(len(lines)):
-        if 'config.window_background_opacity = 0.95' in lines[i]:
+        if 'config.window_background_opacity = 0.6' in lines[i]:
+            lines[i] = 'config.window_background_opacity = 0.95\n'
+        elif 'config.window_background_opacity = 0.95' in lines[i]:
             lines[i] = 'config.window_background_opacity = 0.6\n'
-        elif 'config.window_background_opacity = 0.6' in lines[i]:
+        elif 'config.window_background_opacity' in lines[i]:
             lines[i] = 'config.window_background_opacity = 0.95\n'
 
     with open(term_config_path, 'w') as file:
