@@ -116,7 +116,7 @@ function gbp2 {
 }
 
 function gd {
-  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
+  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock" | delta --side-by-side
 }
 
 ## Change remote to ssh
