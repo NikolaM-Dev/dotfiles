@@ -15,7 +15,7 @@ config.enable_wayland = false
 config.force_reverse_video_cursor = false
 config.freetype_load_target = 'HorizontalLcd'
 config.freetype_render_target = 'HorizontalLcd'
-config.max_fps = 120
+config.max_fps = 240
 config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
 config.window_padding = { bottom = 8, left = 8, right = 8, top = 8 }
