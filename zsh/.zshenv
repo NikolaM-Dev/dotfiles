@@ -80,3 +80,6 @@ export FZF_DEFAULT_OPTS=" \
 --prompt='  ' \
 --reverse \
 "
+
+# GTK
+export GTK_THEME="Qogir-Dark"
