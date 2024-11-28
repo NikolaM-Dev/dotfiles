@@ -2,6 +2,9 @@
 
 CLIPBOARD_LOG_PATH="$HOME/.cache/nvim/clipboard_log.txt"
 
+function _now() {
+  date "+%H:%M:%S | %d.%m.%Y"
+}
 function main() {
 }
 
