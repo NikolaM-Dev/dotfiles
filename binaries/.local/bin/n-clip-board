@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+CLIPBOARD_LOG_PATH="$HOME/.cache/nvim/clipboard_log.txt"
+
+function main() {
+}
+
+main
