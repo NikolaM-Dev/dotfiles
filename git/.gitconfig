@@ -1,3 +1,6 @@
+[include]
+path = ~/.config/delta/delta.gitconfig
+
 [user]
 name = Juan David Merchan Torres
 email = juan1014166@gmail.com
@@ -11,7 +14,5 @@ defaultBranch = main
 [pull]
 rebase = false
 
-[include]
-path = ~/.config/delta/delta.gitconfig
 [fetch]
 prune = true
