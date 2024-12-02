@@ -13,3 +13,5 @@ rebase = false
 
 [include]
 path = ~/.config/delta/delta.gitconfig
+[fetch]
+prune = true
