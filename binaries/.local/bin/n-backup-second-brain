@@ -16,7 +16,7 @@ function main {
         if [ $# -eq 1 ]; then
             sleep $1
         else
-            sleep 3m;
+            sleep 30m;
         fi
     done
 }
