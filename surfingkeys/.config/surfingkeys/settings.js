@@ -50,4 +50,4 @@ settings.theme = `
     font-size: 20pt;
 }`;
 
-settings.blocklistPattern = /(trello|ticktick).com/i;
+settings.blocklistPattern = /(trello|ticktick|excalidraw).com/i;
