@@ -12,7 +12,7 @@ function main() {
     tmux new-session -d -s ' downloads' -c ~/Downloads
     tmux new-session -d -s ' nvim' -c ~/.config/nvim
 
-    sesh connect "  english"
+    sesh connect " second brain"
 }
 
 main
