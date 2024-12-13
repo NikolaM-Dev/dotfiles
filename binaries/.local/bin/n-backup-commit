@@ -3,7 +3,11 @@
 function main {
     time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
 
-    git add . && git commit -m "feat: Add backup $time_stamp"
+    if [[ $1 == "--stage-all" ]]; then
+        git add --all
+    fi
+
+    git commit -m "feat: Add backup $time_stamp"
 }
 
-main
+main "$@"
