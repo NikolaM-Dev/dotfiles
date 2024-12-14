@@ -614,3 +614,9 @@ customCommands:
     context: 'files'
     description: 'Commit all files in stage and unstaged with a timestamp message'
     subprocess: false
+
+  - key: 'B'
+    command: 'n-backup-commit'
+    context: 'files'
+    description: 'Commit just staged files with a timestamp message'
+    subprocess: false
