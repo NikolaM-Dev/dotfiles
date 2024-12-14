@@ -14,7 +14,7 @@ shift 2
 
 bookmark=$@
 
-cd ~/Documents/second-brain.md/z/bookmarks/
+cd "$(SECOND_BRAIN_PATH)/02/areas/z/bookmarks/
 
 if [ -f "$fleeting_note_file" ]; then
     echo "" >> $fleeting_note_file
