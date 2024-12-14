@@ -25,7 +25,7 @@ else
 
     echo "---" >> $fleeting_note_file
     echo "aliases: [${fleeting_note_title}]" >> $fleeting_note_file
-    echo "tags: [books, status/in-progress, zathura]" >> $fleeting_note_file
+    echo "tags: [status/pending, type/book]" >> $fleeting_note_file
     echo "---" >> $fleeting_note_file
     echo "" >> $fleeting_note_file
     echo "# ${fleeting_note_title}" >> $fleeting_note_file
