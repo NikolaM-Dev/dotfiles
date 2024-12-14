@@ -610,7 +610,7 @@ customCommands:
     subprocess: false
 
   - key: 'b'
-    command: 'n-backup-commit'
+    command: 'n-backup-commit --stage-all'
     context: 'files'
     description: 'Commit all files in stage and unstaged with a timestamp message'
     subprocess: false
