@@ -149,11 +149,6 @@ function gundo {
   fi
 }
 
-function backup-commit {
-    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
-    git add . && git commit -m "feat: Add backup $time_stamp" && git push origin HEAD
-}
-
 function backup-system {
     time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
     sudo timeshift --create --comments "Backup $time_stamp"
