@@ -79,6 +79,7 @@ startup_command = 'play'
 [[session]]
 name = "󰂾 library"
 path = "~/library"
+startup_command = 'zathura'
 
 [[session]]
 name = "  english"
