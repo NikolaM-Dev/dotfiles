@@ -83,3 +83,6 @@ export FZF_DEFAULT_OPTS=" \
 
 # GTK
 export GTK_THEME="Qogir-Dark"
+
+# Second Brain
+export SECOND_BRAIN_PATH="$HOME/Documents/second-brain.md"
