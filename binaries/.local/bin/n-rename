@@ -21,7 +21,7 @@ function main {
     new_base_name=$(echo "$base_name" | tr '[:upper:]' '[:lower:]' | sed -e 's/[^a-z0-9]/-/g' | sed -e 's/--*/-/g')
 
     # Get the current date and time in the desired format
-    timestamp=$(date +%Y%m%d%H%M%S)
+    timestamp=$(date +%Y%m%d%H%M)
 
     # Create the new file name
     new_file_name="${timestamp}-${new_base_name}.${extension}"
