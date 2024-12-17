@@ -5,6 +5,7 @@ CLIPBOARD_LOG_PATH="$HOME/.cache/nvim/clipboard_log.txt"
 function _now() {
   date "+%H:%M:%S | %d.%m.%Y"
 }
+
 function _verify_clipboard_log_path() {
   if [ ! -f "$CLIPBOARD_LOG_PATH" ]; then
     touch "$CLIPBOARD_LOG_PATH"
@@ -13,6 +14,15 @@ function _verify_clipboard_log_path() {
   fi
 
   return 1
+}
+
+function _logger() {
+  echo "$(_now) - Saving: ["
+  echo
+  echo "$1"
+  echo
+  echo "]"
+  echo
 }
 function main() {
 }
