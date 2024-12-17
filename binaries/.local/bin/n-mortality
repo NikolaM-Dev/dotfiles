@@ -48,6 +48,7 @@ def get_time_formatted(payload):
 
     if payload.get("years") > 0:
         message += f"{payload.get('years')} years "
+
     if payload.get("months") > 0:
         message += f"{payload.get('months')} months "
 
