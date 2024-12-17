@@ -1,26 +1,86 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
 
-# Fecha de inicio en formato YYYY-MM-DD
-start_date="2000-10-07"
+from datetime import datetime
 
-# Fecha actual
-current_date=$(date +%Y-%m-%d)
+DAY_IN_SECONDS = 24 * 3600
+HOUR_IN_SECONDS = 3600
+MINUTE_IN_SECONDS = 60
+MONTH_IN_SECONDS = 30 * 24 * 3600
+YEAR_IN_SECONDS = 365 * 24 * 3600
 
-# Convertir las fechas a segundos desde el epoch
-start_seconds=$(date -d "$start_date" +%s)
-current_seconds=$(date +%s)
+def get_total_seconds(start_date):
+    current_date = datetime.now()
+    delta = current_date - start_date
 
-# Calcular la diferencia en segundos
-diff_seconds=$((current_seconds - start_seconds))
+    return int(delta.total_seconds())
 
-# Calcular años, meses y días usando date
-years=$(($(date -d "@$diff_seconds" +%Y) - 1970))
-months=$(($(date -d "@$diff_seconds" +%m) - 1))
-days=$(($(date -d "@$diff_seconds" +%d) - 1))
+def get_years_and_remaining_seconds(total_seconds):
+    years = total_seconds // YEAR_IN_SECONDS
+    remaining_seconds = total_seconds % YEAR_IN_SECONDS
 
-# Calcular horas y minutos
-hours=$((diff_seconds / 3600 % 24))
-minutes=$((diff_seconds / 60 % 60))
+    return years, remaining_seconds
 
-# Mostrar el resultado en el formato solicitado
-echo "$years years $months months $days days $hours hours $minutes mins"
+def get_months_and_remaining_seconds(total_seconds):
+    months = total_seconds // MONTH_IN_SECONDS
+    remaining_seconds = total_seconds % MONTH_IN_SECONDS
+
+    return months, remaining_seconds
+
+def get_days_and_remaining_seconds(total_seconds):
+    days = total_seconds // DAY_IN_SECONDS
+    remaining_seconds = total_seconds % DAY_IN_SECONDS
+
+    return days, remaining_seconds
+
+def get_hours_and_remaining_seconds(total_seconds):
+    hours = total_seconds // HOUR_IN_SECONDS
+    remaining_seconds = total_seconds % HOUR_IN_SECONDS
+
+    return hours, remaining_seconds
+
+def get_minutes(total_seconds):
+    minutes = total_seconds // MINUTE_IN_SECONDS
+
+    return minutes
+
+def get_time_formatted(payload):
+    message = ""
+
+    if payload.get("years") > 0:
+        message += f"{payload.get('years')} years "
+    if payload.get("months") > 0:
+        message += f"{payload.get('months')} months "
+
+    if payload.get("days") > 0:
+        message += f"{payload.get('days')} days "
+
+    message += f"{payload.get('hours')} hours {payload.get('minutes')} mins"
+
+    return message
+
+
+def main():
+    start_date = datetime.strptime("2024-12-07", "%Y-%m-%d")
+
+    total_seconds = get_total_seconds(start_date)
+
+    years, remaining_seconds = get_years_and_remaining_seconds(total_seconds)
+    months, remaining_seconds = get_months_and_remaining_seconds(remaining_seconds)
+    days, remaining_seconds = get_days_and_remaining_seconds(remaining_seconds)
+    hours, remaining_seconds = get_hours_and_remaining_seconds(remaining_seconds)
+    minutes = get_minutes(remaining_seconds)
+
+    time_formatted = get_time_formatted({
+        "days": days,
+        "hours": hours,
+        "minutes": minutes,
+        "months": months,
+        "years": years,
+    })
+
+    print(time_formatted)
+
+if __name__ == "__main__":
+    main()
+
+# vim: set ft=python:
