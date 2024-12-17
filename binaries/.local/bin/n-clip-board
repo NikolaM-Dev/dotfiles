@@ -24,7 +24,43 @@ function _logger() {
   echo "]"
   echo
 }
+
 function main() {
+  previous_clipboard_content=""
+
+  while true; do
+    if _verify_clipboard_log_path; then
+      continue
+    fi
+
+    clipboard_history=$(cat "$CLIPBOARD_LOG_PATH")
+    clipboard_content=$(xsel --clipboard --output 2>/dev/null)
+
+    # Check if the clipboard content has changed
+    if [ "$clipboard_content" = "$previous_clipboard_content" ]; then
+      sleep 1
+      continue
+    fi
+
+    # Check if the clipboard content is empty or contains only whitespace
+    if [[ -z "${clipboard_content// /}" ]]; then
+      sleep 1
+      continue
+    fi
+
+    # Update the previous clipboard content
+    previous_clipboard_content="$clipboard_content"
+
+    # Write the new clipboard content to the beginning of the log file
+    new_clipboard_history=$(printf "%s\n%s\n\n%s" "$(_now)" "$clipboard_content" "$clipboard_history")
+    echo -n "$new_clipboard_history" > "$CLIPBOARD_LOG_PATH"
+
+    # Log the saved clipboard content
+    _logger "$clipboard_content"
+
+    # Wait for 1 seconds before the next check
+    sleep 1
+  done
 }
 
 main
