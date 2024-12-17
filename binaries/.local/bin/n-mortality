@@ -54,8 +54,8 @@ def get_time_formatted(payload):
 
     if payload.get("days") > 0:
         message += f"{payload.get('days')} days "
-
-    message += f"{payload.get('hours')} hours {payload.get('minutes')} mins"
+    else:
+        message += f"{payload.get('hours')} hours {payload.get('minutes')} mins "
 
     return message
 
