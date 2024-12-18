@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 
-function backup-commit {
-    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
-
-    git add . && git commit -m "feat: Add backup $time_stamp"
-}
-
-
 function main {
     cd ~/Documents/second-brain.md
 
     while true; do
         backup-commit;
+        n-backup-commit --stage-all
 
         if [ $# -eq 1 ]; then
             sleep $1
