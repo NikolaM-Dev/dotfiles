@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 function main {
-    cd ~/Documents/second-brain.md
+    cd $SECOND_BRAIN_PATH
 
     while true; do
-        backup-commit;
+        echo "🔄 Backing up second brain"
         n-backup-commit --stage-all
 
         if [ $# -eq 1 ]; then
