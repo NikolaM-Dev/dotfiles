@@ -44,21 +44,20 @@ def get_minutes(total_seconds):
     return minutes
 
 def get_time_formatted(payload):
-    message = ""
+    time_formatted = ""
 
     if payload.get("years") > 0:
-        message += f"{payload.get('years')} years "
+        time_formatted += f"{payload.get('years')} years "
 
     if payload.get("months") > 0:
-        message += f"{payload.get('months')} months "
+        time_formatted += f"{payload.get('months')} months "
 
     if payload.get("days") > 0:
-        message += f"{payload.get('days')} days "
+        time_formatted += f"{payload.get('days')} days "
     else:
-        message += f"{payload.get('hours')} hours {payload.get('minutes')} mins "
+        time_formatted += f"{payload.get('hours')} hours {payload.get('minutes')} mins "
 
-    return message
-
+    return time_formatted
 
 def main():
     start_date = datetime.strptime("2024-12-07", "%Y-%m-%d")
