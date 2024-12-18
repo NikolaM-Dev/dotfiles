@@ -149,3 +149,5 @@ alias play="vlc -I ncurses --novideo --random --loop --playlist-autostart ."
 alias ytaudio="yt-dlp -f 'ba' -x --no-playlist"
 alias ytmp3="yt-dlp -x --audio-format mp3"
 alias ytplaylist="yt-dlp -f 'ba' -x"
+
+alias dir-size="du -sh"
