@@ -10,7 +10,12 @@ function M.setup_font(config)
 	config.cell_width = 1
 	config.font_size = 13.5
 
-	config.font = font({ family = 'Iosevka Nerd Font', scale = SCALE, style = 'Normal', weight = 'Regular' })
+	config.font = font({
+		family = 'Iosevka Nerd Font',
+		scale = SCALE,
+		style = 'Normal',
+		weight = 'Regular',
+	})
 
 	config.font_rules = {
 		{
@@ -24,12 +29,20 @@ function M.setup_font(config)
 			italic = true,
 		},
 		{
-			font = font({ family = 'Iosevka Nerd Font', style = 'Italic', scale = SCALE }),
+			font = font({
+				family = 'Iosevka Nerd Font',
+				scale = SCALE,
+				style = 'Italic',
+			}),
 			intensity = 'Half',
 			italic = true,
 		},
 		{
-			font = font({ family = 'Iosevka Nerd Font', style = 'Italic', scale = SCALE }),
+			font = font({
+				family = 'Iosevka Nerd Font',
+				scale = SCALE,
+				style = 'Italic',
+			}),
 			intensity = 'Normal',
 			italic = true,
 		},
