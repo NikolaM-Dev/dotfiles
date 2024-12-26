@@ -19,12 +19,22 @@ function M.setup_font(config)
 
 	config.font_rules = {
 		{
-			font = font({ family = 'Iosevka Nerd Font', weight = 'Bold', style = 'Normal', scale = SCALE }),
+			font = font({
+				family = 'Iosevka Nerd Font',
+				scale = SCALE,
+				style = 'Normal',
+				weight = 'DemiBold',
+			}),
 			intensity = 'Bold',
 			italic = false,
 		},
 		{
-			font = font({ family = 'Iosevka Nerd Font', scale = SCALE, style = 'Italic', weight = 'Regular' }),
+			font = font({
+				family = 'Iosevka Nerd Font',
+				scale = SCALE,
+				style = 'Italic',
+				weight = 'DemiBold',
+			}),
 			intensity = 'Bold',
 			italic = true,
 		},
