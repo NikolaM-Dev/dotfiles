@@ -68,7 +68,6 @@ fi
 eval "$(zoxide init zsh)"
 
 # fzf
-source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
 export FZF_DEFAULT_OPTS=" \
 --ansi \
@@ -80,6 +79,7 @@ export FZF_DEFAULT_OPTS=" \
 --prompt='  ' \
 --reverse \
 "
+source <(fzf --zsh)
 
 # GTK
 export GTK_THEME="Qogir-Dark"
