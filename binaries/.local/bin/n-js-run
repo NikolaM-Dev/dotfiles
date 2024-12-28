@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function main {
+    local script=$(jq -r '.scripts | keys[]' package.json | fzf --height=10 --prompt="   ")
+
+    if [[ -e bun.lockb ]]; then
+        bun run $script
+    elif [[ -e yarn.lock ]]; then
+        yarn run $script
+    elif [[ -e package-lock.json ]]; then
+        npm run $script
+    fi
+}
+
+main
