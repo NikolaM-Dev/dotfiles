@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Function: Select and open a file from the current directory using zathura
+_open_files_in_pwd() {
+    local selected_file
+
+    # Use fd to find PDF and EPUB files and fzf for selection (no preview)
+    if ! selected_file=$(fd -e pdf -e epub . | fzf --height=40%); then
+        printf "No file selected or fd command failed.\n" >&2
+        return 1
+    fi
+
+    # Open the selected file with zathura
+    if [[ -n "$selected_file" ]]; then
+        zathura "$selected_file" || {
+            printf "Failed to open %s with zathura.\n" "$selected_file" >&2
+            return 1
+        }
+    else
+        printf "No file selected.\n" >&2
+        return 1
+    fi
+}
+
+main() {
+    _open_files_in_pwd
+}
+
+main
