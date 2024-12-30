@@ -7,7 +7,7 @@ font-family           = Apple Color Emoji
 font-size             = 13
 theme                 = rose-pine-moon
 window-decoration     = false
-window-padding-x      = 3
+mouse-hide-while-typing   = true
 window-padding-y      = 3
 
 # vim: filetype=toml
