@@ -1,13 +1,13 @@
-adjust-cell-width = -10%
-background-opacity = 0.95
+adjust-cell-width     = -10%
+background-opacity    = 0.95
 confirm-close-surface = false
-font-family = JetBrainsMono Nerd Font
-font-family = Symbols Nerd Font
-font-family = Apple Color Emoji
-font-size = 13
-theme = rose-pine-moon
-window-decoration = false
-window-padding-x = 3
-window-padding-y = 3
+font-family           = JetBrainsMono Nerd Font
+font-family           = Symbols Nerd Font
+font-family           = Apple Color Emoji
+font-size             = 13
+theme                 = rose-pine-moon
+window-decoration     = false
+window-padding-x      = 3
+window-padding-y      = 3
 
 # vim: filetype=toml
