@@ -1,13 +1,16 @@
-adjust-cell-width     = -10%
-background-opacity    = 0.95
-confirm-close-surface = false
-font-family           = JetBrainsMono Nerd Font
+adjust-cell-width         = -10%
+# adjust-underline-position = 4
+background-opacity        = 0.95
+confirm-close-surface     = false
 font-family               = Symbols Nerd Font Mono
 font-family               = JetBrainsMono Nerd Font
 font-family-italic        = Maple Mono NF
 font-family-bold-italic   = Maple Mono NF
-window-decoration     = false
+font-size                 = 13
 mouse-hide-while-typing   = true
-window-padding-y      = 3
+theme                     = rose-pine-moon
+window-decoration         = false
+window-padding-x          = 3
+window-padding-y          = 3
 
 # vim: filetype=toml
