@@ -148,6 +148,7 @@ alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
 alias play="vlc -I ncurses --novideo --random --loop --playlist-autostart ."
 alias ytaudio="yt-dlp -f 'ba' -x --no-playlist"
 alias ytmp3="yt-dlp -x --audio-format mp3"
+alias ytmp4="yt-dlp --format 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]'"
 alias ytplaylist="yt-dlp -f 'ba' -x"
 
 alias dir-size="du -sh"
