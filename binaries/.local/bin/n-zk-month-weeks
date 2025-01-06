@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+function main {
+    # Obtener el primer y último día del próximo mes
+    first_day=$(date -d "$(date +%Y-%m-01) +1 month" +%Y-%m-%d)
+    last_day=$(date -d "$first_day +1 month -1 day" +%Y-%m-%d)
+
+    # Variable para almacenar el resultado
+    output=""
+
+    # Iterar por cada semana del próximo mes
+    current_date="$first_day"
+    while [[ "$current_date" < "$last_day" || "$current_date" == "$last_day" ]]; do
+      week=$(date -d "$current_date" +%Y-W%V) # Formato de semana ISO
+      output+="- [[$week]]"$'\n'
+
+      # Avanzar al siguiente lunes (cambia al formato que prefieras)
+      current_date=$(date -d "$current_date +7 days" +%Y-%m-%d)
+    done
+
+    # Imprimir toda la salida junta
+    echo "$output"
+}
+
+main
