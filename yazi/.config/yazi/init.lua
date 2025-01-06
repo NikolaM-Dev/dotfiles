@@ -10,5 +10,7 @@ Status:children_add(function()
 		ui.Span(':'),
 		ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg('yellow'),
 		ui.Span(' '),
+		ui.Span(tostring(ya.readable_size(h:size() or h.cha.len))):fg('green'),
+		ui.Span(' '),
 	})
 end, 500, Status.RIGHT)
