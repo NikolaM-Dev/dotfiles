@@ -2,7 +2,7 @@
 Status:children_add(function()
 	local h = cx.active.current.hovered
 	if h == nil or ya.target_family() ~= 'unix' then
-		return ui.Line({})
+		return ''
 	end
 
 	return ui.Line({
