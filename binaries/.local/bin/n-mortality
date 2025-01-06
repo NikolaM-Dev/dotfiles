@@ -64,6 +64,11 @@ def main():
 
     total_seconds = get_total_seconds(start_date)
 
+    if total_seconds < 0:
+        print("00 hours 00 mins ")
+
+        return
+
     years, remaining_seconds = get_years_and_remaining_seconds(total_seconds)
     months, remaining_seconds = get_months_and_remaining_seconds(remaining_seconds)
     days, remaining_seconds = get_days_and_remaining_seconds(remaining_seconds)
