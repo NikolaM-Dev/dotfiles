@@ -94,3 +94,8 @@ path = "~/.config/chadwm"
 name = "󰊠 ghostty"
 path = "~/.config/ghostty"
 startup_command = 'nvim config'
+
+[[session]]
+name = "󰆍 wezterm"
+path = "~/.config/wezterm"
+startup_command = 'nvim wezterm.lua'
