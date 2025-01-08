@@ -20,4 +20,9 @@ config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
 config.window_padding = { bottom = 8, left = 8, right = 8, top = 8 }
 
+-- PERF: Remove github call
+local wezterm = require('wezterm')
+local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm').moon
+config.colors = theme.colors()
+
 return config
