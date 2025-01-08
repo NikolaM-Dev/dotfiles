@@ -89,3 +89,8 @@ startup_command = 'play'
 [[session]]
 name = " chadwm"
 path = "~/.config/chadwm"
+
+[[session]]
+name = "󰊠 ghostty"
+path = "~/.config/ghostty"
+startup_command = 'nvim config'
