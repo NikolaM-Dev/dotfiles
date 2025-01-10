@@ -60,7 +60,7 @@ def get_time_formatted(payload):
     return time_formatted
 
 def main():
-    start_date = datetime.strptime("2025-01-10", "%Y-%m-%d")
+    start_date = datetime.strptime("2025-01-11", "%Y-%m-%d")
 
     total_seconds = get_total_seconds(start_date)
 
