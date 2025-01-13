@@ -214,7 +214,7 @@ function working-directories {
   mkdir -p ~/workspace/work
 }
 
-function r {
+function y {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 
 	yazi "$@" --cwd-file="$tmp"
