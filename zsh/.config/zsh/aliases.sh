@@ -46,7 +46,7 @@ alias trash="cd ~/.local/share/Trash/files"
 
 # Git
 alias ga="git add --all"
-alias gb="git branch"
+alias gb="git branch -a"
 alias gca="git commit --amend"
 alias gcanedit="git commit --amend --no-edit"
 alias gc="git commit -m"
