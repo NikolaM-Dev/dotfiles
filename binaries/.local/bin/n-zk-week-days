@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+function main {
+    start_date=$(date -d "next Monday" +%Y-%m-%d)
+
+    output=""
+
+    for i in {0..6}; do
+      current_date=$(date -d "$start_date +$i day" +%Y-%m-%d)
+      formatted_date=$(date -d "$current_date" "+%A, %-d %B %Y")
+      output+="- [[$current_date|$formatted_date]]"$'\n'
+    done
+
+    echo "$output"
+}
+
+main
