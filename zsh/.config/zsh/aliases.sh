@@ -19,7 +19,7 @@ alias R="cd ~/workspace/react"
 alias sb="cd ~/Documents/second-brain.md && nvim"
 alias ss="sudo -E -s"
 alias V="cd ~/.config/nvim && nvim"
-alias W="cd ~/workspace"
+alias W="cd ~/w"
 alias year='cal -mwy'
 alias zc="nvim ~/.zshrc"
 
