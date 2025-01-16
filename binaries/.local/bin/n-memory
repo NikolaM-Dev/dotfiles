@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# Process name to monitor
+PROCESS_NAME="zen-bin"
+# Maximum allowed memory usage in MB (integer only)
+MAX_MEMORY=5000
+
+# Function to get the memory usage of a process
+_get_memory_usage() {
+  ps -C "$PROCESS_NAME" -o rss= | awk '{sum+=$1} END {print int(sum / 1024)}' # Convert RSS from KB to MB
+}
+
+# Check if the process is running
+# if pgrep "$PROCESS_NAME" > /dev/null; then
+#   echo "$PROCESS_NAME is running. Monitoring memory usage..."
+#
+#   while true; do
+#     # Get the current memory usage
+#     MEMORY_USAGE=$(_get_memory_usage)
+#     echo "Current memory usage: ${MEMORY_USAGE} MB"
+#
+#     # Check if memory usage exceeds the limit
+#     if [ "$MEMORY_USAGE" -gt "$MAX_MEMORY" ]; then
+#       echo "$PROCESS_NAME is using too much memory (${MEMORY_USAGE} MB). Terminating..."
+#       killall "$PROCESS_NAME"
+#       break
+#     fi
+#
+#     # Wait before checking again
+#     sleep 30s
+#   done
+# else
+#   echo "$PROCESS_NAME is not running."
+#   zen-browser
+#   n-memory
+# fi
+
+function main() {
+  while true; do
+    # Check if the process is running
+    if pgrep "$PROCESS_NAME" > /dev/null; then
+      # Get the current memory usage
+      MEMORY_USAGE=$(_get_memory_usage)
+      echo "Current memory usage: ${MEMORY_USAGE} MB"
+
+      # Check if memory usage exceeds the limit
+      if [ "$MEMORY_USAGE" -gt "$MAX_MEMORY" ]; then
+        echo "$PROCESS_NAME is using too much memory (${MEMORY_USAGE} MB). Terminating..."
+        notify-send "n-memory" "Terminating $PROCESS_NAME due to high memory usage"
+        killall "$PROCESS_NAME"
+        zen-browser &
+      fi
+    else
+      echo "$PROCESS_NAME is not running."
+    fi
+
+    sleep 30s
+  done
+}
+
+main
