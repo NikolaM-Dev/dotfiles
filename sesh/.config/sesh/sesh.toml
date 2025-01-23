@@ -60,7 +60,7 @@ path = "~/dotfiles"
 
 [[session]]
 name = " workspace"
-path = "~/workspace"
+path = "~/w"
 
 [[session]]
 name = " nvim"
