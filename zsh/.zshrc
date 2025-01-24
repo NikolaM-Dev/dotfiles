@@ -226,17 +226,6 @@ function y {
 	rm -f -- "$tmp"
 }
 
-# Crowbar
-ctrlz() {
-  if [[ $#BUFFER == 0 ]]; then
-    fg >/dev/null 2>&1 && zle redisplay
-  else
-    zle push-input
-  fi
-}
-zle -N ctrlz
-bindkey '^Z' ctrlz
-
 [[ -f ~/.config/zsh/aliases.sh  ]] && source ~/.config/zsh/aliases.sh
 [[ -f ~/.config/zsh/functions.sh  ]] && source ~/.config/zsh/functions.sh
 [[ -f ~/.config/zsh/keymaps.sh  ]] && source ~/.config/zsh/keymaps.sh
