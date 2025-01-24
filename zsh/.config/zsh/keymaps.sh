@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Open with nvim and launch telescope with smart open
+# _open_with_nvim, Open with nvim and launch telescope with smart open
 # ------------------------------------------------------------------------------
 function _open_with_nvim() {
   nvim -c ':Telescope smart_open theme=dropdown previewer=false'
