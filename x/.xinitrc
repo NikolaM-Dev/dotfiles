@@ -46,5 +46,6 @@ sh .fehbg &
 udiskie -t &
 dunst &
 n-clip-board &
+n-memory &
 
 exec ~/.config/chadwm/chadwm/./autostart.sh
