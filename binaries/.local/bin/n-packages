@@ -2,6 +2,21 @@
 
 OUTPUT_FILE="$HOME/dotfiles/packages/packages-list.txt"
 
+# _backup_packages
+# ----------------
+# Creates a backup of installed packages and saves the list to OUTPUT_FILE.
+#
+# This function:
+#   - Ensures the output directory exists.
+#   - Retrieves the list of installed packages.
+#   - Sorts the package list and saves it to OUTPUT_FILE.
+#
+# Globals:
+#   OUTPUT_FILE - The file where the package list is stored.
+#
+# Outputs:
+#   - A success message indicating where the package list was saved.
+#
 function _backup_packages() {
     # Ensure the directory exists
     mkdir -p "$(dirname "$OUTPUT_FILE")"
