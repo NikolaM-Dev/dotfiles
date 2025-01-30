@@ -25,6 +25,7 @@ grub
 lazygit
 linux
 linux-firmware
+lxappearance
 mpv
 neovim
 networkmanager
