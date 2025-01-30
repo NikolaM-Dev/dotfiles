@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+OUTPUT_FILE="$HOME/dotfiles/packages/packages-list.txt"
+
+function _backup_packages() {
+    # Ensure the directory exists
+    mkdir -p "$(dirname "$OUTPUT_FILE")"
+
+    # Get the list of installed packages and save it
+    pacman -Qqe | sort > "$OUTPUT_FILE"
+
+    # Print success message
+    echo "Package list saved to $OUTPUT_FILE"
+}
+
+function _install_packages() {
+    while IFS= read -r package; do
+        if ! sudo pacman -S --noconfirm "$package"; then
+            echo "Trying yay for $package..."
+            yay -S --noconfirm "$package" || echo "Failed to install $package"
+        fi
+    done < "$OUTPUT_FILE"
+}
+
+function main() {
+    _backup_packages
+
+    if [[ "$1" == "--install" ]]; then
+        _install_packages
+    fi
+}
+
+main "$@"
