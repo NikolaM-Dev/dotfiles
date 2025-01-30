@@ -35,6 +35,7 @@ pavucontrol
 pcmanfm
 picom
 python-pip
+redshift
 reflector
 ripgrep
 rofi
