@@ -105,6 +105,8 @@ xsel
 yay
 yay-debug
 yazi
+zathura
+zathura-pdf-mupdf
 zk
 zoxide
 zsh
