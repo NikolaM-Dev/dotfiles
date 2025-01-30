@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-OUTPUT_FILE="$HOME/dotfiles/packages/packages-list.txt"
+OUTPUT_FILE="$HOME/dotfiles/packages/.config/packages/packages-list.txt"
 
 function _backup_packages() {
     # Ensure the directory exists
     mkdir -p "$(dirname "$OUTPUT_FILE")"
 
-    EXCLUDED_FILE="$HOME/dotfiles/packages/exclueded_package.txt"
+    EXCLUDED_FILE="$HOME/dotfiles/packages/.config/packages/excluded_packages.txt"
 
     # Get the list of installed packages
     if [[ -f "$EXCLUDED_FILE" ]]; then
