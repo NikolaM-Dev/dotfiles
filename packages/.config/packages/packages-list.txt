@@ -38,6 +38,7 @@ python-pip
 reflector
 ripgrep
 rofi
+rofi-calc
 rofi-emoji
 rsync
 stow
