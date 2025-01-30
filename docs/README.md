@@ -4,6 +4,16 @@
 
 - [ ] add section
 
+## Pacman
+
+```conf
+# vim /etc/pacman.conf
+
+Color
+ILoveCandy
+ParallelDownloads = 10
+```
+
 ## Zen Browser
 
 ### How to remove workspaces indicator?
