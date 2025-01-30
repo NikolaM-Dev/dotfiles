@@ -1,0 +1,11 @@
+alsa-firmware
+fuse2
+gst-plugins-bad
+gst-plugins-base
+gst-plugins-good
+gst-plugins-ugly
+alsa-plugins
+alsa-utils
+pipewire
+pipewire-alsa
+pipewire-pulse
