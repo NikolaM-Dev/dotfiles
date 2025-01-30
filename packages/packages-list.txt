@@ -94,5 +94,6 @@ xsel
 yay
 yay-debug
 yazi
+zk
 zoxide
 zsh
