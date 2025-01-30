@@ -2,49 +2,24 @@
 
 OUTPUT_FILE="$HOME/dotfiles/packages/packages-list.txt"
 
-# _backup_packages
-# ----------------
-# Creates a backup of installed packages and saves the list to OUTPUT_FILE.
-#
-# This function:
-#   - Ensures the output directory exists.
-#   - Retrieves the list of installed packages.
-#   - Sorts the package list and saves it to OUTPUT_FILE.
-#
-# Globals:
-#   OUTPUT_FILE - The file where the package list is stored.
-#
-# Outputs:
-#   - A success message indicating where the package list was saved.
-#
 function _backup_packages() {
     # Ensure the directory exists
     mkdir -p "$(dirname "$OUTPUT_FILE")"
 
-    # Get the list of installed packages and save it
-    pacman -Qqe | sort > "$OUTPUT_FILE"
+    EXCLUDED_FILE="$HOME/dotfiles/packages/exclueded_package.txt"
 
-    # Print success message
-    echo "Package list saved to $OUTPUT_FILE"
+    # Get the list of installed packages
+    if [[ -f "$EXCLUDED_FILE" ]]; then
+        # Remove packages listed in EXCLUDED_FILE
+        pacman -Qqe | grep -Fxv -f "$EXCLUDED_FILE" | sort > "$OUTPUT_FILE"
+    else
+        # If no exclude file exists, save all packages
+        pacman -Qqe | sort > "$OUTPUT_FILE"
+    fi
+
+    echo "Package list saved to $OUTPUT_FILE (excluding packages from $EXCLUDED_FILE)"
 }
 
-# _install_packages
-# -----------------
-# Installs packages listed in OUTPUT_FILE using pacman, then falls back to yay
-# if needed.
-#
-# This function:
-#   - Reads the package list from OUTPUT_FILE.
-#   - Attempts to install each package using pacman.
-#   - If pacman fails, tries installing with yay.
-#   - Notifies if a package cannot be installed.
-#
-# Globals:
-#   OUTPUT_FILE - The file containing the package list to install.
-#
-# Outputs:
-#   - Status messages for each package installation attempt.
-#
 function _install_packages() {
     while IFS= read -r package; do
         if ! sudo pacman -S --noconfirm "$package"; then
@@ -54,22 +29,6 @@ function _install_packages() {
     done < "$OUTPUT_FILE"
 }
 
-# main
-# ----
-# Entry point of the script. Calls _backup_packages and installs packages if
-# requested.
-#
-# This function:
-#   - Calls _backup_packages to save the current package list.
-#   - If "--install" is passed as an argument, calls _install_packages.
-#
-# Parameters:
-#   $1 - Optional argument "--install" to trigger package installation.
-#
-# Outputs:
-#   - Calls _backup_packages to save the package list.
-#   - If "--install" is provided, attempts to install packages.
-#
 function main() {
     _backup_packages
 
@@ -78,5 +37,4 @@ function main() {
     fi
 }
 
-# Execute main function with provided arguments
 main "$@"
