@@ -28,6 +28,23 @@ function _backup_packages() {
     echo "Package list saved to $OUTPUT_FILE"
 }
 
+# _install_packages
+# -----------------
+# Installs packages listed in OUTPUT_FILE using pacman, then falls back to yay
+# if needed.
+#
+# This function:
+#   - Reads the package list from OUTPUT_FILE.
+#   - Attempts to install each package using pacman.
+#   - If pacman fails, tries installing with yay.
+#   - Notifies if a package cannot be installed.
+#
+# Globals:
+#   OUTPUT_FILE - The file containing the package list to install.
+#
+# Outputs:
+#   - Status messages for each package installation attempt.
+#
 function _install_packages() {
     while IFS= read -r package; do
         if ! sudo pacman -S --noconfirm "$package"; then
