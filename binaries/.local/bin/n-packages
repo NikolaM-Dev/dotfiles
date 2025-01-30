@@ -54,6 +54,22 @@ function _install_packages() {
     done < "$OUTPUT_FILE"
 }
 
+# main
+# ----
+# Entry point of the script. Calls _backup_packages and installs packages if
+# requested.
+#
+# This function:
+#   - Calls _backup_packages to save the current package list.
+#   - If "--install" is passed as an argument, calls _install_packages.
+#
+# Parameters:
+#   $1 - Optional argument "--install" to trigger package installation.
+#
+# Outputs:
+#   - Calls _backup_packages to save the package list.
+#   - If "--install" is provided, attempts to install packages.
+#
 function main() {
     _backup_packages
 
@@ -62,4 +78,5 @@ function main() {
     fi
 }
 
+# Execute main function with provided arguments
 main "$@"
