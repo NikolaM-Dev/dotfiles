@@ -13,6 +13,7 @@ efibootmgr
 eza
 fd
 feh
+flameshot
 fzf
 ghostty
 git
@@ -29,6 +30,7 @@ networkmanager
 noto-fonts
 openssh
 os-prober
+pacman-contrib
 pamixer
 pandoc-cli
 pavucontrol
@@ -44,6 +46,7 @@ rofi-emoji
 rsync
 stow
 tmux
+trayer
 unrar
 unzip
 vim
