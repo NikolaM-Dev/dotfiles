@@ -18,6 +18,7 @@ git
 git-delta
 github-cli
 gnome-clocks
+go
 grub
 lazygit
 linux
