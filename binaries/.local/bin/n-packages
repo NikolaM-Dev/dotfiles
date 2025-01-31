@@ -21,12 +21,7 @@ function _backup_packages() {
 }
 
 function _install_packages() {
-    while IFS= read -r package; do
-        if ! sudo pacman -S --noconfirm "$package"; then
-            echo "Trying yay for $package..."
-            yay -S --noconfirm "$package" || echo "Failed to install $package"
-        fi
-    done < "$OUTPUT_FILE"
+    yay -S --noconfirm --needed - < $OUTPUT_FILE
 }
 
 function main() {
