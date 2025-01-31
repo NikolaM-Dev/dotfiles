@@ -24,6 +24,7 @@ grub
 lazygit
 linux
 linux-firmware
+linux-headers
 lxappearance
 mpv
 neovim
