@@ -21,6 +21,7 @@ github-cli
 gnome-clocks
 go
 grub
+gvfs
 lazygit
 lib32-nvidia-utils
 linux
