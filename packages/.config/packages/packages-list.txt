@@ -109,6 +109,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
+yarn
 yay
 yay-debug
 yazi
