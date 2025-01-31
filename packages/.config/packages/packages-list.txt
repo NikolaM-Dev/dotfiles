@@ -22,6 +22,7 @@ gnome-clocks
 go
 grub
 lazygit
+lib32-nvidia-utils
 linux
 linux-firmware
 linux-headers
@@ -32,6 +33,9 @@ networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-extra
+nvidia-open
+nvidia-settings
+nvidia-utils
 obsidian
 openssh
 os-prober
