@@ -1,8 +1,4 @@
 7zip
-adobe-source-han-sans-otc-fonts
-adobe-source-han-serif-otc-fonts
-adobe-source-sans-fonts
-adobe-source-serif-fonts
 anki
 base
 base-devel
