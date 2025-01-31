@@ -9,6 +9,7 @@ dunst
 efibootmgr
 emacs
 eza
+fastfetch
 fd
 feh
 flameshot
