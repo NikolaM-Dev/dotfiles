@@ -30,6 +30,7 @@ networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-extra
+obsidian
 openssh
 os-prober
 pacman-contrib
