@@ -27,6 +27,8 @@ mpv
 neovim
 networkmanager
 noto-fonts
+noto-fonts-cjk
+noto-fonts-extra
 openssh
 os-prober
 pacman-contrib
@@ -46,6 +48,8 @@ rsync
 stow
 tmux
 trayer
+ttf-dejavu
+ttf-liberation
 unrar
 unzip
 vim
