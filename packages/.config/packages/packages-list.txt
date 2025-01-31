@@ -36,10 +36,12 @@ os-prober
 pacman-contrib
 pamixer
 pandoc-cli
+papirus-icon-theme
 pavucontrol
 pcmanfm
 picom
 python-pip
+qogir-gtk-theme
 redshift
 reflector
 ripgrep
