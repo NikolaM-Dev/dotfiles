@@ -56,6 +56,7 @@ rofi-calc
 rofi-emoji
 rsync
 stow
+tealdeer
 texlive-basic
 texlive-bibtexextra
 texlive-binextra
