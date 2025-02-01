@@ -48,9 +48,10 @@ export GUM_INPUT_PROMPT=" "
 export GUM_INPUT_PROMPT_FOREGROUND="#0FF"
 export GUM_INPUT_WIDTH=80
 
-# fnm
+# ------------------------------------------------------------------------------
+# fnm, Fast and simple Node.js version manager, built in Rust
+# ------------------------------------------------------------------------------
 FNM_PATH="/home/nikola/.local/share/fnm"
-
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/nikola/.local/share/fnm:$PATH"
   eval "`fnm env`"
