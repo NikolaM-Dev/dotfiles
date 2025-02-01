@@ -68,7 +68,7 @@ path = "~/.config/nvim"
 
 [[session]]
 name = " second brain"
-path = "~/Documents/second-brain.md"
+path = "~/w/2-areas/second-brain.md"
 startup_command = 'n-start-second-brain-tmux-session'
 
 [[session]]
