@@ -11,7 +11,7 @@ export FILE="yazi"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export READER="zathura"
-export TERMINAL="wezterm"
+export TERMINAL="ghostty"
 export VISUAL="nvim"
 
 # ZSH
