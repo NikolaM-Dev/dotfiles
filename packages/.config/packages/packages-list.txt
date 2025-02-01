@@ -5,6 +5,7 @@ base-devel
 bat
 btop
 curl
+docker
 dunst
 efibootmgr
 emacs
@@ -22,6 +23,7 @@ gnome-clocks
 go
 grub
 gvfs
+lazydocker
 lazygit
 lib32-nvidia-utils
 linux
