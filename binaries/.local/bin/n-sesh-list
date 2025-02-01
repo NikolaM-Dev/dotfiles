@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-sesh_list() {
+_sesh_list_sk() {
+	sesh list -i | sk-tmux -p 40%,30% --ansi
+}
+
+_sesh_list_fzf() {
 	sesh list -i | fzf-tmux -p 40%,30% \
 		--bind 'ctrl-a:change-prompt(  )+reload(sesh list -i)' \
 		--bind 'ctrl-c:change-prompt(  )+reload(sesh list -ic)' \
