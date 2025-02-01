@@ -47,6 +47,7 @@ papirus-icon-theme
 pavucontrol
 pcmanfm
 picom
+pnpm
 python-pip
 qogir-gtk-theme
 redshift
