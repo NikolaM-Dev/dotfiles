@@ -17,4 +17,12 @@ _sesh_list_fzf() {
 		--no-sort
 }
 
-sesh connect "$(sesh_list)"
+_sesh_list() {
+	_sesh_list_fzf
+}
+
+function main() {
+	sesh connect "$(_sesh_list)"
+}
+
+main
