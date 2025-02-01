@@ -55,14 +55,6 @@ FNM_PATH="/home/nikola/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/nikola/.local/share/fnm:$PATH"
   eval "`fnm env`"
-
-  # WARN: Don't work currently
-  # eval "$(fnm env --use-on-cd)"
-  # eval "$(fnm env --use-on-cd --shell zsh)"
-
-  if [[ "$(pwd)" == "$HOME/workspace/work/dashboard" ]]; then
-    eval "$(fnm env --use-on-cd --shell zsh)"
-  fi
 fi
 
 # zoxide
