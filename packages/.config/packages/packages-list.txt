@@ -83,6 +83,7 @@ texlive-plaingeneric
 texlive-pstricks
 texlive-publishers
 texlive-xetex
+ticktick
 tmux
 trayer
 ttf-dejavu
