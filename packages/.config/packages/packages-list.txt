@@ -37,6 +37,7 @@ network-manager-applet
 noto-fonts
 noto-fonts-cjk
 noto-fonts-extra
+ntfs-3g
 nvidia-open
 nvidia-settings
 nvidia-utils
@@ -89,6 +90,7 @@ tmux
 trayer
 ttf-dejavu
 ttf-liberation
+udiskie
 unrar
 unzip
 vim
