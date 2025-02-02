@@ -33,6 +33,7 @@ lxappearance
 mpv
 neovim
 networkmanager
+network-manager-applet
 noto-fonts
 noto-fonts-cjk
 noto-fonts-extra
