@@ -42,6 +42,7 @@ nvidia-open
 nvidia-settings
 nvidia-utils
 obsidian
+obs-studio
 openssh
 os-prober
 pacman-contrib
