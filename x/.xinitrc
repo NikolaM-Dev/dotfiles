@@ -41,8 +41,8 @@ n-remove-system-suspend
 # Daemons
 flameshot &
 nm-applet &
-picom -b --config ~/.config/picom/picom.conf &
-sh .fehbg &
+picom -b --config $HOME/.config/picom/picom.conf &
+sh $HOME/.fehbg &
 udiskie -t &
 dunst &
 n-clip-board &
