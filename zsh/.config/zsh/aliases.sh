@@ -34,6 +34,7 @@ alias pupdate="sudo pacman -Syu && yay -Syu && omz update && ysc"
 alias yadd="yay -S"
 alias yfind="yay -Ss"
 alias ysc="yay -Sc"
+alias yupdate="yay -Syu; yay -Sc"
 
 # Crud
 alias ...="cd ../.."
