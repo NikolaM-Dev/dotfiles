@@ -21,5 +21,5 @@ _crowbar() {
   fi
 }
 
-zle -N _crowbar
-bindkey '^Z' _crowbar
+# zle -N _crowbar
+# bindkey '^Z' _crowbar
