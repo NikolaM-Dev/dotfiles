@@ -78,7 +78,7 @@ source <(fzf --zsh)
 export GTK_THEME="Qogir-Dark"
 
 # Second Brain
-export SECOND_BRAIN_PATH="$HOME/Documents/second-brain.md"
+export SECOND_BRAIN_PATH="$HOME/w/2-areas/second-brain.md"
 
 # ------------------------------------------------------------------------------
 # conda, Contents within this block are managed by 'conda init'
