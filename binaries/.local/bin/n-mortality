@@ -53,7 +53,7 @@ def get_time_formatted(payload):
         time_formatted += f"{payload.get('months')} months "
 
     if payload.get("days") > 0:
-        time_formatted += f"{payload.get('days')} days "
+        time_formatted += f"{payload.get('days')} days"
     else:
         time_formatted += f"{payload.get('hours')} hours {payload.get('minutes')} mins "
 
