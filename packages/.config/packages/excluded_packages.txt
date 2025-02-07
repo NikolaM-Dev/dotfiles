@@ -10,4 +10,5 @@ gst-plugins-good
 gst-plugins-ugly
 pipewire
 pipewire-alsa
+pipewire-jack
 pipewire-pulse
