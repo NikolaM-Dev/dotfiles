@@ -54,6 +54,7 @@ pcmanfm
 picom
 pnpm
 python-pip
+python-pipx
 qogir-gtk-theme
 redshift
 reflector
