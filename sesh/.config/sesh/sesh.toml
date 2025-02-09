@@ -96,6 +96,10 @@ path = "~/.config/ghostty"
 startup_command = 'nvim config'
 
 [[session]]
+name = " emacs"
+path = "~/.config/emacs"
+
+[[session]]
 name = "󰆍 wezterm"
 path = "~/.config/wezterm"
 startup_command = 'nvim wezterm.lua'
