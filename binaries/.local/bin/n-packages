@@ -17,7 +17,7 @@ function _backup_packages() {
         pacman -Qqe | sort > "$OUTPUT_FILE"
     fi
 
-    echo "Package list saved to $OUTPUT_FILE (excluding packages from $EXCLUDED_FILE)"
+    echo "Package list saved :)"
 }
 
 function _install_packages() {
