@@ -1,12 +1,12 @@
-adjust-cell-width         = -10%
 # adjust-underline-position = 4
-background-opacity        = 0.93
-# background-opacity        = 0.7
-confirm-close-surface     = false
-font-family               = Symbols Nerd Font Mono
-font-family               = JetBrainsMono Nerd Font
-font-family-italic        = Maple Mono NF
+
+font-family               = Maple Mono NF
 font-family-bold-italic   = Maple Mono NF
+font-family-italic        = Maple Mono NF
+
+adjust-cell-width         = -10%
+background-opacity        = 0.93
+confirm-close-surface     = false
 font-size                 = 13
 mouse-hide-while-typing   = true
 theme                     = rose-pine-moon
