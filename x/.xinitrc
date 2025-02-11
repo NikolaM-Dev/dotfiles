@@ -48,4 +48,6 @@ udiskie -t &
 dunst &
 n-clip-board &
 
+sleep 1
+
 exec ~/.config/chadwm/chadwm/./autostart.sh
