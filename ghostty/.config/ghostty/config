@@ -1,20 +1,20 @@
 # adjust-underline-position = 4
 
-font-family               = Maple Mono NF
-font-family-bold-italic   = Maple Mono NF
-font-family-italic        = Maple Mono NF
+font-family             = Maple Mono NF
+font-family-bold-italic = Maple Mono NF
+font-family-italic      = Maple Mono NF
 
-adjust-cell-width         = -10%
-background-opacity        = 0.93
-confirm-close-surface     = false
-font-size                 = 13
+adjust-cell-width       = -10%
+background-opacity      = 0.93
+confirm-close-surface   = false
+font-size               = 13
 gtk-adwaita             = false
 gtk-single-instance     = true
 gtk-titlebar            = false
-mouse-hide-while-typing   = true
-theme                     = rose-pine-moon
-window-decoration         = false
-window-padding-x          = 3
-window-padding-y          = 3
+mouse-hide-while-typing = true
+theme                   = rose-pine-moon
+window-decoration       = false
+window-padding-x        = 3
+window-padding-y        = 3
 
 # vim: filetype=toml
