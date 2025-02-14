@@ -153,7 +153,9 @@ alias ytmp3="yt-dlp -x --audio-format mp3"
 alias ytmp4="yt-dlp --format 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]'"
 alias ytplaylist="yt-dlp -f 'ba' -x"
 
+# Utility
 alias dir-size="du -sh"
+
 # Emacs
 alias kem="killall emacs || echo 'Emacs server not running'"
 alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
