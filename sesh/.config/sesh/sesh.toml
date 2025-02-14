@@ -3,22 +3,6 @@ name = "󱂵 home"
 path = "~"
 
 [[session]]
-name = "󰚌 work"
-path = "~/workspace/work"
-
-[[session]]
-name = "󰏃 entities"
-path = "~/workspace/work/entities/"
-
-[[session]]
-name = "󰏃 users"
-path = "~/workspace/work/users"
-
-[[session]]
-name = "󰏃 management"
-path = "~/workspace/work/management"
-
-[[session]]
 name = " drive"
 path = "~/Documents/drive"
 
