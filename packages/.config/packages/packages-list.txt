@@ -63,6 +63,7 @@ rofi
 rofi-calc
 rofi-emoji
 rsync
+screenkey
 stow
 tealdeer
 texlive-basic
