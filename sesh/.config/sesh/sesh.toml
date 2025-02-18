@@ -63,3 +63,19 @@ path = "~/.config/emacs"
 name = "󰆍 wezterm"
 path = "~/.config/wezterm"
 startup_command = 'nvim wezterm.lua'
+
+[[session]]
+name = "󰣉 projects"
+path = "~/w/1-projects"
+
+[[session]]
+name = " areas"
+path = "~/w/2-areas"
+
+[[session]]
+name = "󱉏 resources"
+path = "~/w/3-resources"
+
+[[session]]
+name = " archives"
+path = "~/w/4-archives"
