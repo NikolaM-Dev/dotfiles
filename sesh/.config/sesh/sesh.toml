@@ -15,30 +15,6 @@ name = " pictures"
 path = "~/Pictures"
 
 [[session]]
-name = "󰏃 services"
-path = "~/workspace/work/services"
-
-[[session]]
-name = "󰏃 payments"
-path = "~/workspace/work/payments"
-
-[[session]]
-name = "󰏃 dashboard"
-path = "~/workspace/work/dashboard"
-
-[[session]]
-name = "󰏃 operator-app"
-path = "~/workspace/work/operator-app"
-
-[[session]]
-name = "󰏃 operator"
-path = "~/workspace/work/operator"
-
-[[session]]
-name = "󰏃 admin"
-path = "~/workspace/work/admin"
-
-[[session]]
 name = " dotfiles"
 path = "~/dotfiles"
 
