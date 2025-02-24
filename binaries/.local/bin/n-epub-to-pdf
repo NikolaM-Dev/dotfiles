@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function main {
+    pandoc uwu.epub \
+        -o uwu.pdf \
+        --pdf-engine=lualatex \
+        --standalone \
+        -V mainfont:"Merriweather" \
+        -V monofont="Maple Mono NF" \
+        -V linestretch=1.25
+
+        # -V fontsize=24px \
+}
+
+main
