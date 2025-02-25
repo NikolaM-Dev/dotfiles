@@ -7,9 +7,7 @@ function main() {
         return
     fi
 
-    tmux new-session -d -s "󱂵 home" -c ~
-
-    sesh connect " second brain"
+    sesh connect "󱂵 home"
 }
 
 main
