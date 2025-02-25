@@ -2,7 +2,24 @@
 
 OUTPUT_FILE="$HOME/dotfiles/packages/.config/packages/packages-list.txt"
 
+function _install_yay() {
+    # Install required packages
+    sudo pacman -S --needed git base-devel
+
+    # Clone the yay repository from Arch Linux's AUR
+    git clone https://aur.archlinux.org/yay.git
+
+    # Change into the newly cloned directory and build the package
+    cd yay
+    makepkg -si
+}
+
 function _backup_packages() {
+    # Ensure yay is installed
+    if ! type yay &>/dev/null; then
+        _install_yay
+    fi
+
     # Ensure the directory exists
     mkdir -p "$(dirname "$OUTPUT_FILE")"
 
