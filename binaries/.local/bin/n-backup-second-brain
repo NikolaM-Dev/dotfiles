@@ -2,11 +2,13 @@
 
 function main {
     cd $SECOND_BRAIN_PATH
-    bun run format:watch &
 
     while true; do
         echo "🔄 Backing up second brain"
+
         n-backup-commit --stage-all
+
+        git push origin HEAD
 
         if [ $# -eq 1 ]; then
             sleep $1
