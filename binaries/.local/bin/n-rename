@@ -20,11 +20,14 @@ function main {
     # Convert the base name to lowercase and replace spaces and special characters
     new_base_name=$(echo "$base_name" | tr '[:upper:]' '[:lower:]' | sed -e 's/[^a-z0-9]/-/g' | sed -e 's/--*/-/g')
 
-    # Get the current date and time in the desired format
-    timestamp=$(date +%Y%m%d%H%M)
+    # Get the brith date from the current file in timestamp format
+    created_date_timestamp="$(stat -c '%W' $1)"
+
+    # Format the timestamp in the desire format
+    timestamp_prefix=$(date -d "@$created_date_timestamp" +%Y%m%dT%H%M%S)
 
     # Create the new file name
-    new_file_name="${timestamp}-${new_base_name}.${extension}"
+    new_file_name="${timestamp_prefix}--${new_base_name}.${extension}"
 
     # Rename the file
     mv "$original_file" "$new_file_name"
