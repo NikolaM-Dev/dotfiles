@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-feh --no-fehbg --bg-scale "$XDG_CONFIG_HOME/wallpapers/202502190836-raiden.png"
+feh --no-fehbg --bg-scale --randomize $XDG_CONFIG_HOME/wallpapers/*
