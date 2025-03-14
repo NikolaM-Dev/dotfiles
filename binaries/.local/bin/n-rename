@@ -21,7 +21,7 @@ function main {
     new_base_name=$(echo "$base_name" | tr '[:upper:]' '[:lower:]' | sed -e 's/[^a-z0-9]/-/g' | sed -e 's/--*/-/g')
 
     # Get the brith date from the current file in timestamp format
-    created_date_timestamp="$(stat -c '%W' $1)"
+    created_date_timestamp="$(stat -c '%W' "$1")"
 
     # Format the timestamp in the desire format
     timestamp_prefix=$(date -d "@$created_date_timestamp" +%Y%m%dT%H%M%S)
