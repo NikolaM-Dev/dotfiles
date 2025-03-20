@@ -23,6 +23,7 @@ gnome-clocks
 go
 grub
 gvfs
+jq
 lazydocker
 lazygit
 lib32-nvidia-utils
