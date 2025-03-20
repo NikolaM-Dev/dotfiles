@@ -5,6 +5,8 @@ function main {
 
     if [[ -e bun.lockb ]]; then
         bun run $script
+    elif [[ -e bun.lock ]]; then
+        bun run $script
     elif [[ -e yarn.lock ]]; then
         yarn run $script
     elif [[ -e package-lock.json ]]; then
