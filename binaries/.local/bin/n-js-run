@@ -11,6 +11,9 @@ function main {
         yarn run $script
     elif [[ -e package-lock.json ]]; then
         npm run $script
+    else
+        echo "Package manager is not recorgnized"
+        exit 1
     fi
 }
 

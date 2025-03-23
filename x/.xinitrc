@@ -47,6 +47,7 @@ sh $HOME/.fehbg &
 udiskie -t &
 dunst &
 n-clip-board &
+mpv --volume=55 --loop ~/Music/20250321T105454--40-hz-binaural-beats.opus &
 
 sleep 1
 
