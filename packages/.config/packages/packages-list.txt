@@ -156,7 +156,6 @@ yay-debug
 yazi
 zathura
 zathura-pdf-mupdf
-zen-browser-bin
 zk
 zoxide
 zsh
