@@ -154,6 +154,7 @@ yarn
 yay
 yay-debug
 yazi
+yt-dlp
 zathura
 zathura-pdf-mupdf
 zk
