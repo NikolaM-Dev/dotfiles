@@ -54,6 +54,7 @@ pavucontrol
 pcmanfm
 picom
 pnpm
+postman-bin
 python-pip
 python-pipx
 qogir-gtk-theme
