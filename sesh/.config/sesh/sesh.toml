@@ -17,6 +17,7 @@ path = "~/Pictures"
 [[session]]
 name = " dotfiles"
 path = "~/dotfiles"
+startup_command = 'nvim'
 
 [[session]]
 name = " workspace"
@@ -25,11 +26,12 @@ path = "~/w"
 [[session]]
 name = " nvim"
 path = "~/.config/nvim"
+startup_command = 'nvim'
 
 [[session]]
 name = " second brain"
 path = "~/w/2-areas/second-brain.md"
-startup_command = 'n-start-second-brain-tmux-session'
+startup_command = 'nvim'
 
 [[session]]
 name = "  music"
