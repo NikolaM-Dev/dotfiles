@@ -116,7 +116,7 @@ alias szsh="omz reload"
 alias tree="eza -hT --group-directories-first --icons"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias v=nvim
+alias v="nvim"
 alias zt="n-open-with-zathura"
 
 # Docker
