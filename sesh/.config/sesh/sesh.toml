@@ -36,7 +36,7 @@ startup_command = 'nvim'
 [[session]]
 name = "  music"
 path = "~/Music"
-startup_command = 'play'
+startup_command = 'make'
 
 [[session]]
 name = "󰂾 library"
