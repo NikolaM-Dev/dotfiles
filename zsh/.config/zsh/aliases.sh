@@ -47,7 +47,7 @@ alias ctrash="gio trash --empty"
 alias gt="gio trash"
 alias rmf="rm -rf"
 alias to="touch"
-alias trash="cd ~/.local/share/Trash/files"
+alias trash="cd ~/.local/share/Trash/files; yazi"
 
 # Git
 alias ga="git add --all"
