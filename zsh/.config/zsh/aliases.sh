@@ -4,7 +4,7 @@
 alias A="cd ~/.config/alacritty && nvim alacritty.toml"
 alias C="cd ~/.config"
 alias csessions="gio trash ~/.local/share/nvim/sessions/"
-alias dbnvim="rm -rf ~/.local/share/nvim && rm -rf ~/.cache/nvim/lazy"
+alias dbnvim="rm -rf ~/.local/share/nvim; rm -rf ~/.local/state/nvim; rm -rf ~/.cache/nvim"
 alias dc="cd ~/Documents"
 alias D="cd ~/dotfiles && nvim"
 alias dl="cd ~/Downloads"
