@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 function main {
-    if [[ $1 == "--stage-all" ]]; then
-        git add --all
-    fi
+	if [[ $1 == "--stage-all" ]]; then
+		git add --all
+	fi
 
-    git commit -m "feat: Add backup at $(date '+%H:%M:%S') on $(date "+%Y-%m-%d")"
+	git commit -m "feat: Add backup at $(date '+%H:%M:%S') on $(date "+%Y-%m-%d")"
 }
 
 main "$@"
