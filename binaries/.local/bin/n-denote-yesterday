@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function main() {
+	slug=$(date -d "-1 day" +%Y-%m-%d__daily)
+	denote_daily_note_path=$(fd $slug $SECOND_BRAIN_PATH)
+
+	echo -n $denote_daily_note_path
+}
+
+main
