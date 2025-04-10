@@ -68,6 +68,7 @@ rsync
 screenkey
 stow
 tealdeer
+tenacity
 texlive-basic
 texlive-bibtexextra
 texlive-binextra
