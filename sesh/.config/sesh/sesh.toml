@@ -58,6 +58,11 @@ path = "~/.config/ghostty"
 startup_command = 'nvim config'
 
 [[session]]
+name = " sesh"
+path = "~/.config/sesh"
+startup_command = 'nvim sesh.toml'
+
+[[session]]
 name = " emacs"
 path = "~/.config/emacs"
 
