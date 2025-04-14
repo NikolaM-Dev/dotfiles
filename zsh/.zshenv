@@ -133,3 +133,5 @@ export SKIM_DEFAULT_OPTIONS="$SKIM_DEFAULT_OPTIONS \
 # asdf, The Multiple Runtime Version Manager
 # ------------------------------------------------------------------------------
 # . "$HOME/.local/share/applications/asdf-vm/src/asdf-0.15.0/asdf.sh"
+
+zstyle ':omz:update' mode auto
