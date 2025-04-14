@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function main() {
+	~/.local/share/applications/./zen-x86_64.AppImage
+}
+
+main
