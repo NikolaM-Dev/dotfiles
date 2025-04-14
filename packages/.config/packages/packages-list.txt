@@ -6,6 +6,7 @@ bat
 btop
 curl
 docker
+docker-compose
 dunst
 efibootmgr
 emacs
