@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# TODO: Add docs
 function create_repo {
 	# Check if a repository name is provided
 	if [ -z "$1" ]; then
