@@ -63,7 +63,7 @@
     "editor.tabSize": 4
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.formatOnSave": false
   },
   "[pgsql]": {
     "editor.defaultFormatter": "bradymholt.pgformatter"
@@ -92,7 +92,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": false,
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
