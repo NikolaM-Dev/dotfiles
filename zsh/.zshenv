@@ -1,5 +1,14 @@
+function add_to_path() {
+	if [ -z "$1" ]; then
+		echo "Error: Path cannot be empty"
+		return 1
+	fi
+
+	export PATH="$PATH:$1"
+}
+
 # Binaries
-export PATH="$HOME/.local/bin:$PATH"
+add_to_path "$HOME/.local/bin"
 
 # Lang
 export LANG=en_US.UTF-8
