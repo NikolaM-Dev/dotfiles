@@ -102,6 +102,8 @@ udiskie
 unrar
 unzip
 vim
+virtualbox
+virtualbox-host-modules-arch
 visual-studio-code-bin
 wezterm
 wget
