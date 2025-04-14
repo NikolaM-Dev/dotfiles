@@ -33,3 +33,10 @@ function start_open_webui() {
         --restart always \
         ghcr.io/open-webui/open-webui:main
 }
+
+function update_open_webui () {
+    docker rm -f open-webui
+    docker pull ghcr.io/open-webui/open-webui:main
+
+    start_open_webui
+}
