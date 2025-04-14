@@ -27,6 +27,7 @@ jq
 lazydocker
 lazygit
 lib32-nvidia-utils
+linutil
 linux
 linux-firmware
 linux-headers
