@@ -95,6 +95,7 @@ texlive-xetex
 ticktick
 tmux
 trayer
+ttf-aporetic
 ttf-dejavu
 ttf-liberation
 udiskie
