@@ -74,8 +74,8 @@ export GUM_INPUT_WIDTH=80
 # ------------------------------------------------------------------------------
 FNM_PATH="/home/nikola/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/nikola/.local/share/fnm:$PATH"
-  eval "`fnm env`"
+	export PATH="/home/nikola/.local/share/fnm:$PATH"
+	eval "$(fnm env)"
 fi
 
 # zoxide
@@ -104,14 +104,14 @@ export SECOND_BRAIN_PATH="$HOME/w/2-areas/second-brain.md"
 # ------------------------------------------------------------------------------
 # conda, Contents within this block are managed by 'conda init'
 # ------------------------------------------------------------------------------
-__conda_setup="$('/home/nikola/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/nikola/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+	eval "$__conda_setup"
 else
-    if [ -f "/home/nikola/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nikola/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nikola/miniconda3/bin:$PATH"
-    fi
+	if [ -f "/home/nikola/miniconda3/etc/profile.d/conda.sh" ]; then
+		. "/home/nikola/miniconda3/etc/profile.d/conda.sh"
+	else
+		export PATH="/home/nikola/miniconda3/bin:$PATH"
+	fi
 fi
 unset __conda_setup
