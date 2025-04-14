@@ -341,10 +341,10 @@
       "before": ["g", "r"],
       "commands": ["editor.action.rename"]
     },
-    {
-      "after": ["<leader>", "<leader>", "<leader>", "j"],
-      "before": ["f"]
-    },
+    // {
+    //   "after": ["<leader>", "<leader>", "<leader>", "j"],
+    //   "before": ["f"]
+    // },
     {
       "after": ["<C-d>", "z", "z"],
       "before": ["<C-d>"]
