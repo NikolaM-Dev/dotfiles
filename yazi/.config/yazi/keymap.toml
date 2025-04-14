@@ -127,14 +127,20 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",				 desc = "Goto home" },
-	{ on = [ "g", "r" ],       run = "cd /",                 desc = "Goto root" },
-	{ on = [ "g", "d", "l" ],  run = "cd ~/Downloads",       desc = "Goto ~/Downloads" },
-	{ on = [ "g", "p"  ],      run = "cd ~/Pictures",        desc = "Goto ~/Pictures" },
-	{ on = [ "g", "v"  ],	   run = "cd ~/Videos",          desc = "Goto ~/Videos" },
-	{ on = [ "g", "d", "c" ],  run = "cd ~/Documents",       desc = "Goto ~/Documents" },
-	{ on = [ "g", "d", "l" ],  run = "cd ~/Downloads",       desc = "Goto ~/Downloads" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive",     desc = "Jump interactively" },
+	{ on = [ "g", "1" ],       run = "cd ~/w/1-projects",   desc = "Goto projects" },
+	{ on = [ "g", "2" ],       run = "cd ~/w/2-areas",      desc = "Goto areas" },
+	{ on = [ "g", "3" ],       run = "cd ~/w/3-resources/", desc = "Goto resources" },
+	{ on = [ "g", "4" ],       run = "cd ~/w/4-archives/",  desc = "Goto archives" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive",    desc = "Jump interactively" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",	desc = "Goto .config" },
+	{ on = [ "g", "d", "c" ],  run = "cd ~/Documents",      desc = "Goto ~/Documents" },
+	{ on = [ "g", "d", "c" ],  run = "cd ~/Documents",      desc = "Goto ~/Documents" },
+	{ on = [ "g", "d", "l" ],  run = "cd ~/Downloads",      desc = "Goto ~/Downloads" },
+	{ on = [ "g", "h" ],       run = "cd ~",		desc = "Goto home" },
+	{ on = [ "g", "l"  ],	   run = "cd ~/.local",         desc = "Goto ~/.local" },
+	{ on = [ "g", "p"  ],      run = "cd ~/Pictures",       desc = "Goto ~/Pictures" },
+	{ on = [ "g", "r" ],       run = "cd /",                desc = "Goto root" },
+	{ on = [ "g", "v"  ],	   run = "cd ~/Videos",         desc = "Goto ~/Videos" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
