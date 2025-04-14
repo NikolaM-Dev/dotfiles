@@ -3,23 +3,23 @@
 SESSION_NAME="  music"
 
 function _start_english_session {
-    tmux new-session -d -s "$SESSION_NAME" -c ~/Music
-    tmux send-keys -t "$SESSION_NAME" "play" Enter
-    tmux switch-client -t "$SESSION_NAME"
+	tmux new-session -d -s "$SESSION_NAME" -c ~/Music
+	tmux send-keys -t "$SESSION_NAME" "play" Enter
+	tmux switch-client -t "$SESSION_NAME"
 }
 
 function main {
-    if ! n-tmux-is-running; then
-        _start_english_session
+	if ! n-tmux-is-running; then
+		_start_english_session
 
-        return
-    fi
+		return
+	fi
 
-    if n-tmux-has-session "$SESSION_NAME"; then
-        tmux switch-client -t "$SESSION_NAME"
-    else
-        _start_english_session
-    fi
+	if n-tmux-has-session "$SESSION_NAME"; then
+		tmux switch-client -t "$SESSION_NAME"
+	else
+		_start_english_session
+	fi
 
 }
 
