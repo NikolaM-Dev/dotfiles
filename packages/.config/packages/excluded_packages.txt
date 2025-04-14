@@ -3,12 +3,16 @@ alsa-plugins
 alsa-utils
 brave-bin
 chromium
+espeak-ng
 fuse2
 gst-plugins-bad
 gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
+libaio
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+sof-firmware
+speech-dispatcher
