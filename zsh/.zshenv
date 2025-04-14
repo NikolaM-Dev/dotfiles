@@ -43,8 +43,10 @@ export KEYTIMEOUT=20
 export VI_MODE_SET_CURSOR=true
 
 # Starship
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
+if [[ "$TERM" != "dumb" ]]; then
+	export STARSHIP_CONFIG=~/.config/starship/starship.toml
+	eval "$(starship init zsh)"
+fi
 
 # Golang
 export PATH="$PATH:$HOME/go/bin"
