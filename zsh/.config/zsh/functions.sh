@@ -21,6 +21,11 @@ function create_repo {
 
     echo "Repository '$1' created successfully and linked to the current directory."
 }
+
+# TODO: Add docs
+function bk {
+	mv --interactive $1 $1.bak
+}
 function start_open_webui() {
     docker run \
         -d \
