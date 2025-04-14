@@ -1,21 +1,28 @@
 #!/usr/bin/env bash
 
-function main {
-    cd $SECOND_BRAIN_PATH
+function log() {
+	notify-send -t 3000 "🧠 Second Brain" "Backing up..."
+}
 
-    while true; do
-        echo "🔄 Backing up second brain"
+function backup() {
+	n-backup-commit --stage-all
+	bun run format:fix
+	git push origin HEAD
+}
 
-        n-backup-commit --stage-all
+function main() {
+	cd $SECOND_BRAIN_PATH
 
-        git push origin HEAD
+	while true; do
+		log
+		backup
 
-        if [ $# -eq 1 ]; then
-            sleep $1
-        else
-            sleep 30m;
-        fi
-    done
+		if [ $# -eq 1 ]; then
+			sleep $1
+		else
+			sleep 30m
+		fi
+	done
 }
 
 main "$@"
