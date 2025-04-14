@@ -1,34 +1,96 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Add a bookmark to a markdown file for a book from zathura
 
-# Usage: zathura-bookmark <file_full_path> <page> <bookmark>
-file_full_path=$1
-page=$2
+# Display usage instructions
+_usage() {
+	printf "Usage: %s file-full-path page bookmark\n" "$(basename "$0")" >&2
+	exit 1
+}
 
-file_name=$(basename "$file_full_path")
-file_without_extension="${file_name%.*}"
-fleeting_note_file="${file_without_extension}.md"
+_get_note_title() {
+	local filename="$1"
 
-shift 2
+	# Validate filename
+	if [[ -z "$filename" ]]; then
+		printf "Error: No filename provided.\n" >&2
+		return 1
+	fi
 
-bookmark=$@
+	# Extract the bookmark (text after '-' and before '__')
+	local bookmark
+	if ! bookmark=$(echo "$filename" | sed -E 's/^[0-9]+-([^-]+-[^_]+)__.*/\1/'); then
+		printf "Error: Failed to extract bookmark from filename.\n" >&2
+		return 1
+	fi
 
-cd "$(SECOND_BRAIN_PATH)/02/areas/z/bookmarks/
+	# Format bookmark (convert '-' to ' ' and capitalize words)
+	local formatted_bookmark
+	if ! formatted_bookmark=$(echo "$bookmark" | sed -E 's/-/ /g' | awk '{ for (i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2); }1'); then
+		printf "Error: Failed to format bookmark.\n" >&2
+		return 1
+	fi
 
-if [ -f "$fleeting_note_file" ]; then
-    echo "" >> $fleeting_note_file
-    echo "- [ ]" "$bookmark." "\`page:$page\`" >> $fleeting_note_file
-else
-    file_without_author=$(echo "$file_without_extension" | sed 's/__.*//')
-    fleeting_note_title=$(echo "$file_without_author" | tr '-' ' ' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)) }1')
+	# Output the result
+	printf "%s\n" "$formatted_bookmark"
+}
 
-    echo "---" >> $fleeting_note_file
-    echo "aliases: [${fleeting_note_title}]" >> $fleeting_note_file
-    echo "tags: [status/pending, type/book]" >> $fleeting_note_file
-    echo "---" >> $fleeting_note_file
-    echo "" >> $fleeting_note_file
-    echo "# ${fleeting_note_title}" >> $fleeting_note_file
-    echo "" >> $fleeting_note_file
-    echo "- [ ]" "$bookmark." "\`page:$page\`" >> $fleeting_note_file
-fi
+# Validate input parameters
+_validate_params() {
+	if [[ $# -ne 3 ]]; then
+		printf "Error: Exactly 3 parameters are required.\n" >&2
+		_usage
+	fi
+
+	# Check if any parameter is empty or missing
+	for param in "$@"; do
+		if [[ -z "$param" ]]; then
+			printf "Error: Parameters cannot be empty.\n" >&2
+			_usage
+		fi
+	done
+}
+
+function main() {
+	_validate_params "$@"
+
+	book_full_path=$1
+	page=$2
+	shift 2
+	bookmark=$@
+
+	book_filename_without_extension=$(basename "$book_full_path")
+	book_without_extension="${book_filename_without_extension%.*}"
+	raw_book_note_filename="${book_without_extension}.md"
+
+	timestamp=${book_without_extension:0:12}
+	book_filename_without_extension="$timestamp-bm-${book_without_extension:13:${#book_without_extension}}"
+	bookmark_note_filename="$book_filename_without_extension.md"
+
+	cd "$SECOND_BRAIN_PATH/02-areas/z/BM/"
+	# cd "$HOME/dotfiles/binaries/.local/bin/"
+
+	if [[ ! -e "$bookmark_note_filename" ]]; then
+		note_title="BM $(_get_note_title $raw_book_note_filename)"
+
+		echo """---
+id: $book_filename_without_extension
+aliases:
+  - $note_title
+tags:
+  - status/pending
+  - type/book
+---
+
+# $note_title
+
+- [ ] $bookmark. \`page:$page\`""" >>$bookmark_note_filename
+
+		return
+	fi
+
+	echo "" >>$bookmark_note_filename
+	echo "- [ ] $bookmark. \`page:$page\`" >>$bookmark_note_filename
+}
+
+main "$@"
