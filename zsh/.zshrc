@@ -52,14 +52,14 @@ ZSH_DISABLE_COMPFIX="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  bun
-  fast-syntax-highlighting
-  fnm
-  fzf
-  sudo
-  vi-mode
-  zsh-autocomplete
-  zsh-autosuggestions
+	bun
+	fast-syntax-highlighting
+	fnm
+	fzf
+	sudo
+	vi-mode
+	zsh-autocomplete
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -82,136 +82,136 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 function open_nvim {
-  if [ $# -eq 0 ]; then
-    nvim .
-  else
-    nvim $1
-  fi
+	if [ $# -eq 0 ]; then
+		nvim .
+	else
+		nvim $1
+	fi
 }
 
 function setup-work-user {
-  echo '[user]\nname = juan.merchan\nemail = juan.merchan@parqco.com' >> .git/config
+	echo '[user]\nname = juan.merchan\nemail = juan.merchan@parqco.com' >>.git/config
 }
 
 function c {
-  if [ $# -eq 0 ]; then
-    code .
-  elif [ $# -eq 2 ]; then
-    code $1 $2
-  else
-    code $1
-  fi
+	if [ $# -eq 0 ]; then
+		code .
+	elif [ $# -eq 2 ]; then
+		code $1 $2
+	else
+		code $1
+	fi
 }
 
 function gbp {
-  for branch in $(git branch --merged develop | egrep -v "(^\*| main| develop| qa| release)"); do
-      git branch -d $branch
-  done
+	for branch in $(git branch --merged develop | egrep -v "(^\*| main| develop| qa| release)"); do
+		git branch -d $branch
+	done
 }
 
 function gbp2 {
-  for branch in $(git branch --merged main | egrep -v "(^\*| main| develop| qa| release)"); do
-      git branch -d $branch
-  done
+	for branch in $(git branch --merged main | egrep -v "(^\*| main| develop| qa| release)"); do
+		git branch -d $branch
+	done
 }
 
 function gd {
-  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock" | delta --side-by-side
+	git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock" | delta --side-by-side
 }
 
 ## Change remote to ssh
 function change-remote-to-ssh {
-  if [[ "$#" -ne 1 ]]; then
-      echo "Usage: $0 <project_name_in_github>"
+	if [[ "$#" -ne 1 ]]; then
+		echo "Usage: $0 <project_name_in_github>"
 
-      return
-  fi
+		return
+	fi
 
-  git remote remove origin
-  git remote add origin git@github.com:NikolaM-Dev/$1.git
+	git remote remove origin
+	git remote add origin git@github.com:NikolaM-Dev/$1.git
 }
 
 function cdir {
-  if [ $# -eq 1 ]; then
-    mkdir $1 && cd $1
-  else
-    echo "Use: cdir <file_name>"
-  fi
+	if [ $# -eq 1 ]; then
+		mkdir $1 && cd $1
+	else
+		echo "Use: cdir <file_name>"
+	fi
 }
 
 function gundo {
-  if [ $# -gt 1 ]; then
-    echo "Use: gundo || gundo <number_of_commits>"
-  elif [ $# -eq 1 ]; then
-    git reset --soft HEAD~$1
-  else
-    git reset --soft HEAD~1
-  fi
+	if [ $# -gt 1 ]; then
+		echo "Use: gundo || gundo <number_of_commits>"
+	elif [ $# -eq 1 ]; then
+		git reset --soft HEAD~$1
+	else
+		git reset --soft HEAD~1
+	fi
 }
 
 function backup-system {
-    time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
-    sudo timeshift --create --comments "Backup $time_stamp"
+	time_stamp=$(date '+%Y-%m-%d %H:%M:%S')
+	sudo timeshift --create --comments "Backup $time_stamp"
 }
 
 function schange-date {
-  if [ $# -eq 1 ]; then
-    HOUR=$(date +%H:%M:%S)
-    sudo timedatectl set-ntp 0 && sudo timedatectl set-time "$1 $HOUR"
-  else
-    echo "Use: schange-date <yyyy-MM-dd>"
-  fi
+	if [ $# -eq 1 ]; then
+		HOUR=$(date +%H:%M:%S)
+		sudo timedatectl set-ntp 0 && sudo timedatectl set-time "$1 $HOUR"
+	else
+		echo "Use: schange-date <yyyy-MM-dd>"
+	fi
 }
 
 function nvims {
-  items=("default" "adi" )
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Neovim Config   " --height=~50% --layout=reverse --border --exit-0)
+	items=("default" "adi")
+	config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Neovim Config   " --height=~50% --layout=reverse --border --exit-0)
 
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
+	if [[ -z $config ]]; then
+		echo "Nothing selected"
 
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
+		return 0
+	elif [[ $config == "default" ]]; then
+		config=""
+	fi
 
-  NVIM_APPNAME=$config nvim $@
+	NVIM_APPNAME=$config nvim $@
 }
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
 function ex {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   tar xf $1    ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+	if [ -f $1 ]; then
+		case $1 in
+		*.tar.bz2) tar xjf $1 ;;
+		*.tar.gz) tar xzf $1 ;;
+		*.bz2) bunzip2 $1 ;;
+		*.rar) unrar x $1 ;;
+		*.gz) gunzip $1 ;;
+		*.tar) tar xf $1 ;;
+		*.tbz2) tar xjf $1 ;;
+		*.tgz) tar xzf $1 ;;
+		*.zip) unzip $1 ;;
+		*.Z) uncompress $1 ;;
+		*.7z) 7z x $1 ;;
+		*.deb) ar x $1 ;;
+		*.tar.xz) tar xf $1 ;;
+		*.tar.zst) tar xf $1 ;;
+		*) echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
 function working-directories {
-  mkdir -p ~/Documents/second-brain.md
-  mkdir -p ~/go/src/github.com/NikolaM-Dev
-  mkdir -p ~/library
-  mkdir -p ~/Pictures
-  mkdir -p ~/Videos
-  mkdir -p ~/workspace/open-source
-  mkdir -p ~/workspace/work
+	mkdir -p ~/Documents/second-brain.md
+	mkdir -p ~/go/src/github.com/NikolaM-Dev
+	mkdir -p ~/library
+	mkdir -p ~/Pictures
+	mkdir -p ~/Videos
+	mkdir -p ~/workspace/open-source
+	mkdir -p ~/workspace/work
 }
 
 function y {
@@ -226,8 +226,8 @@ function y {
 	rm -f -- "$tmp"
 }
 
-[[ -f ~/.config/zsh/aliases.sh  ]] && source ~/.config/zsh/aliases.sh
-[[ -f ~/.config/zsh/functions.sh  ]] && source ~/.config/zsh/functions.sh
-[[ -f ~/.config/zsh/keymaps.sh  ]] && source ~/.config/zsh/keymaps.sh
+[[ -f ~/.config/zsh/aliases.sh ]] && source ~/.config/zsh/aliases.sh
+[[ -f ~/.config/zsh/functions.sh ]] && source ~/.config/zsh/functions.sh
+[[ -f ~/.config/zsh/keymaps.sh ]] && source ~/.config/zsh/keymaps.sh
 
 n-mortality
