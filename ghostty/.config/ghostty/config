@@ -1,13 +1,13 @@
 # adjust-underline-position = 4
 
-font-family = JetBrains Mono
-font-family-bold = JetBrains Mono
+font-family = Maple Mono NF
+font-family-bold = Maple Mono NF
 font-family-italic = Maple Mono NF
 font-family-bold-italic = Maple Mono NF
 
 font-family = Symbols Nerd Font
 
-adjust-cell-width = -10%
+adjust-cell-width = -15%
 background-opacity = 0.93
 confirm-close-surface = false
 font-size = 13
