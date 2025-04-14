@@ -26,6 +26,8 @@ function create_repo {
 function bk {
 	mv --interactive $1 $1.bak
 }
+
+# TODO: Add docs
 function start_open_webui() {
     docker run \
         -d \
@@ -39,7 +41,7 @@ function start_open_webui() {
         ghcr.io/open-webui/open-webui:main
 }
 
-function update_open_webui () {
+# TODO: Add docs
     docker rm -f open-webui
     docker pull ghcr.io/open-webui/open-webui:main
 
