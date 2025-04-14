@@ -21,3 +21,15 @@ function create_repo {
 
     echo "Repository '$1' created successfully and linked to the current directory."
 }
+function start_open_webui() {
+    docker run \
+        -d \
+        -e PORT=48080 \
+        -e WEBUI_AUTH=False \
+        --network=host \
+        -e OLLAMA_BASE_URL=http://127.0.0.1:11434 \
+        -v open-webui:/app/backend/data \
+        --name open-webui \
+        --restart always \
+        ghcr.io/open-webui/open-webui:main
+}
