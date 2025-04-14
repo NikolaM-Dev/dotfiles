@@ -163,4 +163,5 @@ alias dir-size="du -sh"
 # Emacs
 alias kem="killall emacs || echo 'Emacs server not running'"
 alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
+alias em="emacsclient -c -a 'emacs'"
 alias add_to_clipboard="xsel -ib"
