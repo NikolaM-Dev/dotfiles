@@ -167,4 +167,7 @@ alias em="emacsclient -c -a 'emacs'"
 
 # Yazi
 alias yaziya="/usr/bin/ya"
+
+# utils
 alias add_to_clipboard="xsel -ib"
+alias jsrun="n-js-run"
