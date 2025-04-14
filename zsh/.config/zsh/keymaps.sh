@@ -4,11 +4,11 @@
 # _open_with_nvim, Open with nvim and launch telescope with smart open
 # ------------------------------------------------------------------------------
 function _open_with_nvim() {
-  nvim -c ':Telescope smart_open theme=dropdown previewer=false'
+	nvim
 }
 
-zle -N _open_with_nvim
-bindkey '^V' _open_with_nvim
+# zle -N _open_with_nvim
+# bindkey '^V' _open_with_nvim
 
 # ------------------------------------------------------------------------------
 # _crowbar, Toggle from a current process to the background
