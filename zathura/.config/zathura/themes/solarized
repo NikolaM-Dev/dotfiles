@@ -1,0 +1,10 @@
+set recolor-lightcolor "#edd1b0" # Background
+set recolor-darkcolor "#093144" # Foreground
+
+set default-bg "#edd1b0" #00
+set default-fg "#edd1b0" #01
+
+set statusbar-bg "#edd1b0" #01
+set statusbar-fg "#093144" #04
+
+# vim:ft=zathurarc
