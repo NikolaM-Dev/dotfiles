@@ -46,7 +46,7 @@ alias ..="cd .."
 alias ctrash="gio trash --empty"
 alias gt="gio trash"
 alias rmf="rm -rf"
-alias to="touch"
+alias to="touch $1; nvim $1"
 alias trash="cd ~/.local/share/Trash/files; yazi"
 
 # Git
