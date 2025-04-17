@@ -6,7 +6,7 @@ function main {
 	while true; do
 		bun run format:fix
 
-		sleep 2m
+		sleep 20s
 	done
 }
 
