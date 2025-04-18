@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function main {
+	while true; do
+		dwm 2>~/.dwm.log
+	done
+}
+
+main
