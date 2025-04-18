@@ -1,2 +1,7 @@
+# patches
+*.orig
+*.rej
+
+# build
 *.o
 dwm
