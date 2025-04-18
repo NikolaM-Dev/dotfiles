@@ -61,30 +61,80 @@ static const char *menu[]     = { "rofi", "-show", NULL };
 static const char *term[]  = { "ghostty", "-e", "n-start-tmux", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	// modifier,          key,       function,        argument,
+	// Term + n-start-tmux
+	{ MODKEY,             XK_Return, spawn,      {.v = term } },
+
+	// [Q]uit window
+	{ MODKEY,             XK_q,      killclient, {0} },
+
+	// [Q]uit DWM
+	{ MODKEY|ControlMask, XK_q,      quit,       {0} },
+
+	// [R]estart DWM
+	{ MODKEY|ControlMask, XK_r,      quit,       {1} },
+
+	// Toggle [B]ar
+	{ MODKEY,             XK_b,      togglebar,  {0} },
+
+	// Next Window
+	{ MODKEY,             XK_j,      focusstack, {.i = +1 } },
+	// Previous Window
+	{ MODKEY,             XK_k,      focusstack, {.i = -1 } },
+
+	{ MODKEY,             XK_h,      setmfact,   {.f = -0.05 } },
+    	{ MODKEY,             XK_l,      setmfact,   {.f = +0.05 } },
+
+	// Rofi [M]enu
+	{ MODKEY,             XK_m,      spawn,      {.v = menu } },
+	// [O]bsidian
+	{ MODKEY,             XK_o,      spawn,      SHCMD("obsidian") },
+	// [T]ickTick
+	{ MODKEY,             XK_t,      spawn,      SHCMD("ticktick") },
+	// [Z]en Broser
+	{ MODKEY,             XK_z,      spawn,      SHCMD("zen-browser") },
+	// [R]edshift
+	{ MODKEY,             XK_r,      spawn,      SHCMD("redshift -O 3500") },
+	// [R]estart Redshift
+    	{ MODKEY|ShiftMask,   XK_r,      spawn,      SHCMD("redshift -x") },
+	// File [E]xplorer
+    	{ MODKEY,             XK_e,      spawn,      SHCMD("pcmanfm") },
+	// Rofi [E]moji
+    	{ MODKEY|ControlMask, XK_e,      spawn,      {.v = emojis} },
+	// Use Layout 1
+	{ MODKEY,             XK_u,      setlayout,  {.v = &layouts[0] } },       // doubledeck
+	// Use Layout 2
+    	{ MODKEY | ShiftMask, XK_u,      setlayout,  {.v = &layouts[1] } },       // monocle
+
+	// Cycle layouts
+	// { MODKEY, 			XK_Tab,    cyclelayout,    {.i = +1} },
+	// { MODKEY|ShiftMask, 		XK_Tab,    cyclelayout,    {.i = -1} },
+
+
+
+	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	// { MODKEY,                       XK_b,      togglebar,      {0} },
+	// { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	// { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	// { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	// { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	// { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	// { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	// { MODKEY|ShiftMask,		XK_Return, zoom,           {0} },
+	// { MODKEY,                       XK_Tab,    view,           {0} },
+	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	// { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	// { MODKEY,                       XK_space,  setlayout,      {0} },
+	// { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	// { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	// { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	// { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	// { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	// { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+
+	// Go to [n] tag
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -94,7 +144,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
