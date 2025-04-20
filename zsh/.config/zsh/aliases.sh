@@ -94,7 +94,7 @@ alias gtest="go test -v -cover ./..."
 
 # IDE
 alias cd="z"
-alias compile-dwm="cd ~/.config/chadwm/chadwm && sudo make clean install && cd -"
+alias compile-dwm="cd ~/.config/dwm && sudo make clean install && cd -"
 alias cva="yarn create vite"
 alias dautotime="sudo timedatectl set-ntp 0"
 alias disable-suspend="sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target"
