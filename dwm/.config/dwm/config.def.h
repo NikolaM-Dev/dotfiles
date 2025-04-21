@@ -122,6 +122,9 @@ static const Key keys[] = {
 	{ 0,                  XF86XK_MonBrightnessDown, spawn,      SHCMD("brightnessctl set 2%-") },
 	{ 0,                  XF86XK_MonBrightnessUp,   spawn,      SHCMD("brightnessctl set +2%") },
 
+	// Print
+	{ 0,                  XK_Print,                 spawn,      {.v = flameshotcmd } },
+
 	// Tags
 	TAGKEYS(XK_1, 0)
 	TAGKEYS(XK_2, 1)
