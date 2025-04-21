@@ -18,6 +18,14 @@ static const char *colors[][3]     = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+/* Systray */
+static const int showsystray             = 1;   /* 0 means no systray */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const unsigned int systrayonleft  = 0;   /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -72,80 +80,7 @@ static const char *menucmd[]    = { "rofi",        "-show", NULL };
 static const char *termcmd[]    = { "ghostty",     "-e",    "n-start-tmux", NULL };
 
 static const Key keys[] = {
-	// modifier,          key,       function,        argument,
-	// Term + n-start-tmux
-	{ MODKEY,             XK_Return, spawn,      {.v = term } },
-
-	// [Q]uit window
-	{ MODKEY,             XK_q,      killclient, {0} },
-
-	// [Q]uit DWM
-	{ MODKEY|ControlMask, XK_q,      quit,       {0} },
-
-	// [R]estart DWM
-	{ MODKEY|ControlMask, XK_r,      quit,       {1} },
-
-	// Toggle [B]ar
-	{ MODKEY,             XK_b,      togglebar,  {0} },
-
-	// Next Window
-	{ MODKEY,             XK_j,      focusstack, {.i = +1 } },
-	// Previous Window
-	{ MODKEY,             XK_k,      focusstack, {.i = -1 } },
-
-	{ MODKEY,             XK_h,      setmfact,   {.f = -0.05 } },
-    	{ MODKEY,             XK_l,      setmfact,   {.f = +0.05 } },
-
-	// Rofi [M]enu
-	{ MODKEY,             XK_m,      spawn,      {.v = menu } },
-	// [O]bsidian
-	{ MODKEY,             XK_o,      spawn,      SHCMD("obsidian") },
-	// [T]ickTick
-	{ MODKEY,             XK_t,      spawn,      SHCMD("ticktick") },
-	// [Z]en Broser
-	{ MODKEY,             XK_z,      spawn,      SHCMD("zen-browser") },
-	// [R]edshift
-	{ MODKEY,             XK_r,      spawn,      SHCMD("redshift -O 3500") },
-	// [R]estart Redshift
-    	{ MODKEY|ShiftMask,   XK_r,      spawn,      SHCMD("redshift -x") },
-	// File [E]xplorer
-    	{ MODKEY,             XK_e,      spawn,      SHCMD("pcmanfm") },
-	// Rofi [E]moji
-    	{ MODKEY|ControlMask, XK_e,      spawn,      {.v = emojis} },
-	// Use Layout 1
-	{ MODKEY,             XK_u,      setlayout,  {.v = &layouts[0] } },       // doubledeck
-	// Use Layout 2
-    	{ MODKEY | ShiftMask, XK_u,      setlayout,  {.v = &layouts[1] } },       // monocle
-
-	// Cycle layouts
-	// { MODKEY, 			XK_Tab,    cyclelayout,    {.i = +1} },
-	// { MODKEY|ShiftMask, 		XK_Tab,    cyclelayout,    {.i = -1} },
-
-
-
-	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	// { MODKEY,                       XK_b,      togglebar,      {0} },
-	// { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	// { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	// { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	// { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	// { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	// { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	// { MODKEY|ShiftMask,		XK_Return, zoom,           {0} },
-	// { MODKEY,                       XK_Tab,    view,           {0} },
-	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	// { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	// { MODKEY,                       XK_space,  setlayout,      {0} },
-	// { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	// { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	// { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	// { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	// { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	// { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-
-	// Go to [n] tag
+	/* modifier                     key        function        argument */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -155,6 +90,41 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+
+	{ MODKEY,                       XK_m,      spawn,          {.v = menucmd } },
+	{ MODKEY, 			XK_Return, spawn, 	   {.v = termcmd } },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,		XK_u,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_r,      quit,           {1} },
+	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,             		XK_q,      killclient,     {0} },
+	{ MODKEY,             		XK_z,      spawn,          {.v = browsercmd } },
+
+	{ MODKEY,             		XK_o,      spawn,          SHCMD("obsidian") },
+	{ MODKEY,             		XK_t,      spawn,          SHCMD("ticktick") },
+
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	// { MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },
+	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	// { MODKEY|ShiftMask,		XK_t,      setlayout,      {.v = &layouts[1]} },
+	// // { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 };
 
 /* button definitions */
@@ -164,7 +134,7 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = term } },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
