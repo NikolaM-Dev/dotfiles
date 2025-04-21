@@ -1,5 +1,26 @@
 # dwm - dynamic window manager
 
+## Patches
+
+### Applied patches
+
+- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
+- [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
+- [systray](https://dwm.suckless.org/patches/systray/)
+- [autostarttags](https://dwm.suckless.org/patches/autostarttags/)
+
+### How to apply patches
+
+```bash
+patch -p1 < <patch_path>
+```
+
+### How to Unpatch
+
+```bash
+patch -R < <patch_path>
+```
+
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 ## Requirements
