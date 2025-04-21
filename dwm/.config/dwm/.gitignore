@@ -6,3 +6,6 @@
 *.o
 config.h
 dwm
+
+# logs
+*.log
