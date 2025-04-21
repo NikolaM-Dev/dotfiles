@@ -9,6 +9,7 @@
 - [pertag](https://dwm.suckless.org/patches/pertag/)
 - [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
 - [removeborder](https://dwm.suckless.org/patches/removeborder/)
+- [status2d](https://dwm.suckless.org/patches/status2d/)
 - [systray](https://dwm.suckless.org/patches/systray/)
 
 ### How to apply patches
