@@ -112,13 +112,15 @@ static const Key keys[] = {
 	{ MODKEY,             XK_e,                     spawn,      SHCMD("pcmanfm") },
 	{ MODKEY|ShiftMask,   XK_r,                     spawn,      SHCMD("redshift -x") },
 	{ MODKEY|ShiftMask,   XK_s,                     spawn,      SHCMD("scrot -d 3")},
-	{ MODKEY,             		XK_z,      spawn,          {.v = browsercmd } },
-	{ MODKEY|ControlMask,		XK_e,      spawn,          {.v = emojiscmd } },
-	{ MODKEY,			XK_s,      spawn,          {.v = flameshotcmd } },
-	{ MODKEY,             		XK_o,      spawn,          {.v = obsidian } },
-	{ MODKEY,             		XK_t,      spawn,          {.v = ticktick } },
 
-	{ MODKEY,             		XK_e,      spawn,          SHCMD("pcmanfm") },
+	// Volume
+	{ 0,                  XF86XK_AudioLowerVolume,  spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%") },
+	{ 0,                  XF86XK_AudioMute,         spawn,      SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+    	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%") },
+
+	// Brightness
+	{ 0,                  XF86XK_MonBrightnessDown, spawn,      SHCMD("brightnessctl set 2%-") },
+	{ 0,                  XF86XK_MonBrightnessUp,   spawn,      SHCMD("brightnessctl set +2%") },
 
 	// Tags
 	TAGKEYS(XK_1, 0)
