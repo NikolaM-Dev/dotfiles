@@ -93,25 +93,25 @@ Autostarttag autostarttaglist[] = {
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	{ MODKEY,             XK_m,                     spawn,      {.v = menucmd } },
+	{ MODKEY,             XK_Return,                spawn,      {.v = termcmd } },
+	{ MODKEY,             XK_u,                     setlayout,  {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,   XK_u,                     setlayout,  {.v = &layouts[1]} },
+	{ MODKEY,             XK_f,                     setlayout,  {.v = &layouts[2]} },
+	{ MODKEY|ControlMask, XK_q,                     quit,       {0} },
+	{ MODKEY|ControlMask, XK_r,                     quit,       {1} },
+	{ MODKEY,             XK_b,                     togglebar,  {0} },
+	{ MODKEY,             XK_q,                     killclient, {0} },
+	{ MODKEY,             XK_z,                     spawn,      {.v = browsercmd } },
+	{ MODKEY|ShiftMask,   XK_e,                     spawn,      {.v = emojiscmd } },
+	{ MODKEY,             XK_s,                     spawn,      {.v = flameshotcmd } },
+	{ MODKEY,             XK_o,                     spawn,      {.v = obsidian } },
+	{ MODKEY,             XK_t,                     spawn,      {.v = ticktick } },
 
-	{ MODKEY,                       XK_m,      spawn,          {.v = menucmd } },
-	{ MODKEY, 			XK_Return, spawn, 	   {.v = termcmd } },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,		XK_u,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask,           XK_r,      quit,           {1} },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,             		XK_q,      killclient,     {0} },
+	{ MODKEY,             XK_r,                     spawn,      SHCMD("redshift -O 6000") },
+	{ MODKEY,             XK_e,                     spawn,      SHCMD("pcmanfm") },
+	{ MODKEY|ShiftMask,   XK_r,                     spawn,      SHCMD("redshift -x") },
+	{ MODKEY|ShiftMask,   XK_s,                     spawn,      SHCMD("scrot -d 3")},
 	{ MODKEY,             		XK_z,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ControlMask,		XK_e,      spawn,          {.v = emojiscmd } },
 	{ MODKEY,			XK_s,      spawn,          {.v = flameshotcmd } },
@@ -119,6 +119,17 @@ static const Key keys[] = {
 	{ MODKEY,             		XK_t,      spawn,          {.v = ticktick } },
 
 	{ MODKEY,             		XK_e,      spawn,          SHCMD("pcmanfm") },
+
+	// Tags
+	TAGKEYS(XK_1, 0)
+	TAGKEYS(XK_2, 1)
+	TAGKEYS(XK_3, 2)
+	TAGKEYS(XK_4, 3)
+	TAGKEYS(XK_5, 4)
+	TAGKEYS(XK_6, 5)
+	TAGKEYS(XK_7, 6)
+	TAGKEYS(XK_8, 7)
+	TAGKEYS(XK_9, 8)
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
