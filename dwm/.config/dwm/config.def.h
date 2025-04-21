@@ -78,6 +78,16 @@ static const char *browsercmd[] = { "zen-browser", NULL };
 static const char *emojiscmd[]  = { "rofi",       "-show", "emoji",        NULL };
 static const char *menucmd[]    = { "rofi",        "-show", NULL };
 static const char *termcmd[]    = { "ghostty",     "-e",    "n-start-tmux", NULL };
+static const char *obsidian[]     = { "obsidian",    NULL };
+static const char *ticktick[]     = { "ticktick",    NULL };
+
+Autostarttag autostarttaglist[] = {
+	{.cmd = NULL,       .tags = 0 },
+	{.cmd = browsercmd, .tags = 1 << 0 },
+	{.cmd = obsidian,   .tags = 1 << 1 },
+	{.cmd = ticktick,   .tags = 1 << 1 },
+	{.cmd = termcmd,    .tags = 1 << 2 },
+};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
