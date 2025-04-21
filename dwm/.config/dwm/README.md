@@ -6,6 +6,7 @@
 
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
 - [autostarttags](https://dwm.suckless.org/patches/autostarttags/)
+- [pertag](https://dwm.suckless.org/patches/pertag/)
 - [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
 - [removeborder](https://dwm.suckless.org/patches/removeborder/)
 - [systray](https://dwm.suckless.org/patches/systray/)
