@@ -9,6 +9,7 @@
 - [notitle](https://dwm.suckless.org/patches/notitle/)
 - [pertag](https://dwm.suckless.org/patches/pertag/)
 - [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
+- [rainbowtags](https://dwm.suckless.org/patches/rainbowtags/)
 - [removeborder](https://dwm.suckless.org/patches/removeborder/)
 - [status2d](https://dwm.suckless.org/patches/status2d/)
 - [systray](https://dwm.suckless.org/patches/systray/)

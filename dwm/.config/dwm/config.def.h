@@ -14,8 +14,8 @@ static const char col_gray4[]      = "#eeeeee";
 static const char col_cyan[]       = "#005577";
 static const char *colors[][3]     = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { "#6e6a86", "#1f1d30", "#2a283e" },
+	[SchemeSel]  = { "#e0def4", "#1f1d30", "#56526e"  },
 };
 
 /* Systray */
@@ -33,6 +33,18 @@ static const int ulineall              = 0;	/* 1 to show underline on all tags, 
 static const unsigned int ulinepad     = 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke  = 2;	/* thickness / height of the underline */
 static const unsigned int ulinevoffset = 0;	/* how far above the bottom of the bar the line should appear */
+
+static const char *tagsel[][2] = {
+	{ "#9ccfd8", "#1f1d30" },
+	{ "#f6c177", "#1f1d30" },
+	{ "#ea9a97", "#1f1d30" },
+	{ "#c4a7e7", "#1f1d30" },
+	{ "#95b1ac", "#1f1d30" },
+	{ "#9ccfd8", "#1f1d30" },
+	{ "#f6c177", "#1f1d30" },
+	{ "#ea9a97", "#1f1d30" },
+	{ "#c4a7e7", "#1f1d30" },
+};
 
 static const Rule rules[] = {
 	/* xprop(1):
