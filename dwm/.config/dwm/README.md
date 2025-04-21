@@ -5,9 +5,10 @@
 ### Applied patches
 
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
-- [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
-- [systray](https://dwm.suckless.org/patches/systray/)
 - [autostarttags](https://dwm.suckless.org/patches/autostarttags/)
+- [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
+- [removeborder](https://dwm.suckless.org/patches/removeborder/)
+- [systray](https://dwm.suckless.org/patches/systray/)
 
 ### How to apply patches
 
