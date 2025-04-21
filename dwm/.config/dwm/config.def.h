@@ -113,9 +113,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,             		XK_q,      killclient,     {0} },
 	{ MODKEY,             		XK_z,      spawn,          {.v = browsercmd } },
+	{ MODKEY|ControlMask,		XK_e,      spawn,          {.v = emojiscmd } },
+	{ MODKEY,			XK_s,      spawn,          {.v = flameshotcmd } },
+	{ MODKEY,             		XK_o,      spawn,          {.v = obsidian } },
+	{ MODKEY,             		XK_t,      spawn,          {.v = ticktick } },
 
-	{ MODKEY,             		XK_o,      spawn,          SHCMD("obsidian") },
-	{ MODKEY,             		XK_t,      spawn,          SHCMD("ticktick") },
+	{ MODKEY,             		XK_e,      spawn,          SHCMD("pcmanfm") },
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
