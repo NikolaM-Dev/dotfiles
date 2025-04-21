@@ -12,6 +12,7 @@
 - [removeborder](https://dwm.suckless.org/patches/removeborder/)
 - [status2d](https://dwm.suckless.org/patches/status2d/)
 - [systray](https://dwm.suckless.org/patches/systray/)
+- [underlinetags](https://dwm.suckless.org/patches/underlinetags/)
 
 ### How to apply patches
 
