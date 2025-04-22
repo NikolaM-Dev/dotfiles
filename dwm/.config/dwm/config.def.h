@@ -116,7 +116,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,   XK_u,                     setlayout,  {.v = &layouts[1]} },
 	{ MODKEY,             XK_f,                     setlayout,  {.v = &layouts[2]} },
 	{ MODKEY|ControlMask, XK_q,                     quit,       {0} },
-	{ MODKEY|ControlMask, XK_r,                     quit,       {1} },
+	{ MODKEY|ControlMask, XK_r,                     spawn,      SHCMD("n-dwm-recompile") },
 	{ MODKEY,             XK_b,                     togglebar,  {0} },
 	{ MODKEY,             XK_q,                     killclient, {0} },
 	{ MODKEY,             XK_z,                     spawn,      {.v = browsercmd } },
