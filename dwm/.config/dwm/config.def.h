@@ -35,15 +35,15 @@ static const unsigned int ulinestroke  = 2;	/* thickness / height of the underli
 static const unsigned int ulinevoffset = 0;	/* how far above the bottom of the bar the line should appear */
 
 static const char *tagsel[][2] = {
-	{ "#9ccfd8", "#1f1d30" },
-	{ "#f6c177", "#1f1d30" },
-	{ "#ea9a97", "#1f1d30" },
-	{ "#c4a7e7", "#1f1d30" },
-	{ "#95b1ac", "#1f1d30" },
-	{ "#9ccfd8", "#1f1d30" },
-	{ "#f6c177", "#1f1d30" },
-	{ "#ea9a97", "#1f1d30" },
-	{ "#c4a7e7", "#1f1d30" },
+	{ "#eb6f92", "#232136" },
+	{ "#f6c177", "#232136" },
+	{ "#c4a7e7", "#232136" },
+	{ "#9ccfd8", "#232136" },
+	{ "#ea9a97", "#232136" },
+	{ "#95b1ac", "#232136" },
+	{ "#3e8fb0", "#232136" },
+	{ "#eb6f92", "#232136" },
+	{ "#f6c177", "#232136" },
 };
 
 static const Rule rules[] = {
