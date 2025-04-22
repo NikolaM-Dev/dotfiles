@@ -125,7 +125,7 @@ static const Key keys[] = {
 	{ MODKEY,             XK_o,                     spawn,      {.v = obsidian } },
 	{ MODKEY,             XK_t,                     spawn,      {.v = ticktick } },
 
-	{ MODKEY,             XK_r,                     spawn,      SHCMD("redshift -O 6000") },
+	{ MODKEY,             XK_r,                     spawn,      SHCMD("redshift -O 3500") },
 	{ MODKEY,             XK_e,                     spawn,      SHCMD("pcmanfm") },
 	{ MODKEY|ShiftMask,   XK_r,                     spawn,      SHCMD("redshift -x") },
 	{ MODKEY|ShiftMask,   XK_s,                     spawn,      SHCMD("scrot -d 3")},
