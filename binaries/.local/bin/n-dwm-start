@@ -2,7 +2,7 @@
 
 function main {
 	while true; do
-		dwm 2>~/.dwm.log
+		dwm 2>~/.config/dwm/dwm.log
 	done
 }
 
