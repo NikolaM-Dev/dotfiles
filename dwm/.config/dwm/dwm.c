@@ -955,7 +955,6 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
-		// tw = TEXTW(stext) - lrpad / 2 + 2; /* 2px extra right padding */
 		tw = m->ww - drawstatusbar(m, bh, stext);
 	}
 
@@ -975,10 +974,6 @@ drawbar(Monitor *m)
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
 		if (ulineall || m->tagset[m->seltags] & 1 << i) /* if there are conflicts, just move these lines directly underneath both 'drw_setscheme' and 'drw_text' :) */
 			drw_rect(drw, x + ulinepad, bh - ulinestroke - ulinevoffset, w - (ulinepad * 2), ulinestroke, 1, 0);
-		// if (occ & 1 << i)
-		// 	drw_rect(drw, x + boxs, boxs, boxw, boxw,
-		// 		m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
-		// 		urg & 1 << i);
 		x += w;
 	}
 	w = TEXTW(m->ltsymbol);
