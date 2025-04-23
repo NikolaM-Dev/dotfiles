@@ -1,6 +1,7 @@
 [[session]]
 name = "󱂵 home"
 path = "~"
+startup_command = 'yupdate'
 
 [[session]]
 name = " drive"
