@@ -50,4 +50,4 @@ n-clip-board &
 
 sleep 1
 
-n-start-dwm
+n-dwm-start
