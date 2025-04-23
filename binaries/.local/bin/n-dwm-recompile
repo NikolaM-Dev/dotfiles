@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function main {
+	cd "$XDG_CONFIG_HOME/dwm"
+	sudo make clean install
+	killall dwm
+	cd -
+}
+
+main
