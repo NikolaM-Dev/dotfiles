@@ -135,6 +135,7 @@ static const Key keys[] = {
 	{ MODKEY,             XK_e,                     spawn,      SHCMD("pcmanfm") },
 	{ MODKEY|ShiftMask,   XK_r,                     spawn,      SHCMD("redshift -x") },
 	{ MODKEY|ShiftMask,   XK_s,                     spawn,      SHCMD("scrot -d 3") },
+	{ MODKEY,   	      XK_c,                     spawn,      SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 
 	// Volume
 	{ 0,                  XF86XK_AudioLowerVolume,  spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%") },
