@@ -7,6 +7,7 @@
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
 - [autostarttags](https://dwm.suckless.org/patches/autostarttags/)
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
+- [movestack](https://dwm.suckless.org/patches/movestack/)
 - [notitle](https://dwm.suckless.org/patches/notitle/)
 - [pertag](https://dwm.suckless.org/patches/pertag/)
 - [preserveonrestart](https://dwm.suckless.org/patches/preserveonrestart/)
