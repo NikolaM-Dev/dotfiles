@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const int showbar           = 1;        /* 0 means no bar */
-static const int topbar            = 1;        /* 0 means bottom bar */
-static const unsigned int borderpx = 1;        /* border pixel of windows */
-static const unsigned int snap     = 32;       /* snap pixel */
+static const int showbar           = 1;    /* 0 means no bar */
+static const int topbar            = 1;    /* 0 means bottom bar */
+static const unsigned int borderpx = 1;    /* border pixel of windows */
+static const unsigned int snap     = 32;   /* snap pixel */
 
-static const int horizpadbar = 2;        /* horizontal padding for statusbar */
-static const int vertpadbar  = 8;        /* vertical padding for statusbar */
+static const int horizpadbar = 2;   /* horizontal padding for statusbar */
+static const int vertpadbar  = 8;   /* vertical padding for statusbar */
 
 static const char *fonts[]    = { "JetBrains Mono:size=10:weight=medium", "Symbols Nerd Font Mono:size=10" };
 static const char dmenufont[] = "Maple Mono NF:size=10";
@@ -19,7 +19,7 @@ static const char col_gray3[]  = "#bbbbbb";
 static const char col_gray4[]  = "#eeeeee";
 
 static const char *colors[][3] = {
-	/*               fg         bg         border   */
+	/*               fg,        bg,        border */
 	[SchemeNorm] = { "#6e6a86", "#232136", "#2a283e" },
 	[SchemeSel]  = { "#e0def4", "#232136", "#56526e"  },
 };
@@ -35,12 +35,13 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-static const int ulineall              = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
-static const unsigned int ulinepad     = 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke  = 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset = 0;	/* how far above the bottom of the bar the line should appear */
+static const int ulineall              = 0;   /* 1 to show underline on all tags, 0 for just the active ones */
+static const unsigned int ulinepad     = 5;   /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke  = 2;   /* thickness / height of the underline */
+static const unsigned int ulinevoffset = 0;   /* how far above the bottom of the bar the line should appear */
 
 static const char *tagsel[][2] = {
+	/* fg,       bg */
 	{ "#eb6f92", "#232136" },
 	{ "#f6c177", "#232136" },
 	{ "#c4a7e7", "#232136" },
@@ -63,9 +64,9 @@ static const Rule rules[] = {
 
 	 */
 
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "obsidian", "obsidian",  NULL, 1 << 1, 0, -1 },
-	{ "ticktick", "ticktick",  NULL, 1 << 1, 0, -1 },
+	/* class,     instance,   title, tags mask, isfloating, monitor */
+	{ "obsidian", "obsidian", NULL,  1 << 1,    0,          -1 },
+	{ "ticktick", "ticktick", NULL,  1 << 1,    0,          -1 },
 };
 
 /* layout(s) */
@@ -75,10 +76,10 @@ static const int resizehints    = 1;    /* 1 means respect size hints in tiled r
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[M]",      monocle },
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	/* symbol, arrange function */
+	{ "[M]",   monocle },
+	{ "[]=",   tile },    /* first entry is default */
+	{ "><>",   NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -115,73 +116,72 @@ Autostarttag autostarttaglist[] = {
 };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,             XK_m,                     spawn,      {.v = menucmd } },
-	{ MODKEY,             XK_Return,                spawn,      {.v = termcmd } },
-	{ MODKEY,             XK_u,                     setlayout,  {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,   XK_u,                     setlayout,  {.v = &layouts[1]} },
-	{ MODKEY,             XK_f,                     setlayout,  {.v = &layouts[2]} },
-	{ MODKEY|ControlMask, XK_q,                     quit,       {0} },
-	{ MODKEY|ControlMask, XK_r,                     spawn,      SHCMD("n-dwm-recompile") },
-	{ MODKEY,             XK_b,                     togglebar,  {0} },
-	{ MODKEY,             XK_q,                     killclient, {0} },
-	{ MODKEY,             XK_z,                     spawn,      {.v = browsercmd } },
-	{ MODKEY|ShiftMask,   XK_e,                     spawn,      {.v = emojiscmd } },
-	{ MODKEY,             XK_s,                     spawn,      {.v = flameshotcmd } },
-	{ MODKEY,             XK_o,                     spawn,      {.v = obsidian } },
-	{ MODKEY,             XK_t,                     spawn,      {.v = ticktick } },
+	/* modifier,           key,                      function,       argument */
+	{ MODKEY,              XK_m,                     spawn,          {.v = menucmd } },
+	{ MODKEY,              XK_Return,                spawn,          {.v = termcmd } },
+	{ MODKEY,              XK_u,                     setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,    XK_u,                     setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,              XK_f,                     setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,  XK_q,                     quit,           {0} },
+	{ MODKEY|ControlMask,  XK_r,                     spawn,          SHCMD("n-dwm-recompile") },
+	{ MODKEY,              XK_b,                     togglebar,      {0} },
+	{ MODKEY,              XK_q,                     killclient,     {0} },
+	{ MODKEY,              XK_z,                     spawn,          {.v = browsercmd } },
+	{ MODKEY|ShiftMask,    XK_e,                     spawn,          {.v = emojiscmd } },
+	{ MODKEY,              XK_s,                     spawn,          {.v = flameshotcmd } },
+	{ MODKEY,              XK_o,                     spawn,          {.v = obsidian } },
+	{ MODKEY,              XK_t,                     spawn,          {.v = ticktick } },
 
-	{ MODKEY,             XK_r,                     spawn,      SHCMD("redshift -O 3500") },
-	{ MODKEY,             XK_e,                     spawn,      SHCMD("pcmanfm") },
-	{ MODKEY|ShiftMask,   XK_r,                     spawn,      SHCMD("redshift -x") },
-	{ MODKEY|ShiftMask,   XK_s,                     spawn,      SHCMD("scrot -d 3") },
-	{ MODKEY,   	      XK_c,                     spawn,      SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
+	{ MODKEY,              XK_r,                     spawn,          SHCMD("redshift -O 3500") },
+	{ MODKEY,              XK_e,                     spawn,          SHCMD("pcmanfm") },
+	{ MODKEY|ShiftMask,    XK_r,                     spawn,          SHCMD("redshift -x") },
+	{ MODKEY|ShiftMask,    XK_s,                     spawn,          SHCMD("scrot -d 3") },
+	{ MODKEY,              XK_c,                     spawn,          SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 
 	// Volume
-	{ 0,                  XF86XK_AudioLowerVolume,  spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%") },
-	{ 0,                  XF86XK_AudioMute,         spawn,      SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-    	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%") },
+	{ 0,                   XF86XK_AudioLowerVolume,  spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%") },
+	{ 0,                   XF86XK_AudioMute,         spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+    	{ 0,                   XF86XK_AudioRaiseVolume,  spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%") },
 
 	// Brightness
-	{ 0,                  XF86XK_MonBrightnessDown, spawn,      SHCMD("brightnessctl set 2%-") },
-	{ 0,                  XF86XK_MonBrightnessUp,   spawn,      SHCMD("brightnessctl set +2%") },
+	{ 0,                   XF86XK_MonBrightnessDown, spawn,          SHCMD("brightnessctl set 2%-") },
+	{ 0,                   XF86XK_MonBrightnessUp,   spawn,          SHCMD("brightnessctl set +2%") },
 
 	// Print
-	{ 0,                  XK_Print,                 spawn,      {.v = flameshotcmd } },
+	{ 0,                   XK_Print,                 spawn,          {.v = flameshotcmd } },
 
-	// Tags
-	TAGKEYS(XK_1, 0)
-	TAGKEYS(XK_2, 1)
-	TAGKEYS(XK_3, 2)
-	TAGKEYS(XK_4, 3)
-	TAGKEYS(XK_5, 4)
-	TAGKEYS(XK_6, 5)
-	TAGKEYS(XK_7, 6)
-	TAGKEYS(XK_8, 7)
-	TAGKEYS(XK_9, 8)
+	TAGKEYS(XK_1,          0)
+	TAGKEYS(XK_2,          1)
+	TAGKEYS(XK_3,          2)
+	TAGKEYS(XK_4,          3)
+	TAGKEYS(XK_5,          4)
+	TAGKEYS(XK_6,          5)
+	TAGKEYS(XK_7,          6)
+	TAGKEYS(XK_8,          7)
+	TAGKEYS(XK_9,          8)
 
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	// { MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	// { MODKEY|ShiftMask,		XK_t,      setlayout,      {.v = &layouts[1]} },
-	// // { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,              XK_j,                     focusstack,     {.i = +1 } },
+	{ MODKEY,              XK_k,                     focusstack,     {.i = -1 } },
+	{ MODKEY,              XK_i,                     incnmaster,     {.i = +1 } },
+	{ MODKEY,              XK_d,                     incnmaster,     {.i = -1 } },
+	{ MODKEY,              XK_h,                     setmfact,       {.f = -0.05} },
+	{ MODKEY,              XK_l,                     setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	// { MODKEY,           XK_Return,                zoom,           {0} },
+	{ MODKEY,              XK_Tab,                   view,           {0} },
+	// { MODKEY,           XK_t,                     setlayout,      {.v = &layouts[0]} },
+	// { MODKEY|ShiftMask, XK_t,                     setlayout,      {.v = &layouts[1]} },
+	// // { MODKEY,        XK_m,                     setlayout,      {.v = &layouts[2]} },
+	// { MODKEY,           XK_f,                     setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,              XK_space,                 setlayout,      {0} },
+	{ MODKEY|ShiftMask,    XK_space,                 togglefloating, {0} },
+	{ MODKEY,              XK_0,                     view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,    XK_0,                     tag,            {.ui = ~0 } },
+	{ MODKEY,              XK_comma,                 focusmon,       {.i = -1 } },
+	{ MODKEY,              XK_period,                focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,    XK_comma,                 tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,    XK_period,                tagmon,         {.i = +1 } },
 };
 
 /* button definitions */
