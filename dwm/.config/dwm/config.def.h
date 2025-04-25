@@ -57,11 +57,8 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
-
-	   	xprop | awk '
-	  		/^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
-          	        /^WM_NAME/{sub(/.* =/, "title:"); print}'
-
+	 *
+	 * Use `n-dwm-xprop` instead
 	 */
 
 	/* class,     instance,   title, tags mask, isfloating, monitor */
