@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function main {
+	xprop | awk '
+    /^WM_CLASS/{
+      match($0, /WM_CLASS\(STRING\) = "(.*)", "(.*)"/, arr);
+      class = arr[2];
+      instance = arr[1];
+    }
+	/^WM_NAME/{
+      sub(/.* = /, "");
+      title = $0;
+      gsub(/"/, "", title);  # Remove double quotes
+    }
+    END {
+	  print "Prop     │ Value"
+	  print "─────────┼────────────────────────────────────────────────────────────"
+      if (class != "") {
+        print "class    │ " class;
+      }
+
+      if (instance != "") {
+        print "instance │ " instance;
+      }
+
+      if (title != "") {
+        print "title    │ " title;
+      }
+    }
+  '
+}
+
+main
