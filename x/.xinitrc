@@ -47,6 +47,7 @@ sh $HOME/.fehbg &
 udiskie -t &
 dunst &
 n-clip-board &
+$SECOND_BRAIN_PATH/backup.sh &
 
 sleep 1
 
