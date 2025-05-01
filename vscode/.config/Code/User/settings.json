@@ -588,7 +588,7 @@
     "editorInlayHint.background": "#1a1a1a",
     "editorInlayHint.foreground": "#8c8c8cbb"
   },
-  "workbench.colorTheme": "lucy",
+  "workbench.colorTheme": "Vitesse Dark",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.pinnedTabSizing": "compact",
