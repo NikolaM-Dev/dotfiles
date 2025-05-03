@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function main {
+	ffmpeg \
+		-f concat \
+		-safe 0 \
+		-i <(find "$(pwd)" -iname "*.$1" -printf "file '%p'\n" | sort) \
+		-c copy \
+		"$2.$1"
+}
+
+main "$@"
