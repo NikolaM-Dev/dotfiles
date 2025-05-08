@@ -125,17 +125,17 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,  XK_r,                     spawn,          SHCMD("n-dwm-recompile") },
 	{ MODKEY,              XK_b,                     togglebar,      {0} },
 	{ MODKEY,              XK_q,                     killclient,     {0} },
+	{ MODKEY,              XK_c,                     spawn,          {.v = rofi_calc_cmd } },
+	{ MODKEY,              XK_o,                     spawn,          {.v = obsidian } },
+	{ MODKEY,              XK_s,                     spawn,          {.v = flameshotcmd } },
+	{ MODKEY,              XK_t,                     spawn,          {.v = ticktick } },
 	{ MODKEY,              XK_z,                     spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,    XK_e,                     spawn,          {.v = emojiscmd } },
-	{ MODKEY,              XK_s,                     spawn,          {.v = flameshotcmd } },
-	{ MODKEY,              XK_o,                     spawn,          {.v = obsidian } },
-	{ MODKEY,              XK_t,                     spawn,          {.v = ticktick } },
 
 	{ MODKEY,              XK_r,                     spawn,          SHCMD("redshift -O 3500") },
 	{ MODKEY,              XK_e,                     spawn,          SHCMD("pcmanfm") },
 	{ MODKEY|ShiftMask,    XK_r,                     spawn,          SHCMD("redshift -x") },
 	{ MODKEY|ShiftMask,    XK_s,                     spawn,          SHCMD("scrot -d 3") },
-	{ MODKEY,              XK_c,                     spawn,          SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 
 	// Volume
 	{ 0,                   XF86XK_AudioLowerVolume,  spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%") },
