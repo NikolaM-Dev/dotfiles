@@ -8,6 +8,10 @@ name = " drive"
 path = "~/Documents/drive"
 
 [[session]]
+name = " tasks"
+path = "~/.task"
+
+[[session]]
 name = " downloads"
 path = "~/Downloads"
 
