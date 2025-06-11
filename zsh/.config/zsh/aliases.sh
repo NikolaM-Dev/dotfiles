@@ -171,3 +171,8 @@ alias yaziya="/usr/bin/ya"
 # utils
 alias add_to_clipboard="xsel -ib"
 alias jsrun="n-js-run"
+
+# python
+alias ev="source venv/bin/activate"
+alias dv="deactivate"
+alias cv="python -m venv venv"
