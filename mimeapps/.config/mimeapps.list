@@ -1,5 +1,6 @@
 [Default Applications]
-application/pdf=org.pwmt.zathura.desktop
+application/epub+zip=sioyek.desktop
+application/pdf=sioyek.desktop
 application/x-extension-htm=userapp-Zen-72X572.desktop
 application/x-extension-html=userapp-Zen-72X572.desktop
 application/x-extension-shtml=userapp-Zen-72X572.desktop
