@@ -5,6 +5,7 @@ base-devel
 bat
 btop
 curl
+discord
 docker
 docker-compose
 dunst
@@ -22,6 +23,7 @@ git-delta
 github-cli
 gnome-clocks
 go
+google-chrome
 grub
 gvfs
 jq
@@ -106,6 +108,7 @@ vim
 virtualbox
 virtualbox-host-modules-arch
 visual-studio-code-bin
+vlc
 wezterm
 wget
 xf86-video-vesa
