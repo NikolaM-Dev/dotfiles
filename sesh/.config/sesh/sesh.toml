@@ -45,7 +45,6 @@ startup_command = 'make'
 [[session]]
 name = "󰂾 library"
 path = "~/library"
-startup_command = 'zathura'
 
 [[session]]
 name = "  english"
