@@ -1,5 +1,4 @@
 7zip
-anki
 base
 base-devel
 bat
