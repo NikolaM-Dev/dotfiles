@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 function main() {
-    if  n-tmux-is-running; then
-        tmux attach
+	if n-tmux-is-running; then
+		tmux attach
 
-        return
-    fi
+		return
+	fi
 
     sesh connect "󱂵 home"
+	sesh connect "󱂵 home"
 }
 
 main
