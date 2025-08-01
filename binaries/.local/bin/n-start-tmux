@@ -7,7 +7,7 @@ function main() {
 		return
 	fi
 
-    sesh connect "󱂵 home"
+	sesh connect " music" &
 	sesh connect "󱂵 home"
 }
 
