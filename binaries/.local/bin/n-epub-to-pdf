@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
 function main {
-    # Get the filename from the command line argument
-    filename="${1##*/}"
+	# Get the filename from the command line argument
+	filename="${1##*/}"
 
-    if [ -z "$filename" ]; then
-        echo "Error: No filename provided."
-        exit 1
-    fi
+	if [ -z "$filename" ]; then
+		echo "Error: No filename provided."
+		exit 1
+	fi
 
-    # Convert file using pandoc
-    pandoc "${filename}" \
-        -o "${filename%.epub}.pdf" \
-        --pdf-engine=lualatex \
-        --standalone \
-        -V mainfont:"Merriweather" \
-        -V monofont="Maple Mono NF" \
-        -V linestretch=1.25
+	# Convert file using pandoc
+	pandoc "${filename}" \
+		-o "${filename%.epub}.pdf" \
+		--pdf-engine=lualatex \
+		--standalone \
+		-V mainfont:"Merriweather" \
+		-V monofont="Maple Mono NF" \
+		-V linestretch=1.25
 }
 
 main "$@"
