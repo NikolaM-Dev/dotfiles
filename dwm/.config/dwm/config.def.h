@@ -108,6 +108,7 @@ static const char *obsidian[]      = { "obsidian",  NULL };
 static const char *rofi_calc_cmd[] = { "rofi",      "-show", "calc",         "-modi", "calc", "-no-show-match", "-no-sort", "-no-sort", "echo '{result}' | xsel -b", NULL };
 static const char *termcmd[]       = { "ghostty",   "-e",    "n-start-tmux", NULL };
 static const char *ticktick[]      = { "ticktick",  NULL };
+static const char *zotero[]        = { "zotero",       NULL };
 
 Autostarttag autostarttaglist[] = {
 	{.cmd = NULL,       .tags = 0 },
@@ -133,6 +134,7 @@ static const Key keys[] = {
 	{ MODKEY,              XK_s,                     spawn,          {.v = flameshotcmd } },
 	{ MODKEY,              XK_t,                     spawn,          {.v = ticktick } },
 	{ MODKEY,              XK_z,                     spawn,          {.v = browsercmd } },
+	{ MODKEY|ControlMask,  XK_z,                     spawn,          {.v = zotero } },
 	{ MODKEY|ShiftMask,    XK_e,                     spawn,          {.v = emojiscmd } },
 
 	{ MODKEY,              XK_r,                     spawn,          SHCMD("redshift -O 3500") },
