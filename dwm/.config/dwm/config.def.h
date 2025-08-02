@@ -54,6 +54,8 @@ static const char *tagsel[][2] = {
 };
 
 static const Rule rules[] = {
+	/* DOCS: [DWM Rules](https://dwm.suckless.org/customisation/rules) */
+
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
