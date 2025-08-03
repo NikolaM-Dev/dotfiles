@@ -3,6 +3,8 @@ base
 base-devel
 bat
 btop
+calibre
+clock-tui
 curl
 discord
 docker
