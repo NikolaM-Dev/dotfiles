@@ -109,8 +109,6 @@ alias lg="lazygit"
 alias mnvmrc="node -v >> .nvmrc"
 alias pdfs="~/grey/ && ranger && cd -"
 alias sfeh="source ~/.fehbg"
-alias sr="sudo reboot"
-alias ssn="sudo shutdown now"
 alias szsh="omz reload"
 alias tree="eza -hT --group-directories-first --icons"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
@@ -168,7 +166,6 @@ alias em="emacsclient -c -a 'emacs'"
 alias yaziya="/usr/bin/ya"
 
 # utils
-alias add_to_clipboard="xsel -ib"
 alias jsrun="n-js-run"
 
 # python
