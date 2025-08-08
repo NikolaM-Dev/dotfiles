@@ -29,3 +29,7 @@ function _open_zoxide() {
 }
 zle -N _open_zoxide
 bindkey '^S' _open_zoxide
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
