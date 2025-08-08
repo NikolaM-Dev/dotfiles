@@ -23,3 +23,9 @@ _crowbar() {
 
 zle -N _crowbar
 bindkey '^Z' _crowbar
+function _open_zoxide() {
+	__zoxide_zi
+	zle reset-prompt
+}
+zle -N _open_zoxide
+bindkey '^S' _open_zoxide
