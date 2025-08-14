@@ -112,11 +112,13 @@ static const char *ticktick[]      = { "ticktick",     NULL };
 static const char *zotero[]        = { "zotero",       NULL };
 
 Autostarttag autostarttaglist[] = {
-	{.cmd = NULL,       .tags = 0 },
-	{.cmd = browsercmd, .tags = 1 << 0 },
-	{.cmd = obsidian,   .tags = 1 << 1 },
-	{.cmd = ticktick,   .tags = 1 << 1 },
-	{.cmd = termcmd,    .tags = 1 << 2 },
+	{.cmd = NULL,        .tags = 0 },
+	{.cmd = browsercmd,  .tags = 1 << 0 },
+	// {.cmd = ticktick, .tags = 1 << 1 },
+	{.cmd = zotero,      .tags = 1 << 1 },
+	{.cmd = obsidian,    .tags = 1 << 1 },
+	{.cmd = termcmd,     .tags = 1 << 2 },
+	{.cmd = modrinth,    .tags = 1 << 4 },
 };
 
 static const Key keys[] = {
