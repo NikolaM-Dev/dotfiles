@@ -73,6 +73,7 @@ rsync
 screenkey
 sioyek
 stow
+syncthing
 tealdeer
 tenacity
 texlive-basic
@@ -98,6 +99,7 @@ texlive-pstricks
 texlive-publishers
 texlive-xetex
 ticktick
+timer-bin
 tmux
 trayer
 ttf-aporetic
