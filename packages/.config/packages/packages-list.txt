@@ -169,6 +169,7 @@ yazi
 yt-dlp
 zathura
 zathura-pdf-mupdf
+zenity
 zotero
 zoxide
 zsh
