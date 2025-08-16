@@ -8,9 +8,9 @@ font-family-bold-italic = Maple Mono NF
 font-family = Symbols Nerd Font
 
 adjust-cell-width = -15%
-background-opacity = 0.93
+background-opacity = 0.94
 confirm-close-surface = false
-font-size = 13
+font-size = 13.5
 gtk-adwaita = false
 gtk-single-instance = true
 gtk-titlebar = false
