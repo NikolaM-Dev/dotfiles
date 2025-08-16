@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function main() {
+
+	while true; do
+		$HOME/.config/rclone/backup.sh
+
+		sleep 30m
+	done
+}
+
+main
