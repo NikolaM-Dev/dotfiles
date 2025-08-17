@@ -48,6 +48,7 @@ udiskie -t &
 dunst &
 n-clip-board &
 $SECOND_BRAIN_PATH/jobs.sh &
+n-backup &
 
 sleep 1
 
