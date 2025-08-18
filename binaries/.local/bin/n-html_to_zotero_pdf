@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function main() {
+	full_filename="$1"
+	filename="${full_filename%.*}"
+
+	pandoc "$filename.html" \
+		-o "$filename.pdf" \
+		--pdf-engine=lualatex \
+		-V fontsize=12pt \
+		-V linestretch=1.35 \
+		-V mainfont:"Atkinson Hyperlegible"
+
+}
+
+main "$@"
