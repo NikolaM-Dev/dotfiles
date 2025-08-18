@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function main {
+	while true; do
+		notify-send -t 8000 "🔥 I'm a High Performance Person 🔥"
+		mpv --volume=120 ~/backups/20250727T095521--hpp.mp3
+
+		sleep 5m
+	done
+}
+
+main "$@"
