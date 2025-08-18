@@ -1,0 +1,12 @@
+Copy:
+Split:
+SelectNone:
+Paste:
+Repeat:Count="1"
+LastTrack:
+AddLabelPlaying:
+CursTrackStart:
+SelNextClip:
+Silence:Use_Preset="<Current Settings>"
+SelTrackStartToEnd:
+Repeat:Count="4"

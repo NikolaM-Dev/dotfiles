@@ -1,0 +1,16 @@
+Copy:
+Split:
+SelectNone:
+Paste:
+Repeat:Count="1"
+LastTrack:
+CursTrackEnd:
+SelPrevClip:
+Silence:Use_Preset="<Current Settings>"
+SelTrackStartToEnd:
+Copy:
+CursTrackEnd:
+Paste:
+Repeat:Count="4"
+SelectNone:
+LastTrack:

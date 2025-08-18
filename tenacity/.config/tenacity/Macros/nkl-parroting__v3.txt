@@ -1,0 +1,9 @@
+Copy:
+Split:
+SelectNone:
+Paste:
+Silence:Use_Preset="<Current Settings>"
+CursTrackEnd:
+Paste:
+SelTrackStartToEnd:
+Repeat:Count="4"
