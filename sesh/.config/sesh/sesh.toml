@@ -38,6 +38,10 @@ name = " second brain"
 path = "~/w/2-areas/second-brain.md"
 
 [[session]]
+name = "󰯊 notes"
+path = "~/w/2-areas/second-brain.md/src"
+
+[[session]]
 name = " music"
 path = "~/Music"
 startup_command = 'make'
