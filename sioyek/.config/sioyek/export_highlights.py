@@ -13,7 +13,16 @@ def ensure_file_exists(file_path: str) -> None:
 
 def clean_arg(arg: str) -> str:
     """ """
-    return arg[1:-1].strip().replace("“", '"').replace("”", '"')
+    cleaned_arg = (
+        arg[1:-1]
+        .strip()
+        .replace("“", '"')
+        .replace("”", '"')
+        .replace("’", "'")
+        .replace("‘", "'")
+    )
+
+    return cleaned_arg
 
 
 # end def
