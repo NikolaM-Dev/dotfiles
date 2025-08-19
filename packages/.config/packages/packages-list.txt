@@ -58,7 +58,6 @@ papirus-icon-theme
 pavucontrol
 pcmanfm
 picom
-pnpm
 postman-bin
 python-pip
 python-pipx
