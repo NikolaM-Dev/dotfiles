@@ -73,6 +73,7 @@ rofi-emoji
 rsync
 screenkey
 selectdefaultapplication-fork-git
+stayfree-desktop
 stow
 syncthing
 tealdeer
