@@ -63,6 +63,7 @@ postman-bin
 python-pip
 python-pipx
 qogir-gtk-theme
+rclone
 redshift
 reflector
 ripgrep
