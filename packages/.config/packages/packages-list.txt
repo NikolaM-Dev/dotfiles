@@ -62,6 +62,7 @@ postman-bin
 python-pip
 python-pipx
 qogir-gtk-theme
+rate-mirrors-bin
 rclone
 redshift
 reflector
