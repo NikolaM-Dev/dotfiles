@@ -72,7 +72,7 @@ rofi-calc
 rofi-emoji
 rsync
 screenkey
-sioyek
+selectdefaultapplication-fork-git
 stow
 syncthing
 tealdeer
