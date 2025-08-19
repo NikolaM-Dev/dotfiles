@@ -35,6 +35,7 @@ linux
 linux-firmware
 linux-headers
 lxappearance
+modrinth-app-bin
 mpv
 neovim
 networkmanager
