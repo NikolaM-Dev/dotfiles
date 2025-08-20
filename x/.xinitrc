@@ -51,6 +51,4 @@ $SECOND_BRAIN_PATH/jobs.sh &
 n-backup &
 n-message &
 
-sleep 1
-
 n-dwm-start
