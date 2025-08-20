@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 function main {
+	~/.config/dwm/bar/status-bar.sh &
+
+	sleep 1
+
 	while true; do
 		dwm 2>~/.config/dwm/dwm.log
 	done
