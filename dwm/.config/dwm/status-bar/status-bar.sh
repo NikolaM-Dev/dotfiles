@@ -2,7 +2,7 @@
 
 # Colors are available thankfully to [status2d DWM patch](https://dwm.suckless.org/patches/status2d)
 # Load the colorscheme
-. ~/.config/dwm/bar/themes/rose-pine
+. ~/.config/dwm/status-bar/themes/rose-pine
 
 INTERVAL=0
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main {
-	~/.config/dwm/bar/status-bar.sh &
+	~/.config/dwm/status-bar/status-bar.sh &
 
 	sleep 1
 
