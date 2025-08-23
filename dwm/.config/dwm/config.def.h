@@ -65,7 +65,6 @@ static const Rule rules[] = {
 
 	/* class,     instance,   title, tags mask, isfloating, monitor */
 	{ "Zotero",   "Zotero",   NULL,  1 << 1,    1,          -1 },
-	{ "obsidian", "obsidian", NULL,  1 << 1,    0,          -1 },
 	{ "ticktick", "ticktick", NULL,  1 << 1,    0,          -1 },
 };
 
