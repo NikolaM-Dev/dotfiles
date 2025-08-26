@@ -1,0 +1,25 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[mgr]
+prepend_keymap = [
+	{ on = "<Enter>", run = "plugin smart-open", desc = "Enter the child directory, or open the file" },
+	{ on = "P", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
+	{ on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
+	{ on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+
+	{ on = [ "g", "1" ], run = "cd ~/w/1-projects", desc = "Goto projects" },
+	{ on = [ "g", "2" ], run = "cd ~/w/2-areas", desc = "Goto areas" },
+	{ on = [ "g", "c" ], run = "cd ~/.config", desc = "Goto .config" },
+	{ on = [ "g", "d", "c" ], run = "cd ~/Documents", desc = "Goto ~/Documents" },
+	{ on = [ "g", "d", "f" ], run = "cd ~/dotfiles", desc = "Goto ~/dotfiles" },
+	{ on = [ "g", "d", "l" ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+	{ on = [ "g", "h" ], run = "cd ~", desc = "Goto home" },
+	{ on = [ "g", "l" ], run = "cd ~/.local", desc = "Goto ~/.local" },
+	{ on = [ "g", "p" ], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
+	{ on = [ "g", "r" ], run = "cd /", desc = "Goto root" },
+	{ on = [ "g", "s", "b" ], run = "cd ~/w/2-areas/second-brain.md", desc = "Goto ~/w/2-areas/second-brain.md" },
+	{ on = [ "g", "b", "c" ], run = "cd ~/backups", desc = "Goto ~/backups" },
+	{ on = [ "g", "v" ], run = "cd ~/Videos", desc = "Goto ~/Videos" }
+]
