@@ -139,5 +139,30 @@ zstyle ':omz:update' mode auto
 # ------------------------------------------------------------------------------
 # [fabric](https://github.com/danielmiessler/Fabric)
 # ------------------------------------------------------------------------------
+# fablic CLI autocomplete
 fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit && compinit
+
+# fabric patterns autocomplete
+for pattern_file in $HOME/.config/fabric/patterns/*; do
+	# Get the base name of the file (i.e., remove the directory path)
+	pattern_name=$(basename "$pattern_file")
+
+	# Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
+	alias_command="alias f_$pattern_name='fabric --pattern $pattern_name'"
+
+	# Evaluate the alias command to add it to the current shell
+	eval "$alias_command"
+done
+
+# fabric custom patterns autocomplete
+for pattern_file in $HOME/.config/fabric/custom-patterns/*; do
+	# Get the base name of the file (i.e., remove the directory path)
+	pattern_name=$(basename "$pattern_file")
+
+	# Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
+	alias_command="alias f_$pattern_name='fabric --pattern $pattern_name'"
+
+	# Evaluate the alias command to add it to the current shell
+	eval "$alias_command"
+done
