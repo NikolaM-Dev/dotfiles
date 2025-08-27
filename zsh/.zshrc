@@ -214,18 +214,6 @@ function working-directories {
 	mkdir -p ~/workspace/work
 }
 
-function y {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-
-	yazi "$@" --cwd-file="$tmp"
-
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-
-	rm -f -- "$tmp"
-}
-
 [[ -f ~/.config/zsh/aliases.sh ]] && source ~/.config/zsh/aliases.sh
 [[ -f ~/.config/zsh/functions.sh ]] && source ~/.config/zsh/functions.sh
 [[ -f ~/.config/zsh/keymaps.sh ]] && source ~/.config/zsh/keymaps.sh
