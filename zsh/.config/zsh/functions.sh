@@ -49,3 +49,59 @@ function update_open_webui() {
 
 	start_open_webui
 }
+
+function update_ollama() {
+	curl https://ollama.ai/install.sh | sh
+}
+
+function rclone_serve() {
+	port=":8080"
+	echo "http://localhost$port"
+	rclone serve http encrypted_google_drive: --addr "$port"
+}
+
+function yupdate() {
+	if ! yay -Syu; then
+		echo "\n  [ERROR] Update failed"
+		return 1
+	else
+		yay -Sc --noconfirm
+	fi
+}
+
+function ssn() {
+	if pgrep -f "Minecraft" >/dev/null; then
+		echo "Minecraft is running. Please stop it before shutting down the system."
+		return 1
+	fi
+
+	# Backup second brain
+	cd $SECOND_BRAIN_PATH
+	n-backup-commit --stage-all
+	bun run format:fix
+	git push origin HEAD
+
+	# Backup data
+	$HOME/.config/rclone/backup.sh
+
+	# Finally shutdown
+	sudo shutdown now
+}
+
+function sr() {
+	if pgrep -f "Minecraft" >/dev/null; then
+		echo "Minecraft is running. Please stop it before restart the system."
+		return 1
+	fi
+
+	sudo reboot
+}
+
+function review_email() {
+	xdg-open https://mail.google.com/mail/u/0/#inbox
+	xdg-open https://mail.google.com/mail/u/1/#inbox
+}
+
+function ttimer() {
+	timer $1 --format 24h -n $2 && notify-send "⏰ $2 is Done" && mpv --loop --volume=200 ~/backups/20250724T085024--iphone-radar-alarm__phone.mp3
+}
