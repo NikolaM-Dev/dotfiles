@@ -157,6 +157,8 @@ alias ytplaylist="yt-dlp -f 'ba' -x"
 # Utility
 alias dir-size="du -sh"
 alias n-read="tclock -c '#9ccfd8' timer -d 10805s" # 3h 5s
+# Time
+alias stopwatch="tclock -c '#9ccfd8' stopwatch"
 
 # Emacs
 alias kem="killall emacs || echo 'Emacs server not running'"
