@@ -32,6 +32,7 @@ export MANWIDTH=999
 export READER="zathura"
 export TERMINAL="ghostty"
 export VISUAL="nvim"
+export OLLAMA_ORIGINS="app://obsidian.md*"
 
 # ZSH
 export ZSH="/home/nikola/.oh-my-zsh"
