@@ -166,10 +166,9 @@ alias em="emacsclient -c -a 'emacs'"
 # Yazi
 alias yaziya="/usr/bin/ya"
 
-# utils
-alias jsrun="n-js-run"
+# JS
+alias nr="n-js-run"
 
-# python
-alias ev="source venv/bin/activate"
-alias dv="deactivate"
-alias cv="python -m venv venv"
+# Python
+alias python_serve="python -m http.server"
+alias uvr="uv run"
