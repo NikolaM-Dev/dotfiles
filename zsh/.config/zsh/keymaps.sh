@@ -23,6 +23,22 @@ _crowbar() {
 
 zle -N _crowbar
 bindkey '^Z' _crowbar
+
+function _open_yazi() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+
+	yazi "$@" --cwd-file="$tmp"
+
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+		zoxide add $PWD
+	fi
+
+	rm -f -- "$tmp"
+}
+zle -N _open_yazi
+bindkey '^E' _open_yazi
+
 function _open_zoxide() {
 	__zoxide_zi
 	zle reset-prompt
