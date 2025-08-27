@@ -134,3 +134,9 @@ export SKIM_DEFAULT_OPTIONS="$SKIM_DEFAULT_OPTIONS \
 # . "$HOME/.local/share/applications/asdf-vm/src/asdf-0.15.0/asdf.sh"
 
 zstyle ':omz:update' mode auto
+
+# ------------------------------------------------------------------------------
+# [fabric](https://github.com/danielmiessler/Fabric)
+# ------------------------------------------------------------------------------
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit && compinit
