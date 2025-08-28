@@ -526,7 +526,8 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [],
-  "window.menuBarVisibility": "toggle",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
   "workbench.activityBar.location": "hidden",
   "workbench.colorCustomizations": {
     "[Ayu Mirage Bordered]": {
@@ -598,6 +599,8 @@
   },
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 4
