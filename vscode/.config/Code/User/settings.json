@@ -156,6 +156,7 @@
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
   "extensions.ignoreRecommendations": true,
+  "files.autoSave": "afterDelay",
   "files.defaultLanguage": "typescript",
   "files.exclude": {
     ".next": true,
