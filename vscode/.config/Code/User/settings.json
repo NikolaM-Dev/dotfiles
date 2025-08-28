@@ -318,15 +318,15 @@
   "vim.foldfix": true,
   "vim.handleKeys": {
     "<C-.>:": false,
-    "<C-a>": false,
-    "<C-c>": false,
     "<C-f>": false,
     "<C-g>": false,
     "<C-k>": false,
     "<C-p>": false,
-    "<C-x>": false,
     "<C-y>": false,
     "<C-z>": false
+    // "<C-a>": false,
+    // "<C-c>": false,
+    // "<C-x>": false,
   },
   "vim.highlightedyank.color": "#af98e6",
   "vim.highlightedyank.enable": true,
@@ -357,6 +357,10 @@
     {
       "before": ["g", "r"],
       "commands": ["editor.action.rename"]
+    },
+    {
+      "after": ["y", "$"],
+      "before": ["Y"]
     },
     // {
     //   "after": ["<leader>", "<leader>", "<leader>", "j"],
@@ -495,6 +499,14 @@
       "commands": ["editor.action.marker.prev"]
     },
     {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
     },
@@ -508,6 +520,14 @@
     },
     {
       "before": ["<leader>", "h", "k"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["[", "c"],
       "commands": ["workbench.action.editor.previousChange"]
     }
   ],
