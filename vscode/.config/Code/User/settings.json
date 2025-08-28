@@ -176,7 +176,7 @@
     "/.next/": true,
     "/node_modules/": true
   },
-  "git.autofetch": false,
+  "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": false,
   "git.mergeEditor": false,
