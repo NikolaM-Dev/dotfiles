@@ -159,13 +159,16 @@
   "files.defaultLanguage": "typescript",
   "files.exclude": {
     ".next": true,
+    "**/__pycache__": true,
     "**/.DS_Store": true,
     "**/.git": true,
     "**/.hg": true,
     "**/.svn": true,
+    "**/.venv": true,
     "**/CVS": true,
     "**/deps": true,
     "**/node_modules": true,
+    "**/venv": true,
     "USE_GITIGNORE": true
   },
   "files.watcherExclude": {
@@ -233,6 +236,7 @@
   "pgFormatter.keepNewline": true,
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
+  "python.analysis.typeCheckingMode": "standard",
   "rapidapi.terminalLink.enabled": false,
   "redhat.telemetry.enabled": false,
   "rest-client.enableTelemetry": false,
@@ -240,13 +244,16 @@
   "rest-client.fontSize": 15,
   "rust-client.rustupPath": "/home/nikola/.cargo/bin/rustup",
   "search.exclude": {
+    "**/__pycache__": true,
     "**/.build": true,
     "**/.gh-pages": true,
+    "**/.venv": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
     "**/dist": true,
     "**/node_modules": true,
+    "**/venv": true,
     "/.next": true,
     "/node_modules": true
   },
