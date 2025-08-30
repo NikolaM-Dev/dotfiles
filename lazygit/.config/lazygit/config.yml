@@ -23,5 +23,23 @@ gui:
       - "󰪥"
       - "󰪥"
     rate: 42
+customCommands:
+  - key: "c"
+    command: "git commit -v"
+    context: "global"
+    description: "Commit all staged files"
+    output: terminal
+  - key: "u"
+    command: "git reset --soft HEAD~1"
+    context: "commits"
+    description: "Undo last commit"
+  - key: "b"
+    command: "n-backup-commit --stage-all"
+    context: "files"
+    description: "Commit all files in stage and unstaged with a timestamp message"
+  - key: "B"
+    command: "n-backup-commit"
+    context: "files"
+    description: "Commit just staged files with a timestamp message"
 
 promptToReturnFromSubprocess: false
