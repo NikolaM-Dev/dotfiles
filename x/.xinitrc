@@ -49,6 +49,6 @@ dunst &
 n-clip-board &
 $SECOND_BRAIN_PATH/jobs.sh &
 n-backup &
-n-message &
+n-hpp &
 
 n-dwm-start
