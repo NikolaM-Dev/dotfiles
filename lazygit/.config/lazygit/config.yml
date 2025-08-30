@@ -13,7 +13,9 @@ git:
 
 gui:
   border: rounded
+  expandFocusedSidePanel: true
   nerdFontsVersion: "3"
+  scrollHeight: 16
   spinner:
     frames:
       - "󰄰"
@@ -27,6 +29,7 @@ gui:
       - "󰪥"
       - "󰪥"
     rate: 42
+  tabWidth: 2
 
 
 customCommands:
