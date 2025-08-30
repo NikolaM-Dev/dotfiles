@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+git:
+  merging:
+    args: "--no-ff"
+  paging:
+    colorArg: always
+    pager: delta --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+
+gui:
+  border: rounded
+  nerdFontsVersion: "3"
+  spinner:
+    frames:
+      - "󰄰"
+      - "󰪞"
+      - "󰪟"
+      - "󰪠"
+      - "󰪡"
+      - "󰪢"
+      - "󰪣"
+      - "󰪤"
+      - "󰪥"
+      - "󰪥"
+    rate: 42
+
+promptToReturnFromSubprocess: false
