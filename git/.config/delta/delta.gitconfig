@@ -1,3 +1,6 @@
+[include]
+path = ~/.config/delta/themes/catppucin-mocha.gitconfig
+
 [core]
 pager = delta
 
@@ -5,6 +8,7 @@ pager = delta
 diffFilter = delta --color-only
 
 [delta]
+features = catppuccin-mocha
 line-numbers = true
 navigate = true
 
@@ -13,3 +17,5 @@ conflictstyle = diff3
 
 [diff]
 colorMoved = default
+
+# vim: filetype=gitconfig
