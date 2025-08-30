@@ -42,4 +42,9 @@ customCommands:
     context: "files"
     description: "Commit just staged files with a timestamp message"
 
+
+keybinding:
+  files:
+    commitChanges: C
+    commitChangesWithEditor: <disabled>
 promptToReturnFromSubprocess: false
