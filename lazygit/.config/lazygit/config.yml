@@ -7,6 +7,7 @@ git:
     colorArg: always
     pager: delta --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 
+
 gui:
   border: rounded
   nerdFontsVersion: "3"
@@ -23,6 +24,8 @@ gui:
       - "󰪥"
       - "󰪥"
     rate: 42
+
+
 customCommands:
   - key: "c"
     command: "git commit -v"
@@ -47,4 +50,6 @@ keybinding:
   files:
     commitChanges: C
     commitChangesWithEditor: <disabled>
+
+
 promptToReturnFromSubprocess: false
