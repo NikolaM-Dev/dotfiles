@@ -156,7 +156,7 @@ alias ytplaylist="yt-dlp -f 'ba' -x"
 
 # Utility
 alias dir-size="du -sh"
-alias kill_hpp="pgrep -f 'n-message' | xargs kill"
+alias kill_hpp="pgrep -f 'n-hpp' | xargs kill"
 
 # Time
 alias stopwatch="tclock -c '#9ccfd8' stopwatch"
