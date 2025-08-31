@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main() {
-	~/.local/share/applications/20250714T093615--zen-x86-64.AppImage
+	~/.local/share/applications/20250831T160057--zen-x86-64.AppImage
 }
 
 main
