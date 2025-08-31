@@ -20,4 +20,15 @@ window-decoration           = false
 window-padding-x            = 3
 window-padding-y            = 3
 
+# keybinds
+keybind=clear
+keybind=ctrl+equal=increase_font_size:1
+keybind=ctrl+minus=decrease_font_size:1
+keybind=ctrl+plus=increase_font_size:1
+keybind=ctrl+shift+c=copy_to_clipboard
+keybind=ctrl+shift+enter=new_split:auto
+keybind=ctrl+shift+i=inspector:toggle
+keybind=ctrl+shift+r=reload_config
+keybind=ctrl+shift+v=paste_from_clipboard
+
 # vim: filetype=toml
