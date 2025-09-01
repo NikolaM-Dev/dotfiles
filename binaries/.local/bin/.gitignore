@@ -1,12 +1,16 @@
 /*
 !.gitignore
 
+!add_to_clipboard
 !battery
 !brightness
+!from_clipboard
 !n-*
 !percentage
 !t
 !tt
 !volume
+!yt
+!ytr
 !zen-browser
 !zsh_history_fix
