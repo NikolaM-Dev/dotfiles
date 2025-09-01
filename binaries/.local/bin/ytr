@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# takes youtube URL and copies transcript to clipboard
+# make sure to quote the url
+
+# Check if URL is provided as argument
+if [ $# -eq 0 ]; then
+	echo "Usage: tr [youtube-url]"
+	exit 1
+fi
+
+# Take the URL from command line argument
+url="$1"
+
+# Run the fabric command with the provided URL and pipe to wl-copy
+fabric -y "$url" | wl-copy
