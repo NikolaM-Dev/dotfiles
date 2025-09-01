@@ -69,12 +69,7 @@ function yupdate() {
 	fi
 }
 
-function ssn() {
-	if pgrep -f "Minecraft" >/dev/null; then
-		echo "Minecraft is running. Please stop it before shutting down the system."
-		return 1
-	fi
-
+function _backup_data() {
 	# Backup second brain
 	cd $SECOND_BRAIN_PATH
 	n-backup-commit --stage-all
@@ -83,6 +78,7 @@ function ssn() {
 
 	# Backup data
 	$HOME/.config/rclone/backup.sh
+}
 
 	# Finally shutdown
 	sudo shutdown now
