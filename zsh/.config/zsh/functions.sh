@@ -80,7 +80,14 @@ function _backup_data() {
 	$HOME/.config/rclone/backup.sh
 }
 
-	# Finally shutdown
+function ssn() {
+	if pgrep -f "Minecraft" >/dev/null; then
+		echo "Minecraft is running. Please stop it before shutting down the system."
+		return 1
+	fi
+
+	_backup_data
+
 	sudo shutdown now
 }
 
@@ -89,6 +96,8 @@ function sr() {
 		echo "Minecraft is running. Please stop it before restart the system."
 		return 1
 	fi
+
+	_backup_data
 
 	sudo reboot
 }
