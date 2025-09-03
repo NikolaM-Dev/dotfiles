@@ -11,6 +11,7 @@ docker
 docker-compose
 dunst
 efibootmgr
+emacs
 eza
 fastfetch
 fd
