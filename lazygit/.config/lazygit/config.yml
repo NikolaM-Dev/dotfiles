@@ -17,6 +17,7 @@ gui:
   expandFocusedSidePanel: true
   nerdFontsVersion: "3"
   scrollHeight: 16
+  skipRewordInEditorWarning: true
   spinner:
     frames:
       - "󰄰"
