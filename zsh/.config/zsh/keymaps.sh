@@ -53,13 +53,8 @@ bindkey -M vicmd v edit-command-line
 # ------------------------------------------------------------------------------
 # _yupdate, To easy update the system packages using yay
 # ------------------------------------------------------------------------------
-_yupdate() {
-	if ! yay -Syu; then
-		echo "\n  [ERROR] Update failed"
-		return 1
-	else
-		yay -Sc --noconfirm
-	fi
+function _yupdate() {
+	LBUFFER="${LBUFFER}yupdate"
 }
 
 zle -N _yupdate
