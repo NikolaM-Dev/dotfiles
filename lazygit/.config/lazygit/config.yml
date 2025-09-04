@@ -83,6 +83,9 @@ customCommands:
 
 
 keybinding:
+  commits:
+    renameCommit: R
+    renameCommitWithEditor: r
   files:
     commitChanges: C
     commitChangesWithEditor: <disabled>
