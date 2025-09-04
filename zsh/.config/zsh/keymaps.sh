@@ -49,3 +49,18 @@ bindkey '^S' _open_zoxide
 autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+# ------------------------------------------------------------------------------
+# _yupdate, To easy update the system packages using yay
+# ------------------------------------------------------------------------------
+_yupdate() {
+	if ! yay -Syu; then
+		echo "\n  [ERROR] Update failed"
+		return 1
+	else
+		yay -Sc --noconfirm
+	fi
+}
+
+zle -N _yupdate
+bindkey '^U' _yupdate
