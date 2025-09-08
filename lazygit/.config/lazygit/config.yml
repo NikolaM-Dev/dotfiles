@@ -11,7 +11,6 @@ git:
     colorArg: always
     pager: delta --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 
-
 gui:
   border: rounded
   expandFocusedSidePanel: true
@@ -35,33 +34,32 @@ gui:
   tabWidth: 2
   theme:
     activeBorderColor:
-      - '#3e8fb0'
+      - "#3e8fb0"
       - bold
     cherryPickedCommitBgColor:
-      - '#39355200'
+      - "#39355200"
     cherryPickedCommitFgColor:
-      - '#f6c177'
+      - "#f6c177"
     defaultFgColor:
-      - '#e0def4'
+      - "#e0def4"
     inactiveBorderColor:
-      - '#6e6a86'
+      - "#6e6a86"
     markedBaseCommitBgColor:
-      - '#39355200'
+      - "#39355200"
     markedBaseCommitFgColor:
-      - '#f6c177'
+      - "#f6c177"
     optionsTextColor:
-      - '#9ccfd8'
+      - "#9ccfd8"
     searchingActiveBorderColor:
-      - '#f6c177'
+      - "#f6c177"
       - bold
     selectedLineBgColor:
-      - '#393552'
+      - "#393552"
     unstagedChangesColor:
-      - '#6e6a86'
+      - "#6e6a86"
 
   authorColors:
-    '*': '#ea9a97'
-
+    "*": "#ea9a97"
 
 customCommands:
   - key: "c"
@@ -82,7 +80,6 @@ customCommands:
     context: "files"
     description: "Commit just staged files with a timestamp message"
 
-
 keybinding:
   commits:
     renameCommit: R
@@ -90,6 +87,5 @@ keybinding:
   files:
     commitChanges: C
     commitChangesWithEditor: <disabled>
-
 
 promptToReturnFromSubprocess: false
