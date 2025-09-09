@@ -96,7 +96,7 @@ export FZF_DEFAULT_OPTS=" \
 # --border rounded \
 
 # GTK
-export GTK_THEME="Qogir-Dark"
+export GTK_THEME="Qogir-Round-Dark"
 
 # Second Brain
 export SECOND_BRAIN_PATH="$HOME/w/2-areas/second-brain.md"
