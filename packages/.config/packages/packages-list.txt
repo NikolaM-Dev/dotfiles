@@ -22,7 +22,6 @@ ghostty
 git
 git-delta
 github-cli
-glow
 gnome-clocks
 go
 google-chrome
@@ -111,6 +110,7 @@ ttf-liberation
 udiskie
 unrar
 unzip
+uv
 vim
 virtualbox
 virtualbox-host-modules-arch
