@@ -2,7 +2,7 @@
 
 function main {
 	while true; do
-		notify-send -t 8000 "🔥 I'm a High Performance Person 🔥"
+		notify-send -t 8000 "🔥 HPP" "Review your agenda and externalize your thoughts"
 		mpv --volume=120 ~/backups/20250727T095521--hpp.mp3
 
 		sleep 5m
