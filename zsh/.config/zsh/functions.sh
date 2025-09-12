@@ -67,6 +67,8 @@ function yupdate() {
 	else
 		yay -Sc --noconfirm
 	fi
+
+	n-packages
 }
 
 function _backup_data() {
