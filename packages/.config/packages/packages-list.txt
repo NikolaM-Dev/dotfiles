@@ -22,6 +22,7 @@ ghostty
 git
 git-delta
 github-cli
+glow
 gnome-clocks
 go
 google-chrome
@@ -59,7 +60,6 @@ papirus-icon-theme
 pavucontrol
 pcmanfm
 picom
-postman-bin
 python-pip
 python-pipx
 qogir-gtk-theme
