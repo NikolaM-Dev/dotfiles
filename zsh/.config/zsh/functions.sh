@@ -105,7 +105,6 @@ function sr() {
 function review_email() {
 	xdg-open https://mail.google.com/mail/u/0/#inbox
 	xdg-open https://mail.google.com/mail/u/1/#inbox
-	xdg-open https://keep.google.com/u/0/#home
 }
 
 function ttimer() {
