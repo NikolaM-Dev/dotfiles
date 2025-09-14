@@ -1,0 +1,44 @@
+/* Remove Unnecessary things from Sidebery */
+/* #sidebar-header {
+  display: none;
+}
+html#main-window
+  body
+  hbox#zen-main-app-wrapper
+  hbox#browser
+  vbox#zen-appcontent-wrapper
+  hbox#zen-tabbox-wrapper
+  tabbox#tabbrowser-tabbox
+  vbox#sidebar-box.chromeclass-extrachrome {
+  margin: 0 !important;
+}
+html#main-window
+  body
+  hbox#zen-main-app-wrapper
+  hbox#browser
+  vbox#zen-appcontent-wrapper
+  hbox#zen-tabbox-wrapper
+  tabbox#tabbrowser-tabbox {
+  gap: 0px !important;
+} */
+
+/* Remove Zen Sidebar */
+/* html#main-window
+  body
+  hbox#zen-main-app-wrapper
+  hbox#browser
+  toolbox#navigator-toolbox.browser-toolbox-background {
+  display: none !important;
+} */
+
+/* Remove Right Sidebar Spacer */
+/* html#main-window
+  body
+  hbox#zen-main-app-wrapper
+  hbox#browser
+  vbox#zen-appcontent-wrapper
+  hbox#zen-tabbox-wrapper
+  tabbox#tabbrowser-tabbox
+  splitter#sidebar-splitter.chromeclass-extrachrome.sidebar-splitter {
+  display: none;
+} */
