@@ -1,3 +1,9 @@
+/* Dev Tools */
+:root {
+  --theme-code-font-size: 12.8px !important;
+  --theme-body-font-size: 12.8px !important;
+}
+
 /* Catppuccin Mocha Green userContent.css*/
 
 @media (prefers-color-scheme: dark) {
