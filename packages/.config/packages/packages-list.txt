@@ -27,6 +27,7 @@ go
 google-chrome
 grub
 gvfs
+helium-browser-bin
 jq
 lazydocker
 lazygit
