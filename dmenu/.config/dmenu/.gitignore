@@ -1,0 +1,12 @@
+# patches
+*.orig
+*.rej
+
+# build
+*.o
+config.h
+dmenu
+stest
+
+# logs
+*.log
