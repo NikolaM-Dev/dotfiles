@@ -10,13 +10,6 @@ static const int horizpadbar = 2;   /* horizontal padding for statusbar */
 static const int vertpadbar  = 8;   /* vertical padding for statusbar */
 
 static const char *fonts[]    = { "JetBrains Mono:size=10:weight=medium", "Symbols Nerd Font Mono:size=10" };
-static const char dmenufont[] = "Maple Mono NF:size=10";
-
-static const char col_cyan[]   = "#005577";
-static const char col_gray1[]  = "#222222";
-static const char col_gray2[]  = "#444444";
-static const char col_gray3[]  = "#bbbbbb";
-static const char col_gray4[]  = "#eeeeee";
 
 static const char *colors[][3] = {
 	/*               fg,        bg,        border */
@@ -97,7 +90,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2]       = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon,  NULL };
 
 static const char *browsercmd[]    = { "zen-browser",                    NULL };
 static const char *emojiscmd[]     = { "rofi",                           "-show", "emoji",        NULL };
@@ -130,7 +123,8 @@ static const Key keys[] = {
 	{ MODKEY,              XK_f,                     setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ControlMask,  XK_q,                     quit,           {0} },
 	{ MODKEY|ControlMask,  XK_r,                     spawn,          SHCMD("n-dwm-recompile") },
-	{ MODKEY,              XK_b,                     togglebar,      {0} },
+	{ MODKEY|ShiftMask,              XK_b,                     togglebar,      {0} },
+	{ MODKEY,              XK_b,                     spawn, SHCMD("n-dm-bookmarks")       },
 	{ MODKEY,              XK_q,                     killclient,     {0} },
 	{ MODKEY,              XK_c,                     spawn,          {.v = rofi_calc_cmd } },
 	{ MODKEY,              XK_o,                     spawn,          {.v = obsidian } },
