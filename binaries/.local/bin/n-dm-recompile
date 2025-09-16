@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function main {
+cd "$XDG_CONFIG_HOME/dmenu"
+	sudo make clean install
+	cd -
+}
+
+main
