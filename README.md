@@ -1,5 +1,7 @@
 # Dotfiles & Configs
 
+- [Zen Browser](./zen-browser/.config/zen-browser/README.md)
+
 # ✅ TODO's
 
 - [ ] Change docs
