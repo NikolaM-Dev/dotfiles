@@ -51,9 +51,8 @@ name = "󰂾 library"
 path = "~/library"
 
 [[session]]
-name = "  english"
-path = "~/Documents/english/passive-audio"
-startup_command = 'play'
+name = "󰊿 english"
+path = "~/w/2-areas/english/language-learning__nkl"
 
 [[session]]
 name = " chadwm"
