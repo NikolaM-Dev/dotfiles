@@ -1,8 +1,10 @@
 # Zen Browser
 
+[⬅️ Back](../../../README.md)
+
 ## 🧩 Extensions
 
-### 1️⃣ Enabled
+### Enabled
 
 - [Grammar and Spell Checker - LanguageTool](https://addons.mozilla.org/en-US/firefox/addon/languagetool)
 - [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
@@ -32,7 +34,7 @@
 - [YouTube NonStop](https://addons.mozilla.org/en-US/firefox/addon/youtube-nonstop/)
 - [Zotero Connector](https://www.zotero.org/download/)
 
-### 0️⃣ Disabled
+### Disabled
 
 - [DeepL: AI translator and writing assistant](https://addons.mozilla.org/en-US/firefox/addon/deepl-translate/)
 - [downloadCambridgeAudio](https://addons.mozilla.org/en-US/firefox/addon/downloadcambridgeaudio/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
@@ -47,13 +49,15 @@
 - [Video DownloadHelper](https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/)
 - [YouTube Ad Accelerator & EasySpeed](https://addons.mozilla.org/en-US/firefox/addon/youtube-ad-accelerator/)
 
-### Extesion Shortcuts
+### ⌨️ Extesion Shortcuts
 
-| Extension            | Command                 | Shortcut         |
-| -------------------- | ----------------------- | ---------------- |
-| Copy All Urls        | Copy                    | Ctrl + Shift + C |
-| Dark Reader          | Toggle current site     | Alt + T          |
-| Obsidian Web Clipper | Toggle highlighter mode | Shift + Alt + O  |
-| Obsidian Web Clipper | Open Obsidian Clipper   | Shift + Alt + H  |
-| Obsidian Web Clipper | Toggle reading view     | Shift + Alt + R  |
-| Zotero Connector     | Active toolbar button   | Alt + Z          |
+| Extension            | Command                 | Shortcut                                          |
+| :------------------- | :---------------------- | :------------------------------------------------ |
+| Copy All Urls        | Copy                    | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> |
+| Dark Reader          | Toggle current site     | <kbd>Alt</kbd> + <kbd>T</kbd>                     |
+| Obsidian Web Clipper | Toggle highlighter mode | <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>O</kbd>  |
+| Obsidian Web Clipper | Open Obsidian Clipper   | <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>H</kbd>  |
+| Obsidian Web Clipper | Toggle reading view     | <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>  |
+| Zotero Connector     | Active toolbar button   | <kbd>Alt</kbd> + <kbd>Z</kbd>                     |
+
+[⬅️ Back](../../../README.md)
