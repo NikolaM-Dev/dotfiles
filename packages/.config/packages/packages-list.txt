@@ -29,6 +29,7 @@ grub
 gvfs
 helium-browser-bin
 jq
+just
 lazydocker
 lazygit
 lib32-nvidia-utils
