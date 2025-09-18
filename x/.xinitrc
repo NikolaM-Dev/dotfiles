@@ -43,7 +43,6 @@ n-remove-system-suspend
 flameshot &
 nm-applet &
 picom -b --config $HOME/.config/picom/picom.conf &
-redshift &
 sh $HOME/.fehbg &
 udiskie -t &
 dunst &
