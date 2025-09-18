@@ -57,6 +57,7 @@ static const Rule rules[] = {
 	 */
 
 	/* class,     instance,   title, tags mask, isfloating, monitor */
+	{ "Pcmanfm",  "pcmanfm",  NULL,  0,         1,          -1 },
 	{ "Zotero",   "Zotero",   NULL,  1 << 1,    1,          -1 },
 	{ "ticktick", "ticktick", NULL,  1 << 1,    0,          -1 },
 };
