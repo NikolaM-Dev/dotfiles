@@ -111,7 +111,7 @@ Autostarttag autostarttaglist[] = {
 	{.cmd = ticktick,    .tags = 1 << 1 },
 	{.cmd = obsidian,    .tags = 1 << 1 },
 	{.cmd = termcmd,     .tags = 1 << 2 },
-	{.cmd = zotero,      .tags = 1 << 4 },
+	{.cmd = zotero,      .tags = 1 << 3 },
 	{.cmd = stayfreecmd, .tags = 1 << 5 },
 };
 
