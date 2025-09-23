@@ -30,6 +30,7 @@ declare -A BOOKMARKS=(
 	# --- youtube ---
 	["youtube history"]="https://www.youtube.com/feed/history"
 	["youtube playlists"]="https://www.youtube.com/feed/playlists"
+	["youtube queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
 	["youtube wl"]="https://www.youtube.com/playlist?list=WL"
 
 	# --- motivation ---
