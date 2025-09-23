@@ -1,28 +1,28 @@
 tmux:
   symbols:
-    ahead: '  '
-    behind: '  '
-    branch: ' '
-    clean: ''
-    conflict: ' '
-    deletions: ' '
-    hashprefix: ':'
-    insertions: ' '
-    modified: ' '
-    staged: ' '
-    stashed: ' '
-    untracked: ' '
+    ahead: "  "
+    behind: "  "
+    branch: " "
+    clean: ""
+    conflict: " "
+    deletions: " "
+    hashprefix: ":"
+    insertions: " "
+    modified: " "
+    staged: " "
+    stashed: " "
+    untracked: " "
   styles:
-    branch: '#[fg=magenta,bold]'
-    clean: '#[fg=green,nobold]'
-    conflict: '#[fg=red,nobold]'
-    divergence: '#[fg=yellow,nobold]'
-    modified: '#[fg=blue,nobold]'
-    staged: '#[fg=green,nobold]'
-    stashed: '#[fg=cyan,nobold]'
-    state: '#[fg=red,nobold]'
-    untracked: '#[fg=grey,nobold]'
-  layout: [branch, divergence, flags, 'stats', ' ']
+    branch: "#[fg=magenta,bold]"
+    clean: "#[fg=green,nobold]"
+    conflict: "#[fg=red,nobold]"
+    divergence: "#[fg=yellow,nobold]"
+    modified: "#[fg=blue,nobold]"
+    staged: "#[fg=green,nobold]"
+    stashed: "#[fg=cyan,nobold]"
+    state: "#[fg=red,nobold]"
+    untracked: "#[fg=grey,nobold]"
+  layout: [branch, divergence, flags, "stats", " "]
   options:
     branch_max_len: 0
     branch_trim: right
