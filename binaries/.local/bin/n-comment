@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# List of comments to motivate creators on YouTube.
+COMMENTS=(
+	"Amazing work as always! Dropping a comment to support and boost the algo 🚀🔥"
+	"This video was super valuable—thank you for putting in the effort! Commenting to help with the push 🤝"
+	"Great job! Love the consistency and quality here. Boosting the algorithm with this comment 🙌"
+	"Your effort really shows, keep it up! Here’s a little algo love 💡✨"
+	"Solid content once again—this deserves more eyes! Helping the algorithm do its thing 📈"
+)
+
+function main() {
+	# Select a random comment and put into the clipboard
+	random_index=$((RANDOM % ${#COMMENTS[@]}))
+	echo "${COMMENTS[$random_index]}" | add_to_clipboard
+}
+
+main
