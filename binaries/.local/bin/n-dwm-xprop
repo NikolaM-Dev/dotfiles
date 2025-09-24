@@ -1,33 +1,30 @@
 #!/usr/bin/env bash
 
 function main {
-	xprop | awk '
-    /^WM_CLASS/{
-      match($0, /WM_CLASS\(STRING\) = "(.*)", "(.*)"/, arr);
-      class = arr[2];
-      instance = arr[1];
-    }
-	/^WM_NAME/{
-      sub(/.* = /, "");
-      title = $0;
-      gsub(/"/, "", title);  # Remove double quotes
-    }
-    END {
-	  print "Prop     │ Value"
-	  print "─────────┼────────────────────────────────────────────────────────────"
-      if (class != "") {
-        print "class    │ " class;
+	read -r class instance title < <(
+		xprop | awk '
+      /^WM_CLASS/{
+        match($0, /WM_CLASS\(STRING\) = "(.*)", "(.*)"/, arr);
+        class = arr[2];
+        instance = arr[1];
       }
+      /^WM_NAME/{
+        sub(/.* = /, "");
+        title = $0;
+        gsub(/"/, "", title);
+      }
+      END { print class, instance, title }
+    '
+	)
 
-      if (instance != "") {
-        print "instance │ " instance;
-      }
+	echo "Prop     │ Value"
+	echo "─────────┼────────────────────────────────────────────────────────────"
+	echo "class    │ $class"
+	echo "instance │ $instance"
+	echo "title    │ $title"
 
-      if (title != "") {
-        print "title    │ " title;
-      }
-    }
-  '
+	echo "{ \"$class\", \"$instance\", \"$title\", 0, 0, -1 }," | add_to_clipboard
+	echo "DWM Rule added to your clipboard"
 }
 
 main
