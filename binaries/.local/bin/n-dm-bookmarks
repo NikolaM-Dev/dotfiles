@@ -47,6 +47,11 @@ declare -A BOOKMARKS=(
 	# --- zen browser ---
 	["zen browser releases"]="https://github.com/zen-browser/desktop/releases"
 
+	# Tools
+	["tools drive"]="https://drive.google.com/drive/u/0/my-drive"
+	["tools main email"]="https://mail.google.com/mail/u/0/#inbox"
+	["tools secondary email"]="https://mail.google.com/mail/u/1/#inbox"
+
 	# --- single entries ---
 	["good doctor"]="https://repelisplus.lat/ver/the-good-doctor-aag-kmar"
 	["carpal tunnel"]="https://youtu.be/sfVIl4uHrnQ"
