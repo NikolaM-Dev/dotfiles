@@ -56,10 +56,11 @@ static const Rule rules[] = {
 	 * Use `n-dwm-xprop` instead
 	 */
 
-	/* class,     instance,   title, tags mask, isfloating, monitor */
-	{ "Pcmanfm",  "pcmanfm",  NULL,  0,         1,          -1 },
-	{ "Zotero",   "Zotero",   NULL,  1 << 1,    1,          -1 },
-	{ "ticktick", "ticktick", NULL,  1 << 1,    0,          -1 },
+	/* class,     instance,    title,                                     tags mask, isfloating, monitor */
+	{ "Pcmanfm",  "pcmanfm",   NULL,                                      0,         1,          -1 },
+	{ "Zotero",   "Zotero",    NULL,                                      1 << 1,    1,          -1 },
+	{ "ticktick", "ticktick",  NULL,                                      1 << 1,    0,          -1 },
+	{ "zen",      "Navigator", "Sign in - Google Accounts — Zen Browser", 0,         1,          -1 },
 };
 
 /* layout(s) */
