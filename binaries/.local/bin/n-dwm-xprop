@@ -23,7 +23,7 @@ function main {
 	echo "instance │ $instance"
 	echo "title    │ $title"
 
-	echo "{ \"$class\", \"$instance\", \"$title\", 0, 0, -1 }," | add_to_clipboard
+	echo "{ \"$class\", \"$instance\", NULL, 0, 0, -1 }," | add_to_clipboard
 	echo "DWM Rule added to your clipboard"
 }
 
