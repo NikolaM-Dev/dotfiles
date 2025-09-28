@@ -7,8 +7,8 @@ function _open_with_nvim() {
 	nvim
 }
 
-# zle -N _open_with_nvim
-# bindkey '^V' _open_with_nvim
+zle -N _open_with_nvim
+bindkey '\ev' _open_with_nvim
 
 # ------------------------------------------------------------------------------
 # _crowbar, Toggle from a current process to the background
