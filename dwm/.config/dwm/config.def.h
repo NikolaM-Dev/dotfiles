@@ -100,7 +100,6 @@ static const char *flameshotcmd[]  = { "flameshot",                      "gui", 
 static const char *menucmd[]       = { "rofi",                           "-show", NULL };
 static const char *modrinth[]      = { "modrinth-app",                   NULL };
 static const char *obsidian[]      = { "obsidian",                       NULL };
-static const char *rofi_calc_cmd[] = { "rofi",                           "-show", "calc",         "-modi", "calc", "-no-show-match", "-no-sort", "-no-sort", "echo '{result}' | xsel -b", NULL };
 static const char *termcmd[]       = { "ghostty",                        "-e",    "n-start-tmux", NULL };
 static const char *ticktick[]      = { "ticktick",                       NULL };
 static const char *zotero[]        = { "zotero",                         NULL };
@@ -128,7 +127,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,              XK_b,                     togglebar,      {0} },
 	{ MODKEY,              XK_b,                     spawn, SHCMD("n-dm-bookmarks")       },
 	{ MODKEY,              XK_q,                     killclient,     {0} },
-	{ MODKEY,              XK_c,                     spawn,          {.v = rofi_calc_cmd } },
+	{ MODKEY,              XK_c,                     spawn,          SHCMD("qalculate-gtk") },
 	{ MODKEY,              XK_o,                     spawn,          {.v = obsidian } },
 	{ MODKEY,              XK_s,                     spawn,          {.v = flameshotcmd } },
 	{ MODKEY,              XK_t,                     spawn,          {.v = ticktick } },
