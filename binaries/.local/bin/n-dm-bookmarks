@@ -32,6 +32,7 @@ declare -A BOOKMARKS=(
 	["youtube playlists"]="https://www.youtube.com/feed/playlists"
 	["youtube queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
 	["youtube wl"]="https://www.youtube.com/playlist?list=WL"
+	["youtube voice warm up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 
 	# --- motivation ---
 	["motivation alex hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
@@ -49,6 +50,7 @@ declare -A BOOKMARKS=(
 
 	# Tools
 	["tools drive"]="https://drive.google.com/drive/u/0/my-drive"
+	["tools lib"]="https://libgen.li/"
 	["tools main email"]="https://mail.google.com/mail/u/0/#inbox"
 	["tools secondary email"]="https://mail.google.com/mail/u/1/#inbox"
 
