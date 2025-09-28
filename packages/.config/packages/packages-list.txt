@@ -63,6 +63,7 @@ pcmanfm
 picom
 python-pip
 python-pipx
+qalculate-gtk
 qogir-gtk-theme
 rate-mirrors-bin
 rclone
