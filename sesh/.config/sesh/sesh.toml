@@ -1,7 +1,6 @@
 [[session]]
 name = "󱂵 home"
 path = "~"
-startup_command = 'review_email; yupdate'
 
 [[session]]
 name = " drive"
