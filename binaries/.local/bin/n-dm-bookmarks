@@ -32,7 +32,7 @@ declare -A BOOKMARKS=(
 	["youtube playlists"]="https://www.youtube.com/feed/playlists"
 	["youtube queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
 	["youtube wl"]="https://www.youtube.com/playlist?list=WL"
-	["youtube voice warm up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
+	["Youtube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 
 	# --- motivation ---
 	["motivation alex hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
