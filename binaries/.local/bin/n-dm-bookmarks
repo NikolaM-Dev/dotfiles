@@ -35,12 +35,12 @@ declare -A BOOKMARKS=(
 	["Youtube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 
 	# --- motivation ---
-	["motivation alex hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
-	["motivation contentoso"]="https://www.youtube.com/watch?v=ja75uBnzHS0"
-	["motivation discipline"]="https://www.youtube.com/@DailyDisciplineraw/videos"
-	["motivation gods"]="https://www.youtube.com/watch?v=C3GouGa0noM"
-	["motivation llora corazon"]="https://www.youtube.com/watch?v=heN8_OQrSBw"
-	["motivation mathhew"]="https://www.youtube.com/watch?v=QbL0X3B4mjg"
+	["Motivation Alex Hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
+	["Motivation Contentoso"]="https://www.youtube.com/watch?v=ja75uBnzHS0"
+	["Motivation Discipline"]="https://www.youtube.com/@DailyDisciplineraw/videos"
+	["Motivation Gods"]="https://www.youtube.com/watch?v=C3GouGa0noM"
+	["Motivation Llora Corazon"]="https://www.youtube.com/watch?v=heN8_OQrSBw"
+	["Motivation Mathhew"]="https://www.youtube.com/watch?v=QbL0X3B4mjg"
 
 	# --- lua ---
 	["lua annotations"]="https://github.com/LuaLS/lua-language-server/wiki/Annotations"
