@@ -23,6 +23,7 @@ git
 git-delta
 github-cli
 gnome-clocks
+gnome-tweaks
 go
 google-chrome
 grub
