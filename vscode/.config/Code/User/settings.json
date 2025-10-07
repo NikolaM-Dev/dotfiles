@@ -622,7 +622,7 @@
     "editorInlayHint.background": "#1a1a1a",
     "editorInlayHint.foreground": "#8c8c8cbb"
   },
-  "workbench.colorTheme": "Vitesse Dark",
+  "workbench.colorTheme": "Better Solarized Dark",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.pinnedTabSizing": "compact",
