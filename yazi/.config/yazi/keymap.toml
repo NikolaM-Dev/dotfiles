@@ -9,6 +9,7 @@ prepend_keymap = [
 	{ on = "R", run = "shell  'n-rename \"$0\"' --confirm", desc = "Rename selected file(s)" },
 	{ on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
 	{ on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+	{ on = [ "c", "m" ], run = "plugin chmod", desc = "Chmod on selected files" },
 
 	{ on = [ "g", "1" ], run = "cd ~/w/1-projects", desc = "Goto projects" },
 	{ on = [ "g", "2" ], run = "cd ~/w/2-areas", desc = "Goto areas" },
