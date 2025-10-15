@@ -24,5 +24,6 @@ prepend_keymap = [
 	{ on = [ "g", "r" ], run = "cd /", desc = "Goto root" },
 	{ on = [ "g", "s", "b" ], run = "cd ~/w/2-areas/second-brain.md", desc = "Goto ~/w/2-areas/second-brain.md" },
 	{ on = [ "g", "t" ], run = "cd ~/.local/share/Trash/files", desc = "Goto Trash" },
-	{ on = [ "g", "v" ], run = "cd ~/Videos", desc = "Goto ~/Videos" }
+	{ on = [ "g", "v" ], run = "cd ~/Videos", desc = "Goto ~/Videos" },
+	{ on = [ "g", "x" ], run = "cd ~/dwhelper", desc = "Goto ~/dwhelper" }
 ]
