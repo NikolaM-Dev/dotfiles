@@ -16,6 +16,7 @@ eza
 fastfetch
 fd
 feh
+ffmpeg4.4
 flameshot
 fzf
 ghostty
