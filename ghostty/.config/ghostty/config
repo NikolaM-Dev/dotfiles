@@ -8,13 +8,13 @@ font-family-bold-italic     = Maple Mono NF
 font-family                 = Symbols Nerd Font
 
 adjust-cell-width           = -15%
-background-opacity          = 0.94
+background-opacity          = 1
 confirm-close-surface       = false
 font-size                   = 13.5
 gtk-single-instance         = true
 gtk-titlebar                = false
 mouse-hide-while-typing     = true
-theme                       = Builtin Solarized Dark
+theme                       = Gruvbox Dark
 window-decoration           = false
 window-padding-x            = 3
 window-padding-y            = 3
