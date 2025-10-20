@@ -22,10 +22,11 @@ declare -A BOOKMARKS=(
 	["nvim wuelner"]="https://github.com/wuelnerdotexe/nvim"
 
 	# --- docs ---
-	["docs bash"]="https://devhints.io/bash"
-	["docs maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
-	["docs obsidian"]="https://docs.obsidian.md/Home"
-	["docs snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
+	["Docs Bash"]="https://devhints.io/bash"
+	["Docs Bun Guides"]="https://bun.sh/guides"
+	["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
+	["Docs Obsidian"]="https://docs.obsidian.md/Home"
+	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
 
 	# --- youtube ---
 	["youtube history"]="https://www.youtube.com/feed/history"
