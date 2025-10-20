@@ -27,6 +27,7 @@ declare -A BOOKMARKS=(
 	["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
 	["Docs Obsidian"]="https://docs.obsidian.md/Home"
 	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
+	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
 
 	# --- youtube ---
 	["youtube history"]="https://www.youtube.com/feed/history"
