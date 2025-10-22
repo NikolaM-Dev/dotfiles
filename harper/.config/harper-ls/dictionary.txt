@@ -1,3 +1,9 @@
+CS50
+CS50's
 TODO
+cwd
+gx
+netrw
 nvim
+stylua
 tmux
