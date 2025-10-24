@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function main {
+	while true; do
+		notify-send -t 20000000 "👀 20x20x20" &
+		mpv /home/nikola/backups/20251008T141746--pomodoro.mp3
+
+		sleep 20m
+	done
+}
+
+main "$@"
