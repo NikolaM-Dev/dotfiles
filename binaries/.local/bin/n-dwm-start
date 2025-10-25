@@ -3,8 +3,6 @@
 function main {
 	~/.config/dwm/status-bar/status-bar.sh &
 
-	sleep 1
-
 	while true; do
 		dwm 2>~/.config/dwm/dwm.log
 	done
