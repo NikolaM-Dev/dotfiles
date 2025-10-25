@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function main() {
+	commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
+
+	choice=$(printf '%s\n' "${commands[@]}" | sort | dmenu -i -l 12 -p "󰘳 Commands ")
+	if [[ ! -n "$choice" ]]; then
+		return
+	fi
+
+	eval "$choice"
+}
+
+main
