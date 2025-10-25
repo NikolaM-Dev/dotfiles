@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# List of comments to motivate creators on YouTube.
+COMMENTS=(
+	"Amazing work as always! Dropping a comment to support and boost the algo 🚀🔥"
+	"This video was super valuable—thank you for putting in the effort! Commenting to help with the push 🤝"
+	"Great job! Love the consistency and quality here. Boosting the algorithm with this comment 🙌"
+	"Your effort really shows, keep it up! Here’s a little algo love 💡✨"
+	"Solid content once again—this deserves more eyes! Helping the algorithm do its thing 📈"
+	"Your work genuinely makes a difference—please keep going."
+	"This video helped me more than you can imagine."
+	"Every upload from you adds real value."
+	"You explain things better than most."
+	"I always learn something new here."
+	"This content deserves way more attention."
+	"You're making complex ideas simple—thank you."
+	"Your consistency inspires me to keep learning."
+	"The effort you put into your videos shows."
+	"You've made a real impact on my mindset."
+	"I look forward to every new upload."
+	"You're one of the few creators who truly teach."
+	"This video was exactly what I needed today."
+	"Thank you for taking the time to share your knowledge."
+	"You're helping people more than you probably realize."
+	"Your passion for this topic shines through."
+	"Watching your videos feels like time well spent."
+	"Keep creating—you're changing lives."
+	"Every detail you include shows your dedication."
+	"Your perspective always adds clarity."
+	"I've improved so much thanks to your content."
+	"You've made this topic finally make sense."
+	"You explain with both logic and heart—rare combo."
+	"This deserves way more recognition."
+	"Thank you for being consistent and authentic."
+	"Your videos are part of my daily motivation."
+	"You're one of the few who truly care about helping."
+	"Please don't underestimate the value of your work."
+	"The internet needs more creators like you."
+	"This channel is becoming a real guide for me."
+	"You're setting a high standard for educational content."
+	"Every upload is a mini masterclass."
+	"I can tell you put serious thought into this."
+	"This helped me see things from a new angle."
+	"You're turning knowledge into action—thank you."
+	"The clarity in your teaching is unmatched."
+	"You've built something genuinely meaningful here."
+	"I wish I had found this channel sooner."
+	"Please keep sharing your experience—it matters."
+	"You've helped me more than any paid course has."
+	"The quality of your work keeps me coming back."
+	"You're making learning enjoyable again."
+	"This video gave me the push I needed."
+	"The calm and precision in your delivery is perfect."
+	"I always leave your videos smarter than before."
+	"You explain with such depth and simplicity."
+	"Keep doing what you do—it's genuinely powerful."
+	"You're building something valuable for so many of us."
+	"This is the kind of content that actually changes people."
+	"You're proof that great work still exists online."
+)
+
+function main() {
+	# Select a random comment and put into the clipboard
+	random_index=$((RANDOM % ${#COMMENTS[@]}))
+	echo "${COMMENTS[$random_index]}" | add_to_clipboard
+}
+
+main
