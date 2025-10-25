@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function main() {
+	local neovim_configs="$XDG_CONFIG_HOME/nvim-configs"
+	configs=$(fd '' $neovim_configs -d 1 --exec basename)
+	config=$(printf "%s\n" "${configs[@]}" | fzf --prompt="  Select Neovim Config " --height=~50% --layout=reverse --border --exit-0)
+
+	if [[ -z $config ]]; then
+		echo " [ERROR] config is required."
+		return 0
+	fi
+
+	XDG_CONFIG_HOME=$neovim_configs NVIM_APPNAME=$config nvim $@
+}
+
+main $@
