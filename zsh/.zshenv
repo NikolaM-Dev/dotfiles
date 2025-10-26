@@ -86,14 +86,14 @@ eval "$(zoxide init zsh)"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,plugged/*,vscode/*}"'
 export FZF_DEFAULT_OPTS=" \
 --ansi \
---color=bg+:#313244,bg:-1,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color='bg:#282828,bg+:#3c3836,info:#a9b665,border:#383836,spinner:#a9b665' \
+--color='hl:#89b482,fg:#d4be98,header:#d3869b,fg+:#d4be98' \
+--color='pointer:#ea6962,marker:#d8a657,prompt:#7da3a3,hl+:#a9b665'
 --pointer='' \
---prompt='  ' \
+--prompt='    ' \
 --reverse \
+--border rounded \
 "
-# --border rounded \
 
 # GTK
 export GTK_THEME="Qogir-Round-Dark"
