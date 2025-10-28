@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
+function _min_to_ms() {
+	local SECOND_IN_MS=1000
+	local MIN_IN_SECOND=$((60 * $SECOND_IN_MS))
+
+	echo $(($1 * $MIN_IN_SECOND))
+}
+
 function main {
 	while true; do
-		notify-send -t 20000000 "👀 20x20x20" &
+		notify-send -t $(_min_to_ms 5) "👀 20x20x20" &
 		mpv /home/nikola/backups/20251008T141746--pomodoro.mp3
 
 		sleep 20m
