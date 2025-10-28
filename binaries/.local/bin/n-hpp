@@ -2,8 +2,8 @@
 
 function main {
 	while true; do
-		notify-send -t 8000 "🔥 HPP" "Review your agenda and externalize your thoughts"
-		mpv --volume=120 ~/backups/20250727T095521--hpp.mp3
+		notify-send -t 8000 "🔥 HPP"
+		mpv /home/nikola/backups/20251008T141746--pomodoro.mp3
 
 		sleep 5m
 	done
