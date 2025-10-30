@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function main {
+	# Get the filename from the command line argument
+	filename="${1##*/}"
+
+	if [ -z "$filename" ]; then
+		echo " [ERROR] Filename is required"
+		exit 1
+	fi
+
+	pdf_filename="${filename%.epub}.pdf"
+	ebook-convert "'${filename}' '$pdf_filename'"
+
+	echo " [INFO] $pdf_filename saved successfully"
+}
+
+main "$@"
