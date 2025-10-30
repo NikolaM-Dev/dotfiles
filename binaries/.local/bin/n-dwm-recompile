@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
 
-function main {
+function _error() {
+	echo
+	echo " [ERROR] $1"
+	exit 1
+}
+
+function main() {
 	cd "$XDG_CONFIG_HOME/dwm"
-	sudo make clean install
-	killall dwm
-	cd -
+
+	if sudo make clean install; then
+		killall dwm
+		cd -
+		return
+	fi
+
+	_error "Trying to recompile DWM config."
 }
 
 main
