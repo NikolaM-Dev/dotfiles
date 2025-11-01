@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-feh --no-fehbg --bg-scale $XDG_CONFIG_HOME/wallpapers/20250911T074624--rose-pine-moon-just-start.svg
+feh --no-fehbg --bg-scale $XDG_CONFIG_HOME/wallpapers/20251027T181815--vision-board.svg
