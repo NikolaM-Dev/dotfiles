@@ -1,9 +1,13 @@
 CS50
 CS50's
+Nikola's
 TODO
+Zotero
 cwd
 gx
 netrw
 nvim
 stylua
 tmux
+yazi
+zoxide
