@@ -50,5 +50,6 @@ n-clip-board &
 $SECOND_BRAIN_PATH/jobs.sh &
 n-backup &
 n-eyes &
+/opt/StayFree/stayfree-desktop &
 
 n-dwm-start
