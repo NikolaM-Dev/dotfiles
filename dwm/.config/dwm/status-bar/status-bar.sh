@@ -11,11 +11,16 @@ function _has_connection() {
 }
 
 function _packages_updates() {
-	if ping -c 1 google.com &>/dev/null; then
-		packages_updates=$(checkupdates | wc -l) # `pacman-contrib` is required
-		printf " %02d" $packages_updates
-	else
-		printf " --"
+	if ! _has_connection; then
+		return
+	fi
+
+	local updates=$(checkupdates | wc -l) # `pacman-contrib` is required
+	if [[ $updates -gt 0 ]]; then
+		printf ""
+	fi
+
+}
 	fi
 }
 
