@@ -4,7 +4,11 @@
 # Load the colorscheme
 . ~/.config/dwm/status-bar/themes/rose-pine
 
-INTERVAL=0
+# Returns 0 if is connected, and 2 if isn't connected
+function _has_connection() {
+	ping -c 1 -W 1 google.com >/dev/null 2>&1
+	return $?
+}
 
 function _packages_updates() {
 	if ping -c 1 google.com &>/dev/null; then
@@ -46,6 +50,8 @@ function _date_time() {
 }
 
 function main() {
+	INTERVAL=0
+
 	while true; do
 		[ $INTERVAL = 0 ] || [ $((INTERVAL % 60)) = 0 ] && packages_updates=$(_packages_updates)
 		INTERVAL=$((INTERVAL + 1))
