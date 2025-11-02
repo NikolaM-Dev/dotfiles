@@ -69,9 +69,10 @@ function main() {
 
 	while true; do
 		[ $INTERVAL = 0 ] || [ $((INTERVAL % 60)) = 0 ] && packages_updates=$(_packages_updates)
+		[ $INTERVAL = 0 ] || [ $((INTERVAL % 60)) = 0 ] && connection=$(_connection)
 		INTERVAL=$((INTERVAL + 1))
 
-		sleep 1 && xsetroot -name "$packages_updates $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
+		sleep 1 && xsetroot -name "$packages_updates$connection  $(_volume) $(_cpu) $(_memory) $(_disk)  $(_date_time)"
 	done
 }
 
