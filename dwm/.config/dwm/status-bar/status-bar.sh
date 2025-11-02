@@ -32,10 +32,10 @@ function _volume() {
 	is_mute=$(pamixer --get-mute)
 
 	if [ "$is_mute" = "true" ]; then
-		printf "^c$love^  --"
+		printf "^c$love^󰖁 --%%"
 	else
 		vol=$(pamixer --get-volume)
-		printf "^c$love^  %02d%%" "$vol"
+		printf "^c$love^󰕾 %02d%%" "$vol"
 	fi
 }
 
