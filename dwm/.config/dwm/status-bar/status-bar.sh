@@ -55,7 +55,8 @@ function _disk() {
 }
 
 function _date_time() {
-	printf "^c$foam^ 󱛡 %s " "$(date '+W%V %a %Y-%m-%d %H:%M:%S')"
+	printf "^c$foam^󱛡 %s ^c$surface^%s:^c$foam^%s " "$(date '+W%V %a %Y-%m-%d')" "$(date -u '+%H')" "$(date '+%H:%M:%S')"
+}
 }
 
 function main() {
