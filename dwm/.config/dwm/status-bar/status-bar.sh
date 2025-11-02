@@ -57,6 +57,11 @@ function _disk() {
 function _date_time() {
 	printf "^c$foam^󱛡 %s ^c$surface^%s:^c$foam^%s " "$(date '+W%V %a %Y-%m-%d')" "$(date -u '+%H')" "$(date '+%H:%M:%S')"
 }
+
+function _test() {
+	while true; do
+		sleep 1 && echo "$packages_updates$connection  $(_volume) $(_cpu) $(_memory) $(_disk)  $(_date_time)"
+	done
 }
 
 function main() {
