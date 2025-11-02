@@ -21,6 +21,10 @@ function _packages_updates() {
 	fi
 
 }
+
+function _connection() {
+	if ! _has_connection; then
+		printf "󰖪"
 	fi
 }
 
