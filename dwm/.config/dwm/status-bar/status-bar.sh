@@ -41,17 +41,17 @@ function _volume() {
 
 function _cpu() {
 	cpu=$(top -bn1 | grep load | awk '{printf "%.2f%%", $(NF-2)}')
-	printf "^c$gold^  %s" "$cpu"
+	printf "^c$gold^ %s" "$cpu"
 }
 
 function _memory() {
 	memory=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')
-	printf "^c$iris^  %s" "$memory"
+	printf "^c$iris^ %s" "$memory"
 }
 
 function _disk() {
 	disk=$(df -h | awk '$NF=="/"{printf "%s", $5}')
-	printf "^c$rose^ 󰋊 %s" "$disk"
+	printf "^c$rose^󰋊 %s" "$disk"
 }
 
 function _date_time() {
