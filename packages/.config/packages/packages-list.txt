@@ -2,6 +2,7 @@
 base
 base-devel
 bat
+bob
 btop
 calibre
 clock-tui
@@ -12,6 +13,7 @@ docker-compose
 dunst
 efibootmgr
 emacs
+entr
 eza
 fastfetch
 fd
@@ -39,6 +41,7 @@ linutil
 linux
 linux-firmware
 linux-headers
+localsend
 lxappearance
 modrinth-app-bin
 mpv
@@ -77,7 +80,9 @@ rofi-calc
 rofi-emoji
 rsync
 screenkey
+sd
 selectdefaultapplication-fork-git
+solanum
 stayfree-desktop
 stow
 syncthing
