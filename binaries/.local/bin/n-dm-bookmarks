@@ -1,27 +1,25 @@
 #!/usr/bin/env bash
 
 declare -A BOOKMARKS=(
-	# --- nvim ---
-	["nvim adibhanna"]="https://github.com/adibhanna/nvim"
-	["nvim alpha new"]="https://github.com/adalessa/alpha-nvim/tree/main"
-	["nvim alpha old"]="https://gitea.ad-impeldown.synology.me/alpha/nixvim/src/branch/main"
-	["nvim b0o"]="https://github.com/b0o/nvim-conf"
-	["nvim backup"]="https://github.com/NikolaM-Dev/nvim/tree/backup"
-	["nvim chris at machine"]="https://github.com/ChristianChiarulli/nvim"
-	["nvim chris"]="https://github.com/chrisgrieser/.config/tree/main/nvim"
-	["nvim dcrag"]="https://github.com/CRAG666/dotfiles/tree/main/config/nvim"
-	["nvim epwalsh"]="https://github.com/epwalsh/dotfiles/tree/main/neovim"
-	["nvim fbearoff"]="https://github.com/fbearoff/dotfiles/tree/master/nvim/.config/nvim"
-	["nvim folke"]="https://github.com/folke/dot/tree/master/nvim"
-	["nvim glepnir"]="https://github.com/glepnir/nvim"
-	["nvim kickstart"]="https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua"
-	["nvim lazyVim"]="https://github.com/LazyVim/LazyVim"
-	["nvim linkarzu"]="https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean"
-	["nvim mrs4ndman"]="https://github.com/mrs4ndman/nvim-conf"
-	["nvim prime"]="https://github.com/ThePrimeagen/init.lua"
-	["nvim wuelner"]="https://github.com/wuelnerdotexe/nvim"
+	["Nvim Adibhanna"]="https://github.com/adibhanna/nvim"
+	["Nvim Alpha New"]="https://github.com/adalessa/alpha-nvim/tree/main"
+	["Nvim Alpha Old"]="https://gitea.ad-impeldown.synology.me/alpha/nixvim/src/branch/main"
+	["Nvim B0o"]="https://github.com/b0o/nvim-conf"
+	["Nvim Backup"]="https://github.com/NikolaM-Dev/nvim/tree/backup"
+	["Nvim Chris at machine"]="https://github.com/ChristianChiarulli/nvim"
+	["Nvim Chris"]="https://github.com/chrisgrieser/.config/tree/main/nvim"
+	["Nvim Dcrag"]="https://github.com/CRAG666/dotfiles/tree/main/config/nvim"
+	["Nvim Epwalsh"]="https://github.com/epwalsh/dotfiles/tree/main/neovim"
+	["Nvim Fbearoff"]="https://github.com/fbearoff/dotfiles/tree/master/nvim/.config/nvim"
+	["Nvim Folke"]="https://github.com/folke/dot/tree/master/nvim"
+	["Nvim Glepnir"]="https://github.com/glepnir/nvim"
+	["Nvim Kickstart"]="https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua"
+	["Nvim LazyVim"]="https://github.com/LazyVim/LazyVim"
+	["Nvim Linkarzu"]="https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean"
+	["Nvim Mrs4ndman"]="https://github.com/mrs4ndman/nvim-conf"
+	["Nvim Prime"]="https://github.com/ThePrimeagen/init.lua"
+	["Nvim Wuelner"]="https://github.com/wuelnerdotexe/nvim"
 
-	# --- docs ---
 	["Docs Bash"]="https://devhints.io/bash"
 	["Docs Bun Guides"]="https://bun.sh/guides"
 	["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
@@ -29,34 +27,31 @@ declare -A BOOKMARKS=(
 	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
 	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
 
-	# --- youtube ---
 	["youtube history"]="https://www.youtube.com/feed/history"
 	["youtube playlists"]="https://www.youtube.com/feed/playlists"
 	["youtube queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
 	["youtube wl"]="https://www.youtube.com/playlist?list=WL"
 	["Youtube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 
-	# --- motivation ---
 	["Motivation Alex Hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
 	["Motivation Contentoso"]="https://www.youtube.com/watch?v=ja75uBnzHS0"
 	["Motivation Discipline"]="https://www.youtube.com/@DailyDisciplineraw/videos"
 	["Motivation Gods"]="https://www.youtube.com/watch?v=C3GouGa0noM"
+	["Motivation Life Explained"]="https://www.youtube.com/watch?v=MGXwxwYMgfU"
 	["Motivation Llora Corazon"]="https://www.youtube.com/watch?v=heN8_OQrSBw"
 	["Motivation Mathhew"]="https://www.youtube.com/watch?v=QbL0X3B4mjg"
 
-	# --- lua ---
 	["lua annotations"]="https://github.com/LuaLS/lua-language-server/wiki/Annotations"
 
-	# --- zen browser ---
 	["zen browser releases"]="https://github.com/zen-browser/desktop/releases"
 
-	# Tools
-	["tools drive"]="https://drive.google.com/drive/u/0/my-drive"
-	["tools lib"]="https://libgen.li/"
-	["tools main email"]="https://mail.google.com/mail/u/0/#inbox"
-	["tools secondary email"]="https://mail.google.com/mail/u/1/#inbox"
+	["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
+	["Tools Lib"]="https://libgen.li/"
+	["Tools Main Email"]="https://mail.google.com/mail/u/0/#inbox"
+	["Tools Search Emoji"]="https://emojidb.org"
+	["Tools Secondary Email"]="https://mail.google.com/mail/u/1/#inbox"
+	["Tools WhatsApp"]="https://web.whatsapp.com"
 
-	# --- single entries ---
 	["good doctor"]="https://repelisplus.lat/ver/the-good-doctor-aag-kmar"
 	["carpal tunnel"]="https://youtu.be/sfVIl4uHrnQ"
 	["lute docs"]="https://luteorg.github.io/lute-manual"
@@ -70,7 +65,6 @@ declare -A BOOKMARKS=(
 	["cambridge"]="https://dictionary.cambridge.org/dictionary/english"
 	["ipachart"]="https://www.ipachart.com"
 	["awesome"]="https://github.com/rockerBOO/awesome-neovim"
-	["bun"]="https://bun.sh/guides"
 	["catppuccin"]="https://github.com/catppuccin/catppuccin"
 	["concentration"]="https://www.youtube.com/watch?v=yLUqkgpSw7Y"
 	["dots"]="https://github.com/NikolaM-Dev/dotfiles"
