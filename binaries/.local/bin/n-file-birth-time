@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+main() {
+	local file="$1"
+	local birth_epoch=""
+
+	[ -z "$file" ] && {
+		echo "Usage: $0 <file>" >&2
+		exit 1
+	}
+
+	# GNU stat
+	if stat --version >/dev/null 2>&1; then
+		birth_epoch=$(stat -c "%W" "$file" 2>/dev/null)
+	fi
+
+	# BSD / macOS
+	if ! [[ "$birth_epoch" =~ ^[0-9]+$ ]] || [ "$birth_epoch" -le 0 ]; then
+		birth_epoch=$(stat -f %B "$file" 2>/dev/null)
+	fi
+
+	# Fallback to modification time
+	if ! [[ "$birth_epoch" =~ ^[0-9]+$ ]] || [ "$birth_epoch" -le 0 ]; then
+		birth_epoch=$(stat -c %Y "$file" 2>/dev/null || stat -f %m "$file" 2>/dev/null)
+	fi
+
+	date -d @"$birth_epoch" +"%Y%m%dT%H%M%S" 2>/dev/null ||
+		date -r "$birth_epoch" +"%Y%m%dT%H%M%S"
+}
+
+main "$@"
