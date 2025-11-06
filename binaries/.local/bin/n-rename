@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+_format_string() {
+	local input="$1"
+	# lowercase
+	input=$(echo "$input" | tr '[:upper:]' '[:lower:]')
+	# replace spaces with -
+	input=$(echo "$input" | tr ' ' '-')
+	# replace disallowed chars with -
+	input=$(echo "$input" | sed 's/[^a-z0-9._-]/-/g')
+	# collapse multiple -
+	input=$(echo "$input" | sed 's/-\{2,\}/-/g')
+	# remove trailing -
+	input=$(echo "$input" | sed 's/-$//')
+	echo "$input"
+}
+
+function main() {
+	for file in "$@"; do
+		echo " [DEBUG] Renaming $file"
+		[ -f "$file" ] || continue
+
+		echo " [DEBUG] Getting ID for file $file"
+		ID="$(n-file-birth-time "$file")"
+
+		# split extension
+		base=$(basename "$file")
+		ext="${base##*.}"
+		name="${base%.*}"
+
+		# detect tags (anything after __ in name)
+		echo " [DEBUG] Detecting tags"
+		tags=""
+		if [[ "$name" == *"__"* ]]; then
+			tags="__$(_format_string "${name#*__}")"
+			name="${name%%__*}"
+		fi
+
+		echo " [DEBUG] Formatting filename"
+		fname=$(_format_string "$name")
+
+		echo " [DEBUG] Assembling new filename based on the \`Denote.el\` scheme"
+		if [[ -z "$fname" && -z "$tags" ]]; then
+			newname="${ID}.${ext}"
+		else
+			newname="${ID}--${fname}${tags}.${ext}"
+		fi
+
+		echo " [DEBUG] Renaming file "$file" -> $newname"
+		mv -i -- "$file" "$newname"
+
+	done
+
+	echo " [INFO] Proccess Ended Successfully 🎉"
+}
+
+main "$@"
