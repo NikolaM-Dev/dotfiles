@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
+function main() {
+	# Select command
+	commands=$(fd "^n-*" $HOME/.local/bin --exec basename)
+	selected_command=$(printf "%s\n" "${commands[@]}" | fzf-tmux -p 40%,30% --border-label '  Commander ')
+	if [[ ! -n $selected_command ]]; then
+		return
+	fi
 
-selected_command=$(printf "%s\n" "${commands[@]}" | fzf-tmux -p 40%,30% --border-label '  Commander ')
+	# Insert command and the prompt
+	eval "$selected_command"
+}
 
-if [[ ! -n $selected_command ]]; then
-  return
-fi
-
-eval "$selected_command"
+main
