@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+function _trace() {
+	echo " [TRACE] $1"
+}
+
+# Docker cleanup script: removes all unused data
+function main() {
+
+	_trace "Cleaning Docker system…"
+	docker system prune -af --volumes
+
+	_trace "Removing unused containers…"
+	docker container prune -f
+
+	_trace "Removing unused images…"
+	docker image prune -af
+
+	_trace "Removing unused volumes…"
+	docker volume prune -f
+
+	_trace "Removing unused networks…"
+	docker network prune -f
+
+	_trace "Disk usage after cleanup:"
+	docker system df
+}
+
+main
