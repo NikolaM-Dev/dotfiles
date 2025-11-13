@@ -1,7 +1,8 @@
+[general]
 import = [
-  "~/.config/alacritty/themes/catppuccin-mocha.toml",
-  "~/.config/alacritty/fonts/geist-mono-nf.toml",
-  "~/.config/alacritty/keybindings.toml",
+	"~/.config/alacritty/themes/catppuccin-mocha.toml",
+	"~/.config/alacritty/fonts/geist-mono-nf.toml",
+	"~/.config/alacritty/keybindings.toml",
 ]
 
 [cursor]
