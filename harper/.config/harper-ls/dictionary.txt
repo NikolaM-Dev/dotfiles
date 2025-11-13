@@ -1,3 +1,4 @@
+Blepharitis
 CS50
 CS50's
 Nikola's
@@ -7,7 +8,10 @@ cwd
 gx
 netrw
 nvim
+predefining
 stylua
 tmux
+toml
+variadic
 yazi
 zoxide
