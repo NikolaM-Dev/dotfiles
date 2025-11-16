@@ -360,17 +360,18 @@ keypress(XKeyEvent *ev)
 		case XK_g: ksym = XK_Escape;    break;
 		case XK_h: ksym = XK_BackSpace; break;
 		case XK_i: ksym = XK_Tab;       break;
-		case XK_j: /* fallthrough */
+		case XK_k: ksym = XK_Up;        break;
+		case XK_j: ksym = XK_Down;      break;
 		case XK_J: /* fallthrough */
 		case XK_m: /* fallthrough */
 		case XK_M: ksym = XK_Return; ev->state &= ~ControlMask; break;
 		case XK_n: ksym = XK_Down;      break;
 		case XK_p: ksym = XK_Up;        break;
 
-		case XK_k: /* delete right */
-			text[cursor] = '\0';
-			match();
-			break;
+		// case XK_k: /* delete right */
+		// 	text[cursor] = '\0';
+		// 	match();
+		// 	break;
 		case XK_u: /* delete left */
 			insert(NULL, 0 - cursor);
 			break;
