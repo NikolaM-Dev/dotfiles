@@ -1,6 +1,25 @@
 #!/usr/bin/env bash
 
 declare -A BOOKMARKS=(
+	["Docs Bash"]="https://devhints.io/bash"
+	["Docs Bun Guides"]="https://bun.sh/guides"
+	["Docs C"]="https://devdocs.io/c"
+	["Docs Go Verbs"]="https://pkg.go.dev/fmt#hdr-Printing"
+	["Docs Just"]="https://just.systems/man/en/introduction.html"
+	["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
+	["Docs Obsidian"]="https://docs.obsidian.md/Home"
+	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
+	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
+	["Docs TickTick"]="https://help.ticktick.com/articles/7054286604315131904"
+
+	["Motivation Alex Hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
+	["Motivation Contentoso"]="https://www.youtube.com/watch?v=ja75uBnzHS0"
+	["Motivation Discipline"]="https://www.youtube.com/@DailyDisciplineraw/videos"
+	["Motivation Gods"]="https://www.youtube.com/watch?v=C3GouGa0noM"
+	["Motivation Life Explained"]="https://www.youtube.com/watch?v=MGXwxwYMgfU"
+	["Motivation Llora Corazon"]="https://www.youtube.com/watch?v=heN8_OQrSBw"
+	["Motivation Mathhew"]="https://www.youtube.com/watch?v=QbL0X3B4mjg"
+
 	["Nvim Adibhanna"]="https://github.com/adibhanna/nvim"
 	["Nvim Alpha New"]="https://github.com/adalessa/alpha-nvim/tree/main"
 	["Nvim Alpha Old"]="https://gitea.ad-impeldown.synology.me/alpha/nixvim/src/branch/main"
@@ -20,16 +39,12 @@ declare -A BOOKMARKS=(
 	["Nvim Prime"]="https://github.com/ThePrimeagen/init.lua"
 	["Nvim Wuelner"]="https://github.com/wuelnerdotexe/nvim"
 
-	["Docs Bash"]="https://devhints.io/bash"
-	["Docs Bun Guides"]="https://bun.sh/guides"
-	["Docs C"]="https://devdocs.io/c"
-	["Docs Go Verbs"]="https://pkg.go.dev/fmt#hdr-Printing"
-	["Docs Just"]="https://just.systems/man/en/introduction.html"
-	["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
-	["Docs Obsidian"]="https://docs.obsidian.md/Home"
-	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
-	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
-	["Docs TickTick"]="https://help.ticktick.com/articles/7054286604315131904"
+	["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
+	["Tools Lib"]="https://libgen.li/"
+	["Tools Main Email"]="https://mail.google.com/mail/u/0/#inbox"
+	["Tools Search Emoji"]="https://emojidb.org"
+	["Tools Secondary Email"]="https://mail.google.com/mail/u/1/#inbox"
+	["Tools WhatsApp"]="https://web.whatsapp.com"
 
 	["YouTube History"]="https://www.youtube.com/feed/history"
 	["YouTube Playlists"]="https://www.youtube.com/feed/playlists"
@@ -38,25 +53,10 @@ declare -A BOOKMARKS=(
 	["YouTube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 	["YouTube WL"]="https://www.youtube.com/playlist?list=WL"
 
-	["Motivation Alex Hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
-	["Motivation Contentoso"]="https://www.youtube.com/watch?v=ja75uBnzHS0"
-	["Motivation Discipline"]="https://www.youtube.com/@DailyDisciplineraw/videos"
-	["Motivation Gods"]="https://www.youtube.com/watch?v=C3GouGa0noM"
-	["Motivation Life Explained"]="https://www.youtube.com/watch?v=MGXwxwYMgfU"
-	["Motivation Llora Corazon"]="https://www.youtube.com/watch?v=heN8_OQrSBw"
-	["Motivation Mathhew"]="https://www.youtube.com/watch?v=QbL0X3B4mjg"
+	["Music"]="https://music.youtube.com/library"
 
 	["lua annotations"]="https://github.com/LuaLS/lua-language-server/wiki/Annotations"
-
 	["zen browser releases"]="https://github.com/zen-browser/desktop/releases"
-
-	["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
-	["Tools Lib"]="https://libgen.li/"
-	["Tools Main Email"]="https://mail.google.com/mail/u/0/#inbox"
-	["Tools Search Emoji"]="https://emojidb.org"
-	["Tools Secondary Email"]="https://mail.google.com/mail/u/1/#inbox"
-	["Tools WhatsApp"]="https://web.whatsapp.com"
-
 	["good doctor"]="https://repelisplus.lat/ver/the-good-doctor-aag-kmar"
 	["carpal tunnel"]="https://youtu.be/sfVIl4uHrnQ"
 	["lute docs"]="https://luteorg.github.io/lute-manual"
@@ -83,7 +83,6 @@ declare -A BOOKMARKS=(
 	["juan"]="https://mail.google.com/mail/u/1/#inbox"
 	["lazy"]="https://lazy.folke.io/spec"
 	["lsp"]="https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md"
-	["music"]="https://www.youtube.com/watch?v=1gSe78TIEEk&list=PLyjmPWCWfM3LJDpmmnJj6U7ot4Q1grdPO"
 	["new_repository"]="https://github.com/new"
 	["nikola"]="https://github.com/NikolaM-Dev"
 	["none_ls"]="https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md"
