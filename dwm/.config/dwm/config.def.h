@@ -59,8 +59,10 @@ static const Rule rules[] = {
 	/* class,          instance,        title, tags mask, isfloating, monitor */
 	{ "Pcmanfm",       "pcmanfm",       NULL,  0,         1,          -1 },
 	{ "Qalculate-gtk", "qalculate-gtk", NULL,  0,         1,          -1 },
-	{ "Zotero",        "Zotero",        NULL,  1 << 1,    1,          -1 },
-	{ "ticktick",      "ticktick",      NULL,  1 << 1,    1,          -1 },
+	{ "Zotero",        "Zotero",        NULL,  0,         1,          -1 },
+	{ "ticktick",      "ticktick",      NULL,  0,         0,          -1 },
+  { "StayFree",      "stayfree",      NULL,  1 << 8,    0,          -1 },
+  { "feh",           "feh",           NULL,  0,         1,          -1 },
 };
 
 /* layout(s) */
