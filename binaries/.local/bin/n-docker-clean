@@ -4,6 +4,10 @@ function _trace() {
 	echo " [TRACE] $1"
 }
 
+function _info() {
+	echo " [INFO] $1"
+}
+
 # Docker cleanup script: removes all unused data
 function main() {
 
@@ -22,7 +26,7 @@ function main() {
 	_trace "Removing unused networks…"
 	docker network prune -f
 
-	_trace "Disk usage after cleanup:"
+	_info "Disk usage after cleanup:"
 	docker system df
 }
 
