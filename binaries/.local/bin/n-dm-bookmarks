@@ -29,10 +29,12 @@ declare -A BOOKMARKS=(
 	["Docs Obsidian"]="https://docs.obsidian.md/Home"
 	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
 	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
+	["Docs TickTick"]="https://help.ticktick.com/articles/7054286604315131904"
 
 	["YouTube History"]="https://www.youtube.com/feed/history"
 	["YouTube Playlists"]="https://www.youtube.com/feed/playlists"
 	["YouTube Queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
+	["YouTube Theo"]="https://www.youtube.com/@t3dotgg"
 	["YouTube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 	["YouTube WL"]="https://www.youtube.com/playlist?list=WL"
 
