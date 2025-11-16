@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+_sesh_list_dmenu() {
+	sesh list | dmenu -i -l 15 -p "󰍒 Sesh List "
+}
+
+function main() {
+	local choice
+	choice="$(_sesh_list_dmenu)" || exit
+	[ -n "$choice" ] && sesh connect "$choice"
+}
+
+main
