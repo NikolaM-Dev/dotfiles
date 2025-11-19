@@ -1,3 +1,4 @@
+# adjust-cell-height = 20%
 # adjust-underline-position = 4
 
 font-family                 = Maple Mono NF
@@ -25,7 +26,6 @@ keybind=ctrl+equal=increase_font_size:1
 keybind=ctrl+minus=decrease_font_size:1
 keybind=ctrl+plus=increase_font_size:1
 keybind=ctrl+shift+c=copy_to_clipboard
-keybind=ctrl+shift+enter=new_split:auto
 keybind=ctrl+shift+i=inspector:toggle
 keybind=ctrl+shift+r=reload_config
 keybind=ctrl+shift+v=paste_from_clipboard
