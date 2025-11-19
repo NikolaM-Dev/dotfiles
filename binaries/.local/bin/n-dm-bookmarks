@@ -37,23 +37,25 @@ declare -A BOOKMARKS=(
 	["Nvim Linkarzu"]="https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean"
 	["Nvim Mrs4ndman"]="https://github.com/mrs4ndman/nvim-conf"
 	["Nvim Prime"]="https://github.com/ThePrimeagen/init.lua"
+	["Nvim Stevearc"]="https://github.com/stevearc/dotfiles/tree/master/.config/nvim"
 	["Nvim Wuelner"]="https://github.com/wuelnerdotexe/nvim"
 
 	["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
 	["Tools Lib"]="https://libgen.li/"
 	["Tools Main Email"]="https://mail.google.com/mail/u/0/#inbox"
+	["Tools OpenAI Usage"]="https://platform.openai.com/settings/organization/usage"
 	["Tools Search Emoji"]="https://emojidb.org"
 	["Tools Secondary Email"]="https://mail.google.com/mail/u/1/#inbox"
 	["Tools WhatsApp"]="https://web.whatsapp.com"
+	["Tools Bookmarks"]="https://app.raindrop.io"
 
 	["YouTube History"]="https://www.youtube.com/feed/history"
+	["YouTube Music"]="https://music.youtube.com/library"
 	["YouTube Playlists"]="https://www.youtube.com/feed/playlists"
 	["YouTube Queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
 	["YouTube Theo"]="https://www.youtube.com/@t3dotgg"
 	["YouTube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
 	["YouTube WL"]="https://www.youtube.com/playlist?list=WL"
-
-	["Music"]="https://music.youtube.com/library"
 
 	["lua annotations"]="https://github.com/LuaLS/lua-language-server/wiki/Annotations"
 	["zen browser releases"]="https://github.com/zen-browser/desktop/releases"
