@@ -7,9 +7,9 @@ git:
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
   merging:
     args: "--no-ff"
-  paging:
-    colorArg: always
-    pager: delta --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 
 gui:
   border: rounded
