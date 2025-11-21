@@ -1,0 +1,3 @@
+[submodule "emacs/.config/emacs"]
+	path = emacs/.config/emacs
+	url = git@github.com:NikolaM-Dev/emacs.git
