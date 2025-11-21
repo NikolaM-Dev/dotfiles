@@ -66,6 +66,7 @@ papirus-icon-theme
 pavucontrol
 pcmanfm
 picom
+polkit-gnome
 python-pip
 python-pipx
 qalculate-gtk
@@ -177,6 +178,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
+xtrlock
 yarn
 yay
 yay-debug
