@@ -1,0 +1,13 @@
+# List avalible recipes
+default:
+    just --list
+
+# Test dunst config
+dunst:
+    @killall dunst || true
+    @dunst &
+
+    @notify-send "No urgency" "Lorem ipsum"
+    @notify-send -u low "Low urgency" "Lorem ipsum"
+    @notify-send -u normal "Normal urgency" "Lorem ipsum"
+    @notify-send -u critical "Critical urgency" "Lorem ipsum"
