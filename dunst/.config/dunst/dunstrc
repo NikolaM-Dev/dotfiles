@@ -1,6 +1,27 @@
 # See 'man 5 dunst' for documentation.
 
-# TODO: Sort this mess
+[global]
+    offset = (10, 56)
+    width = (250, 400)
+
+    progress_bar_corner_radius = 2
+    progress_bar_max_width = 300
+    progress_bar_min_width = 250
+
+    corner_radius = 5
+    frame_width = 1
+    gap_size = 6
+    horizontal_padding = 10
+    padding = 8
+
+    font = "Maple Mono NF 11"
+
+    icon_theme = "Papirus-Dark"
+    enable_recursive_icon_lookup = true
+
+    background = "#282828"
+    foreground = "#d4be98"
+
 [urgency_low]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
