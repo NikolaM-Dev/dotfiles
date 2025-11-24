@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function main {
+	while true; do
+		redshift -x
+
+		local hour=$(date '+%H')
+		if [[ hour -ge '17' ]]; then
+			redshift -O 3500
+			break
+		else
+			sleep 10m
+		fi
+
+	done
+}
+
+main "$@"
