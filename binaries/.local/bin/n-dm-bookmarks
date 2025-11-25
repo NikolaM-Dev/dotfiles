@@ -2,13 +2,15 @@
 
 declare -A BOOKMARKS=(
 	["Docs Bash"]="https://devhints.io/bash"
+	["Docs Blink"]="https://cmp.saghen.dev"
 	["Docs Bun Guides"]="https://bun.sh/guides"
 	["Docs C"]="https://devdocs.io/c"
 	["Docs Go Verbs"]="https://pkg.go.dev/fmt#hdr-Printing"
 	["Docs Just"]="https://just.systems/man/en/introduction.html"
 	["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
+	["Docs Obsidian Tasks"]="https://publish.obsidian.md/tasks/Introduction"
 	["Docs Obsidian"]="https://docs.obsidian.md/Home"
-	["Docs Snacks"]="https://github.com/folke/snacks.nvim/blob/main/README.md"
+	["Docs Snacks"]="https://github.com/folke/snacks.nvim#-features"
 	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
 	["Docs TickTick"]="https://help.ticktick.com/articles/7054286604315131904"
 
