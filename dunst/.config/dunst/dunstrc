@@ -31,6 +31,7 @@
     format = "<b><span foreground='#7daea3'>%s</span></b>\n%b"
     frame_color = "#7daea3"
     highlight = "#7daea3"
+    timeout = 86400000 # To keep my TickTick web app notifications
 
 [urgency_critical]
     format = "<b><span foreground='#ea6962'>%s</span></b>\n%b"
