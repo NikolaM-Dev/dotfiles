@@ -1,7 +1,7 @@
 # See 'man 5 dunst' for documentation.
 
 [global]
-    offset = (10, 56)
+    offset = (6, 34)
     width = (250, 400)
 
     progress_bar_corner_radius = 2
@@ -23,19 +23,16 @@
     foreground = "#d4be98"
 
 [urgency_low]
-    background = "#282828"
     format = "<b><span foreground='#a9b665'>%s</span></b>\n%b"
     frame_color = "#a9b665"
     highlight = "#a9b665"
 
 [urgency_normal]
-    background = "#282828"
     format = "<b><span foreground='#7daea3'>%s</span></b>\n%b"
     frame_color = "#7daea3"
     highlight = "#7daea3"
 
 [urgency_critical]
-    background = "#282828"
     format = "<b><span foreground='#ea6962'>%s</span></b>\n%b"
     frame_color = "#ea6962"
     highlight = "#ea6962"
