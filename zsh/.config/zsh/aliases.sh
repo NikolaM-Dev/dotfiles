@@ -158,6 +158,7 @@ alias ytplaylist="yt-dlp -f 'ba' -x"
 alias dir-size="du -sh"
 alias kill_hpp="pgrep -f 'n-hpp' | xargs kill"
 alias net="fast --upload"
+alias mpvvr="mpv --script=~/.config/mpv/plugins/360plugin.lua --script-opts=360plugin-enabled=yes"
 
 # Time
 alias stopwatch="tclock -c '#9ccfd8' stopwatch"
