@@ -61,7 +61,7 @@ function rclone_serve() {
 }
 
 function yupdate() {
-	if ! yay -Syu; then
+	if ! yay -Syu $@; then
 		echo "\n  [ERROR] Update failed"
 		return 1
 	else
