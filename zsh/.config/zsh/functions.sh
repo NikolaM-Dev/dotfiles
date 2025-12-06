@@ -82,6 +82,14 @@ function _backup_data() {
 	$HOME/.config/rclone/backup.sh
 }
 
+function cd() {
+	if command -v zoxide >/dev/null 2>&1; then
+		z "$@"
+	else
+		builtin cd "$@"
+	fi
+}
+
 function ssn() {
 	if pgrep -f "Minecraft" >/dev/null; then
 		echo "Minecraft is running. Please stop it before shutting down the system."
