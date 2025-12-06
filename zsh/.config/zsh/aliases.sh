@@ -92,7 +92,6 @@ alias gmi="go mod init"
 alias gtest="go test -v -cover ./..."
 
 # IDE
-alias cd="z"
 alias compile-dwm="cd ~/.config/dwm && sudo make clean install && cd -"
 alias cva="yarn create vite"
 alias dautotime="sudo timedatectl set-ntp 0"
