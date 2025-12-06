@@ -166,3 +166,5 @@ for pattern_file in $HOME/.config/fabric/custom-patterns/*; do
 	# Evaluate the alias command to add it to the current shell
 	eval "$alias_command"
 done
+
+. "/home/nikola/.local/share/bob/env/env.sh"
