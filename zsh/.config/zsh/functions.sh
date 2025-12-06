@@ -118,7 +118,23 @@ function review_email() {
 }
 
 function ttimer() {
-	timer $1 --format 24h -n $2 && notify-send "⏰ $2 is Done" && mpv --loop --volume=200 ~/backups/20250724T085024--iphone-radar-alarm__phone.mp3
+	local duration description sound
+
+	duration="$1"
+	description="${2:-Timer}"
+	sound="$HOME/backups/20251008T141746--pomodoro.mp3"
+
+	if [[ -z "$duration" ]]; then
+		printf 'Error: missing duration argument\n' >&2
+		return 1
+	fi
+
+	if timer "$duration" --format 24h -n "$description"; then
+		notify-send -t 600000 "󰀠  $description is Done"
+		mpv "$sound"
+	fi
+}
+
 function schange-date {
 	if [ $# -eq 1 ]; then
 		local hour=$(date +%H:%M:%S)
