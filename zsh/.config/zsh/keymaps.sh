@@ -54,7 +54,7 @@ bindkey -M vicmd v edit-command-line
 # _yupdate, To easy update the system packages using yay
 # ------------------------------------------------------------------------------
 function _yupdate() {
-	LBUFFER="${LBUFFER}yupdate"
+	LBUFFER="${LBUFFER}yupdate --noconfirm"
 }
 
 zle -N _yupdate
