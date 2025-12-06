@@ -119,4 +119,12 @@ function review_email() {
 
 function ttimer() {
 	timer $1 --format 24h -n $2 && notify-send "⏰ $2 is Done" && mpv --loop --volume=200 ~/backups/20250724T085024--iphone-radar-alarm__phone.mp3
+function schange-date {
+	if [ $# -eq 1 ]; then
+		local hour=$(date +%H:%M:%S)
+		sudo timedatectl set-ntp 0 && sudo timedatectl set-time "$1 $hour"
+	else
+		echo "Use: schange-date <yyyy-MM-dd>"
+		exit 1
+	fi
 }
