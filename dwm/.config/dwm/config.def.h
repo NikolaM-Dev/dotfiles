@@ -60,7 +60,7 @@ static const Rule rules[] = {
 	{ "Qalculate-gtk", "qalculate-gtk", NULL,  0,         1,          -1 },
 	{ "Zotero",        "Zotero",        NULL,  0,         1,          -1 },
 	{ "ticktick",      "ticktick",      NULL,  0,         0,          -1 },
-  { "StayFree",      "stayfree",      NULL,  1 << 8,    0,          -1 },
+  { "StayFree",      "stayfree",      NULL,  1 << 7,    0,          -1 },
   { "feh",           "feh",           NULL,  0,         1,          -1 },
 };
 
