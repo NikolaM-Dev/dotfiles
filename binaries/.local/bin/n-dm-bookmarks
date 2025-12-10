@@ -14,6 +14,7 @@ declare -A BOOKMARKS=(
 	["Docs Snacks"]="https://github.com/folke/snacks.nvim#-features"
 	["Docs Sunaku Glove80"]="https://raw.githubusercontent.com/sunaku/glove80-keymaps/v42-rc5/README/all-layer-diagrams.pdf"
 	["Docs TickTick"]="https://help.ticktick.com/articles/7054286604315131904"
+	["Docs Watchexec"]="https://github.com/watchexec/watchexec/tree/main/crates/cli#usage-examples"
 
 	["Motivation Alex Hormozi"]="https://www.instagram.com/hormozi/reel/Ct2zx94onmh"
 	["Motivation Contentoso"]="https://www.youtube.com/watch?v=ja75uBnzHS0"
