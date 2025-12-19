@@ -44,7 +44,7 @@ path = "~/w/2-areas/second-brain.md/src"
 [[session]]
 name = " music"
 path = "~/Music"
-startup_command = 'make'
+startup_command = 'just'
 
 [[session]]
 name = "󰂾 library"
