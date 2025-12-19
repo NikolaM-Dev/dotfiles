@@ -34,7 +34,8 @@ startup_command = 'nvim'
 
 [[session]]
 name = " second brain"
-path = "~/w/2-areas/second-brain.md"
+path = "~/w/2-areas/second-brain.md/src"
+startup_command = 'nvim'
 
 [[session]]
 name = "󰯊 notes"
