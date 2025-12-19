@@ -1,0 +1,40 @@
+menu_child         Right
+menu_down          Down
+menu_parent        Left
+menu_up            Up
+
+scroll_down        j s
+scroll_left        h a
+scroll_right       l d
+scroll_up          k w
+
+scroll_down_page   C-j
+scroll_left_page   C-h
+scroll_right_page  C-l
+scroll_up_page     C-k
+
+toggle_aliasing    A
+toggle_filenames   d
+toggle_fullscreen  f
+toggle_pointer     o
+
+zoom_default       parenleft
+zoom_fit           parenright
+zoom_in            K plus
+zoom_out           J underscore
+
+flip               greater
+mirror             less
+next_dir           bracketright
+next_img           R apostrophe C-p
+orient_1           braceleft
+orient_3           braceright
+prev_dir           bracketleft
+prev_img           E semicolon C-n
+reload_image       r
+remove             Delete
+size_to_image      equal
+
+close              q Q
+
+# vim: set ft=dosini
