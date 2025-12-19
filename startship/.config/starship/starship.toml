@@ -2,8 +2,16 @@
 
 scan_timeout = 60
 
+right_format = "$time"
+
 [character]
 vimcmd_symbol = '[](bold green)'
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "dimmed"
+time_format = "%H:%M:%S"
 
 [cmd_duration]
 format = "[$duration]($style) "
