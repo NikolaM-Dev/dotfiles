@@ -33,33 +33,10 @@ gui:
     rate: 42
   tabWidth: 2
   theme:
-    activeBorderColor:
-      - "#3e8fb0"
-      - bold
-    cherryPickedCommitBgColor:
-      - "#39355200"
-    cherryPickedCommitFgColor:
-      - "#f6c177"
-    defaultFgColor:
-      - "#e0def4"
-    inactiveBorderColor:
-      - "#6e6a86"
-    markedBaseCommitBgColor:
-      - "#39355200"
-    markedBaseCommitFgColor:
-      - "#f6c177"
-    optionsTextColor:
-      - "#9ccfd8"
-    searchingActiveBorderColor:
-      - "#f6c177"
-      - bold
     selectedLineBgColor:
-      - "#393552"
-    unstagedChangesColor:
-      - "#6e6a86"
-
+      - "#45403d"
   authorColors:
-    "*": "#ea9a97"
+    "*": "#d3869b"
 
 customCommands:
   - key: "c"
