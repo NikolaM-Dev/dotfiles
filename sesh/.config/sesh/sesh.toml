@@ -92,3 +92,7 @@ path = "~/w/3-resources"
 [[session]]
 name = " archives"
 path = "~/w/4-archives"
+
+[[session]]
+name = " Bob"
+path = "/home/nikola/.local/share/bob/nightly/share/nvim/runtime"
