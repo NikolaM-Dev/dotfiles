@@ -39,6 +39,7 @@ just
 lazydocker
 lazygit
 lib32-nvidia-utils
+libreoffice-fresh
 linutil
 linux
 linux-firmware
