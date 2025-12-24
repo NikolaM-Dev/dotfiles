@@ -2,6 +2,7 @@
 base
 base-devel
 bat
+bc
 bob
 btop
 calibre
