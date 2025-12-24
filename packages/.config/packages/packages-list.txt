@@ -45,6 +45,8 @@ linux-headers
 localsend
 lxappearance
 modrinth-app-bin
+mpc
+mpd
 mpv
 neovim
 networkmanager
@@ -77,6 +79,7 @@ rclone
 redshift
 reflector
 ripgrep
+rmpc
 rofi
 rofi-calc
 rofi-emoji
