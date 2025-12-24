@@ -127,11 +127,13 @@ udiskie
 unrar
 unzip
 uv
+valgrind
 vim
 virtualbox
 virtualbox-host-modules-arch
 visual-studio-code-bin
 vlc
+watchexec
 wezterm
 wget
 xf86-video-vesa
