@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+palette0=#bb7c72 # Volume
+palette1=#6d956f # CPU
+palette2=#9f8a51 # RAM
+palette3=#758fc1 # Disk usage
+palette4=#6196a0 # Date time
+palette5=#717171 # UTC Hour
