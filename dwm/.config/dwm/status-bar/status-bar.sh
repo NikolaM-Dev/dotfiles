@@ -32,30 +32,30 @@ function _volume() {
 	is_mute=$(pamixer --get-mute)
 
 	if [ "$is_mute" = "true" ]; then
-		printf "^c$love^󰖁 --%%"
+		printf "^c$palette0^󰖁 --%%"
 	else
 		vol=$(pamixer --get-volume)
-		printf "^c$love^󰕾 %02d%%" "$vol"
+		printf "^c$palette0^󰕾 %02d%%" "$vol"
 	fi
 }
 
 function _cpu() {
 	cpu=$(top -bn1 | grep load | awk '{printf "%.2f%%", $(NF-2)}')
-	printf "^c$gold^ %s" "$cpu"
+	printf "^c$palette1^ %s" "$cpu"
 }
 
 function _memory() {
 	memory=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')
-	printf "^c$iris^ %s" "$memory"
+	printf "^c$palette2^ %s" "$memory"
 }
 
 function _disk() {
 	disk=$(df -h | awk '$NF=="/"{printf "%s", $5}')
-	printf "^c$rose^󰋊 %s" "$disk"
+	printf "^c$palette3^󰋊 %s" "$disk"
 }
 
 function _date_time() {
-	printf "^c$foam^󱛡 %s ^c$surface^%s:^c$foam^%s " "$(date '+W%V %a %Y-%m-%d')" "$(date -u '+%H')" "$(date '+%H:%M:%S')"
+	printf "^c$palette4^󱛡 %s ^c$palette5^%s:^c$palette4^%s " "$(date '+W%V %a %Y-%m-%d')" "$(date -u '+%H')" "$(date '+%H:%M:%S')"
 }
 
 function _test() {
