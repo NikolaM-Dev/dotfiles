@@ -2,7 +2,7 @@
 
 # Colors are available thankfully to [status2d DWM patch](https://dwm.suckless.org/patches/status2d)
 # Load the colorscheme
-. ~/.config/dwm/status-bar/themes/rose-pine
+. ~/.config/dwm/status-bar/themes/dicom
 
 # Returns 0 if is connected, and 2 if isn't connected
 function _has_connection() {

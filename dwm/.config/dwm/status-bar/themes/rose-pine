@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-# ---------------------------------------------- Colors ---------------------------------------------- #
-
-love=#eb6f92
-gold=#f6c177
-iris=#c4a7e7
-foam=#9ccfd8
-rose=#ea9a97
-leaf=#95b1ac
-pine=#3e8fb0
-surface=#56526e
+palette0=#eb6f92 # Volume
+palette1=#f6c177 # CPU
+palette2=#c4a7e7 # RAM
+palette3=#ea9a97 # Disk usage
+palette4=#9ccfd8 # Date time
+palette5=#56526e # UTC Hour
