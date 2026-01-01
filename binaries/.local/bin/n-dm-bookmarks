@@ -50,6 +50,7 @@ declare -A BOOKMARKS=(
 	["Tools Bookmarks"]="https://app.raindrop.io"
 	["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
 	["Tools Expenses"]="https://docs.google.com/spreadsheets/d/19guV9oKYXDY1Safkuk7r2G9Bvt5l8oon/edit?gid=931591167#gid=931591167"
+	["Tools Friendly Snippets"]="https://github.com/rafamadriz/friendly-snippets"
 	["Tools Habits"]="https://docs.google.com/spreadsheets/d/13mIPve89wIMPJXzdL6uxG03YYTjWZQ9w7I3GneFyx5I/edit?gid=1723616662#gid=1723616662"
 	["Tools Instagram Saved"]="https://www.instagram.com/nikolam_dev/saved/all-posts/"
 	["Tools Lib"]="https://libgen.li/"
@@ -61,6 +62,7 @@ declare -A BOOKMARKS=(
 	["Tools Snippets"]="https://snippet-generator.app"
 	["Tools Transform JS"]="https://transform.tools/js-object-to-json"
 	["Tools WhatsApp"]="https://web.whatsapp.com"
+	["Tools X Saved Bookmarks"]="https://x.com/i/bookmarks"
 
 	["YouTube History"]="https://www.youtube.com/feed/history"
 	["YouTube Music"]="https://music.youtube.com/library"
