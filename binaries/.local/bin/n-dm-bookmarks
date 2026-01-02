@@ -53,6 +53,7 @@ declare -A BOOKMARKS=(
 	["Tools Friendly Snippets"]="https://github.com/rafamadriz/friendly-snippets"
 	["Tools Habits"]="https://docs.google.com/spreadsheets/d/13mIPve89wIMPJXzdL6uxG03YYTjWZQ9w7I3GneFyx5I/edit?gid=1723616662#gid=1723616662"
 	["Tools Instagram Saved"]="https://www.instagram.com/nikolam_dev/saved/all-posts/"
+	["Tools Language Learning"]="https://docs.google.com/spreadsheets/d/1TuUk69eFc1l_l36Xg1CmbgWZzkDlac5Es6HTMp2ozXM/edit?gid=744709126#gid=744709126"
 	["Tools Lib"]="https://libgen.li/"
 	["Tools Lua to JSON"]="https://www.terrific.tools/code/lua-to-json"
 	["Tools Main Email"]="https://mail.google.com/mail/u/0/#inbox"
