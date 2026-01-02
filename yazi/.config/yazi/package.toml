@@ -3,5 +3,10 @@ use = "yazi-rs/plugins:chmod"
 rev = "d1c8baa"
 hash = "8ad3e90b079190b4905f24a44f4ca06b"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "398796d"
+hash = "407d19bc4fb46eff5fa8ff8337644847"
+
 [flavor]
 deps = []

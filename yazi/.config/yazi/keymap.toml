@@ -6,6 +6,7 @@
 prepend_keymap = [
 	{ on = "<C-s>", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
 	{ on = "<Enter>", run = "plugin smart-open", desc = "Enter the child directory, or open the file" },
+	{ on = "F", run = "plugin smart-filter", desc = "Smart filter" },
 	{ on = "P", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
 	{ on = "R", run = "shell  'n-rename \"$0\"' --confirm", desc = "Rename selected file(s)" },
 	{ on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
