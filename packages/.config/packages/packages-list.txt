@@ -190,7 +190,6 @@ xsel
 xtrlock
 yarn
 yay
-yay-debug
 yazi
 yt-dlp
 zathura
