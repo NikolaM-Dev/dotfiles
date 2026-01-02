@@ -5,7 +5,7 @@ local M = {}
 local function font(opts)
 	return wezterm.font_with_fallback({
 		opts,
-		{ family = 'Symbols Nerd Font Mono' },
+		{ family = 'Symbols Nerd Font' },
 		{ family = 'Apple Color Emoji' },
 	})
 end
