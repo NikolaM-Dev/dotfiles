@@ -137,6 +137,7 @@ vlc
 watchexec
 wezterm
 wget
+wine
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
