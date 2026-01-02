@@ -2,6 +2,7 @@ Blepharitis
 CS50
 CS50's
 Calibre
+CrossFit
 DHCP
 DSA
 GDB
