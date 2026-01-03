@@ -19,7 +19,7 @@
       }
     }
   },
-  "theme": "gruvbox-material-dark",
+  "theme": "system",
   "keybinds": {
     "agent_cycle": "tab",
     "agent_cycle_reverse": "shift+tab",
