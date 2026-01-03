@@ -11,6 +11,7 @@ curl
 discord
 docker
 docker-compose
+downgrade
 dunst
 efibootmgr
 emacs
