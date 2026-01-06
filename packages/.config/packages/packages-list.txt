@@ -5,7 +5,6 @@ bat
 bc
 bob
 btop
-calibre
 clock-tui
 curl
 discord
