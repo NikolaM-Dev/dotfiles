@@ -23,7 +23,6 @@ ffmpeg4.4
 flameshot
 fzf
 gdb
-ghostty
 git
 git-delta
 github-cli
