@@ -73,6 +73,7 @@ picom
 polkit-gnome
 python-pip
 python-pipx
+python-poetry
 qalculate-gtk
 qogir-gtk-theme
 rate-mirrors-bin
@@ -137,6 +138,8 @@ watchexec
 wezterm
 wget
 wine
+xclip
+xdotool
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
