@@ -1,20 +1,20 @@
 [font]
-size = 12
+size = 13
 
 [font.bold]
-family = "Maple Mono"
+family = "Maple Mono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Maple Mono"
+family = "Maple Mono NF"
 style = "BoldItalic"
 
 [font.italic]
-family = "Maple Mono"
+family = "Maple Mono NF"
 style = "Italic"
 
 [font.normal]
-family = "Maple Mono"
+family = "Maple Mono NF"
 style = "Regular"
 
 [font.offset]
