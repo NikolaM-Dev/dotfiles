@@ -1,4 +1,5 @@
 7zip
+alacritty
 base
 base-devel
 bat
