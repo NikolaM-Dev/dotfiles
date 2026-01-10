@@ -1,12 +1,22 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "d1c8baa"
-hash = "8ad3e90b079190b4905f24a44f4ca06b"
+rev = "68f7d48"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "398796d"
+rev = "68f7d48"
 hash = "407d19bc4fb46eff5fa8ff8337644847"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "68f7d48"
+hash = "75fd60b2df7115e0a6ca31a6a804d320"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "68f7d48"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [flavor]
 deps = []
