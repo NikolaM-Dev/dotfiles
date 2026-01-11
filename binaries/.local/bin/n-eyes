@@ -1,19 +1,91 @@
 #!/usr/bin/env bash
 
-function _min_to_ms() {
-	local SECOND_IN_MS=1000
-	local MIN_IN_SECOND=$((60 * $SECOND_IN_MS))
+# Enforces the 20/20/20 eye-break rule with a deep pause every third cycle.
+# Waits 20 minutes, sends a desktop notification with audio, locks the screen
+# for the scheduled pause (1 minute or 3 minutes), then repeats indefinitely.
+# Requires `notify-send`, `mpv`, `xtrlock`, and the bundled pomodoro MP3.
 
-	echo $(($1 * $MIN_IN_SECOND))
+set -euo pipefail
+
+function _duration_to_s() {
+  local duration=$1
+  local value_in_s
+
+  local value=${duration//[^0-9]/}
+  local unit=${duration//[0-9]/}
+
+  case "$unit" in
+  "ms")
+    value_in_s=$((value / 1000))
+    ;;
+  "s")
+    value_in_s=$value
+    ;;
+  "m")
+    value_in_s=$((value * 60))
+    ;;
+  *)
+    echo "Error: Unknown duration unit '$unit' in '$duration'" >&2
+    return 1
+    ;;
+  esac
+
+  echo "$value_in_s"
+}
+
+function _notify() {
+  local message=$1
+  local duration=$2
+  notify-send -t "$duration" "$message" &
+  mpv /home/nikola/backups/20251008T141746--pomodoro.mp3 &
+}
+
+function _trace() {
+  echo " [TRACE] $1"
+}
+
+function _lock_screen() {
+  local duration=$1
+
+  xtrlock &
+  pid=$!
+  _trace "Pausing screen for ${duration}s"
+  _trace "xtrlock PID: $pid"
+
+  sleep "$duration"
+  kill "$pid" 2>/dev/null || true
+  _trace "Continuing screen"
 }
 
 function main {
-	while true; do
-		notify-send -t $(_min_to_ms 5) "👀 20x20x20" &
-		mpv /home/nikola/backups/20251008T141746--pomodoro.mp3
+  local DEEP_PAUSE=$(_duration_to_s 3m)
+  local INTERVAL=$(_duration_to_s 20m)
+  local PAUSE=$(_duration_to_s 1m)
 
-		sleep 20m
-	done
+  local count=0
+  local notification_message
+  local pause_duration
+
+  _trace "Starting command"
+  sleep $INTERVAL
+
+  while true; do
+    count=$((count + 1))
+
+    if [[ $count -eq 3 ]]; then
+      pause_duration=$DEEP_PAUSE
+      notification_message="🧘 Deep Pause ($((pause_duration / 60))m) - Sciatic/Eyes"
+      count=0
+    else
+      pause_duration=$PAUSE
+      notification_message="👀 20x20x20 - Short Break ($((pause_duration / 60))m)"
+    fi
+
+    _notify "$notification_message" "$((pause_duration * 1000))"
+    _lock_screen "$pause_duration"
+
+    sleep $INTERVAL
+  done
 }
 
 main "$@"
