@@ -31,4 +31,7 @@ keybind=ctrl+shift+i=inspector:toggle
 keybind=ctrl+shift+r=reload_config
 keybind=ctrl+shift+v=paste_from_clipboard
 
+# vim
+# config-file = vim
+
 # vim: filetype=toml
