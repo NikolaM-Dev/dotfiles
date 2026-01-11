@@ -13,8 +13,8 @@ static const char *fonts[]    = { "JetBrains Mono:size=10:weight=medium", "Symbo
 
 static const char *colors[][3] = {
 	/*               fg,        bg,        border */
-	[SchemeNorm] = { "#6e6a86", "#232136", "#2a283e" },
-	[SchemeSel]  = { "#e0def4", "#232136", "#56526e"  },
+	[SchemeNorm] = { "#717171", "#1b1b1b", "#1b1b1b" },
+	[SchemeSel]  = { "#717171", "#1b1b1b", "#717171"  },
 };
 
 /* Systray */
@@ -34,15 +34,15 @@ static const unsigned int ulinevoffset = 0;   /* how far above the bottom of the
 
 static const char *tagsel[][2] = {
 	/* fg,       bg */
-	{ "#eb6f92", "#232136" },
-	{ "#f6c177", "#232136" },
-	{ "#c4a7e7", "#232136" },
-	{ "#9ccfd8", "#232136" },
-	{ "#ea9a97", "#232136" },
-	{ "#95b1ac", "#232136" },
-	{ "#3e8fb0", "#232136" },
-	{ "#eb6f92", "#232136" },
-	{ "#f6c177", "#232136" },
+	{ "#bb7c72", "#1b1b1b" },
+	{ "#6d956f", "#1b1b1b" },
+	{ "#9f8a51", "#1b1b1b" },
+	{ "#758fc1", "#1b1b1b" },
+	{ "#6196a0", "#1b1b1b" },
+	{ "#a185b6", "#1b1b1b" },
+	{ "#bb7c72", "#1b1b1b" },
+	{ "#6d956f", "#1b1b1b" },
+	{ "#9f8a51", "#1b1b1b" },
 };
 
 static const Rule rules[] = {
