@@ -1,24 +1,25 @@
 # adjust-cell-height = 20%
 # adjust-underline-position = 4
 
-font-family                 = Maple Mono NF
-font-family-bold            = Maple Mono NF
-font-family-italic          = Maple Mono NF
-font-family-bold-italic     = Maple Mono NF
+font-family = MapleMonoNF
+font-family-bold = MapleMonoNF
+font-family-italic = MapleMonoNF
+font-family-bold-italic = MapleMonoNF
+font-family = SymbolsNerdFont
 
-font-family                 = Symbols Nerd Font
-
-adjust-cell-width           = -15%
-background-opacity          = 1
-confirm-close-surface       = false
-font-size                   = 13.5
-gtk-single-instance         = true
-gtk-titlebar                = false
-mouse-hide-while-typing     = true
-theme                       = gruvbox-material-dark
-window-decoration           = false
-window-padding-x            = 3
-window-padding-y            = 3
+adjust-cell-width = -15%
+background-opacity = 1
+confirm-close-surface = false
+font-size = 13.5
+gtk-single-instance = true
+gtk-titlebar = false
+mouse-hide-while-typing = true
+scrollback-limit = 1000000
+theme = gruvbox-material-dark
+window-decoration = false
+window-padding-x = 3
+window-padding-y = 3
+window-save-state = always
 
 # keybinds
 keybind=clear
