@@ -18,6 +18,7 @@ SQLite3
 SWE
 TLDR
 TickTick
+Wezterm
 Zotero
 autocmd
 csv
