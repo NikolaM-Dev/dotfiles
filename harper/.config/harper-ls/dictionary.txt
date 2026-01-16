@@ -21,6 +21,7 @@ TickTick
 Wezterm
 Zotero
 autocmd
+btop
 csv
 cwd
 gx
