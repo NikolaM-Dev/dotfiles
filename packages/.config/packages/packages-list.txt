@@ -75,7 +75,6 @@ picom
 polkit-gnome
 python-pip
 python-pipx
-python-poetry
 qalculate-gtk
 qogir-gtk-theme
 rate-mirrors-bin
