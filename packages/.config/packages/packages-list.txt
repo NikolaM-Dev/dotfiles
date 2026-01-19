@@ -51,7 +51,6 @@ modrinth-app-bin
 mpc
 mpd
 mpv
-neovim
 networkmanager
 network-manager-applet
 noto-fonts
