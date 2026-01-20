@@ -90,7 +90,6 @@ screenkey
 sd
 selectdefaultapplication-fork-git
 solanum
-stayfree-desktop
 stow
 syncthing
 tealdeer
