@@ -46,7 +46,7 @@ picom -b --config $HOME/.config/picom/picom.conf &
 sh $HOME/.fehbg &
 udiskie -t &
 dunst &
-greenclip daemon &
+copyq &
 $SECOND_BRAIN_PATH/jobs.sh &
 n-backup &
 n-eyes &
