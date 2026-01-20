@@ -31,6 +31,8 @@ navbar
 netrw
 nvim
 predefining
+quickfix
+readonly
 solidarity
 stylua
 tmux
