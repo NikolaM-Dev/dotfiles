@@ -52,6 +52,5 @@ n-backup &
 n-eyes &
 n-redshift &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/opt/StayFree/stayfree-desktop &
 
 n-dwm-start
