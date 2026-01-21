@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# `n-focus` is a lightweight helper that orchestrates a deliberate video-
+# watching session. It’s designed to prompt reflection on why you’re doing
+# what you’re doing and to help you enter a calm, focused state.
+
+function _lock_screen() {
+	local duration=$1
+
+	xtrlock &
+	pid=$!
+	_trace "Pausing screen for ${duration}s"
+	_trace "xtrlock PID: $pid"
+
+	sleep "$duration"
+	kill "$pid" 2>/dev/null || true
+	_trace "Continuing screen"
+}
+
+function main {
+	# Pause rmpc using `rmpc pause`
+	rmpc pause
+
+	# Save current volume
+	local current_volume="$(pamixer --get-volume)"
+
+	# Increase the volume according to the video
+	pamixer --set-volume 80
+
+	# Start the Hormozi's video about Ivarn version 2.0
+	mpv /home/nikola/backups/20250907T203206--dear-ivante-sermon-by-alex-hormozi.mp4 &
+
+	# Look the screen according to the video lenght using `_lock_screen` Pause
+	# for 8m 40s (520s)
+	_lock_screen 520
+
+	# Restore volume
+	pamixer --set-volume $current_volume
+
+	# Unpause rmpc using `rmpc unpause`
+	rmpc unpause
+}
+
+main
