@@ -4,7 +4,7 @@ local font = f.get_font()
 
 local M = {}
 
-function M.setup_font(config)
+function M.setup(config)
 	local SCALE = 0.98
 	local FAMILY = 'Maple Mono NF'
 
