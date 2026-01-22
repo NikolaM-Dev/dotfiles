@@ -1,4 +1,5 @@
 local c = require('config')
+local wezterm = require('wezterm') --[[@as Wezterm]]
 local font = require('fonts.maple-mono-nf')
 
 local config = c.get_config()
