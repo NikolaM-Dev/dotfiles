@@ -13,6 +13,7 @@ discord
 docker
 docker-compose
 downgrade
+droidcam-obs-plugin
 dunst
 efibootmgr
 emacs
