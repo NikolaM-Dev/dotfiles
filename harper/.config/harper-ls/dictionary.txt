@@ -13,6 +13,7 @@ NKL
 NL
 Nikola's
 OS
+Pomodoro
 SP
 SQLite3
 SWE
