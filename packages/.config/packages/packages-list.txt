@@ -197,6 +197,7 @@ yt-dlp
 zathura
 zathura-pdf-mupdf
 zenity
+zk
 zotero
 zoxide
 zsh
