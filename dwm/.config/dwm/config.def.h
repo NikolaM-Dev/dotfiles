@@ -95,14 +95,13 @@ static const Layout layouts[] = {
 static char dmenumon[2]       = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon,  NULL };
 
-static const char *browsercmd[]   = { "zen-browser",  NULL           };
-static const char *emojiscmd[]    = { "rofi",         "-show",       "emoji", NULL };
-static const char *flameshotcmd[] = { "flameshot",    "gui",         NULL     };
-static const char *menucmd[]      = { "rofi",         "-show",       NULL     };
-static const char *obsidian[]     = { "obsidian",     NULL           };
-static const char *termcmd[]      = { "wezterm","-e", "n-start-tmux", NULL     };
-static const char *ticktick[]     = { "ticktick",     NULL           };
-static const char *zotero[]       = { "zotero",       NULL           };
+static const char *browser[]   = { "zen-browser", NULL };
+static const char *emojis[]    = { "rofi",        "-show", "emoji", NULL };
+static const char *flameshot[] = { "flameshot",   "gui",   NULL };
+static const char *menu[]      = { "rofi",        "-show", NULL };
+static const char *obsidian[]  = { "obsidian",    NULL };
+static const char *ticktick[]  = { "ticktick",    NULL };
+static const char *zotero[]    = { "zotero",      NULL };
 
 Autostarttag autostarttaglist[] = {
 	{.cmd = NULL,        .tags = 0 },
