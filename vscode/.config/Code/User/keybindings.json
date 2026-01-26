@@ -207,5 +207,14 @@
   {
     "key": "ctrl+shift+j",
     "command": "json.sort"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.action.terminal.openDetectedLink",
+    "when": "accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal'"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-editor.action.announceCursorPosition"
   }
 ]
