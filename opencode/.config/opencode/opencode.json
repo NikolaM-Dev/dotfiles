@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "keybinds": {
+    "messages_page_down": "pagedown,ctrl+alt+f,ctrl+]",
+    "messages_page_up": "pageup,ctrl+alt+b,ctrl+["
+  },
+  "permission": {
+    "bash": "ask",
+    "edit": "ask"
+  },
+  "plugin": [],
+  "provider": {
+    "ollama": {
+      "models": {
+        "gemma3:4b": {
+          "name": "gemma3:4b"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      }
+    }
+  }
+}
