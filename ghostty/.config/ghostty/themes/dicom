@@ -1,0 +1,12 @@
+palette = 0=#717171
+palette = 1=#bb7c72
+palette = 2=#6d956f
+palette = 3=#9f8a51
+palette = 4=#758fc1
+palette = 5=#6196a0
+palette = 6=#a185b6
+palette = 7=#aeaeae
+background = #1b1b1b
+foreground = #aeaeae
+selection-background = #636363
+selection-foreground = #aeaeae
