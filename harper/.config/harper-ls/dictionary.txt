@@ -1,4 +1,5 @@
 Blepharitis
+C.
 CS50
 CS50's
 CTRL
@@ -7,7 +8,9 @@ CrossFit
 DAP
 DHCP
 DSA
+Dodds
 GDB
+HOCs
 IntelliSence
 JSX
 KB
@@ -24,6 +27,7 @@ SQLite3
 SWE
 TLDR
 TickTick
+VDOM
 ViteJS
 Wezterm
 Zotero
@@ -46,6 +50,8 @@ stylua
 tmux
 todo
 toml
+useCallback
+uuid
 valgrind
 variadic
 wav
