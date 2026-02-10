@@ -1,11 +1,11 @@
 # adjust-cell-height = 20%
 # adjust-underline-position = 4
 
-font-family = MapleMonoNF
-font-family-bold = MapleMonoNF
-font-family-italic = MapleMonoNF
-font-family-bold-italic = MapleMonoNF
-font-family = SymbolsNerdFont
+font-family = Maple Mono NF
+font-family-bold = Maple Mono NF
+font-family-italic = Maple Mono NF
+font-family-bold-italic = Maple Mono NF
+font-family = Symbols Nerd Font
 
 adjust-cell-width = -15%
 background-opacity = 1
