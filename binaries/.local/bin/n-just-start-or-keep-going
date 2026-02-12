@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#
+# n-just-start-keep - Periodic notification/alert system
+#
+# Description:
+#   Runs indefinitely, playing a sound at random intervals between
+#   5 and 20 minutes. Useful for periodic reminders, breaks, or
+#   mindfulness prompts throughout the day.
+#
+# Usage:
+#   n-just-start-keep
+#
+# Dependencies:
+#   - mpv: For playing the audio file
+#   - /home/nikola/backups/20260207T092714--yuumi1.ogg: The audio file to play
+#
+# Author: Nikola
+
+set -euo pipefail
+
+# Enable strict mode:
+# -e: Exit on error
+# -u: Treat unset variables as errors
+# -o pipefail: Catch errors in pipelines
+
+# Trace helper for logging
+# Args:
+#   $1: Message to log
+function _trace() {
+  echo " [TRACE] $1"
+}
+
+# Main function - runs the notification loop
+function main {
+  _trace "Starting notification loop (interval: 5-20 min)"
+
+  while true; do
+    # Define interval bounds in seconds
+    local MAX=$((20 * 60)) # 20 minutes
+    local MIN=$((5 * 60))  # 5 minutes
+
+    # Generate random interval between MIN and MAX
+    # Formula: RANDOM % (max - min + 1) + min
+    local INTERVAL=$((RANDOM % (MAX - MIN + 1) + MIN))
+
+    _trace "Waiting ${INTERVAL} seconds ($((${INTERVAL} / 60)) min)"
+
+    # Play notification sound in the background
+    mpv /home/nikola/backups/20260207T092714--yuumi1.ogg &
+
+    # Wait for the random interval
+    sleep $INTERVAL
+  done
+}
+
+# Execute main function
+main
