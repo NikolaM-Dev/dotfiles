@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+function _duration_to_s() {
+  local duration=$1
+  local value_in_s
+
+  local value=${duration//[^0-9]/}
+  local unit=${duration//[0-9]/}
+
+  case "$unit" in
+  "ms")
+    value_in_s=$((value / 1000))
+    ;;
+  "s")
+    value_in_s=$value
+    ;;
+  "m")
+    value_in_s=$((value * 60))
+    ;;
+  *)
+    echo "Error: Unknown duration unit '$unit' in '$duration'" >&2
+    return 1
+    ;;
+  esac
+
+  echo "$value_in_s"
+}
+
+function _notify() {
+  local message=$1
+  local duration=$2
+  notify-send -u critical -t "$duration" "$message" &
+  mpv /home/nikola/backups/20260208T171702--zoe-bubble.ogg &
+}
+
+function _trace() {
+  echo " [TRACE] $1"
+}
+
+function _lock_screen() {
+  local duration=$1
+
+  xtrlock &
+  pid=$!
+  _trace "Pausing screen for ${duration}s"
+  _trace "xtrlock PID: $pid"
+
+  sleep "$duration"
+  kill "$pid" 2>/dev/null || true
+  _trace "Continuing screen"
+}
+
+function main {
+  local pause_duration=$(_duration_to_s 5m)
+  local notification_message="(¬_¬\") 💤"
+
+  _notify "$notification_message" "$((pause_duration * 1000))"
+  _lock_screen "$pause_duration"
+}
+
+main
