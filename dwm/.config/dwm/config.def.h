@@ -104,6 +104,7 @@ static const char *ticktick[]  = { "ticktick",    NULL };
 static const char *zotero[]    = { "zotero",      NULL };
 static const char *term[]  = { "ghostty",      NULL };
 static const char *term_tmux[]  = { "ghostty", "-e", "n-start-tmux",      NULL };
+static const char *color_picker[]  = { "gpick", "--single", NULL };
 
 Autostarttag autostarttaglist[] = {
 	{.cmd = NULL,        .tags = 0 },
@@ -121,6 +122,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,  XK_r,                     spawn,          SHCMD("n-dwm-recompile") },
 	{ MODKEY|ShiftMask,              XK_b,                     togglebar,      {0} },
 	{ MODKEY,              XK_b,                     spawn, SHCMD("n-dm-bookmarks")       },
+	{ MODKEY,              XK_p,                     spawn,          {.v = color_picker} },
 	{ MODKEY,              XK_q,                     killclient,     {0} },
 	{ MODKEY,              XK_c,                     spawn,          SHCMD("qalculate-gtk") },
 	{ MODKEY,              XK_o,                     spawn,          {.v = obsidian } },
