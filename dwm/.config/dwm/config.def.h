@@ -102,6 +102,8 @@ static const char *menu[]      = { "rofi",        "-show", NULL };
 static const char *obsidian[]  = { "obsidian",    NULL };
 static const char *ticktick[]  = { "ticktick",    NULL };
 static const char *zotero[]    = { "zotero",      NULL };
+static const char *term[]  = { "ghostty",      NULL };
+static const char *term_tmux[]  = { "ghostty", "-e", "n-start-tmux",      NULL };
 
 Autostarttag autostarttaglist[] = {
 	{.cmd = NULL,        .tags = 0 },
@@ -111,7 +113,8 @@ static const Key keys[] = {
 	/* modifier,           key,                      function,       argument */
 	{ MODKEY,              XK_m,                     spawn,          {.v = menucmd } },
 	{ MODKEY,              XK_Return,                spawn,          {.v = termcmd } },
-	{ MODKEY,              XK_u,                     setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,              XK_Return,                spawn,          {.v = term_tmux} },
+	{ MODKEY|ShiftMask,    XK_Return,                spawn,          {.v = term} },
 	{ MODKEY|ShiftMask,    XK_u,                     setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,              XK_f,                     setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ControlMask,  XK_q,                     quit,           {0} },
@@ -184,7 +187,7 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = term } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
