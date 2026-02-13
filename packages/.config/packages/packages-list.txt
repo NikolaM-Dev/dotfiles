@@ -26,6 +26,7 @@ ffmpeg4.4
 flameshot
 fzf
 gdb
+ghostty
 git
 git-delta
 github-cli
@@ -38,6 +39,7 @@ gvfs
 helium-browser-bin
 jq
 just
+kdenlive
 lazydocker
 lazygit
 lib32-nvidia-utils
