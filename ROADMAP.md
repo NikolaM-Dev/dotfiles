@@ -2,13 +2,13 @@
 
 ## 🔥 in Progress
 
-- [ ] git submodules for emacs and neovim
+- [ ] Git submodules for Emacs and Neovim
   - [x] Research ✅ 2026-02-12
-  - [x] Add emacs ✅ 2026-02-12
-  - [ ] Add neovim
+  - [x] Add Emacs ✅ 2026-02-12
+  - [ ] Add Neovim
   - [x] Add just recipes ✅ 2026-02-12
-  - [ ] docs
-  - [ ] distill
+  - [x] docs ✅ 2026-02-12
+  - [x] distill ✅ 2026-02-12
 
 
 ## 🔮 Next
