@@ -91,6 +91,7 @@ rofi-calc
 rofi-emoji
 rsync
 screenkey
+scrot
 sd
 selectdefaultapplication-fork-git
 solanum
