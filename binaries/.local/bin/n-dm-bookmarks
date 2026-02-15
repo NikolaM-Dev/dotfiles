@@ -47,6 +47,10 @@ declare -A BOOKMARKS=(
   ["Nvim Stevearc"]="https://github.com/stevearc/dotfiles/tree/master/.config/nvim"
   ["Nvim Wuelner"]="https://github.com/wuelnerdotexe/nvim"
 
+  ["Toosl Cerebras Subscription"]="https://cloud.cerebras.ai/platform/org_w949c6e4wh6tp8ynxkc8433m/analytics/usage?projects",
+  ["Toosl Kimi Chat"]="https://www.kimi.com/",
+  ["Toosl z.AI Subscription"]="https://z.ai/manage-apikey/subscription",
+
   ["Tools Bookmarks"]="https://app.raindrop.io"
   ["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
   ["Tools Expenses"]="https://docs.google.com/spreadsheets/d/19guV9oKYXDY1Safkuk7r2G9Bvt5l8oon/edit?gid=931591167#gid=931591167"
