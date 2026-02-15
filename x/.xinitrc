@@ -52,6 +52,7 @@ n-backup &
 n-eyes &
 n-redshift &
 n-just-start-or-keep-going &
+opencode web &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 n-dwm-start
