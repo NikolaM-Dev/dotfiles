@@ -49,7 +49,7 @@ declare -A BOOKMARKS=(
 
   ["Toosl Cerebras Subscription"]="https://cloud.cerebras.ai/platform/org_w949c6e4wh6tp8ynxkc8433m/analytics/usage?projects",
   ["Toosl Kimi Chat"]="https://www.kimi.com/",
-  ["Toosl z.AI Subscription"]="https://z.ai/manage-apikey/subscription",
+  ["Toosl z_AI Subscription"]="https://z.ai/manage-apikey/subscription",
 
   ["Tools Bookmarks"]="https://app.raindrop.io"
   ["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
