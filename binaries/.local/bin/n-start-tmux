@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
 function main() {
-	if n-tmux-is-running; then
-		tmux attach
+  if n-tmux-is-running; then
+    tmux attach
 
-		return
-	fi
+    return
+  fi
 
-	sesh connect " music" &
-	sesh connect "󱂵 home"
+  # Create music session in background with startup command
+  tmux new-session -d -c ~/Music -s " music" \; send-keys 'just' Enter
+
+  # Create home session and attach
+  tmux new-session -c ~ -s "󱂵 home"
 }
 
 main
