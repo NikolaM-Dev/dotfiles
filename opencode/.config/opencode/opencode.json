@@ -1,5 +1,8 @@
 {
+  // https://opencode.ai/docs
   "$schema": "https://opencode.ai/config.json",
+
+  // https://opencode.ai/docs/keybinds/
   "keybinds": {
     "messages_page_down": "pagedown,ctrl+alt+f,ctrl+]",
     "messages_page_up": "pageup,ctrl+alt+b,ctrl+["
