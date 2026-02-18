@@ -51,6 +51,7 @@ declare -A BOOKMARKS=(
   ["Toosl Kimi Chat"]="https://www.kimi.com/",
   ["Toosl z_AI Subscription"]="https://z.ai/manage-apikey/subscription",
 
+  ["Tools Tailwind Colors"]="https://tailwindcss.com/docs/colors",
   ["Tools Bookmarks"]="https://app.raindrop.io"
   ["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
   ["Tools Expenses"]="https://docs.google.com/spreadsheets/d/19guV9oKYXDY1Safkuk7r2G9Bvt5l8oon/edit?gid=931591167#gid=931591167"
