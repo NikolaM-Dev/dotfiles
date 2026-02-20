@@ -1,0 +1,2 @@
+# Ingore OpenCode session transcription export
+session-ses_[0-9]*.md

@@ -7,6 +7,7 @@ email = juan1014166@gmail.com
 
 [core]
 editor = nvim
+excludesFile = ~/.config/git/ignore
 
 [init]
 defaultBranch = main
