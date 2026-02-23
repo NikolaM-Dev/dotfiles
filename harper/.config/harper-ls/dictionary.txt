@@ -9,6 +9,7 @@ DAP
 DHCP
 DSA
 Dodds
+ElectronJS
 GDB
 HOCs
 IntelliSence
@@ -20,12 +21,15 @@ NKL
 NL
 NextJS
 Nikola's
+NodeJS
 OS
 Pomodoro
+RSC
 SP
 SQLite3
 SWE
 TLDR
+TailwindCSS
 TickTick
 VDOM
 ViteJS
@@ -43,6 +47,8 @@ navbar
 netrw
 nvim
 predefining
+prefetching
+presentational
 quickfix
 readonly
 solidarity
