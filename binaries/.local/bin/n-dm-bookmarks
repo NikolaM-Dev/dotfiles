@@ -127,7 +127,7 @@ declare -A BOOKMARKS=(
 
 function main() {
   # Show bookmarks in dmenu
-  choice=$(printf '%s\n' "${!BOOKMARKS[@]}" | sort | dmenu -i -l 12 -p " Bookmarks ")
+  choice=$(printf '%s\n' "${!BOOKMARKS[@]}" | sort | rofi -dmenu -i -l 12 -p "Bookmarks")
 
   # Open in default browser if valid
   if [[ -n "$choice" ]]; then
