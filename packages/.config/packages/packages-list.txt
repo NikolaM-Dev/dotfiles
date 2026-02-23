@@ -94,6 +94,7 @@ screenkey
 scrot
 sd
 selectdefaultapplication-fork-git
+skim
 solanum
 stow
 syncthing
