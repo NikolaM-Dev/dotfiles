@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function main {
+  cd $SECOND_BRAIN_PATH/src
+
+  just index
+}
+
+main
