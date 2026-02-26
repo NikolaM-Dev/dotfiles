@@ -1,16 +1,10 @@
 # adjust-cell-height = 20%
 # adjust-underline-position = 4
 
-font-family = Maple Mono NF
-font-family-bold = Maple Mono NF
-font-family-italic = Maple Mono NF
-font-family-bold-italic = Maple Mono NF
-font-family = Symbols Nerd Font
+config-file = "fonts/victor-mono.ini"
 
-adjust-cell-width = -15%
 background-opacity = 1
 confirm-close-surface = false
-font-size = 13.5
 gtk-single-instance = true
 gtk-titlebar = false
 mouse-hide-while-typing = true
@@ -34,4 +28,4 @@ keybind=ctrl+shift+v=paste_from_clipboard
 # vim
 # config-file = vim
 
-# vim: filetype=toml
+# vim: filetype=dosini
