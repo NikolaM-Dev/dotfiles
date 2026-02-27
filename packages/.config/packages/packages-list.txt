@@ -144,7 +144,7 @@ wezterm
 wget
 wine
 xclip
-xdotool
+xdotool-git
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
