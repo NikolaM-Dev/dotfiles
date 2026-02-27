@@ -11,6 +11,7 @@ copyq
 curl
 discord
 docker
+docker-buildx
 docker-compose
 downgrade
 droidcam-obs-plugin
