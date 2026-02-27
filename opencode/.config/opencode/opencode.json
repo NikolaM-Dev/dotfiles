@@ -1,6 +1,7 @@
 {
   // https://opencode.ai/docs
   "$schema": "https://opencode.ai/config.json",
+  "default_agent": "gentleman",
 
   // https://opencode.ai/docs/keybinds/
   "keybinds": {
