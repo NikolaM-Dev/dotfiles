@@ -1,7 +1,7 @@
 # adjust-cell-height = 20%
 # adjust-underline-position = 4
 
-config-file = "fonts/victor-mono.ini"
+config-file = "fonts/ioskeley-mono.ini"
 
 background-opacity = 1
 confirm-close-surface = false
@@ -28,4 +28,4 @@ keybind=ctrl+shift+v=paste_from_clipboard
 # vim
 # config-file = vim
 
-# vim: filetype=dosini
+# vim: filetype=dosini commentstring=#\ %s
