@@ -63,6 +63,7 @@ static const Rule rules[] = {
   { "Gpick",         "gpick",         NULL,  0,         1,          -1 },
   { "StayFree",      "stayfree",      NULL,  1 << 7,    0,          -1 },
   { "feh",           "feh",           NULL,  0,         1,          -1 },
+  { "Handy",         "handy",         NULL,  1 << 5,    0,          -1 },
 };
 
 /* layout(s) */
