@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+
+  // https://opencode.ai/docs/keybinds/
+  "keybinds": {
+    "input_newline": "shift+return,ctrl+return,alt+return",
+    "messages_last": "ctrl+alt+g,end,ctrl+shift+e",
+    "messages_page_down": "pagedown,ctrl+alt+f,ctrl+]",
+    "messages_page_up": "pageup,ctrl+alt+b,ctrl+["
+  }
+}
+
