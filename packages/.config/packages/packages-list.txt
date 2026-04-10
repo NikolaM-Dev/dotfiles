@@ -27,6 +27,7 @@ fd
 feh
 ffmpeg4.4
 flameshot
+flatpak
 fzf
 gdb
 ghostty
