@@ -1,3 +1,4 @@
+AbortController
 Abramov
 Blepharitis
 C.
@@ -30,6 +31,7 @@ RSC
 SP
 SQLite3
 SWE
+SWR
 TLDR
 TailwindCSS
 TankStack
@@ -41,6 +43,7 @@ Zotero
 autocmd
 btop
 createContext
+createReducer
 csv
 cwd
 e2e
@@ -72,6 +75,7 @@ useCallback
 useContext
 useEffect
 useMemo
+useNonNullableRef
 useReducer
 useRef
 useSWR
