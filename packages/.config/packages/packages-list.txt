@@ -9,6 +9,8 @@ btop
 clock-tui
 copyq
 curl
+dbeaver
+dbvis
 discord
 docker
 docker-buildx
