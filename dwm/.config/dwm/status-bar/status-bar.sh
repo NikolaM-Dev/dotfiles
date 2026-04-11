@@ -27,6 +27,9 @@ function _connection() {
     printf "󰖪"
   fi
 }
+
+function _pomo() {
+  printf "$(pomodoro status --format "🍅 %!r")"
 }
 
 function _volume() {
@@ -60,9 +63,9 @@ function _date_time() {
 }
 
 function _test() {
-	while true; do
-		sleep 1 && echo "$packages_updates$connection  $(_volume) $(_cpu) $(_memory) $(_disk)  $(_date_time)"
-	done
+  while true; do
+    sleep 1 && echo "$packages_updates$connection  $(_pomo) $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
+  done
 }
 
 function main() {
@@ -73,8 +76,8 @@ function main() {
     [ $INTERVAL = 0 ] || [ $((INTERVAL % 60)) = 0 ] && connection=$(_connection)
     INTERVAL=$((INTERVAL + 1))
 
-		sleep 1 && xsetroot -name "$packages_updates$connection  $(_volume) $(_cpu) $(_memory) $(_disk)  $(_date_time)"
-	done
+    sleep 1 && xsetroot -name "$packages_updates$connection $(_pomo) $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
+  done
 }
 
 main
