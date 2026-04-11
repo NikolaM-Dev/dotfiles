@@ -57,6 +57,7 @@ linux-firmware
 linux-headers
 localsend
 lxappearance
+megasync
 modrinth-app-bin
 mpc
 mpd
