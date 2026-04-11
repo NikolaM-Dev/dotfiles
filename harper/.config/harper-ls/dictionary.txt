@@ -41,6 +41,7 @@ ViteJS
 Wezterm
 Zotero
 autocmd
+bashbunni
 btop
 createContext
 createReducer
