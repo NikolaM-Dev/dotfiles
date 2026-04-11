@@ -82,6 +82,7 @@ pavucontrol
 pcmanfm
 picom
 polkit-gnome
+postgresql-libs
 python-pip
 python-pipx
 qalculate-gtk
