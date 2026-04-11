@@ -10,8 +10,9 @@ btop
 clock-tui
 copyq
 curl
+datagrip
+datagrip-jre
 dbeaver
-dbvis
 discord
 docker
 docker-buildx
