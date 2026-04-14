@@ -15,6 +15,7 @@ function main() {
 
   while true; do
     log
+    git pull
     backup
 
     if [ $# -eq 1 ]; then
