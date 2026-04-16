@@ -1,0 +1,26 @@
+palette = 0=#282726
+palette = 1=#D14D41
+palette = 2=#879A39
+palette = 3=#D0A215
+palette = 4=#4385BE
+palette = 5=#CE5D97
+palette = 6=#3AA99F
+palette = 7=#B7B5AC
+palette = 8=#6F6E69
+palette = 9=#AF3029
+palette = 10=#66800B
+palette = 11=#AD8301
+palette = 12=#205EA6
+palette = 13=#A02F6F
+palette = 14=#24837B
+palette = 15=#FFFCF0
+# background = #100F0F
+background = #191a1c
+foreground = #CECDC3
+cursor-color = #CECDC3
+# cursor-text = #100F0F
+cursor-text = #191a1c
+selection-background = #12253B
+selection-foreground = #CECDC3
+
+# vim: filetype=dosini commentstring=#\ %s
