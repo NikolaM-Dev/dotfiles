@@ -61,9 +61,10 @@ static const Rule rules[] = {
 	{ "Zotero",        "Zotero",        NULL,  0,         1,          -1 },
 	{ "ticktick",      "ticktick",      NULL,  0,         0,          -1 },
   { "Gpick",         "gpick",         NULL,  0,         1,          -1 },
+  { "Handy",         "handy",         NULL,  1 << 4,    0,          -1 },
   { "StayFree",      "stayfree",      NULL,  1 << 7,    0,          -1 },
   { "feh",           "feh",           NULL,  0,         1,          -1 },
-  { "Handy",         "handy",         NULL,  1 << 5,    0,          -1 },
+  { "obsidian",      "obsidian",      NULL,  1 << 3,    0,          -1 },
 };
 
 /* layout(s) */
