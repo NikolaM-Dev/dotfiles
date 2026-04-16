@@ -112,6 +112,7 @@ x-scheme-handler/about=userapp-Zen-1VYSM3.desktop
 x-scheme-handler/chrome=zen.desktop;userapp-Zen-1VYSM3.desktop
 x-scheme-handler/http=userapp-Zen-1VYSM3.desktop
 x-scheme-handler/https=userapp-Zen-1VYSM3.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
 x-scheme-handler/opencode=OpenCode-handler.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/tana=tana.desktop
