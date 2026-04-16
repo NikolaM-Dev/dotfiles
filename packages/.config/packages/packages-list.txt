@@ -7,12 +7,10 @@ bat
 bc
 bob
 btop
-clock-tui
 copyq
 curl
 datagrip
 datagrip-jre
-dbeaver
 discord
 docker
 docker-buildx
@@ -36,7 +34,6 @@ ghostty
 git
 git-delta
 github-cli
-gnome-clocks
 gnome-tweaks
 go
 google-chrome
@@ -58,7 +55,6 @@ linux-headers
 localsend
 lxappearance
 megasync
-modrinth-app-bin
 mpc
 mpd
 mpv
@@ -103,7 +99,6 @@ scrot
 sd
 selectdefaultapplication-fork-git
 skim
-solanum
 stow
 syncthing
 tealdeer
@@ -130,7 +125,6 @@ texlive-plaingeneric
 texlive-pstricks
 texlive-publishers
 texlive-xetex
-ticktick
 timer-bin
 tmux
 trayer
@@ -146,9 +140,7 @@ vim
 virtualbox
 virtualbox-host-modules-arch
 visual-studio-code-bin
-vlc
 watchexec
-wezterm
 wget
 wine
 xclip
@@ -211,6 +203,5 @@ zathura
 zathura-pdf-mupdf
 zenity
 zk
-zotero
 zoxide
 zsh
