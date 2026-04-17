@@ -40,3 +40,8 @@ html#main-window
   splitter#sidebar-splitter.chromeclass-extrachrome.sidebar-splitter {
   display: none;
 } */
+
+/* Remove gap */
+div.zen-tab-group-start:nth-child(4) {
+  display: none;
+}
