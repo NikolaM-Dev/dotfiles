@@ -9,7 +9,7 @@ static const unsigned int snap     = 32;   /* snap pixel */
 static const int horizpadbar = 2;   /* horizontal padding for statusbar */
 static const int vertpadbar  = 8;   /* vertical padding for statusbar */
 
-static const char *fonts[]    = { "JetBrains Mono:size=10:weight=medium", "Symbols Nerd Font Mono:size=10" };
+static const char *fonts[]    = { "JetBrainsMono NF:size=10:weight=medium", "Symbols Nerd Font Mono:size=10" };
 
 static const char *colors[][3] = {
 	/*               fg,        bg,        border */
