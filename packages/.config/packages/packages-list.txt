@@ -37,7 +37,6 @@ github-cli
 gnome-tweaks
 go
 google-chrome
-gpick
 grub
 gvfs
 helium-browser-bin
@@ -144,6 +143,7 @@ watchexec
 wget
 wine
 xclip
+xcolor
 xdotool-git
 xf86-video-vesa
 xorg-bdftopcf
