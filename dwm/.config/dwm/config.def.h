@@ -107,7 +107,7 @@ static const char *ticktick[]  = { "ticktick",    NULL };
 static const char *zotero[]    = { "zotero",      NULL };
 static const char *term[]  = { "ghostty",      NULL };
 static const char *term_tmux[]  = { "ghostty", "-e", "n-start-tmux",      NULL };
-static const char *color_picker[]  = { "gpick", "--single", NULL };
+static const char *color_picker[]  = { "xcolor", "-s", "clipboard", NULL };
 
 Autostarttag autostarttaglist[] = {
 	{.cmd = NULL,        .tags = 0 },
