@@ -65,6 +65,7 @@ declare -A BOOKMARKS=(
   ["Tools Monkeytype"]="https://monkeytype.com"
   ["Tools OpenAI Usage"]="https://platform.openai.com/settings/organization/usage"
   ["Tools OpenCode Web"]="http://127.0.0.1:4096"
+  ["Tools Pinterest Pins"]="https://www.pinterest.com/NikolaMDev/_pins/"
   ["Tools Search Emoji"]="https://emojidb.org"
   ["Tools Secondary Email"]="https://mail.google.com/mail/u/1/#inbox"
   ["Tools Snippets"]="https://snippet-generator.app"
@@ -83,7 +84,7 @@ declare -A BOOKMARKS=(
   ["YouTube Music"]="https://music.youtube.com/library"
   ["YouTube Playlists"]="https://www.youtube.com/feed/playlists"
   ["YouTube Queue"]="https://www.youtube.com/watch?list=PLyjmPWCWfM3LXzGMlulWEVnXE_PN_giCc"
-  ["YouTube Theo"]="https://www.youtube.com/@t3dotgg"
+  ["YouTube T3"]="https://www.youtube.com/@t3dotgg"
   ["YouTube Voice Warm Up"]="https://www.youtube.com/watch?v=YCLyAmXtpfY"
   ["YouTube WL"]="https://www.youtube.com/playlist?list=WL"
 
