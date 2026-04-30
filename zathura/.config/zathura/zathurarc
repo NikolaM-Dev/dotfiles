@@ -23,7 +23,7 @@ set font "Maple Mono NF Light 13"   #  set font
 
 ## theme
 include themes/readwise             #  import team (readwise theme)
-include themes/ef-dream
+include themes/glepnir
 
 ## keymaps
 map d scroll half-down              #  Change to use <d> instead of <C-d>
