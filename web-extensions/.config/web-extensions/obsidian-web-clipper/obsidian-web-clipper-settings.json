@@ -1,0 +1,192 @@
+{
+  "interpreter_settings": {
+    "interpreterModel": "gpt-4o-mini",
+    "models": [],
+    "providers": [],
+    "interpreterEnabled": false,
+    "interpreterAutoRun": false,
+    "defaultPromptContext": ""
+  },
+  "migrationVersion": 1,
+  "template_1733606384661km9z8h95d": {
+    "id": "1733606384661km9z8h95d",
+    "name": "LN - Source Note ",
+    "behavior": "create",
+    "noteNameFormat": "LN {{title|title}}",
+    "path": "Sources",
+    "noteContentFormat": "# LN {{title|title}}\n\n- … \n\n# 🧬 References\n\n- [{{title}}]({{url}})",
+    "context": "",
+    "properties": [
+      {
+        "id": "1754696152233xem9x7435",
+        "name": "id",
+        "value": "{{date|date:\\\"YYYYMMDDTHHmmss\\\"}}",
+        "type": "text"
+      },
+      {
+        "id": "173360638466134u8swbzl",
+        "name": "aliases",
+        "value": "LN {{title|title}}",
+        "type": "multitext"
+      },
+      {
+        "id": "17546960856258tpywf6qs",
+        "name": "tags",
+        "value": "zk/ln, status/pending",
+        "type": "multitext"
+      },
+      {
+        "id": "1754696093095vvt6axmfc",
+        "name": "createdAt",
+        "value": "[[{{date|date:\\\"YYYY-MM-DD\\\"}}]]",
+        "type": "text"
+      },
+      {
+        "id": "17546960991707t2yvphoy",
+        "name": "updatedAt",
+        "value": "{{date|date:\\\"YYYY-MM-DD, HH:mm:ss\\\"}}",
+        "type": "text"
+      }
+    ],
+    "triggers": []
+  },
+  "reader_settings": {
+    "fontSize": 15,
+    "lineHeight": 1.6,
+    "maxWidth": 38,
+    "lightTheme": "default",
+    "darkTheme": "same",
+    "appearance": "auto",
+    "fonts": [
+      "Atkinson Hyperlegible"
+    ],
+    "defaultFont": "Atkinson Hyperlegible",
+    "blendImages": true,
+    "colorLinks": false,
+    "customCss": ""
+  },
+  "vaults": [],
+  "property_types": [
+    {
+      "name": "title",
+      "type": "text",
+      "defaultValue": "{{title}}"
+    },
+    {
+      "name": "source",
+      "type": "text",
+      "defaultValue": "{{url}}"
+    },
+    {
+      "name": "author",
+      "type": "multitext",
+      "defaultValue": "{{author|split:\", \"|wikilink|join}}"
+    },
+    {
+      "name": "published",
+      "type": "date",
+      "defaultValue": "{{published}}"
+    },
+    {
+      "name": "created",
+      "type": "date"
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "defaultValue": "{{description}}"
+    },
+    {
+      "name": "tags",
+      "type": "multitext"
+    },
+    {
+      "name": "created_at",
+      "type": "text"
+    },
+    {
+      "name": "aliases",
+      "type": "multitext"
+    },
+    {
+      "name": "createdAt",
+      "type": "text"
+    },
+    {
+      "name": "id",
+      "type": "text"
+    },
+    {
+      "name": "updatedAt",
+      "type": "text"
+    }
+  ],
+  "template_17738496518163n9ot5q": {
+    "schemaVersion": "0.1.0",
+    "name": "LN - Source Note YT",
+    "behavior": "create",
+    "noteContentFormat": "# LN {{title|title}}\n\n- … \n\n{{content}}\n\n# 🧬 References\n\n- [{{title}}]({{url}})",
+    "properties": [
+      {
+        "id": "1773849651816f3b600s",
+        "name": "id",
+        "value": "{{date|date:\\\"YYYYMMDDTHHmmss\\\"}}",
+        "type": "text"
+      },
+      {
+        "id": "1773849651816hgy6jqo",
+        "name": "aliases",
+        "value": "LN {{title|title}}",
+        "type": "multitext"
+      },
+      {
+        "id": "1773849651816q9f01iu",
+        "name": "tags",
+        "value": "zk/ln, status/pending",
+        "type": "multitext"
+      },
+      {
+        "id": "1773849651816916yk4n",
+        "name": "createdAt",
+        "value": "[[{{date|date:\\\"YYYY-MM-DD\\\"}}]]",
+        "type": "text"
+      },
+      {
+        "id": "17738496518160xlcpp4",
+        "name": "updatedAt",
+        "value": "{{date|date:\\\"YYYY-MM-DD, HH:mm:ss\\\"}}",
+        "type": "text"
+      }
+    ],
+    "triggers": [
+      "https://www.youtube.com/"
+    ],
+    "noteNameFormat": "LN {{title|title}}",
+    "path": "Sources",
+    "id": "17738496518163n9ot5q",
+    "context": ""
+  },
+  "highlighter_settings": {
+    "highlighterEnabled": true,
+    "alwaysShowHighlights": true,
+    "highlightBehavior": "highlight-inline"
+  },
+  "general_settings": {
+    "showMoreActionsButton": false,
+    "betaFeatures": false,
+    "legacyMode": false,
+    "silentOpen": true,
+    "openBehavior": "popup",
+    "saveBehavior": "addToObsidian"
+  },
+  "template_list": [
+    "1733606384661km9z8h95d",
+    "17738496518163n9ot5q"
+  ],
+  "stats": {
+    "addToObsidian": 179,
+    "saveFile": 0,
+    "copyToClipboard": 0,
+    "share": 0
+  }
+}
