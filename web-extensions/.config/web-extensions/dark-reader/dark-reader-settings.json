@@ -389,7 +389,6 @@
         "medium.com",
         "es.piliapp.com",
         "www.gnu.org",
-        "www.udemy.com",
         "survey.stackoverflow.co",
         "developercommunity.visualstudio.com",
         "legacy.reactjs.org",
@@ -424,7 +423,8 @@
         "sqlzoo.net",
         "wiki.termux.com",
         "www.garagegymreviews.com",
-        "www.fondavision.com"
+        "www.fondavision.com",
+        "www.udemy.com"
     ],
     "disabledFor": [],
     "changeBrowserTheme": true,
