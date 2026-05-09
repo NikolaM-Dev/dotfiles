@@ -1,9 +1,7 @@
-# If the user's terminal is in dark mode, Yazi will load `theme-dark.toml` on startup; otherwise, `theme-light.toml`.
-# You can override any parts of them that are not related to the dark/light mode in your own `theme.toml`.
+# A TOML linter such as https://github.com/tombi-toml/tombi can use this schema to validate your config.
+# If you encounter any problems, please make an issue at https://github.com/yazi-rs/schemas.
 
-# If you want to dynamically override their content based on dark/light mode, you can specify two different flavors
-# for dark and light modes under `[flavor]`, and do so in those flavors instead.
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+#:schema https://yazi-rs.github.io/schemas/keymap.json
 
 [mgr]
 cwd = { fg = "#94e2d5" }
