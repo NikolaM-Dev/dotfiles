@@ -32,6 +32,7 @@ fzf
 gdb
 ghostty
 git
+git-crypt
 git-delta
 github-cli
 gnome-tweaks
@@ -100,6 +101,7 @@ selectdefaultapplication-fork-git
 skim
 stow
 syncthing
+t3code-nightly-bin
 tealdeer
 tenacity
 texlive-basic
@@ -139,6 +141,7 @@ vim
 virtualbox
 virtualbox-host-modules-arch
 visual-studio-code-bin
+warp-terminal
 watchexec
 wget
 wine
@@ -201,6 +204,7 @@ yazi
 yt-dlp
 zathura
 zathura-pdf-mupdf
+zeal
 zenity
 zk
 zoxide
