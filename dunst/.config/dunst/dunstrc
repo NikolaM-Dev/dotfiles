@@ -1,7 +1,7 @@
 # See 'man 5 dunst' for documentation.
 
 [global]
-    offset = (6, 34)
+    offset = (6, 56)
     width = (250, 400)
 
     progress_bar_corner_radius = 2
