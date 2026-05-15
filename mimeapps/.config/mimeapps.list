@@ -110,6 +110,7 @@ video/x-ogm+ogg=mpv.desktop
 video/x-theora+ogg=mpv.desktop
 x-scheme-handler/about=userapp-Zen-1VYSM3.desktop
 x-scheme-handler/chrome=zen.desktop;userapp-Zen-1VYSM3.desktop
+x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/http=userapp-Zen-1VYSM3.desktop
 x-scheme-handler/https=userapp-Zen-1VYSM3.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
