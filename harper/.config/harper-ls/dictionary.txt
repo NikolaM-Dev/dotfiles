@@ -23,12 +23,15 @@ Dodds
 ElectronJS
 Excalidraw
 GDB
+Gadgetzan
+Glove80
 HOCs
 IntelliSence
 JSX
 KB
 LN
 LazyVim
+Manizales
 Mikiling
 NKL
 NL
@@ -57,6 +60,7 @@ Udemy
 VDOM
 ViteJS
 Wezterm
+ZMK
 Zotero
 autocmd
 bashbunni
