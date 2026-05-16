@@ -63,6 +63,8 @@ static const Rule rules[] = {
   { "Gpick",         "gpick",         NULL,  0,         1,          -1 },
   { "Handy",         "handy",         NULL,  1 << 4,    0,          -1 },
   { "StayFree",      "stayfree",      NULL,  1 << 7,    0,          -1 },
+  { "discord",       "discord",       NULL,  1 << 1,    0,          -1 },
+  { "vesktop",       "vesktop",       NULL,  1 << 1,    0,          -1 },
   { "feh",           "feh",           NULL,  0,         1,          -1 },
   { "obsidian",      "obsidian",      NULL,  1 << 3,    0,          -1 },
 };
