@@ -1,6 +1,7 @@
 ATG
 AbortController
 Abramov
+Aoi
 B1
 Blepharitis
 C.
@@ -110,5 +111,6 @@ uuid
 valgrind
 variadic
 wav
+x20x20
 yazi
 zoxide
