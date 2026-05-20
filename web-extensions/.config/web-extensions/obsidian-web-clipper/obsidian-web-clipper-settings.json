@@ -1,11 +1,8 @@
 {
-  "interpreter_settings": {
-    "interpreterModel": "gpt-4o-mini",
-    "models": [],
-    "providers": [],
-    "interpreterEnabled": false,
-    "interpreterAutoRun": false,
-    "defaultPromptContext": ""
+  "highlighter_settings": {
+    "highlighterEnabled": true,
+    "alwaysShowHighlights": true,
+    "highlightBehavior": "highlight-inline"
   },
   "migrationVersion": 1,
   "template_1733606384661km9z8h95d": {
@@ -50,22 +47,6 @@
     ],
     "triggers": []
   },
-  "reader_settings": {
-    "fontSize": 15,
-    "lineHeight": 1.6,
-    "maxWidth": 38,
-    "lightTheme": "default",
-    "darkTheme": "same",
-    "appearance": "auto",
-    "fonts": [
-      "Atkinson Hyperlegible"
-    ],
-    "defaultFont": "Atkinson Hyperlegible",
-    "blendImages": true,
-    "colorLinks": false,
-    "customCss": ""
-  },
-  "vaults": [],
   "property_types": [
     {
       "name": "title",
@@ -121,6 +102,33 @@
       "type": "text"
     }
   ],
+  "reader_settings": {
+    "fontSize": 15,
+    "lineHeight": 1.6,
+    "maxWidth": 38,
+    "lightTheme": "default",
+    "darkTheme": "same",
+    "appearance": "auto",
+    "fonts": [
+      "Atkinson Hyperlegible"
+    ],
+    "defaultFont": "Atkinson Hyperlegible",
+    "blendImages": true,
+    "colorLinks": false,
+    "followLinks": true,
+    "pinPlayer": true,
+    "autoScroll": true,
+    "highlightActiveLine": true,
+    "customCss": ""
+  },
+  "interpreter_settings": {
+    "interpreterModel": "gpt-4o-mini",
+    "models": [],
+    "providers": [],
+    "interpreterEnabled": false,
+    "interpreterAutoRun": false,
+    "defaultPromptContext": ""
+  },
   "template_17738496518163n9ot5q": {
     "schemaVersion": "0.1.0",
     "name": "LN - Source Note YT",
@@ -166,11 +174,6 @@
     "id": "17738496518163n9ot5q",
     "context": ""
   },
-  "highlighter_settings": {
-    "highlighterEnabled": true,
-    "alwaysShowHighlights": true,
-    "highlightBehavior": "highlight-inline"
-  },
   "general_settings": {
     "showMoreActionsButton": false,
     "betaFeatures": false,
@@ -179,12 +182,13 @@
     "openBehavior": "popup",
     "saveBehavior": "addToObsidian"
   },
+  "vaults": [],
   "template_list": [
     "1733606384661km9z8h95d",
     "17738496518163n9ot5q"
   ],
   "stats": {
-    "addToObsidian": 179,
+    "addToObsidian": 192,
     "saveFile": 0,
     "copyToClipboard": 0,
     "share": 0
