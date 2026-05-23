@@ -66,6 +66,7 @@ ntfs-3g
 nvidia-open
 nvidia-settings
 nvidia-utils
+obs-cmd
 obsidian
 obs-studio
 openssh
@@ -205,6 +206,7 @@ yt-dlp
 zathura
 zathura-pdf-mupdf
 zeal
+zed
 zenity
 zk
 zoxide
