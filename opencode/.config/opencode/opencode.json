@@ -2,7 +2,6 @@
   // https://opencode.ai/docs
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "gentleman",
-
   "permission": {
     "bash": "ask",
     "edit": "ask"
