@@ -28,6 +28,10 @@ function _connection() {
   fi
 }
 
+function _obs() {
+  printf ^c$palette4^"$(n-obs info)"
+}
+
 function _pomo() {
   printf "$(pomodoro status --format "🍅 %!r")"
 }
@@ -76,7 +80,7 @@ function main() {
     [ $INTERVAL = 0 ] || [ $((INTERVAL % 60)) = 0 ] && connection=$(_connection)
     INTERVAL=$((INTERVAL + 1))
 
-    sleep 1 && xsetroot -name "$packages_updates$connection $(_pomo) $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
+    sleep 1 && xsetroot -name "$packages_updates$connection $(_obs) $(_pomo) $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
   done
 }
 
