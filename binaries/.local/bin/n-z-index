@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# n-z-index: Index all subdirectories with zoxide, skipping already indexed ones
+
+function main() {
+  local target_dir="${1:-.}"
+  local indexed_count=0
+  local skipped_count=0
+
+  # Resolve to absolute path
+  target_dir="$(realpath "$target_dir" 2>/dev/null)"
+
+  if [[ -z "$target_dir" || ! -d "$target_dir" ]]; then
+    echo " [Error] '$target_dir' is not a valid directory" >&2
+    return 1
+  fi
+
+  # Iterate over immediate subdirectories
+  for dir in "$target_dir"/*/; do
+    # Skip if not a directory (e.g., symlink to file)
+    [[ -d "$dir" ]] || continue
+
+    # Remove trailing slash for zoxide
+    dir="${dir%/}"
+
+    # Check if already indexed
+    if zoxide query "$dir" >/dev/null 2>&1; then
+      echo " [INFO] Already indexed: $dir"
+      ((skipped_count++))
+    else
+      zoxide add "$dir"
+      echo " [INFO] Indexed: $dir"
+      ((indexed_count++))
+    fi
+  done
+
+  echo ""
+  echo " [INFO] Done: $indexed_count indexed, $skipped_count skipped"
+}
+
+main "$@"
+
