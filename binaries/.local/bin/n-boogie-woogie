@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function main() {
+  while true; do
+    sleep $((5 * 60))
+    mpv "$HOME/backups/20260528T085137--boogie-woogie.mp4"
+  done
+}
+
+main
