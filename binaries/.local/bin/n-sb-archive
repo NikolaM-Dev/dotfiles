@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+#
+# n-sb-archive.sh - Archive completed tasks to today's daily journey
+#
+# Searches for completed tasks (checkbox marked as done with ✅ YYYY-MM-DD suffix)
+# in markdown files under $TASK_SEARCH_DIR (defaults to $HOME) except today's
+# daily journey, then adds them to the ## 🗃️ Archive section in today's daily note.
+#
+# Usage: SECOND_BRAIN_PATH=/path/to/second-brain.md n-sb-archive
+# Defaults to $SECOND_BRAIN_PATH/src/Journal/daily/YYYY-MM-DD.md.
+#
+# Optional: TASK_SEARCH_DIR=/path/to/search DAILY_JOURNEY_FILE=/path/to/YYYY-MM-DD.md
+
+SECOND_BRAIN_PATH="${SECOND_BRAIN_PATH:?SECOND_BRAIN_PATH not set}"
+TASK_SEARCH_DIR="${TASK_SEARCH_DIR:-$HOME}"
+TODAY=$(date +%Y-%m-%d)
+TASK_PATTERN='^\s*-\s+\[x\]\s+.+✅ '"$TODAY"'$'
+
+function find_today_file {
+  if [[ -n "${DAILY_JOURNEY_FILE:-}" ]]; then
+    echo "$DAILY_JOURNEY_FILE"
+    return
+  fi
+
+  echo "$SECOND_BRAIN_PATH/src/Journal/daily/$TODAY.md"
+}
+
+function main {
+  local TODAY_FILE
+  TODAY_FILE=$(find_today_file)
+
+  # Check if today's daily journey file exists
+  if [[ ! -f "$TODAY_FILE" ]]; then
+    echo "Today's daily journey file not found: $TODAY_FILE"
+    exit 1
+  fi
+
+  if [[ ! -d "$TASK_SEARCH_DIR" ]]; then
+    echo "Task search directory not found: $TASK_SEARCH_DIR"
+    exit 1
+  fi
+
+  local TODAY_FILE_REAL
+  TODAY_FILE_REAL=$(realpath -m "$TODAY_FILE")
+
+  local -a COMPLETED_TASKS
+
+  # Search markdown files in one pass, excluding today's daily journey.
+  # Pattern: checkbox marked as done with suffix ✅ YYYY-MM-DD
+  while IFS= read -r -d '' file && IFS= read -r task; do
+    if [[ "$(realpath -m "$file")" == "$TODAY_FILE_REAL" ]]; then
+      continue
+    fi
+
+    COMPLETED_TASKS+=("${task#"${task%%[![:space:]]*}"}")
+  done < <(rg --no-messages --null --with-filename --no-heading --no-line-number -g '*.md' -e "$TASK_PATTERN" "$TASK_SEARCH_DIR")
+
+  # Exit if no completed tasks found
+  if [[ ${#COMPLETED_TASKS[@]} -eq 0 ]]; then
+    echo "No completed tasks found with date suffix $TODAY in $TASK_SEARCH_DIR"
+    exit 0
+  fi
+
+  echo "Found ${#COMPLETED_TASKS[@]} completed tasks:"
+  printf '  %s\n' "${COMPLETED_TASKS[@]}"
+
+  local -a NEW_TASKS
+  for task in "${COMPLETED_TASKS[@]}"; do
+    if ! grep -qxF -- "$task" "$TODAY_FILE" 2>/dev/null; then
+      NEW_TASKS+=("$task")
+    fi
+  done
+
+  ADDED_COUNT=${#NEW_TASKS[@]}
+  SKIPPED_COUNT=$((${#COMPLETED_TASKS[@]} - ADDED_COUNT))
+  if [[ $ADDED_COUNT -eq 0 ]]; then
+    echo "Done! Added 0 completed tasks to $TODAY_FILE; skipped $SKIPPED_COUNT already present."
+    exit 0
+  fi
+
+  # Check if Archive section exists, if not create it
+  if ! rg -q "## 🗃️ Archive" "$TODAY_FILE"; then
+    printf "## 🗃️ Archive\n\n" >>"$TODAY_FILE"
+  fi
+
+  # Find the line number of the Archive section and insert after it
+  ARCHIVE_LINE=$(rg -n -m 1 "## 🗃️ Archive" "$TODAY_FILE" | cut -d: -f1)
+  if [[ -n "$ARCHIVE_LINE" ]]; then
+    while sed -n "$((ARCHIVE_LINE + 1))p" "$TODAY_FILE" | rg -q '^\s*$'; do
+      sed -i "$((ARCHIVE_LINE + 1))d" "$TODAY_FILE" || exit 1
+    done
+    sed -i "${ARCHIVE_LINE}G" "$TODAY_FILE"
+    ARCHIVE_LINE=$((ARCHIVE_LINE + 1))
+
+    for task in "${NEW_TASKS[@]}"; do
+      # Insert after Archive heading and its spacer line.
+      sed -i "${ARCHIVE_LINE}a\\${task}" "$TODAY_FILE" || exit 1
+      ARCHIVE_LINE=$((ARCHIVE_LINE + 1))
+    done
+  else
+    # Fallback: append at end (shouldn't happen since we just checked)
+    for task in "${NEW_TASKS[@]}"; do
+      echo "$task" >>"$TODAY_FILE"
+    done
+  fi
+
+  echo "Done! Added $ADDED_COUNT completed tasks to $TODAY_FILE; skipped $SKIPPED_COUNT already present."
+}
+
+main "$@"
