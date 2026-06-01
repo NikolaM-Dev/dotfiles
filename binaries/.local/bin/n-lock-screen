@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function _trace() {
+  echo " [TRACE] $1"
+}
+
+function main() {
+  local duration=$1
+
+  xtrlock &
+  pid=$!
+  _trace "Pausing screen for ${duration}s"
+  notify-send -t "$duration" "Pausing screen for ${duration}s" &
+  _trace "xtrlock PID: $pid"
+
+  sleep "$duration"
+  kill "$pid" 2>/dev/null || true
+  _trace "Continuing screen"
+}
+
+main "$@"
