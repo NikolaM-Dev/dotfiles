@@ -27,12 +27,14 @@ GDB
 Gadgetzan
 Glove80
 HOCs
+Hirwajeaneric
 IntelliSence
 JSX
 KB
 LN
 LazyVim
 Manizales
+Mariquita
 Melkey
 Mikiling
 NKL
@@ -48,6 +50,7 @@ Pomodoro
 RSC
 SP
 SQLite3
+SSR
 SWE
 SWR
 TCL
@@ -62,13 +65,16 @@ TickTick
 Toggl
 Udemy
 VDOM
+Vantepaz
 ViteJS
 Wezterm
 Woogie
 ZMK
 Zotero
 autocmd
+automaticity
 bashbunni
+bono
 btop
 createContext
 createReducer
@@ -116,6 +122,7 @@ uuid
 valgrind
 variadic
 wav
+x10x10
 x20x20
 yazi
 zoxide
