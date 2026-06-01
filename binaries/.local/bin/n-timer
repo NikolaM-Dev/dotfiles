@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# `n-timer` - A Rofi-based timer launcher
+# Prompts for duration and description, then starts a timer with notifications
+
+set -euo pipefail
+
+function _trace() {
+  echo " [TRACE] $1"
+}
+
+function _timer() {
+  local duration description sound
+
+  duration="$1"
+  description="${2:-Timer}"
+  sound="$HOME/backups/20260321T181304--winning-in-fortnite-be-like.mp3"
+
+  if [[ -z "$duration" ]]; then
+    printf 'Error: missing duration argument\n' >&2
+    return 1
+  fi
+
+  # Normalize "min" to "m" for compatibility with timer
+  duration=$(echo "$duration" | sed 's/min$/m/i')
+
+  if timer "$duration" --format 24h -n "$description"; then
+    notify-send -t 600000 "󰀠  $description is Done"
+    mpv "$sound"
+  fi
+}
+
+function main() {
+  # Prompt for duration using Rofi
+  local duration
+  duration=$(rofi -dmenu -i -p "Duration (e.g., 25m, 1h, 30s):" -l 0)
+  duration=$(echo "$duration" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+  if [[ -z "$duration" ]]; then
+    _trace "No duration provided, starting Pomodoro."
+    pomodoro start --wait && n-pomo-stop
+    return 0
+  fi
+
+  # Prompt for description (optional)
+  local description
+  description=$(rofi -dmenu -i -p "Description (optional):" -l 0)
+  description=$(echo "$description" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+  if [[ -z "$description" ]]; then
+    description="Deep Work"
+  fi
+
+  _trace "Starting timer: $duration - $description"
+  notify-send -t 5000 "⏱ Timer started: $description ($duration)"
+  _timer "$duration" "$description"
+}
+
+main
