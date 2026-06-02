@@ -101,7 +101,6 @@ selectdefaultapplication-fork-git
 skim
 stow
 syncthing
-t3code-nightly-bin
 tealdeer
 tenacity
 texlive-basic
