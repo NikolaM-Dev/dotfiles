@@ -32,6 +32,7 @@ IntelliSence
 JSX
 KB
 LN
+Latam
 LazyVim
 Manizales
 Mariquita
@@ -48,6 +49,7 @@ OpenCode
 PLPGSQL
 Pomodoro
 RSC
+Reins
 SP
 SQLite3
 SSR
