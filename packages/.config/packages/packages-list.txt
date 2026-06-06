@@ -206,6 +206,7 @@ zathura
 zathura-pdf-mupdf
 zeal
 zed
+zen-browser-bin
 zenity
 zk
 zoxide
