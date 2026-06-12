@@ -47,7 +47,7 @@ sh $HOME/.fehbg &
 udiskie -t &
 dunst &
 copyq &
-$SECOND_BRAIN_PATH/backup/linux/backup.sh &
+"${SECOND_BRAIN_PATH:-$HOME/w/2-areas/second-brain.md}/backup/linux/backup.sh" &
 n-backup &
 n-eyes &
 n-redshift &
