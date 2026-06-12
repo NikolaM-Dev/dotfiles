@@ -52,6 +52,7 @@ linux
 linux-firmware
 linux-headers
 localsend
+lutris
 lxappearance
 megasync
 mpc
