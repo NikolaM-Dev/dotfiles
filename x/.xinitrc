@@ -54,6 +54,8 @@ n-redshift &
 n-just-start-or-keep-going &
 n-boogie-woogie &
 handy &
+vesktop &
+zen-browser &
 obsidian &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
