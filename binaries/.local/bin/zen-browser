@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-function main() {
-  /home/nikola/.local/share/applications/20260530T160421--zen-x86_64.AppImage
-}
-
-main
