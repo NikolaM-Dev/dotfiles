@@ -4,6 +4,7 @@ Abramov
 Aoi
 Arepa
 B1
+Barad
 BiliBili
 Blepharitis
 C.
@@ -67,6 +68,7 @@ Theo
 Theo's
 TickTick
 Toggl
+Tol
 Udemy
 VDOM
 Vantepaz
