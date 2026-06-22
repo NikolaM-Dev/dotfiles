@@ -14,3 +14,8 @@ Status:children_add(function()
 		ui.Span(' '),
 	})
 end, 500, Status.RIGHT)
+
+require('relative-motions'):setup({
+	show_numbers = 'relative_absolute',
+	show_motion = true,
+})
