@@ -101,7 +101,6 @@ sd
 selectdefaultapplication-fork-git
 skim
 stow
-syncthing
 tealdeer
 tenacity
 texlive-basic
@@ -142,7 +141,6 @@ vim
 virtualbox
 virtualbox-host-modules-arch
 visual-studio-code-bin
-warp-terminal
 watchexec
 wget
 wine
@@ -205,8 +203,6 @@ yazi
 yt-dlp
 zathura
 zathura-pdf-mupdf
-zeal
-zed
 zen-browser-bin
 zenity
 zk
