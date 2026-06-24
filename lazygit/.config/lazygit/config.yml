@@ -44,6 +44,11 @@ customCommands:
     context: "global"
     description: "Commit all staged files"
     output: terminal
+  - key: "W"
+    command: "git commit -v --no-verify"
+    context: "global"
+    description: "Commit all staged files without running hooks"
+    output: terminal
   - key: "u"
     command: "git reset --soft HEAD~1"
     context: "commits"
