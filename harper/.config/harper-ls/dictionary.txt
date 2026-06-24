@@ -25,6 +25,7 @@ DSA
 DataGrip
 Dodds
 ElectronJS
+ElvUI
 Excalidraw
 GDB
 Gadgetzan
