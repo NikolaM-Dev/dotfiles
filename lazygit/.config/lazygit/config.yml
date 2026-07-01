@@ -44,7 +44,7 @@ customCommands:
     context: "global"
     description: "Commit all staged files"
     output: terminal
-  - key: "W"
+  - key: "w"
     command: "git commit -v --no-verify"
     context: "global"
     description: "Commit all staged files without running hooks"
@@ -69,5 +69,6 @@ keybinding:
   files:
     commitChanges: C
     commitChangesWithEditor: <disabled>
+    commitChangesWithoutHook: W
 
 promptToReturnFromSubprocess: false
