@@ -61,6 +61,12 @@ customCommands:
     command: "n-backup-commit"
     context: "files"
     description: "Commit just staged files with a timestamp message"
+  - key: "o"
+    context: "localBranches"
+    description: "Push and open/create PR"
+    loadingText: "Pushing branch and opening PR..."
+    command: >
+      git push -u origin HEAD && (gh pr view --web || gh pr create --fill --web)
 
 keybinding:
   commits:
@@ -70,5 +76,7 @@ keybinding:
     commitChanges: C
     commitChangesWithEditor: <disabled>
     commitChangesWithoutHook: W
+  branches:
+    createPullRequest: <disabled>
 
 promptToReturnFromSubprocess: false
