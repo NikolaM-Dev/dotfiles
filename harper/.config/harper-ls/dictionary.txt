@@ -13,6 +13,7 @@ CS50
 CS50's
 CTRL
 Calibre
+Camilo
 CrossFit
 DAP
 DBAs
@@ -30,6 +31,7 @@ Excalidraw
 GDB
 Gadgetzan
 Glove80
+Goncy
 HOCs
 Hirwajeaneric
 IntelliSence
@@ -103,6 +105,7 @@ nvim
 pnpm
 predefining
 prefetching
+prepotency
 presentational
 quickfix
 re-run
