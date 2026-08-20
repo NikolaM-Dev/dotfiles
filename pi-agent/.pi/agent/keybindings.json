@@ -1,0 +1,13 @@
+{
+  "tui.editor.cursorDown": ["down", "ctrl+n"],
+  "tui.editor.cursorUp": ["up", "ctrl+p"],
+  "tui.editor.historyPrevious": ["ctrl+p"],
+  "tui.editor.historyNext": ["ctrl+n"],
+  "tui.select.up": ["up", "ctrl+p"],
+  "tui.select.down": ["down", "ctrl+n"],
+  "tui.select.pageDown": ["pageDown", "ctrl+pageDown"],
+  "tui.select.pageUp": ["pageUp", "ctrl+pageUp"],
+  "app.session.togglePath": [],
+  "app.session.toggleNamedFilter": [],
+  "app.model.cycleForward": []
+}
