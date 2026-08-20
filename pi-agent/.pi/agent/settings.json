@@ -1,0 +1,11 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "muse-spark-1.2-contributor",
+  "hideThinkingBlock": true,
+  "theme": "dark",
+  "defaultThinkingLevel": "high",
+  "compaction": {
+    "enabled": true
+  }
+}
