@@ -8,5 +8,9 @@
   "hideThinkingBlock": true,
   "lastChangelogVersion": "0.84.2",
   "tuiMode": "fullscreen",
+  "packages": [
+    "npm:@ff-labs/pi-fff",
+    "npm:@demigodmode/pi-web-agent"
+  ],
   "theme": "dark"
 }
