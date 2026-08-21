@@ -1,0 +1,12 @@
+{
+  "compaction": {
+    "enabled": true
+  },
+  "defaultModel": "muse-spark-1.2-contributor",
+  "defaultProvider": "opencode-go",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": true,
+  "lastChangelogVersion": "0.84.2",
+  "tuiMode": "fullscreen",
+  "theme": "dark"
+}

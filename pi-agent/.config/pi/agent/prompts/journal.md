@@ -131,6 +131,7 @@ the journal does not provide enough information.
 
 ## Style Requirements
 
+- Avoid em dashes entirely. Use periods or commas only (no parentheses, no en dashes, no hyphen-as-dash substitutes).
 - Use normal Markdown, not a code block.
 - Replace the entire content under the `## 📑 Executive Summary` heading.
 - If the current summary is inside a fenced code block, remove the code block
