@@ -1,0 +1,9 @@
+{
+  "defaultModel": "muse-spark-1.2-contributor",
+  "defaultProvider": "opencode-go",
+  "defaultThinkingLevel": "high",
+  "lastChangelogVersion": "0.84.3",
+  "packages": ["npm:@ff-labs/pi-fff", "npm:@demigodmode/pi-web-agent"],
+  "theme": "dark",
+  "tuiMode": "fullscreen"
+}

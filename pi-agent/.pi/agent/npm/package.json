@@ -1,0 +1,8 @@
+{
+  "name": "pi-extensions",
+  "private": true,
+  "dependencies": {
+    "@demigodmode/pi-web-agent": "^1.10.0",
+    "@ff-labs/pi-fff": "^0.10.5"
+  }
+}
