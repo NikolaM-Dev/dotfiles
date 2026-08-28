@@ -3,14 +3,6 @@ name = "󱂵 home"
 path = "~"
 
 [[session]]
-name = " drive"
-path = "~/Documents/drive"
-
-[[session]]
-name = " tasks"
-path = "~/.task"
-
-[[session]]
 name = " downloads"
 path = "~/Downloads"
 
@@ -21,7 +13,7 @@ path = "~/Pictures"
 [[session]]
 name = " dotfiles"
 path = "~/dotfiles"
-startup_command = 'nvim'
+startup_command = "nvim"
 
 [[session]]
 name = " workspace"
@@ -30,43 +22,36 @@ path = "~/w"
 [[session]]
 name = " nvim"
 path = "~/.config/nvim"
-startup_command = 'nvim'
+startup_command = "nvim"
 
 [[session]]
 name = " second brain"
-path = "~/w/2-areas/second-brain.md/src"
-startup_command = 'nvim'
+path = "~/w/a/second-brain.md/src"
+startup_command = "nvim"
 
 [[session]]
 name = "󰯊 notes"
-path = "~/w/2-areas/second-brain.md/src"
+path = "~/w/a/second-brain.md/src"
 
 [[session]]
 name = " music"
 path = "~/Music"
-startup_command = 'just'
+startup_command = "just"
 
 [[session]]
-name = "󰂾 library"
-path = "~/library"
-
-[[session]]
-name = "󰊿 english"
-path = "~/w/2-areas/english/language-learning__nkl"
-
-[[session]]
-name = " chadwm"
-path = "~/.config/chadwm"
+name = " dwm"
+path = "~/.config/dwm"
+startup_command = "nvim config.def.h"
 
 [[session]]
 name = "󰊠 ghostty"
 path = "~/.config/ghostty"
-startup_command = 'nvim config'
+startup_command = "nvim config"
 
 [[session]]
 name = " sesh"
 path = "~/.config/sesh"
-startup_command = 'nvim sesh.toml'
+startup_command = "nvim sesh.toml"
 
 [[session]]
 name = " emacs"
@@ -75,23 +60,19 @@ path = "~/.config/emacs"
 [[session]]
 name = "󰆍 wezterm"
 path = "~/.config/wezterm"
-startup_command = 'nvim wezterm.lua'
+startup_command = "nvim wezterm.lua"
 
 [[session]]
 name = "󰣉 projects"
-path = "~/w/1-projects"
+path = "~/w/p"
 
 [[session]]
 name = " areas"
-path = "~/w/2-areas"
+path = "~/w/a"
 
 [[session]]
-name = "󱉏 resources"
-path = "~/w/3-resources"
-
-[[session]]
-name = " archives"
-path = "~/w/4-archives"
+name = "󰐀 Pi"
+path = "~/dotfiles/pi-agent/.pi/agent/"
 
 [[session]]
 name = " Bob"
