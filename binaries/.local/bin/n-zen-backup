@@ -1,0 +1,115 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# --- logging ---
+if [[ -t 1 ]] && command -v tput >/dev/null 2>&1 && [[ $(tput colors 2>/dev/null || echo 0) -ge 8 ]]; then
+  RED=$(tput setaf 1)
+  YELLOW=$(tput setaf 3)
+  GREEN=$(tput setaf 2)
+  CYAN=$(tput setaf 6)
+  RESET=$(tput sgr0)
+else
+  RED=""; YELLOW=""; GREEN=""; CYAN=""; RESET=""
+fi
+
+log_info()  { echo -e "${GREEN}[INFO]${RESET} $*"; }
+log_warn()  { echo -e "${YELLOW}[WARN]${RESET} $*" >&2; }
+log_error() { echo -e "${RED}[ERROR]${RESET} $*" >&2; }
+log_step()  { echo -e "${CYAN}[INFO]${RESET} $*"; }
+
+PROFILE_NAME="nkl"
+PROFILE_DIR="$HOME/.config/zen/87cp3bps.nkl"
+BACKUP_DIR="$HOME/backups/zen"
+TIMESTAMP="$(date +%Y%m%dT%H%M%S)"
+OUTPUT="$BACKUP_DIR/${PROFILE_NAME}-${TIMESTAMP}.tar.gz"
+
+close_zen() {
+  if ! pgrep -x "zen-bin" >/dev/null 2>&1; then
+    log_info "Zen is not running, skipping close."
+    return 0
+  fi
+
+  log_step "Closing Zen..."
+  pkill -TERM -x "zen-bin" || true
+
+  for i in {1..30}; do
+    if ! pgrep -x "zen-bin" >/dev/null 2>&1; then
+      log_info "Zen closed."
+      return 0
+    fi
+    sleep 1
+  done
+
+  log_warn "Zen did not exit gracefully, forcing..."
+  pkill -KILL -x "zen-bin" || true
+  sleep 2
+}
+
+relaunch_zen() {
+  log_step "Relaunching Zen..."
+  nohup zen-browser >/dev/null 2>&1 &
+  disown || true
+  log_info "Zen relaunched (PID $!)."
+}
+
+trap relaunch_zen EXIT
+
+main() {
+  if [[ ! -d "$PROFILE_DIR" ]]; then
+    log_error "profile dir not found: $PROFILE_DIR"
+    log_error "Check ~/.config/zen/profiles.ini"
+    exit 1
+  fi
+
+  mkdir -p "$BACKUP_DIR"
+
+  close_zen
+
+  # give sqlite a moment to flush and lock to clear
+  sleep 1
+  # wait for lock files to disappear if they linger
+  for i in {1..5}; do
+    if [[ ! -e "$PROFILE_DIR/lock" && ! -e "$PROFILE_DIR/.parentlock" ]]; then
+      break
+    fi
+    sleep 1
+  done
+
+  log_step "Backing up $PROFILE_NAME -> $OUTPUT"
+  tar \
+    --exclude="lock" \
+    --exclude=".parentlock" \
+    --exclude="*.wal" \
+    --exclude="*.shm" \
+    --exclude="sessionstore-backups/recovery.jsonlz4" \
+    --exclude="crashes" \
+    --exclude="minidumps" \
+    -czf "$OUTPUT" \
+    -C "$HOME/.config/zen" \
+    "87cp3bps.nkl" \
+    "profiles.ini" \
+    "installs.ini"
+
+  log_info "Backup done: $OUTPUT ($(du -h "$OUTPUT" | cut -f1))"
+
+  # verify tar is readable
+  tar -tzf "$OUTPUT" >/dev/null
+  log_info "Tar verified."
+
+  # prune old backups, keep last 5
+  local count
+  count=$(ls -1 "$BACKUP_DIR"/${PROFILE_NAME}-*.tar.gz 2>/dev/null | wc -l)
+  if (( count > 5 )); then
+    log_step "Pruning old backups, keeping 5 most recent..."
+    ls -1t "$BACKUP_DIR"/${PROFILE_NAME}-*.tar.gz | tail -n +6 | while IFS= read -r old; do
+      log_warn "Removing old backup: $old"
+      rm -f "$old"
+    done
+  fi
+
+  # remove trap and relaunch now (trap will also run on success, so disable)
+  trap - EXIT
+  relaunch_zen
+}
+
+main "$@"
