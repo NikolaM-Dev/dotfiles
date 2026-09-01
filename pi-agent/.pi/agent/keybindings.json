@@ -1,8 +1,10 @@
 {
-  "app.model.cycleForward": [],
-  "app.model.select": [],
+  "app.model.cycleForward": ["alt+m"],
+  "app.model.select": [""],
   "app.session.toggleNamedFilter": [],
   "app.session.togglePath": [],
+  "app.thinking.cycle": ["ctrl+t"],
+  "app.thinking.toggle": [""],
   "tui.altScreen.bottom": ["ctrl+]", "end", "ctrl+end"],
   "tui.altScreen.top": ["ctrl+[", "home", "ctrl+home"],
   "tui.editor.cursorDown": ["down", "ctrl+n"],
