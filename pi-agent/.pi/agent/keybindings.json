@@ -6,6 +6,10 @@
   "app.thinking.cycle": ["ctrl+t"],
   "app.thinking.toggle": [""],
   "tui.altScreen.bottom": ["ctrl+]", "end", "ctrl+end"],
+  "tui.altScreen.halfPageDown": "pageDown",
+  "tui.altScreen.halfPageUp": ["pageUp"],
+  "tui.altScreen.pageDown": ["ctrl+pageDown"],
+  "tui.altScreen.pageUp": ["ctrl+pageUp"],
   "tui.altScreen.top": ["ctrl+[", "home", "ctrl+home"],
   "tui.editor.cursorDown": ["down", "ctrl+n"],
   "tui.editor.cursorUp": ["up", "ctrl+p"],
@@ -13,7 +17,5 @@
   "tui.editor.historyPrevious": ["ctrl+p"],
   "tui.input.tab": ["tab", ";"],
   "tui.select.down": ["down", "ctrl+n"],
-  "tui.select.pageDown": ["pageDown", "ctrl+pageDown"],
-  "tui.select.pageUp": ["pageUp", "ctrl+pageUp"],
   "tui.select.up": ["up", "ctrl+p"]
 }
