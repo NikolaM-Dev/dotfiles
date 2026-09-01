@@ -2,6 +2,10 @@
   "defaultModel": "muse-spark-1.2-contributor",
   "defaultProvider": "opencode-go",
   "defaultThinkingLevel": "high",
+  "enabledModels": [
+    "opencode-go/deepseek-v4-flash",
+    "opencode-go/muse-spark-1.2-contributor"
+  ],
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.84.4",
   "packages": [
