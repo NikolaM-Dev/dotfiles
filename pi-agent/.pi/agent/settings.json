@@ -3,10 +3,11 @@
   "defaultProvider": "opencode-go",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.84.3",
+  "lastChangelogVersion": "0.84.4",
   "packages": [
     "npm:@ff-labs/pi-fff",
-    "npm:@demigodmode/pi-web-agent"
+    "npm:@demigodmode/pi-web-agent",
+    "npm:@zhcsyncer/pi-glance"
   ],
   "theme": "dark",
   "tuiMode": "fullscreen"
