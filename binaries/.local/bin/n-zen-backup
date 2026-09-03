@@ -81,9 +81,21 @@ main() {
     --exclude=".parentlock" \
     --exclude="*.wal" \
     --exclude="*.shm" \
+    --exclude="*.chk" \
     --exclude="sessionstore-backups/recovery.jsonlz4" \
+    --exclude="sessionstore-backups/recovery.baklz4" \
     --exclude="crashes" \
     --exclude="minidumps" \
+    --exclude="cache2" \
+    --exclude="startupCache" \
+    --exclude="thumbnails" \
+    --exclude="safebrowsing" \
+    --exclude="datareporting" \
+    --exclude="saved-telemetry-pings" \
+    --exclude="gmp-widevinecdm" \
+    --exclude="gmp-gmpopenh264" \
+    --exclude="*/cache" \
+    --exclude="*/cache/*" \
     -czf "$OUTPUT" \
     -C "$HOME/.config/zen" \
     "87cp3bps.nkl" \
