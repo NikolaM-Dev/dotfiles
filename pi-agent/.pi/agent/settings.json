@@ -13,6 +13,6 @@
     "npm:@demigodmode/pi-web-agent",
     "npm:@zhcsyncer/pi-glance"
   ],
-  "theme": "dark",
+  "theme": "cendre",
   "tuiMode": "fullscreen"
 }
