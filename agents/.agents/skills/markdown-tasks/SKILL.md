@@ -5,7 +5,7 @@ description: Create, update, schedule, and cancel tasks in any markdown file usi
 
 # Markdown Tasks
 
-Manage tasks in any markdown file using the Tasks emoji convention (sourced from the Obsidian Tasks plugin, but vault-agnostic). Works in any repo, docs folder, `TODO.md`, daily note, or ad-hoc markdown file. Covers creation, scheduling, updates, and cancellation with the mandatory Why? sub-list for canceled tasks.
+Manage tasks in any markdown file using the Tasks emoji convention (sourced from the Obsidian Tasks plugin, but vault-agnostic). Works in any repo, docs folder, `TODO.md`, daily note, or ad-hoc markdown file. Covers creation, scheduling, updates, and cancellation with the mandatory checked `**Why?:**` sub-task for canceled tasks.
 
 ## Emoji convention (canonical)
 
@@ -132,29 +132,32 @@ This is mandatory. A canceled task without a reason is invalid.
 
 1. Change `- [ ]` or `- [/]` to `- [-]`.
 2. Append `❌ YYYY-MM-DD` (cancellation date, today unless specified).
-3. Immediately below, add a sub-list item with the reason:
+3. Immediately below, add a checked sub-task with the reason:
 
 ```md
 - [-] Tell me about a time you solved a difficult problem ➕ 2026-07-30 ❌ 2026-07-31
-  - **Why?** Because was too broad, I need to focus on the problem and not the solution.
+  - [x] **Why?:** Because was too broad, I need to focus on the problem and not the solution. ✅ 2026-07-31
 ```
 
 Rules:
 
-- Sub-list must be `- **Why?** <reason>` indented by 2 spaces.
+- Sub-list must be `- [x] **Why?:** <reason> ✅ YYYY-MM-DD` indented by 2 spaces. The `✅` date matches the `❌` date (today unless specified).
 - Reason must be a full sentence, explaining why it was canceled, not just "no longer needed". Push for specifics: scope change, duplicate, blocked, deprioritized, replaced by X.
-- Keep original emojis (`➕`, `⏳`, `📅`, etc.) intact. Only add `❌`.
+- Keep original emojis (`➕`, `⏳`, `📅`, etc.) on the parent line intact. Only add `❌`.
 - Never delete the canceled task line. Keep it for history.
 - If task had sub-bullets before cancellation, keep them and add the Why? as the last sub-bullet.
 
 Additional examples:
 
 ```md
+- [-] How to train martial arts ➕ 2026-09-02 ❌ 2026-09-03
+  - [x] **Why?:** This is a whole new area, right now it's not my priority. ✅ 2026-09-03
+
 - [-] Migrate vault to Dataview queries #task ➕ 2026-07-28 ⏳ 2026-08-01 ❌ 2026-07-30
-  - **Why?** Decided to stay on Tasks plugin, Dataview migration adds no value for current queries.
+  - [x] **Why?:** Decided to stay on Tasks plugin, Dataview migration adds no value for current queries. ✅ 2026-07-30
 
 - [-] Schedule weekly review 🔁 every Monday ➕ 2026-07-30 ❌ 2026-07-31
-  - **Why?** Duplicate of existing recurring task `🆔 abc123`.
+  - [x] **Why?:** Duplicate of existing recurring task `🆔 abc123`. ✅ 2026-07-31
 ```
 
 When user asks to cancel without giving a reason, ask for the reason. Do not invent a vague reason. Propose a draft if needed and confirm.
@@ -177,5 +180,5 @@ When user asks to cancel without giving a reason, ask for the reason. Do not inv
 - Never use `:x:` style or unicode alternatives for emojis. Copy exactly: `➕ ⏳ 🛫 📅 ✅ ❌ 🔁 ⏫ 🔼 🔽 ⏬ 🔺`.
 - Never put dates as `(2026-07-30)` or `[due:: 2026-07-30]`. Only `📅 2026-07-30`.
 - Never use `~~strikethrough~~` to cancel.
-- Never create a canceled task without `❌` and the `**Why?**` sub-list.
+- Never create a canceled task without `❌` and the checked `**Why?:**` sub-task (`  - [x] **Why?:** <reason> ✅ YYYY-MM-DD`).
 - Never drop `➕` when rescheduling.
