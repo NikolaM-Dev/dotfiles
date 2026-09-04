@@ -7,7 +7,7 @@
     "opencode-go/muse-spark-1.2-contributor"
   ],
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.0",
   "packages": [
     "npm:@ff-labs/pi-fff",
     "npm:@demigodmode/pi-web-agent",
