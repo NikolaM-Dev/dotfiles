@@ -78,6 +78,7 @@ declare -A BOOKMARKS=(
   ["Toosl Claude Chat"]="https://claude.ai/"
   ["Toosl Kimi Chat"]="https://www.kimi.com/"
   ["Toosl z.AI Subscription"]="https://z.ai/manage-apikey/subscription"
+  ["Tools Repositories"]="https://github.com/NikolaM-Dev?tab=repositories"
 
   ["Vite"]="http://localhost:5173"
 
@@ -117,7 +118,6 @@ declare -A BOOKMARKS=(
   ["juan"]="https://mail.google.com/mail/u/1/#inbox"
   ["lazy"]="https://lazy.folke.io/spec"
   ["lsp"]="https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md"
-  ["new_repository"]="https://github.com/new"
   ["nikola"]="https://github.com/NikolaM-Dev"
   ["none_ls"]="https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md"
   ["obsidian"]="https://github.com/epwalsh/obsidian.nvim"
