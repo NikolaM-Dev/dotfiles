@@ -3,50 +3,50 @@
 OUTPUT_FILE="$HOME/dotfiles/packages/.config/packages/packages-list.txt"
 
 function _install_yay() {
-    # Install required packages
-    sudo pacman -S --needed git base-devel
+  # Install required packages
+  sudo pacman -S --needed git base-devel
 
-    # Clone the yay repository from Arch Linux's AUR
-    git clone https://aur.archlinux.org/yay.git
+  # Clone the yay repository from Arch Linux's AUR
+  git clone https://aur.archlinux.org/yay.git
 
-    # Change into the newly cloned directory and build the package
-    cd yay
-    makepkg -si
+  # Change into the newly cloned directory and build the package
+  cd yay
+  makepkg -si
 }
 
 function _backup_packages() {
-    # Ensure yay is installed
-    if ! type yay &>/dev/null; then
-        _install_yay
-    fi
+  # Ensure yay is installed
+  if ! type yay &>/dev/null; then
+    _install_yay
+  fi
 
-    # Ensure the directory exists
-    mkdir -p "$(dirname "$OUTPUT_FILE")"
+  # Ensure the directory exists
+  mkdir -p "$(dirname "$OUTPUT_FILE")"
 
-    EXCLUDED_FILE="$HOME/dotfiles/packages/.config/packages/excluded_packages.txt"
+  EXCLUDED_FILE="$HOME/dotfiles/packages/.config/packages/excluded_packages.txt"
 
-    # Get the list of installed packages
-    if [[ -f "$EXCLUDED_FILE" ]]; then
-        # Remove packages listed in EXCLUDED_FILE
-        pacman -Qqe | grep -Fxv -f "$EXCLUDED_FILE" | sort > "$OUTPUT_FILE"
-    else
-        # If no exclude file exists, save all packages
-        pacman -Qqe | sort > "$OUTPUT_FILE"
-    fi
+  # Get the list of installed packages
+  if [[ -f "$EXCLUDED_FILE" ]]; then
+    # Remove packages listed in EXCLUDED_FILE
+    pacman -Qqe | grep -Fxv -f "$EXCLUDED_FILE" | sort >"$OUTPUT_FILE"
+  else
+    # If no exclude file exists, save all packages
+    pacman -Qqe | sort >"$OUTPUT_FILE"
+  fi
 
-    echo "Package list saved :)"
+  echo "Package list saved :)"
 }
 
 function _install_packages() {
-    yay -S --noconfirm --needed - < $OUTPUT_FILE
+  yay -S --noconfirm --needed - <$OUTPUT_FILE
 }
 
 function main() {
-    _backup_packages
+  _backup_packages
 
-    if [[ "$1" == "--install" ]]; then
-        _install_packages
-    fi
+  if [[ "$1" == "--install" ]]; then
+    _install_packages
+  fi
 }
 
 main "$@"
