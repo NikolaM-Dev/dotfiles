@@ -37,7 +37,7 @@ fi
 export QT_STYLE_OVERRIDE=""
 
 # Remove suspend
-n-remove-system-suspend
+n-remove-system-suspend &
 
 # Daemons
 flameshot &
@@ -47,16 +47,21 @@ sh $HOME/.fehbg &
 udiskie -t &
 dunst &
 copyq &
-"${SECOND_BRAIN_PATH:-$HOME/w/2-areas/second-brain.md}/backup/linux/backup.sh" &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+## Custom scripts
 n-backup &
+# "${SECOND_BRAIN_PATH}/backup/linux/backup.sh" &
 n-eyes &
 n-redshift &
 n-just-start-or-keep-going &
 n-boogie-woogie &
-handy &
-vesktop &
-zen-browser &
-obsidian &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-n-dwm-start
+# stagger heavy Electron/AppImage apps (avoids startup storm that freezes dwm)
+(sleep 2 && vesktop) &
+(sleep 4 && zen-browser) &
+(sleep 6 && obsidian) &
+(sleep 8 && handy) &
+(sleep 10 && stayfree) &
+
+exec n-dwm-start
