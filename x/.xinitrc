@@ -62,6 +62,5 @@ n-boogie-woogie &
 (sleep 4 && zen-browser) &
 (sleep 6 && obsidian) &
 (sleep 8 && handy) &
-(sleep 10 && stayfree) &
 
 exec n-dwm-start
