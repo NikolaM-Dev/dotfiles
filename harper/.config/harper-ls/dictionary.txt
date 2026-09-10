@@ -1,6 +1,7 @@
 ATG
 AbortController
 Abramov
+Alvar
 Aoi
 Arepa
 B1
@@ -25,6 +26,7 @@ DQL
 DSA
 DataGrip
 Dodds
+Eero
 ElectronJS
 ElvUI
 Excalidraw
