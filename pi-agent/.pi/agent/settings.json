@@ -13,7 +13,8 @@
     "npm:@demigodmode/pi-web-agent",
     "npm:@zhcsyncer/pi-glance",
     "npm:gentle-engram",
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:pi-nvim"
   ],
   "theme": "cendre",
   "tuiMode": "fullscreen"
