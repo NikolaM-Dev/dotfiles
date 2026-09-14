@@ -11,7 +11,9 @@
   "packages": [
     "npm:@ff-labs/pi-fff",
     "npm:@demigodmode/pi-web-agent",
-    "npm:@zhcsyncer/pi-glance"
+    "npm:@zhcsyncer/pi-glance",
+    "npm:gentle-engram",
+    "npm:pi-mcp-adapter"
   ],
   "theme": "cendre",
   "tuiMode": "fullscreen"

@@ -4,6 +4,8 @@
   "dependencies": {
     "@demigodmode/pi-web-agent": "^1.10.0",
     "@ff-labs/pi-fff": "^0.10.6",
-    "@zhcsyncer/pi-glance": "^0.9.0"
+    "@zhcsyncer/pi-glance": "^0.9.0",
+    "gentle-engram": "^0.1.12",
+    "pi-mcp-adapter": "^2.33.0"
   }
 }
