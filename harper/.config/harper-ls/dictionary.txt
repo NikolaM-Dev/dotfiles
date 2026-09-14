@@ -4,6 +4,7 @@ Abramov
 Alvar
 Aoi
 Arepa
+Arteaga
 B1
 Barad
 BiliBili
@@ -15,6 +16,7 @@ CS50's
 CTRL
 Calibre
 Camilo
+Chezmoi
 CrossFit
 DAP
 DBAs
@@ -26,15 +28,18 @@ DQL
 DSA
 DataGrip
 Dodds
+DroidCam
 Eero
 ElectronJS
 ElvUI
+Engoo
 Excalidraw
 GDB
 Gadgetzan
 Glove80
 Goncy
 HOCs
+HSVP
 Hirwajeaneric
 Hormozi
 Ibagué
@@ -48,6 +53,7 @@ LazyVim
 Manizales
 Mariquita
 Melkey
+Mikel
 Mikiling
 NKL
 NL
@@ -55,10 +61,14 @@ Neferpitou
 NextJS
 Nikola's
 NodeJS
+Noela
 OS
 OpenCode
 PLPGSQL
+Pikaboo
+Pocock
 Pomodoro
+Preply
 RSC
 Reins
 SP
