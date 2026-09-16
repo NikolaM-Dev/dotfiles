@@ -46,7 +46,7 @@ function main {
     _trace "Waiting ${INTERVAL} seconds ($((${INTERVAL} / 60)) min)"
 
     # Play notification sound in the background
-    mpv /home/nikola/backups/20260207T092714--yuumi1.ogg &
+    mpv /home/nikola/backups/20260207T092714--yuumi.ogg &
 
     # Wait for the random interval
     sleep $INTERVAL
