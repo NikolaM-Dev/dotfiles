@@ -12,7 +12,7 @@
     "npm:@ff-labs/pi-fff",
     "npm:@demigodmode/pi-web-agent",
     "npm:@zhcsyncer/pi-glance",
-    "npm:gentle-engram",
+    "npm:gentle-engram@latest",
     "npm:pi-mcp-adapter",
     "npm:pi-nvim"
   ],
