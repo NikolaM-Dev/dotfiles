@@ -16,6 +16,7 @@ CS50's
 CTRL
 Calibre
 Camilo
+Cendre
 Chezmoi
 CrossFit
 DAP
@@ -45,16 +46,19 @@ Hormozi
 Ibagué
 IntelliSence
 JSX
+Justfile
 KB
 Kokoro
 LN
 Latam
 LazyVim
+Macarrona
 Manizales
 Mariquita
 Melkey
 Mikel
 Mikiling
+MultiTimer
 NKL
 NL
 Neferpitou
