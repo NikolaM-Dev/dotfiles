@@ -1,59 +1,159 @@
 #!/usr/bin/env bash
-
-# `n-timer` - A Rofi-based timer launcher
-# Prompts for duration and description, then starts a timer with notifications
+# n-timer — rofi-driven timer and pomodoro launcher.
+#
+# Prompts for input with rofi, then either starts a sleep-based timer
+# or delegates to the pomodoro backend:
+#
+#   <empty> + Enter          start a pomodoro cycle (refuses if one runs)
+#   Esc                      cancel, do nothing
+#   DURATION [description]   play the start sound, sleep DURATION,
+#                              then notify + play the end sound
+#
+# Grammar:  DURATION is required, format '<number>[.[fraction]][s|m|h|d]'
+#           (e.g. 25m, 1.5h, 90s). Description is optional, defaults to Focus.
+# Examples: '25m', '25m focus', '1h deep reading', '90s tea'
+#
+# Deps: rofi, sleep, notify-send, n-log. Plus pomodoro + n-pomo-stop for
+#   the empty-input path, mpv (optional) for the done sound.
+# Exit codes: 0 ok / cancelled, 1 runtime or input error, 2 usage error.
 
 set -euo pipefail
 
-function _trace() {
-  echo " [TRACE] $1"
+if [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash" ]]; then
+  source "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash"
+else
+  echo "[ERROR] n-log.bash not found" >&2
+  exit 1
+fi
+
+readonly DEFAULT_DESCRIPTION="Focus"
+readonly START_SOUND="$HOME/backups/20260321T181844--wow-quest-accepted.mp3"
+readonly END_SOUND="$HOME/backups/20260321T181304--winning-in-fortnite-be-like.mp3"
+readonly DURATION_RE='^[0-9]+(\.[0-9]+)?[smhd]$'
+readonly RUNNING_RE='^[0-9]+:[0-9]+(:[0-9]+)?$'
+readonly EXPIRED_RE='^0+:0+(:0+)?$'
+
+# One quoted string max in -theme-str: rofi 2.0 silently discards the whole
+# theme when it holds two (font lives in -font for the same reason).
+readonly ROFI_FONT="Maple Mono NF Medium 12"
+ROFI_THEME='window {width: 480px; border-radius: 8px; background-color: #0f0c0a; border: 1px; border-color: #463e3a; padding: 12px;} '
+ROFI_THEME+='mainbox {background-color: transparent; children: [inputbar];} '
+ROFI_THEME+='inputbar {children: [prompt, entry]; background-color: #171311; border: 1px; border-color: #362f2c; border-radius: 6px; padding: 8px 12px;} '
+ROFI_THEME+='prompt {background-color: transparent; text-color: #ea9875;} '
+ROFI_THEME+='entry {background-color: transparent; text-color: #e6d5c2; placeholder: "25m Focus"; placeholder-color: #73665b; cursor-color: #ea9875; selection-background: #2a2422; selection-foreground: #e6d5c2;} '
+ROFI_THEME+='listview {enabled: false;} element {enabled: false;}'
+
+usage() {
+  cat <<'USAGE'
+Usage: n-timer [--help]
+
+Prompts via rofi. Empty input starts a pomodoro, Esc cancels,
+'DURATION [description]' (e.g. '25m focus') starts a timer.
+USAGE
 }
 
-function _timer() {
-  local duration description sound
-
-  duration="$1"
-  description="${2:-Timer}"
-  sound="$HOME/backups/20260321T181304--winning-in-fortnite-be-like.mp3"
-
-  if [[ -z "$duration" ]]; then
-    printf 'Error: missing duration argument\n' >&2
-    return 1
-  fi
-
-  # Normalize "min" to "m" for compatibility with timer
-  duration=$(echo "$duration" | sed 's/min$/m/i')
-
-  if timer "$duration" --format 24h -n "$description"; then
-    notify-send -t 600000 "󰀠  $description is Done"
-    mpv "$sound"
-  fi
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    log_error "$1 not found"
+    exit 1
+  }
 }
 
-function main() {
-  # Prompt for duration using Rofi
-  local duration
-  duration=$(rofi -dmenu -i -p "Duration (e.g., 25m, 1h, 30s):" -l 0)
-  duration=$(echo "$duration" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+# Prints the rofi input on stdout; exits 0 with empty output on cancel.
+prompt_input() {
+  local input status
+  input=""
+  status=0
+  input=$(rofi -dmenu -i -no-config -font "$ROFI_FONT" -p "Timer " -l 0 -theme-str "$ROFI_THEME") || status=$?
+  if [[ $status -ne 0 ]]; then
+    log_info "cancelled"
+    exit 0
+  fi
+  printf '%s' "$input"
+}
 
-  if [[ -z "$duration" ]]; then
-    _trace "No duration provided, starting Pomodoro."
-    pomodoro start --wait && n-pomo-stop
+start_pomodoro() {
+  require_cmd pomodoro
+  require_cmd n-pomo-stop
+
+  local remaining
+  remaining="$(pomodoro status -f '%r' 2>/dev/null || true)"
+  if [[ "$remaining" =~ $RUNNING_RE ]] && [[ ! "$remaining" =~ $EXPIRED_RE ]]; then
+    log_error "a pomodoro cycle is already running ($remaining left)"
+    notify-send -t 5000 "Pomodoro already running ($remaining left)"
+    exit 1
+  fi
+
+  log_step "starting pomodoro"
+  pomodoro start --wait && n-pomo-stop
+}
+
+play_sound() {
+  local file
+  file="$1"
+  if [[ ! -f "$file" ]]; then
+    log_warn "sound file not found: $file"
     return 0
   fi
 
-  # Prompt for description (optional)
-  local description
-  description=$(rofi -dmenu -i -p "Description (optional):" -l 0)
-  description=$(echo "$description" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-
-  if [[ -z "$description" ]]; then
-    description="Deep Work"
+  if ! command -v mpv >/dev/null 2>&1; then
+    log_warn "mpv not found, skipping sound"
+    return 0
   fi
 
-  _trace "Starting timer: $duration - $description"
-  notify-send -t 5000 "⏱ Timer started: $description ($duration)"
-  _timer "$duration" "$description"
+  mpv --no-video --really-quiet "$file" >/dev/null 2>&1 &
+  disown || true
 }
 
-main
+start_sleep_timer() {
+  local duration description
+  duration="$1"
+  description="${2:-$DEFAULT_DESCRIPTION}"
+
+  if [[ ! "$duration" =~ $DURATION_RE ]]; then
+    log_error "invalid duration: '$duration' (expected DURATION [description], e.g. '25m focus')"
+    exit 1
+  fi
+
+  log_step "starting timer: $duration - $description"
+  notify-send -t 5000 "Timer started: $description ($duration)"
+  play_sound "$START_SOUND"
+
+  if ! sleep "$duration"; then
+    log_error "sleep failed for duration: '$duration'"
+    exit 1
+  fi
+
+  notify-send -t 600000 "$description is Done"
+  play_sound "$END_SOUND"
+  log_info "done: $description ($duration)"
+}
+
+main() {
+  if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    usage
+    return 0
+  fi
+
+  if [[ $# -gt 0 ]]; then
+    usage >&2
+    return 2
+  fi
+
+  require_cmd rofi
+  require_cmd sleep
+  require_cmd notify-send
+
+  local input duration description
+  input="$(prompt_input)"
+  read -r duration description <<<"$input"
+
+  if [[ -z "${duration:-}" ]]; then
+    start_pomodoro
+    return 0
+  fi
+
+  start_sleep_timer "$duration" "${description:-}"
+}
+
+main "$@"
