@@ -52,14 +52,13 @@ Only use `- [-]` for canceled tasks. Never use strikethrough or plain text `CANC
 | `🏁`   | On completion         | `🏁 keep` or `🏁 delete`                                    |
 | `🆔`   | ID (for dependencies) | `🆔 abc123`                                                 |
 | `⛔`   | Depends on            | `⛔ abc123,def456`                                          |
-| `#tag` | Tags                  | `#task` `#project/work`                                     |
 
 ### Canonical order on one line
 
 Keep emojis in this order after the description:
 
 ```
-- [ ] Description #tags ➕ YYYY-MM-DD ⏳ YYYY-MM-DD 🛫 YYYY-MM-DD 📅 YYYY-MM-DD 🔁 ... ⏫/🔼/🔽/⏬ 🏁 ... 🆔 ... ⛔ ... ✅/❌ YYYY-MM-DD
+- [ ] Description ➕ YYYY-MM-DD ⏳ YYYY-MM-DD 🛫 YYYY-MM-DD 📅 YYYY-MM-DD 🔁 ... ⏫/🔼/🔽/⏬ 🏁 ... 🆔 ... ⛔ ... ✅/❌ YYYY-MM-DD
 ```
 
 Only include fields that apply. Dates not needed are omitted, never blank. Use a single space between each signifier. Do not reorder.
@@ -68,15 +67,14 @@ Only include fields that apply. Dates not needed are omitted, never blank. Use a
 
 1. Use `- [ ]` as prefix.
 2. Write description as imperative, specific. Start with verb. Include context if needed.
-3. Add tags immediately after description (e.g. `#task`).
-4. Always add `➕ YYYY-MM-DD` with today's date (or provided creation date).
-5. Add scheduling/priority/recurrence only if requested.
-6. Never add `✅` or `❌` on creation.
+3. Always add `➕ YYYY-MM-DD` with today's date (or provided creation date).
+4. Add scheduling/priority/recurrence only if requested.
+5. Never add `✅` or `❌` on creation.
 
 Example:
 
 ```md
-- [ ] Write interview question about state machine #task ➕ 2026-07-30 📅 2026-08-05 ⏫
+- [ ] Write interview question about state machine ➕ 2026-07-30 📅 2026-08-05 ⏫
 - [ ] Review vault daily notes query 🔁 every day ➕ 2026-07-30
 ```
 
@@ -95,7 +93,7 @@ Rules:
 - If user says "schedule for 2026-08-01" with no qualifier, use `⏳ 2026-08-01`.
 - If user says "due 2026-08-01", use `📅 2026-08-01`.
 - If user says "start 2026-08-01", use `🛫 2026-08-01`.
-- User may set multiple dates: `- [ ] Draft post #task ➕ 2026-07-30 🛫 2026-08-01 ⏳ 2026-08-02 📅 2026-08-05`
+- User may set multiple dates: `- [ ] Draft post ➕ 2026-07-30 🛫 2026-08-01 ⏳ 2026-08-02 📅 2026-08-05`
 - Always keep `➕` (created) unchanged when rescheduling.
 - When rescheduling, replace the old date value, do not append a second `⏳`/`📅`/`🛫`.
 
@@ -113,17 +111,17 @@ Example update (reschedule):
 ```md
 # before
 
-- [ ] Write blog post #task ➕ 2026-07-30 ⏳ 2026-08-01
+- [ ] Write blog post ➕ 2026-07-30 ⏳ 2026-08-01
 
 # after - moved to 2026-08-03
 
-- [ ] Write blog post #task ➕ 2026-07-30 ⏳ 2026-08-03
+- [ ] Write blog post ➕ 2026-07-30 ⏳ 2026-08-03
 ```
 
 Example done:
 
 ```md
-- [x] Write blog post #task ➕ 2026-07-30 ⏳ 2026-08-03 ✅ 2026-08-03
+- [x] Write blog post ➕ 2026-07-30 ⏳ 2026-08-03 ✅ 2026-08-03
 ```
 
 ## Canceling tasks - strict rule
@@ -153,7 +151,7 @@ Additional examples:
 - [-] How to train martial arts ➕ 2026-09-02 ❌ 2026-09-03
   - [x] **Why?:** This is a whole new area, right now it's not my priority. ✅ 2026-09-03
 
-- [-] Migrate vault to Dataview queries #task ➕ 2026-07-28 ⏳ 2026-08-01 ❌ 2026-07-30
+- [-] Migrate vault to Dataview queries ➕ 2026-07-28 ⏳ 2026-08-01 ❌ 2026-07-30
   - [x] **Why?:** Decided to stay on Tasks plugin, Dataview migration adds no value for current queries. ✅ 2026-07-30
 
 - [-] Schedule weekly review 🔁 every Monday ➕ 2026-07-30 ❌ 2026-07-31
