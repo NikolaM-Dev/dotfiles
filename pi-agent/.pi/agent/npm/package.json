@@ -6,7 +6,6 @@
     "@ff-labs/pi-fff": "^0.10.6",
     "@zhcsyncer/pi-glance": "^0.9.0",
     "gentle-engram": "^0.1.14",
-    "pi-mcp-adapter": "^2.34.0",
-    "pi-nvim": "^0.2.5"
+    "pi-mcp-adapter": "^2.34.0"
   }
 }

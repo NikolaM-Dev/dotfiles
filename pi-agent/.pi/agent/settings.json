@@ -15,7 +15,6 @@
     "npm:@zhcsyncer/pi-glance",
     "npm:gentle-engram@latest",
     "npm:pi-mcp-adapter",
-    "npm:pi-nvim",
     "git:github.com/BlockedPath/pi-meta-oauth@meta-oauth-only"
   ],
   "theme": "cendre",
