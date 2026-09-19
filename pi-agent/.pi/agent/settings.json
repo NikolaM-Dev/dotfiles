@@ -1,10 +1,11 @@
 {
   "defaultModel": "muse-spark-1.3-contributor",
-  "defaultProvider": "opencode-go",
+  "defaultProvider": "meta",
   "defaultThinkingLevel": "high",
   "enabledModels": [
+    "meta/muse-spark-1.3-contributor",
     "opencode-go/muse-spark-1.3-contributor",
-    "opencode-go/deepseek-v4-flash"
+    "opencode-go/deepseek-v4.1-flash"
   ],
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.85.1",
@@ -14,7 +15,8 @@
     "npm:@zhcsyncer/pi-glance",
     "npm:gentle-engram@latest",
     "npm:pi-mcp-adapter",
-    "npm:pi-nvim"
+    "npm:pi-nvim",
+    "git:github.com/BlockedPath/pi-meta-oauth@meta-oauth-only"
   ],
   "theme": "cendre",
   "tuiMode": "fullscreen"
