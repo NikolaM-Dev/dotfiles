@@ -41,10 +41,12 @@ Glove80
 Goncy
 HOCs
 HSVP
+Hashimoto
 Hirwajeaneric
 Hormozi
 Ibagué
 IntelliSence
+Isadora
 JSX
 Justfile
 KB
@@ -70,6 +72,7 @@ OS
 OpenCode
 PLPGSQL
 Pikaboo
+Planification
 Pocock
 Pomodoro
 Preply
