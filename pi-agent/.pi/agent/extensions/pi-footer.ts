@@ -42,7 +42,8 @@ const ICON = {
 	effort: USE_NERD ? " " : "",
 	context: USE_NERD ? "󰅺 " : "ctx ",
 	tokens: USE_NERD ? "󰄨 " : "tok ",
-	cost: USE_NERD ? "󰈸 " : "$",
+	// cost: USE_NERD ? "󰈸 " : "$",
+	cost: USE_NERD ? "" : "$",
 	cacheRead: USE_NERD ? "󰃨 " : "",
 	cacheHit: USE_NERD ? "󰓾 " : "",
 } as const;
@@ -66,18 +67,28 @@ function formatCwd(cwd: string): string {
 }
 
 function sanitize(text: string): string {
-	return text.replace(/[\r\n\t]/g, " ").replace(/ +/g, " ").trim();
+	return text
+		.replace(/[\r\n\t]/g, " ")
+		.replace(/ +/g, " ")
+		.trim();
 }
 
 function thinkingToken(level: string): string {
 	switch (level) {
-		case "minimal": return "thinkingMinimal";
-		case "low": return "thinkingLow";
-		case "medium": return "thinkingMedium";
-		case "high": return "thinkingHigh";
-		case "xhigh": return "thinkingXhigh";
-		case "max": return "thinkingMax";
-		default: return "thinkingOff";
+		case "minimal":
+			return "thinkingMinimal";
+		case "low":
+			return "thinkingLow";
+		case "medium":
+			return "thinkingMedium";
+		case "high":
+			return "thinkingHigh";
+		case "xhigh":
+			return "thinkingXhigh";
+		case "max":
+			return "thinkingMax";
+		default:
+			return "thinkingOff";
 	}
 }
 
@@ -87,10 +98,12 @@ function thinkingToken(level: string): string {
 const EFFORT_ORDER = ["minimal", "low", "medium", "high", "xhigh", "max"] as const;
 
 function maxEffortFor(model: unknown): string | undefined {
-	const m = model as {
-		reasoning?: boolean;
-		thinkingLevelMap?: Record<string, string | null | undefined>;
-	} | undefined;
+	const m = model as
+		| {
+			reasoning?: boolean;
+			thinkingLevelMap?: Record<string, string | null | undefined>;
+		}
+		| undefined;
 	if (!m?.reasoning) return undefined;
 	const supported = EFFORT_ORDER.filter((level) => {
 		const mapped = m.thinkingLevelMap?.[level];
@@ -119,8 +132,16 @@ interface GitStats {
 }
 
 const EMPTY_STATS: GitStats = {
-	ahead: 0, behind: 0, staged: 0, modified: 0,
-	untracked: 0, conflict: 0, additions: 0, deletions: 0, stashed: 0, ok: false,
+	ahead: 0,
+	behind: 0,
+	staged: 0,
+	modified: 0,
+	untracked: 0,
+	conflict: 0,
+	additions: 0,
+	deletions: 0,
+	stashed: 0,
+	ok: false,
 };
 
 function run(cmd: string, args: string[], cwd: string): Promise<string> {
@@ -132,7 +153,18 @@ function run(cmd: string, args: string[], cwd: string): Promise<string> {
 }
 
 async function pollGit(cwd: string): Promise<GitStats> {
-	const status = await run("git", ["-c", "core.quotepath=off", "status", "--porcelain=v1", "--branch", "--untracked-files=normal"], cwd);
+	const status = await run(
+		"git",
+		[
+			"-c",
+			"core.quotepath=off",
+			"status",
+			"--porcelain=v1",
+			"--branch",
+			"--untracked-files=normal",
+		],
+		cwd,
+	);
 	if (!status) return EMPTY_STATS;
 	const stats: GitStats = { ...EMPTY_STATS, ok: true };
 	for (const line of status.split("\n")) {
@@ -151,9 +183,19 @@ async function pollGit(cwd: string): Promise<GitStats> {
 		if (line.length < 2) continue;
 		const x = line[0]!;
 		const y = line[1]!;
-		if (x === "?" && y === "?") { stats.untracked++; continue; }
-		if ((x === "U" && y === "U") || (x === "A" && y === "A") || (x === "D" && y === "D") ||
-			(x === "A" && y === "U") || (x === "U" && y === "A") || (x === "D" && y === "U") || (x === "U" && y === "D")) {
+		if (x === "?" && y === "?") {
+			stats.untracked++;
+			continue;
+		}
+		if (
+			(x === "U" && y === "U") ||
+			(x === "A" && y === "A") ||
+			(x === "D" && y === "D") ||
+			(x === "A" && y === "U") ||
+			(x === "U" && y === "A") ||
+			(x === "D" && y === "U") ||
+			(x === "U" && y === "D")
+		) {
 			stats.conflict++;
 			continue;
 		}
@@ -181,42 +223,61 @@ async function pollGit(cwd: string): Promise<GitStats> {
 // token totals (mirrors default footer: all entries, incl. tools/summaries)
 // ---------------------------------------------------------------------------
 
-interface Totals { input: number; output: number; cacheRead: number; cacheWrite: number; cost: number; }
-
-function totalsOf(entries: readonly unknown[]): Totals {
-	const t: Totals = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, cost: 0 };
-	for (const e of entries as Array<{
-		type?: string;
-		message?: { role?: string; usage?: { input: number; output: number; cacheRead: number; cacheWrite: number; cost: { total: number } } };
-		usage?: { input: number; output: number; cacheRead: number; cacheWrite: number; cost: { total: number } };
-	}>) {
-		const u = e.type === "message" ? e.message?.usage : undefined;
-		const u2 = (e.type === "branch_summary" || e.type === "compaction") ? e.usage : undefined;
-		const usage = u ?? u2;
-		if (!usage) continue;
-		t.input += usage.input ?? 0;
-		t.output += usage.output ?? 0;
-		t.cacheRead += usage.cacheRead ?? 0;
-		t.cacheWrite += usage.cacheWrite ?? 0;
-		t.cost += usage.cost?.total ?? 0;
-	}
-	return t;
+interface Totals {
+	input: number;
+	output: number;
+	cacheRead: number;
+	cacheWrite: number;
+	cost: number;
 }
 
-// cache-hit rate of the last assistant message (mirrors default footer CH:
-// cacheRead share of input + cacheRead + cacheWrite)
-function lastCacheHitRate(entries: readonly unknown[]): number | undefined {
-	let rate: number | undefined;
+interface SessionStats {
+	totals: Totals;
+	cacheHitRate: number | undefined;
+}
+
+// single pass over session entries: usage totals plus the last assistant
+// message's cache-hit rate (mirrors default footer R/CH)
+function computeSessionStats(entries: readonly unknown[]): SessionStats {
+	const totals: Totals = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, cost: 0 };
+	let cacheHitRate: number | undefined;
 	for (const e of entries as Array<{
 		type?: string;
-		message?: { role?: string; usage?: { input?: number; cacheRead?: number; cacheWrite?: number } };
+		message?: {
+			role?: string;
+			usage?: {
+				input?: number;
+				output?: number;
+				cacheRead?: number;
+				cacheWrite?: number;
+				cost?: { total?: number };
+			};
+		};
+		usage?: {
+			input?: number;
+			output?: number;
+			cacheRead?: number;
+			cacheWrite?: number;
+			cost?: { total?: number };
+		};
 	}>) {
-		if (e.type !== "message" || e.message?.role !== "assistant" || !e.message.usage) continue;
-		const u = e.message.usage;
-		const promptTokens = (u.input ?? 0) + (u.cacheRead ?? 0) + (u.cacheWrite ?? 0);
-		rate = promptTokens > 0 ? ((u.cacheRead ?? 0) / promptTokens) * 100 : undefined;
+		const u = e.type === "message" ? e.message?.usage : undefined;
+		const u2 = e.type === "branch_summary" || e.type === "compaction" ? e.usage : undefined;
+		const usage = u ?? u2;
+		if (usage) {
+			totals.input += usage.input ?? 0;
+			totals.output += usage.output ?? 0;
+			totals.cacheRead += usage.cacheRead ?? 0;
+			totals.cacheWrite += usage.cacheWrite ?? 0;
+			totals.cost += usage.cost?.total ?? 0;
+		}
+		if (e.type === "message" && e.message?.role === "assistant" && e.message.usage) {
+			const au = e.message.usage;
+			const promptTokens = (au.input ?? 0) + (au.cacheRead ?? 0) + (au.cacheWrite ?? 0);
+			cacheHitRate = promptTokens > 0 ? ((au.cacheRead ?? 0) / promptTokens) * 100 : undefined;
+		}
 	}
-	return rate;
+	return { totals, cacheHitRate };
 }
 
 // ---------------------------------------------------------------------------
@@ -230,6 +291,13 @@ export default function (pi: ExtensionAPI) {
 		ctx.ui.setFooter((tui, theme, footerData) => {
 			const t = theme as Theme;
 			let stats: GitStats = EMPTY_STATS;
+			let cachedEntries: readonly unknown[] | undefined;
+			let cachedEntriesLength = -1;
+			let cachedLastEntry: unknown;
+			let cachedStats: SessionStats = {
+				totals: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, cost: 0 },
+				cacheHitRate: undefined,
+			};
 			let polling = false;
 			let disposed = false;
 
@@ -251,7 +319,9 @@ export default function (pi: ExtensionAPI) {
 			};
 			void tick();
 			const timer = setInterval(voidTick, POLL_MS);
-			function voidTick(): void { void tick(); }
+			function voidTick(): void {
+				void tick();
+			}
 
 			return {
 				dispose() {
@@ -277,46 +347,74 @@ export default function (pi: ExtensionAPI) {
 						: cwdStyled;
 					if (branch) {
 						l1 += ` ${t.bold(t.fg("customMessageLabel" as never, `${ICON.branch}${branch}`))}`;
-						if (stats.ok && stats.ahead > 0) l1 += ` ${t.fg("warning" as never, `${ICON.ahead}${stats.ahead}`)}`;
-						if (stats.ok && stats.behind > 0) l1 += ` ${t.fg("warning" as never, `${ICON.behind}${stats.behind}`)}`;
+						if (stats.ok && stats.ahead > 0)
+							l1 += ` ${t.fg("warning" as never, `${ICON.ahead}${stats.ahead}`)}`;
+						if (stats.ok && stats.behind > 0)
+							l1 += ` ${t.fg("warning" as never, `${ICON.behind}${stats.behind}`)}`;
 						// order: ahead/behind, conflict, dirty details, stash
 						if (stats.ok && stats.conflict > 0) {
 							l1 += ` ${t.fg("error" as never, `${ICON.conflict}${stats.conflict}`)}`;
-						} else if (stats.ok && (stats.staged > 0 || stats.modified > 0 || stats.untracked > 0)) {
+						} else if (
+							stats.ok &&
+							(stats.staged > 0 || stats.modified > 0 || stats.untracked > 0)
+						) {
 							const files = stats.staged + stats.modified + stats.untracked;
 							l1 += ` ${t.fg("muted" as never, `${ICON.dirty}${files}`)}`;
-							if (stats.modified > 0) l1 += ` ${t.fg("syntaxType" as never, `${ICON.modified}${stats.modified}`)}`;
-							if (stats.untracked > 0) l1 += ` ${t.fg("dim" as never, `${ICON.untracked}${stats.untracked}`)}`;
-							if (stats.additions > 0) l1 += ` ${t.fg("toolDiffAdded" as never, `${ICON.added}${stats.additions}`)}`;
-							if (stats.deletions > 0) l1 += ` ${t.fg("toolDiffRemoved" as never, `${ICON.removed}${stats.deletions}`)}`;
+							if (stats.modified > 0)
+								l1 += ` ${t.fg("syntaxType" as never, `${ICON.modified}${stats.modified}`)}`;
+							if (stats.untracked > 0)
+								l1 += ` ${t.fg("dim" as never, `${ICON.untracked}${stats.untracked}`)}`;
+							if (stats.additions > 0)
+								l1 += ` ${t.fg("toolDiffAdded" as never, `${ICON.added}${stats.additions}`)}`;
+							if (stats.deletions > 0)
+								l1 += ` ${t.fg("toolDiffRemoved" as never, `${ICON.removed}${stats.deletions}`)}`;
 						}
-						if (stats.ok && stats.stashed > 0) l1 += ` ${t.fg("muted" as never, `${ICON.stashed}${stats.stashed}`)}`;
+						if (stats.ok && stats.stashed > 0)
+							l1 += ` ${t.fg("muted" as never, `${ICON.stashed}${stats.stashed}`)}`;
 					}
 					if (sessionName) l1 += t.fg("dim", ` • ${sessionName}`);
 					const line1 = truncateToWidth(l1, w, t.fg("dim", "..."));
 
 					// ---- L2: stats left + model right ----
 					// fixed segments with placeholders so the layout never jumps
+					// entries change far less often than renders: recompute only when the log moves
 					const entries = ctx.sessionManager.getEntries() as readonly unknown[];
-					const totals = totalsOf(entries);
-					const cacheHitRate = lastCacheHitRate(entries);
+					if (
+						entries !== cachedEntries ||
+						entries.length !== cachedEntriesLength ||
+						entries[entries.length - 1] !== cachedLastEntry
+					) {
+						cachedEntries = entries;
+						cachedEntriesLength = entries.length;
+						cachedLastEntry = entries[entries.length - 1];
+						cachedStats = computeSessionStats(entries);
+					}
+					const { totals, cacheHitRate } = cachedStats;
 
 					const inputStr = totals.input > 0 ? formatTokens(totals.input) : "__k";
 					const outputStr = totals.output > 0 ? formatTokens(totals.output) : "__k";
 					const cacheReadStr = totals.cacheRead > 0 ? formatTokens(totals.cacheRead) : "__";
-					const cacheHitStr = (totals.cacheRead > 0 || totals.cacheWrite > 0) && cacheHitRate !== undefined
-						? `${cacheHitRate.toFixed(1)}%`
-						: "__";
+					const cacheHitStr =
+						(totals.cacheRead > 0 || totals.cacheWrite > 0) && cacheHitRate !== undefined
+							? `${cacheHitRate.toFixed(1)}%`
+							: "__";
 					const costStr = totals.cost > 0 ? `$${totals.cost.toFixed(3)}` : "$_.__";
 
 					const usage = ctx.getContextUsage();
-					const win = usage?.contextWindow ?? (ctx.model as { contextWindow?: number } | undefined)?.contextWindow ?? 0;
+					const win =
+						usage?.contextWindow ??
+						(ctx.model as { contextWindow?: number } | undefined)?.contextWindow ??
+						0;
 					const pct = usage?.percent ?? null;
-					const contextStr = pct === null || pct === undefined
-						? "__/___"
-						: `${pct.toFixed(1)}%/${formatTokens(win)}`;
+					const contextStr =
+						pct === null || pct === undefined
+							? "__/___"
+							: `${pct.toFixed(1)}%/${formatTokens(win)}`;
 
-					let statsLeft = t.fg("dim", `${ICON.tokens}↑${inputStr} ↓${outputStr} ${ICON.cacheRead}${cacheReadStr} ${ICON.cacheHit}${cacheHitStr} ${ICON.cost}${costStr} ${ICON.context}${contextStr}`);
+					let statsLeft = t.fg(
+						"dim",
+						`${ICON.tokens}↑${inputStr} ↓${outputStr} ${ICON.cacheRead}${cacheReadStr} ${ICON.cacheHit}${cacheHitStr} ${ICON.cost}${costStr} ${ICON.context}${contextStr}`,
+					);
 					let statsLeftWidth = visibleWidth(statsLeft);
 					if (statsLeftWidth > w) {
 						statsLeft = truncateToWidth(statsLeft, w, "...");
@@ -333,11 +431,16 @@ export default function (pi: ExtensionAPI) {
 					// bold when at the model's max available effort
 					let rightColored = t.fg("muted" as never, rightSide);
 					if (thinking !== "off" && rightSide.includes(thinking)) {
-						const effortColored = t.fg(thinkingToken(thinking) as never, `${ICON.effort}${thinking}`);
-						const effortStyled = thinking === maxEffortFor(ctx.model)
-							? t.bold(effortColored)
-							: effortColored;
-						rightColored = t.fg("muted" as never, rightSide.replace(`${ICON.effort}${thinking}`, effortStyled));
+						const effortColored = t.fg(
+							thinkingToken(thinking) as never,
+							`${ICON.effort}${thinking}`,
+						);
+						const effortStyled =
+							thinking === maxEffortFor(ctx.model) ? t.bold(effortColored) : effortColored;
+						rightColored = t.fg(
+							"muted" as never,
+							rightSide.replace(`${ICON.effort}${thinking}`, effortStyled),
+						);
 					}
 
 					const rightWidth = visibleWidth(rightSide);
@@ -362,13 +465,14 @@ export default function (pi: ExtensionAPI) {
 
 					// ---- L3: extension statuses, always rendered (no jumps), right-aligned ----
 					const statuses = footerData.getExtensionStatuses();
-					const text = statuses.size > 0
-						? Array.from(statuses.entries())
-							.sort((a: [string, string], b: [string, string]) => a[0].localeCompare(b[0]))
-							.map(([, v]: [string, string]) => sanitize(v))
-							.filter(Boolean)
-							.join(" ")
-						: "";
+					const text =
+						statuses.size > 0
+							? Array.from(statuses.entries())
+								.sort((a: [string, string], b: [string, string]) => a[0].localeCompare(b[0]))
+								.map(([, v]: [string, string]) => sanitize(v))
+								.filter(Boolean)
+								.join(" ")
+							: "";
 					if (text) {
 						const statusLine = truncateToWidth(t.fg("dim", text), w, t.fg("dim", "..."));
 						const pad = " ".repeat(Math.max(0, w - visibleWidth(statusLine)));
