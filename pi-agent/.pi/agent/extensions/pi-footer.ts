@@ -42,8 +42,6 @@ const ICON = {
 	effort: USE_NERD ? " " : "",
 	context: USE_NERD ? "󰅺 " : "ctx ",
 	tokens: USE_NERD ? "󰄨 " : "tok ",
-	// cost: USE_NERD ? "󰈸 " : "$",
-	cost: USE_NERD ? "" : "$",
 	cacheRead: USE_NERD ? "󰃨 " : "",
 	cacheHit: USE_NERD ? "󰓾 " : "",
 } as const;
@@ -381,7 +379,7 @@ export default function (pi: ExtensionAPI) {
 					if (leftWidth + 1 + cwdWidth <= w) {
 						line1 = leftTrimmed + " ".repeat(w - leftWidth - cwdWidth) + cwdLink;
 					} else {
-						line1 = truncateToWidth(leftTrimmed + (leftTrimmed ? " " : "") + cwdLink, w, t.fg("dim", "..."));
+						line1 = truncateToWidth(leftTrimmed + (leftTrimmed ? " " : "") + cwdLink, w, t.fg("dim", "…"));
 					}
 
 					// ---- L2: stats left + model right ----
@@ -417,16 +415,16 @@ export default function (pi: ExtensionAPI) {
 					const pct = usage?.percent ?? null;
 					const contextStr =
 						pct === null || pct === undefined
-							? "__/___"
+							? "__/__"
 							: `${pct.toFixed(1)}%/${formatTokens(win)}`;
 
 					let statsLeft = t.fg(
 						"dim",
-						`${ICON.tokens}↑${inputStr} ↓${outputStr} ${ICON.cacheRead}${cacheReadStr} ${ICON.cacheHit}${cacheHitStr} ${ICON.cost}${costStr} ${ICON.context}${contextStr}`,
+						`${ICON.tokens}↑${inputStr} ↓${outputStr} ${ICON.cacheRead}${cacheReadStr} ${ICON.cacheHit}${cacheHitStr} ${costStr} ${ICON.context}${contextStr}`,
 					);
 					let statsLeftWidth = visibleWidth(statsLeft);
 					if (statsLeftWidth > w) {
-						statsLeft = truncateToWidth(statsLeft, w, "...");
+						statsLeft = truncateToWidth(statsLeft, w, "…");
 						statsLeftWidth = visibleWidth(statsLeft);
 					}
 					const modelId = ctx.model?.id ?? "no-model";
@@ -483,7 +481,7 @@ export default function (pi: ExtensionAPI) {
 								.join(" ")
 							: "";
 					if (text) {
-						const statusLine = truncateToWidth(t.fg("dim", text), w, t.fg("dim", "..."));
+						const statusLine = truncateToWidth(t.fg("dim", text), w, t.fg("dim", "…"));
 						const pad = " ".repeat(Math.max(0, w - visibleWidth(statusLine)));
 						lines.push(t.fg("dim", pad) + statusLine);
 					} else {
