@@ -2,7 +2,7 @@
  * pi-footer — personalized footer, v1.
  *
  * Same 3-line layout as the default pi footer, no editor, no interactivity:
- *   L1: cwd + git (gitmux/tmux style)
+ *   L1: git left, cwd right (gitmux/tmux style)
  *   L2: stats left, model right (right-aligned)
  *   L3: extension statuses (single dim line, truncated)
  *
@@ -335,16 +335,13 @@ export default function (pi: ExtensionAPI) {
 				render(width: number): string[] {
 					const w = Math.max(1, width);
 
-					// ---- L1: cwd + git ----
+					// ---- L1: git left, cwd right (icon trailing) ----
 					const rawCwd = ctx.sessionManager.getCwd();
 					const cwd = formatCwd(rawCwd);
 					const branch = footerData.getGitBranch();
 					const sessionName = ctx.sessionManager.getSessionName();
 
-					const cwdStyled = t.bold(t.fg("mdLink", `${ICON.folder}${cwd}`));
-					let l1 = getCapabilities().hyperlinks
-						? hyperlink(cwdStyled, pathToFileURL(rawCwd).href)
-						: cwdStyled;
+					let l1 = "";
 					if (branch) {
 						l1 += ` ${t.bold(t.fg("customMessageLabel" as never, `${ICON.branch}${branch}`))}`;
 						if (stats.ok && stats.ahead > 0)
@@ -373,7 +370,19 @@ export default function (pi: ExtensionAPI) {
 							l1 += ` ${t.fg("muted" as never, `${ICON.stashed}${stats.stashed}`)}`;
 					}
 					if (sessionName) l1 += t.fg("dim", ` • ${sessionName}`);
-					const line1 = truncateToWidth(l1, w, t.fg("dim", "..."));
+					const cwdStyled = t.bold(t.fg("mdLink", `${ICON.folder.trimEnd()} ${cwd}`));
+					const cwdLink = getCapabilities().hyperlinks
+						? hyperlink(cwdStyled, pathToFileURL(rawCwd).href)
+						: cwdStyled;
+					const leftTrimmed = l1.startsWith(" ") ? l1.slice(1) : l1;
+					const leftWidth = visibleWidth(leftTrimmed);
+					const cwdWidth = visibleWidth(cwdLink);
+					let line1: string;
+					if (leftWidth + 1 + cwdWidth <= w) {
+						line1 = leftTrimmed + " ".repeat(w - leftWidth - cwdWidth) + cwdLink;
+					} else {
+						line1 = truncateToWidth(leftTrimmed + (leftTrimmed ? " " : "") + cwdLink, w, t.fg("dim", "..."));
+					}
 
 					// ---- L2: stats left + model right ----
 					// fixed segments with placeholders so the layout never jumps
