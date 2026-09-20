@@ -40,9 +40,11 @@ const ICON = {
 	stashed: USE_NERD ? " " : "s",
 	model: USE_NERD ? "󰚩 " : "ai ",
 	effort: USE_NERD ? " " : "",
-	context: USE_NERD ? "󰍛 " : "ctx ",
+	context: USE_NERD ? "󰅺 " : "ctx ",
 	tokens: USE_NERD ? "󰄨 " : "tok ",
 	cost: USE_NERD ? "󰈸 " : "$",
+	cacheRead: USE_NERD ? "󰃨 " : "",
+	cacheHit: USE_NERD ? "󰓾 " : "",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -201,6 +203,22 @@ function totalsOf(entries: readonly unknown[]): Totals {
 	return t;
 }
 
+// cache-hit rate of the last assistant message (mirrors default footer CH:
+// cacheRead share of input + cacheRead + cacheWrite)
+function lastCacheHitRate(entries: readonly unknown[]): number | undefined {
+	let rate: number | undefined;
+	for (const e of entries as Array<{
+		type?: string;
+		message?: { role?: string; usage?: { input?: number; cacheRead?: number; cacheWrite?: number } };
+	}>) {
+		if (e.type !== "message" || e.message?.role !== "assistant" || !e.message.usage) continue;
+		const u = e.message.usage;
+		const promptTokens = (u.input ?? 0) + (u.cacheRead ?? 0) + (u.cacheWrite ?? 0);
+		rate = promptTokens > 0 ? ((u.cacheRead ?? 0) / promptTokens) * 100 : undefined;
+	}
+	return rate;
+}
+
 // ---------------------------------------------------------------------------
 // extension
 // ---------------------------------------------------------------------------
@@ -278,34 +296,32 @@ export default function (pi: ExtensionAPI) {
 					const line1 = truncateToWidth(l1, w, t.fg("dim", "..."));
 
 					// ---- L2: stats left + model right ----
-					const totals = totalsOf(ctx.sessionManager.getEntries() as readonly unknown[]);
-					const leftParts: string[] = [];
-					if (totals.input > 0 || totals.output > 0) {
-						leftParts.push(t.fg("dim", `${ICON.tokens}↑${formatTokens(totals.input)} ↓${formatTokens(totals.output)}`));
-					}
-					if (totals.cacheRead > 0) leftParts.push(t.fg("muted" as never, `R${formatTokens(totals.cacheRead)}`));
-					if (totals.cacheWrite > 0) leftParts.push(t.fg("muted" as never, `W${formatTokens(totals.cacheWrite)}`));
-					if (totals.cost > 0) leftParts.push(t.fg("dim", `${ICON.cost}$${totals.cost.toFixed(3)}`));
+					// fixed segments with placeholders so the layout never jumps
+					const entries = ctx.sessionManager.getEntries() as readonly unknown[];
+					const totals = totalsOf(entries);
+					const cacheHitRate = lastCacheHitRate(entries);
+
+					const inputStr = totals.input > 0 ? formatTokens(totals.input) : "___k";
+					const outputStr = totals.output > 0 ? formatTokens(totals.output) : "___k";
+					const cacheReadStr = totals.cacheRead > 0 ? formatTokens(totals.cacheRead) : "__";
+					const cacheHitStr = (totals.cacheRead > 0 || totals.cacheWrite > 0) && cacheHitRate !== undefined
+						? `${cacheHitRate.toFixed(1)}%`
+						: "__";
+					const costStr = totals.cost > 0 ? `$${totals.cost.toFixed(3)}` : "$_.___";
 
 					const usage = ctx.getContextUsage();
 					const win = usage?.contextWindow ?? (ctx.model as { contextWindow?: number } | undefined)?.contextWindow ?? 0;
 					const pct = usage?.percent ?? null;
-					if (pct === null || pct === undefined) {
-						leftParts.push(t.fg("dim", `${ICON.context}?/${formatTokens(win)}`));
-					} else {
-						const label = `${ICON.context}${pct.toFixed(1)}%/${formatTokens(win)}`;
-						if (pct >= 85) leftParts.push(t.fg("error" as never, label));
-						else if (pct >= 70) leftParts.push(t.fg("warning" as never, label));
-						else leftParts.push(t.fg("dim", label));
-					}
+					const contextStr = pct === null || pct === undefined
+						? "__/___"
+						: `${pct.toFixed(1)}%/${formatTokens(win)}`;
 
-					let statsLeft = leftParts.join(" ");
+					let statsLeft = t.fg("dim", `${ICON.tokens}↑${inputStr} ↓${outputStr} ${ICON.cacheRead}${cacheReadStr} ${ICON.cacheHit}${cacheHitStr} ${ICON.cost}${costStr} ${ICON.context}${contextStr}`);
 					let statsLeftWidth = visibleWidth(statsLeft);
 					if (statsLeftWidth > w) {
 						statsLeft = truncateToWidth(statsLeft, w, "...");
 						statsLeftWidth = visibleWidth(statsLeft);
 					}
-
 					const modelId = ctx.model?.id ?? "no-model";
 					const provider = (ctx.model as { provider?: string } | undefined)?.provider;
 					const thinking = ctx.thinkingLevel ?? "off";
