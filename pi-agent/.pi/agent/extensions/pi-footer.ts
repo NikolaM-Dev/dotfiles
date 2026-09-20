@@ -31,11 +31,11 @@ const ICON = {
 	branch: USE_NERD ? " " : "",
 	ahead: USE_NERD ? " " : "↑",
 	behind: USE_NERD ? " " : "↓",
-	dirty: USE_NERD ? "●" : "*",
-	conflict: USE_NERD ? "⚠" : "!",
+	dirty: USE_NERD ? "󱀲 " : "*",
+	conflict: USE_NERD ? " " : "!",
 	added: USE_NERD ? " " : "+",
 	removed: USE_NERD ? " " : "-",
-	modified: USE_NERD ? " " : "~",
+	modified: USE_NERD ? " " : "~",
 	untracked: USE_NERD ? " " : "?",
 	stashed: USE_NERD ? " " : "s",
 	model: USE_NERD ? "󰚩 " : "ai ",
@@ -271,25 +271,25 @@ export default function (pi: ExtensionAPI) {
 					const branch = footerData.getGitBranch();
 					const sessionName = ctx.sessionManager.getSessionName();
 
-					const cwdStyled = t.fg("mdLink", `${ICON.folder}${cwd}`);
+					const cwdStyled = t.bold(t.fg("mdLink", `${ICON.folder}${cwd}`));
 					let l1 = getCapabilities().hyperlinks
 						? hyperlink(cwdStyled, pathToFileURL(rawCwd).href)
 						: cwdStyled;
 					if (branch) {
 						l1 += ` ${t.bold(t.fg("customMessageLabel" as never, `${ICON.branch}${branch}`))}`;
-						// conflict always shouts; dirty details only when dirty (glance rule)
+						if (stats.ok && stats.ahead > 0) l1 += ` ${t.fg("warning" as never, `${ICON.ahead}${stats.ahead}`)}`;
+						if (stats.ok && stats.behind > 0) l1 += ` ${t.fg("warning" as never, `${ICON.behind}${stats.behind}`)}`;
+						// order: ahead/behind, conflict, dirty details, stash
 						if (stats.ok && stats.conflict > 0) {
 							l1 += ` ${t.fg("error" as never, `${ICON.conflict}${stats.conflict}`)}`;
 						} else if (stats.ok && (stats.staged > 0 || stats.modified > 0 || stats.untracked > 0)) {
 							const files = stats.staged + stats.modified + stats.untracked;
-							l1 += ` ${t.fg("syntaxType" as never, `${ICON.dirty}${files}`)}`;
+							l1 += ` ${t.fg("muted" as never, `${ICON.dirty}${files}`)}`;
 							if (stats.modified > 0) l1 += ` ${t.fg("syntaxType" as never, `${ICON.modified}${stats.modified}`)}`;
 							if (stats.untracked > 0) l1 += ` ${t.fg("dim" as never, `${ICON.untracked}${stats.untracked}`)}`;
-							if (stats.additions > 0) l1 += ` ${t.fg("toolDiffAdded" as never, `${ICON.added}+${stats.additions}`)}`;
-							if (stats.deletions > 0) l1 += ` ${t.fg("toolDiffRemoved" as never, `${ICON.removed}−${stats.deletions}`)}`;
+							if (stats.additions > 0) l1 += ` ${t.fg("toolDiffAdded" as never, `${ICON.added}${stats.additions}`)}`;
+							if (stats.deletions > 0) l1 += ` ${t.fg("toolDiffRemoved" as never, `${ICON.removed}${stats.deletions}`)}`;
 						}
-						if (stats.ok && stats.ahead > 0) l1 += ` ${t.fg("warning" as never, `${ICON.ahead}${stats.ahead}`)}`;
-						if (stats.ok && stats.behind > 0) l1 += ` ${t.fg("warning" as never, `${ICON.behind}${stats.behind}`)}`;
 						if (stats.ok && stats.stashed > 0) l1 += ` ${t.fg("muted" as never, `${ICON.stashed}${stats.stashed}`)}`;
 					}
 					if (sessionName) l1 += t.fg("dim", ` • ${sessionName}`);
@@ -301,13 +301,13 @@ export default function (pi: ExtensionAPI) {
 					const totals = totalsOf(entries);
 					const cacheHitRate = lastCacheHitRate(entries);
 
-					const inputStr = totals.input > 0 ? formatTokens(totals.input) : "___k";
-					const outputStr = totals.output > 0 ? formatTokens(totals.output) : "___k";
+					const inputStr = totals.input > 0 ? formatTokens(totals.input) : "__k";
+					const outputStr = totals.output > 0 ? formatTokens(totals.output) : "__k";
 					const cacheReadStr = totals.cacheRead > 0 ? formatTokens(totals.cacheRead) : "__";
 					const cacheHitStr = (totals.cacheRead > 0 || totals.cacheWrite > 0) && cacheHitRate !== undefined
 						? `${cacheHitRate.toFixed(1)}%`
 						: "__";
-					const costStr = totals.cost > 0 ? `$${totals.cost.toFixed(3)}` : "$_.___";
+					const costStr = totals.cost > 0 ? `$${totals.cost.toFixed(3)}` : "$_.__";
 
 					const usage = ctx.getContextUsage();
 					const win = usage?.contextWindow ?? (ctx.model as { contextWindow?: number } | undefined)?.contextWindow ?? 0;
