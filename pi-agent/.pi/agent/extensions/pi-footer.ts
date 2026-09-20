@@ -286,18 +286,11 @@ export default function (pi: ExtensionAPI) {
 					}
 
 					const modelId = ctx.model?.id ?? "no-model";
-					let rightSide = `${ICON.model}${modelId}`;
+					const provider = (ctx.model as { provider?: string } | undefined)?.provider;
 					const thinking = ctx.thinkingLevel ?? "off";
-					const modelReasoning = (ctx.model as { reasoning?: boolean } | undefined)?.reasoning ?? false;
-					if (modelReasoning && thinking !== "off") {
-						rightSide += ` • ${thinking}`;
-					} else if (!modelReasoning && thinking !== "off") {
-						rightSide += ` • ${thinking}`;
-					}
-					if ((footerData.getAvailableProviderCount?.() ?? 1) > 1 && ctx.model) {
-						const withProvider = `(${(ctx.model as { provider?: string }).provider}) ${rightSide}`;
-						if (statsLeftWidth + 2 + visibleWidth(withProvider) <= w) rightSide = withProvider;
-					}
+					let rightSide = provider
+						? `${ICON.model}${provider}/${modelId} • ${thinking}`
+						: `${ICON.model}${modelId} • ${thinking}`;
 
 					// color the thinking word with its own level color (self-highlight)
 					let rightColored = t.fg("muted" as never, rightSide);
