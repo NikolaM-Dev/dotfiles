@@ -344,7 +344,7 @@ export default function (pi: ExtensionAPI) {
 
 					const lines = [line1, statsLine];
 
-					// ---- L3: extension statuses, one dim line max (noise control) ----
+					// ---- L3: extension statuses, one dim line max, right-aligned ----
 					const statuses = footerData.getExtensionStatuses();
 					if (statuses.size > 0) {
 						const text = Array.from(statuses.entries())
@@ -352,7 +352,11 @@ export default function (pi: ExtensionAPI) {
 							.map(([, v]: [string, string]) => sanitize(v))
 							.filter(Boolean)
 							.join(" ");
-						if (text) lines.push(truncateToWidth(t.fg("dim", text), w, t.fg("dim", "...")));
+						if (text) {
+							const statusLine = truncateToWidth(t.fg("dim", text), w, t.fg("dim", "..."));
+							const pad = " ".repeat(Math.max(0, w - visibleWidth(statusLine)));
+							lines.push(t.fg("dim", pad) + statusLine);
+						}
 					}
 					return lines;
 				},
