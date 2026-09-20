@@ -14,9 +14,10 @@
 
 import { execFile } from "node:child_process";
 import { homedir } from "node:os";
-import { relative, resolve, sep } from "node:path";
+import { basename, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import type { ExtensionAPI, Theme } from "@earendil-works/pi-coding-agent";
-import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
+import { getCapabilities, hyperlink, truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 
 // ---------------------------------------------------------------------------
 // config (v1: constants, no settings pane)
@@ -56,11 +57,9 @@ function formatTokens(count: number): string {
 }
 
 function formatCwd(cwd: string): string {
-	const home = homedir();
-	const rel = relative(resolve(home), resolve(cwd));
-	const inside = rel === "" || (!rel.startsWith(`..${sep}`) && rel !== "..");
-	if (!inside) return cwd;
-	return rel === "" ? "~" : `~${sep}${rel}`;
+	const normalized = resolve(cwd);
+	if (normalized === resolve(homedir())) return "~";
+	return basename(normalized) || normalized;
 }
 
 function sanitize(text: string): string {
@@ -228,11 +227,15 @@ export default function (pi: ExtensionAPI) {
 					const w = Math.max(1, width);
 
 					// ---- L1: cwd + git ----
-					const cwd = formatCwd(ctx.sessionManager.getCwd());
+					const rawCwd = ctx.sessionManager.getCwd();
+					const cwd = formatCwd(rawCwd);
 					const branch = footerData.getGitBranch();
 					const sessionName = ctx.sessionManager.getSessionName();
 
-					let l1 = t.fg("dim", `${ICON.folder}${cwd}`);
+					const cwdStyled = t.fg("mdLink", `${ICON.folder}${cwd}`);
+					let l1 = getCapabilities().hyperlinks
+						? hyperlink(cwdStyled, pathToFileURL(rawCwd).href)
+						: cwdStyled;
 					if (branch) {
 						l1 += ` ${t.bold(t.fg("customMessageLabel" as never, `${ICON.branch}${branch}`))}`;
 						// conflict always shouts; dirty details only when dirty (glance rule)
