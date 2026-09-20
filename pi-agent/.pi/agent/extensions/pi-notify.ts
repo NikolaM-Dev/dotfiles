@@ -1,5 +1,5 @@
 /**
- * Pi Notify Extension — cwd as title + contextual body
+ * pi-notify — cwd as title + contextual body
  *
  * Title: compact cwd (~/... with ellipsis for long paths)
  * Body:  short summary of what the agent just did (assistant snippet + tool stats)
