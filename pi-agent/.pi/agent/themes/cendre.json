@@ -85,13 +85,13 @@
     "syntaxOperator": "fgDim",
     "syntaxPunctuation": "fgDim",
 
-    "thinkingOff": "bg3",
-    "thinkingMinimal": "comment",
-    "thinkingLow": "frost",
-    "thinkingMedium": "cinder",
-    "thinkingHigh": "sap",
+    "thinkingOff": "comment",
+    "thinkingMinimal": "ok",
+    "thinkingLow": "hint",
+    "thinkingMedium": "info",
+    "thinkingHigh": "warn",
     "thinkingXhigh": "ember",
-    "thinkingMax": "brass",
+    "thinkingMax": "error",
 
     "bashMode": "warn"
   },

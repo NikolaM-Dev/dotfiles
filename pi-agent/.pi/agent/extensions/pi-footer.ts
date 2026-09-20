@@ -39,6 +39,7 @@ const ICON = {
 	untracked: USE_NERD ? " " : "?",
 	stashed: USE_NERD ? " " : "s",
 	model: USE_NERD ? "󰚩 " : "ai ",
+	effort: USE_NERD ? " " : "",
 	context: USE_NERD ? "󰍛 " : "ctx ",
 	tokens: USE_NERD ? "󰄨 " : "tok ",
 	cost: USE_NERD ? "󰈸 " : "$",
@@ -76,6 +77,26 @@ function thinkingToken(level: string): string {
 		case "max": return "thinkingMax";
 		default: return "thinkingOff";
 	}
+}
+
+// Highest effort level a model supports, mirroring pi core
+// getSupportedThinkingLevels (null = unsupported, xhigh/max need an
+// explicit non-null map entry). Undefined when the model has no reasoning.
+const EFFORT_ORDER = ["minimal", "low", "medium", "high", "xhigh", "max"] as const;
+
+function maxEffortFor(model: unknown): string | undefined {
+	const m = model as {
+		reasoning?: boolean;
+		thinkingLevelMap?: Record<string, string | null | undefined>;
+	} | undefined;
+	if (!m?.reasoning) return undefined;
+	const supported = EFFORT_ORDER.filter((level) => {
+		const mapped = m.thinkingLevelMap?.[level];
+		if (mapped === null) return false;
+		if ((level === "xhigh" || level === "max") && mapped === undefined) return false;
+		return true;
+	});
+	return supported[supported.length - 1];
 }
 
 // ---------------------------------------------------------------------------
@@ -289,13 +310,18 @@ export default function (pi: ExtensionAPI) {
 					const provider = (ctx.model as { provider?: string } | undefined)?.provider;
 					const thinking = ctx.thinkingLevel ?? "off";
 					let rightSide = provider
-						? `${ICON.model}${provider}/${modelId} • ${thinking}`
-						: `${ICON.model}${modelId} • ${thinking}`;
+						? `${ICON.model}${provider}/${modelId} ${ICON.effort}${thinking}`
+						: `${ICON.model}${modelId} ${ICON.effort}${thinking}`;
 
-					// color the thinking word with its own level color (self-highlight)
+					// color the effort icon + word with its level color (self-highlight),
+					// bold when at the model's max available effort
 					let rightColored = t.fg("muted" as never, rightSide);
 					if (thinking !== "off" && rightSide.includes(thinking)) {
-						rightColored = t.fg("muted" as never, rightSide.replace(thinking, t.fg(thinkingToken(thinking) as never, thinking)));
+						const effortColored = t.fg(thinkingToken(thinking) as never, `${ICON.effort}${thinking}`);
+						const effortStyled = thinking === maxEffortFor(ctx.model)
+							? t.bold(effortColored)
+							: effortColored;
+						rightColored = t.fg("muted" as never, rightSide.replace(`${ICON.effort}${thinking}`, effortStyled));
 					}
 
 					const rightWidth = visibleWidth(rightSide);
