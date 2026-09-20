@@ -58,6 +58,28 @@ function formatTokens(count: number): string {
 	return `${Math.round(count / 1000000)}M`;
 }
 
+// Programmatic model short-alias (approach A, no fixed map):
+// family initials + version + variant initials, e.g.
+// muse-spark-1.3-contributor -> ms-1.3c, deepseek-v4.1-flash -> de-4.1f.
+// A lone family token contributes its first 2 letters (deepseek -> de);
+// short tokens (<=4 chars) are kept whole (gpt -> gpt).
+function shortModelId(id: string): string {
+	const segs = id.split(/[-_]/).filter(Boolean);
+	if (segs.length === 0) return id;
+	const verIdx = segs.findIndex((s) => /^v?\d/i.test(s));
+	const nameSegs = verIdx === -1 ? segs : segs.slice(0, verIdx);
+	const variantSegs = verIdx === -1 ? [] : segs.slice(verIdx + 1);
+	let family: string;
+	if (nameSegs.length === 0) family = "";
+	else if (nameSegs.length === 1) {
+		const tok = nameSegs[0]!;
+		family = tok.length <= 4 ? tok : tok.slice(0, 2);
+	} else family = nameSegs.map((s) => s[0]!).join("");
+	const version = verIdx === -1 ? "" : segs[verIdx]!.replace(/^v/i, "");
+	const variant = variantSegs.map((s) => s[0]!).join("");
+	return `${family}${version ? `-${version}` : ""}${variant}` || id;
+}
+
 function formatCwd(cwd: string): string {
 	const normalized = resolve(cwd);
 	if (normalized === resolve(homedir())) return "~";
@@ -427,12 +449,21 @@ export default function (pi: ExtensionAPI) {
 						statsLeft = truncateToWidth(statsLeft, w, "…");
 						statsLeftWidth = visibleWidth(statsLeft);
 					}
-					const modelId = ctx.model?.id ?? "no-model";
+					const fullModelId = ctx.model?.id ?? "no-model";
 					const provider = (ctx.model as { provider?: string } | undefined)?.provider;
 					const thinking = ctx.thinkingLevel ?? "off";
-					let rightSide = provider
-						? `${ICON.model}${provider}/${modelId} ${ICON.effort}${thinking}`
-						: `${ICON.model}${modelId} ${ICON.effort}${thinking}`;
+					const buildRight = (mid: string) =>
+						provider
+							? `${ICON.model}${provider}/${mid} ${ICON.effort}${thinking}`
+							: `${ICON.model}${mid} ${ICON.effort}${thinking}`;
+					// full model when it fits, short-alias only when space is tight
+					const minPad = 2;
+					const fullRight = buildRight(fullModelId);
+					const modelId =
+						statsLeftWidth + minPad + visibleWidth(fullRight) <= w
+							? fullModelId
+							: shortModelId(fullModelId);
+					let rightSide = buildRight(modelId);
 
 					// color the effort icon + word with its level color (self-highlight),
 					// bold when at the model's max available effort
@@ -452,7 +483,6 @@ export default function (pi: ExtensionAPI) {
 
 					const rightWidth = visibleWidth(rightSide);
 					let statsLine: string;
-					const minPad = 2;
 					if (statsLeftWidth + minPad + rightWidth <= w) {
 						const pad = " ".repeat(w - statsLeftWidth - rightWidth);
 						statsLine = statsLeft + t.fg("dim", pad) + rightColored;
