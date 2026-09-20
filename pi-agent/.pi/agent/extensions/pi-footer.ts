@@ -112,26 +112,44 @@ function thinkingToken(level: string): string {
 	}
 }
 
-// Highest effort level a model supports, mirroring pi core
+// Supported effort levels for a model, mirroring pi core
 // getSupportedThinkingLevels (null = unsupported, xhigh/max need an
-// explicit non-null map entry). Undefined when the model has no reasoning.
+// explicit non-null map entry). Empty when the model has no reasoning.
 const EFFORT_ORDER = ["minimal", "low", "medium", "high", "xhigh", "max"] as const;
 
-function maxEffortFor(model: unknown): string | undefined {
+function supportedEffortsFor(model: unknown): string[] {
 	const m = model as
 		| {
 			reasoning?: boolean;
 			thinkingLevelMap?: Record<string, string | null | undefined>;
 		}
 		| undefined;
-	if (!m?.reasoning) return undefined;
-	const supported = EFFORT_ORDER.filter((level) => {
+	if (!m?.reasoning) return [];
+	return EFFORT_ORDER.filter((level) => {
 		const mapped = m.thinkingLevelMap?.[level];
 		if (mapped === null) return false;
 		if ((level === "xhigh" || level === "max") && mapped === undefined) return false;
 		return true;
 	});
+}
+
+function maxEffortFor(model: unknown): string | undefined {
+	const supported = supportedEffortsFor(model);
 	return supported[supported.length - 1];
+}
+
+// Relative color progression: map the level's index within the model's
+// supported levels onto the full 6-step palette, so sparse models
+// (e.g. [minimal, medium, max]) still render green -> yellow -> red
+// instead of green -> blue -> red. Full 6-level models are unaffected
+// (index == palette position). Single-level models keep their
+// absolute color.
+function relativeThinkingToken(level: string, model: unknown): string {
+	const supported = supportedEffortsFor(model);
+	const idx = supported.indexOf(level);
+	if (idx === -1 || supported.length <= 1) return thinkingToken(level);
+	const pos = Math.round((idx * (EFFORT_ORDER.length - 1)) / (supported.length - 1));
+	return thinkingToken(EFFORT_ORDER[pos]!);
 }
 
 // ---------------------------------------------------------------------------
@@ -470,7 +488,7 @@ export default function (pi: ExtensionAPI) {
 					let rightColored = t.fg("muted" as never, rightSide);
 					if (thinking !== "off" && rightSide.includes(thinking)) {
 						const effortColored = t.fg(
-							thinkingToken(thinking) as never,
+							relativeThinkingToken(thinking, ctx.model) as never,
 							`${ICON.effort}${thinking}`,
 						);
 						const effortStyled =
