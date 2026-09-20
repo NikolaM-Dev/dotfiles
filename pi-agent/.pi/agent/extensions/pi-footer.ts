@@ -360,19 +360,21 @@ export default function (pi: ExtensionAPI) {
 
 					const lines = [line1, statsLine];
 
-					// ---- L3: extension statuses, one dim line max, right-aligned ----
+					// ---- L3: extension statuses, always rendered (no jumps), right-aligned ----
 					const statuses = footerData.getExtensionStatuses();
-					if (statuses.size > 0) {
-						const text = Array.from(statuses.entries())
+					const text = statuses.size > 0
+						? Array.from(statuses.entries())
 							.sort((a: [string, string], b: [string, string]) => a[0].localeCompare(b[0]))
 							.map(([, v]: [string, string]) => sanitize(v))
 							.filter(Boolean)
-							.join(" ");
-						if (text) {
-							const statusLine = truncateToWidth(t.fg("dim", text), w, t.fg("dim", "..."));
-							const pad = " ".repeat(Math.max(0, w - visibleWidth(statusLine)));
-							lines.push(t.fg("dim", pad) + statusLine);
-						}
+							.join(" ")
+						: "";
+					if (text) {
+						const statusLine = truncateToWidth(t.fg("dim", text), w, t.fg("dim", "..."));
+						const pad = " ".repeat(Math.max(0, w - visibleWidth(statusLine)));
+						lines.push(t.fg("dim", pad) + statusLine);
+					} else {
+						lines.push("");
 					}
 					return lines;
 				},
