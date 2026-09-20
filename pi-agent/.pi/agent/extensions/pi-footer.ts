@@ -138,20 +138,6 @@ function maxEffortFor(model: unknown): string | undefined {
 	return supported[supported.length - 1];
 }
 
-// Relative color progression: map the level's index within the model's
-// supported levels onto the full 6-step palette, so sparse models
-// (e.g. [minimal, medium, max]) still render green -> yellow -> red
-// instead of green -> blue -> red. Full 6-level models are unaffected
-// (index == palette position). Single-level models keep their
-// absolute color.
-function relativeThinkingToken(level: string, model: unknown): string {
-	const supported = supportedEffortsFor(model);
-	const idx = supported.indexOf(level);
-	if (idx === -1 || supported.length <= 1) return thinkingToken(level);
-	const pos = Math.round((idx * (EFFORT_ORDER.length - 1)) / (supported.length - 1));
-	return thinkingToken(EFFORT_ORDER[pos]!);
-}
-
 // ---------------------------------------------------------------------------
 // git polling (branch comes free via footerData; stats need git)
 // ---------------------------------------------------------------------------
@@ -488,7 +474,7 @@ export default function (pi: ExtensionAPI) {
 					let rightColored = t.fg("muted" as never, rightSide);
 					if (thinking !== "off" && rightSide.includes(thinking)) {
 						const effortColored = t.fg(
-							relativeThinkingToken(thinking, ctx.model) as never,
+							thinkingToken(thinking) as never,
 							`${ICON.effort}${thinking}`,
 						);
 						const effortStyled =

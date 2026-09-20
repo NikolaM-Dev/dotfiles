@@ -85,7 +85,7 @@
     "thinkingLow": "hint",
     "thinkingMedium": "info",
     "thinkingHigh": "warn",
-    "thinkingXhigh": "ember",
+    "thinkingXhigh": "cinder",
     "thinkingMax": "error",
     "bashMode": "warn"
   },
