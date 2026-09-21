@@ -6,8 +6,8 @@
  * are not lost when you look back.
  *
  * Layout (single line, widget above editor):
- *   active: <spinner> Working... running bash (47s · +1.2k)
- *   idle:   ✓ Done in 47s · +1.2k · 3 tools · 14:32
+ *   active: <icon> Running bash (+1.2k · 1 file · 47s)
+ *   idle:   ✓ Done in 47s · +1.2k · 3 tools · 2 files · 2:32 PM
  *
  * Skips everything pi-footer already covers (git, cwd, session
  * totals, cost, context %, model). Cycle tokens and tool names only.
@@ -21,7 +21,16 @@ const TICK_MS = 120;
 const STALL_MS = 20_000;
 const ELAPSED_WARN_MS = 5 * 60_000;
 
-const SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"] as const;
+const USE_NERD = true;
+
+const ICON = {
+  requesting: USE_NERD ? "󰑴 " : "",
+  thinking: USE_NERD ? " " : "",
+  responding: USE_NERD ? " " : "",
+  "tool-use": USE_NERD ? " " : "",
+  waiting: USE_NERD ? "󰒲 " : "",
+  compacting: USE_NERD ? "󰆼 " : "",
+} as const;
 
 type Phase = "requesting" | "thinking" | "responding" | "tool-use" | "waiting" | "compacting";
 
@@ -29,18 +38,20 @@ interface LastRun {
   durationMs: number;
   tokens: number;
   tools: number;
+  files: number;
   errors: number;
   at: number;
+  clock: string;
 }
 
 const state = {
   active: false,
   phase: "requesting" as Phase,
-  verb: "Working",
   startedAt: 0,
   lastProgressAt: 0,
   outputTokens: 0,
   toolTotal: 0,
+  files: new Set<string>(),
   errorTotal: 0,
   tools: new Map<string, string>(),
   waiting: 0,
@@ -74,28 +85,86 @@ function formatElapsed(ms: number): string {
 
 function formatClock(at: number): string {
   try {
-    return new Date(at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    return new Date(at).toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+      hourCycle: "h12",
+    });
   } catch {
     return "";
   }
 }
 
-function cleanToolName(name: string): string {
-  return name.replace(/[\x00-\x1f\x7f]/g, "").trim().slice(0, 24) || "tool";
+function capitalize(text: string): string {
+  return text.length > 0 ? text[0]!.toUpperCase() + text.slice(1) : text;
 }
 
-function activityText(): string {
-  if (state.waiting > 0) return "waiting for you";
-  if (state.compacting) return "compacting";
-  if (state.phase === "tool-use") {
-    const names = [...state.tools.values()];
-    if (names.length === 1) return `running ${names[0]}`;
-    if (names.length > 1) return `running ${names[0]} +${names.length - 1}`;
-    return "running tools";
+type SegmenterInstance = {
+  segment(_s: string): Iterable<{ segment: string }>;
+};
+
+let cachedSegmenter: SegmenterInstance | null | undefined;
+
+function splitGraphemes(text: string): string[] {
+  if (cachedSegmenter === undefined) {
+    const Segmenter = (
+      Intl as unknown as {
+        Segmenter?: new (_l: unknown, _o: unknown) => SegmenterInstance;
+      }
+    ).Segmenter;
+    cachedSegmenter = typeof Segmenter === "function" ? new Segmenter(undefined, { granularity: "grapheme" }) : null;
   }
-  if (state.phase === "thinking") return "thinking";
-  if (state.phase === "responding") return "writing";
-  return "thinking";
+  if (cachedSegmenter) {
+    return [...cachedSegmenter.segment(text)].map((part) => part.segment);
+  }
+  return Array.from(text);
+}
+
+// Traveling highlight band over icon + activity. Dim base with fg (text)
+// highlight, warning tones when stalled.
+function renderShimmer(t: Theme, text: string, tick: number, stalled: boolean): string {
+  const graphemes = splitGraphemes(text);
+  const widths = graphemes.map((g) => Math.max(1, visibleWidth(g)));
+  const total = widths.reduce((a, b) => a + b, 0);
+  const edge = 6;
+  const travel = total + edge * 2;
+  const center = (tick % Math.max(1, travel)) - edge;
+  let cursor = 0;
+  const highlight = stalled ? "warning" : "text";
+  return graphemes
+    .map((g, i) => {
+      const start = cursor;
+      cursor += widths[i]!;
+      // Uniform 3-wide band: center cell + 2 trailing cells share one style.
+      if (cursor > center - 1 && start < center + 2) return t.bold(t.fg(highlight as never, g));
+      return t.bold(t.fg("dim" as never, g));
+    })
+    .join("");
+}
+
+function cleanToolName(name: string): string {
+  return (
+    name
+      .replace(/[\x00-\x1f\x7f]/g, "")
+      .trim()
+      .slice(0, 24) || "tool"
+  );
+}
+
+// Single source for icon + text so they can never drift apart.
+function currentActivity(): { icon: string; text: string } {
+  if (state.waiting > 0) return { icon: ICON.waiting, text: "waiting for you" };
+  if (state.compacting) return { icon: ICON.compacting, text: "compacting" };
+  if (state.phase === "tool-use") {
+    const count = state.tools.size;
+    if (count === 0) return { icon: ICON["tool-use"], text: "running tools" };
+    const first = state.tools.values().next().value as string;
+    if (count === 1) return { icon: ICON["tool-use"], text: `running ${first}` };
+    return { icon: ICON["tool-use"], text: `running ${first} +${count - 1}` };
+  }
+  if (state.phase === "thinking") return { icon: ICON.thinking, text: "thinking" };
+  if (state.phase === "responding") return { icon: ICON.responding, text: "writing" };
+  return { icon: ICON.requesting, text: "orchestrating" };
 }
 
 function stopTimer(): void {
@@ -114,74 +183,79 @@ export default function (pi: ExtensionAPI) {
     if (!state.active && state.last) {
       const l = state.last;
       const ok = l.errors === 0;
-      const icon = t.fg((ok ? "success" : "warning") as never, ok ? "✓ " : "✓ ");
+      const icon = t.fg((ok ? "success" : "warning") as never, "✓ ");
       const head = t.fg("muted" as never, `Done in ${formatElapsed(l.durationMs)}`);
       const parts: string[] = [head];
       if (l.tokens > 0) parts.push(t.fg("dim" as never, `+${formatTokens(l.tokens)}`));
       if (l.tools > 0) parts.push(t.fg("dim" as never, `${l.tools} tool${l.tools === 1 ? "" : "s"}`));
-      if (l.errors > 0) parts.push(t.fg("error" as never, `${l.errors} error${l.errors === 1 ? "" : "s"}`));
-      const clock = formatClock(l.at);
-      if (clock) parts.push(t.fg("dim" as never, clock));
+      if (l.files > 0)
+        parts.push(t.fg("dim" as never, `${l.files} file${l.files === 1 ? "" : "s"}`));
+      if (l.errors > 0)
+        parts.push(t.fg("error" as never, `${l.errors} error${l.errors === 1 ? "" : "s"}`));
+      if (l.clock) parts.push(t.fg("dim" as never, l.clock));
       const line = icon + parts.join(t.fg("dim" as never, " · "));
       if (visibleWidth(line) <= w) return [line];
       return [truncateToWidth(line, w, t.fg("dim" as never, "…"))];
     }
 
-    // active
-    const elapsed = now() - state.startedAt;
-    const frame = SPINNER[Math.floor(elapsed / TICK_MS) % SPINNER.length]!;
-    const stalled = now() - state.lastProgressAt > STALL_MS && state.waiting === 0;
-    const spinner = t.fg((stalled ? "warning" : "accent") as never, `${frame} `);
-    const verb = t.bold(t.fg("text" as never, `${state.verb}… `));
-    const activity = t.fg("dim" as never, activityText());
+    // active: shimmering "<icon> <Activity>" plus dim details
+    const tNow = now();
+    const elapsed = tNow - state.startedAt;
+    const tick = Math.floor(elapsed / TICK_MS);
+    const stalled = tNow - state.lastProgressAt > STALL_MS && state.waiting === 0;
+    const { icon, text } = currentActivity();
+    const activity = renderShimmer(t, `${icon}${capitalize(text)}`, tick, stalled);
 
     const details: string[] = [];
     if (state.outputTokens > 0) details.push(`+${formatTokens(state.outputTokens)}`);
+    if (state.files.size > 0)
+      details.push(`${state.files.size} file${state.files.size === 1 ? "" : "s"}`);
     const elapsedTone = elapsed >= ELAPSED_WARN_MS ? "warning" : "dim";
     details.push(formatElapsed(elapsed));
-    const detailStr = t.fg("dim" as never, " (") + details.map((d) => t.fg(elapsedTone as never, d)).join(t.fg("dim" as never, " · ")) + t.fg("dim" as never, ")");
+    const detailStr =
+      t.fg("dim" as never, " (") +
+      details.map((d) => t.fg(elapsedTone as never, d)).join(t.fg("dim" as never, " · ")) +
+      t.fg("dim" as never, ")");
 
-    const line = spinner + verb + activity + detailStr;
+    const line = activity + detailStr;
     if (visibleWidth(line) <= w) return [line];
-
-    // narrow: drop verb, keep activity + elapsed
-    const compact = spinner + activity + detailStr;
-    if (visibleWidth(compact) <= w) return [compact];
-    return [truncateToWidth(compact, w, t.fg("dim" as never, "…"))];
+    return [truncateToWidth(line, w, t.fg("dim" as never, "\u2026"))];
   };
 
   pi.on("session_start", async (_event, ctx) => {
     if (ctx.mode !== "tui") return;
     disposed = false;
 
-    ctx.ui.setWidget(
-      WIDGET_KEY,
-      ((tui: unknown, theme: unknown) => {
-        const tuiTyped = tui as { requestRender: () => void };
-        stopTimer();
-        timer = setInterval(() => {
-          if (disposed) return;
-          // only tick while something is visible
-          if (!state.active && !state.last) return;
-          tuiTyped.requestRender();
-        }, TICK_MS);
+    // Hide the built-in working row inside the editor top border.
+    // pi-working replaces it with the widget above the input.
+    ctx.ui.setWorkingVisible(false);
 
-        return {
-          dispose() {
-            stopTimer();
-          },
-          invalidate() {},
-          render(width: number): string[] {
-            return renderLine(theme as Theme, width);
-          },
-        };
-      }) as never,
-    );
+    ctx.ui.setWidget(WIDGET_KEY, ((tui: unknown, theme: unknown) => {
+      const tuiTyped = tui as { requestRender: () => void };
+      stopTimer();
+      timer = setInterval(() => {
+        if (disposed) return;
+        // Idle line is static (clock cached at settle) — only animate while active.
+        if (!state.active) return;
+        tuiTyped.requestRender();
+      }, TICK_MS);
+
+      return {
+        dispose() {
+          stopTimer();
+        },
+        invalidate() {},
+        render(width: number): string[] {
+          return renderLine(theme as Theme, width);
+        },
+      };
+    }) as never);
   });
 
-  pi.on("session_shutdown", async () => {
+  pi.on("session_shutdown", async (_event, ctx) => {
     disposed = true;
     stopTimer();
+    if (ctx.mode === "tui") ctx.ui.setWorkingVisible(true);
   });
 
   pi.on("agent_start", async (_event, ctx) => {
@@ -189,11 +263,11 @@ export default function (pi: ExtensionAPI) {
     const t = now();
     state.active = true;
     state.phase = "requesting";
-    state.verb = "Working";
     state.startedAt = t;
     state.lastProgressAt = t;
     state.outputTokens = 0;
     state.toolTotal = 0;
+    state.files.clear();
     state.errorTotal = 0;
     state.tools.clear();
     state.waiting = 0;
@@ -211,16 +285,20 @@ export default function (pi: ExtensionAPI) {
     const e = event as { assistantMessageEvent?: { type?: string } };
     const type = e.assistantMessageEvent?.type ?? "";
     if (type === "thinking_start" || type === "thinking_delta") state.phase = "thinking";
-    else if (type === "text_start" || type === "text_delta" || type === "text_end") state.phase = "responding";
+    else if (type === "text_start" || type === "text_delta" || type === "text_end")
+      state.phase = "responding";
     else if (type === "toolcall_start" || type === "toolcall_delta") state.phase = "tool-use";
     state.lastProgressAt = now();
   });
 
   pi.on("tool_execution_start", async (event: unknown, ctx) => {
     if (!state.active || ctx.mode !== "tui") return;
-    const e = event as { toolCallId: string; toolName: string };
+    const e = event as { toolCallId: string; toolName: string; args?: { path?: unknown } };
     state.tools.set(e.toolCallId, cleanToolName(e.toolName));
     state.toolTotal += 1;
+    if ((e.toolName === "edit" || e.toolName === "write") && typeof e.args?.path === "string") {
+      state.files.add(e.args.path);
+    }
     state.phase = "tool-use";
     state.lastProgressAt = now();
   });
@@ -246,7 +324,10 @@ export default function (pi: ExtensionAPI) {
 
   // ui_prompt_start/end only exist on newer Pi; subscribe loosely.
   const promptEvents = pi as unknown as {
-    on(event: "ui_prompt_start" | "ui_prompt_end", handler: (event: unknown, ctx: never) => void): void;
+    on(
+      event: "ui_prompt_start" | "ui_prompt_end",
+      handler: (event: unknown, ctx: never) => void,
+    ): void;
   };
   promptEvents.on("ui_prompt_start", (() => {
     if (!state.active) return;
@@ -275,8 +356,10 @@ export default function (pi: ExtensionAPI) {
       durationMs: Math.max(0, t - state.startedAt),
       tokens: state.outputTokens,
       tools: state.toolTotal,
+      files: state.files.size,
       errors: state.errorTotal,
       at: t,
+      clock: formatClock(t),
     };
     state.active = false;
     state.tools.clear();
