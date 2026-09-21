@@ -24,11 +24,11 @@ const ELAPSED_WARN_MS = 5 * 60_000;
 const USE_NERD = true;
 
 const ICON = {
-  requesting: USE_NERD ? "󰑴 " : "",
+  requesting: USE_NERD ? " " : "",
   thinking: USE_NERD ? " " : "",
   responding: USE_NERD ? " " : "",
-  "tool-use": USE_NERD ? " " : "",
-  waiting: USE_NERD ? "󰒲 " : "",
+  "tool-use": USE_NERD ? " " : "",
+  waiting: USE_NERD ? " " : "",
   compacting: USE_NERD ? "󰆼 " : "",
 } as const;
 
@@ -112,7 +112,10 @@ function splitGraphemes(text: string): string[] {
         Segmenter?: new (_l: unknown, _o: unknown) => SegmenterInstance;
       }
     ).Segmenter;
-    cachedSegmenter = typeof Segmenter === "function" ? new Segmenter(undefined, { granularity: "grapheme" }) : null;
+    cachedSegmenter =
+      typeof Segmenter === "function"
+        ? new Segmenter(undefined, { granularity: "grapheme" })
+        : null;
   }
   if (cachedSegmenter) {
     return [...cachedSegmenter.segment(text)].map((part) => part.segment);
@@ -164,7 +167,7 @@ function currentActivity(): { icon: string; text: string } {
   }
   if (state.phase === "thinking") return { icon: ICON.thinking, text: "thinking" };
   if (state.phase === "responding") return { icon: ICON.responding, text: "writing" };
-  return { icon: ICON.requesting, text: "orchestrating" };
+  return { icon: ICON.requesting, text: "requesting" };
 }
 
 function stopTimer(): void {
@@ -187,7 +190,8 @@ export default function (pi: ExtensionAPI) {
       const head = t.fg("muted" as never, `Done in ${formatElapsed(l.durationMs)}`);
       const parts: string[] = [head];
       if (l.tokens > 0) parts.push(t.fg("dim" as never, `+${formatTokens(l.tokens)}`));
-      if (l.tools > 0) parts.push(t.fg("dim" as never, `${l.tools} tool${l.tools === 1 ? "" : "s"}`));
+      if (l.tools > 0)
+        parts.push(t.fg("dim" as never, `${l.tools} tool${l.tools === 1 ? "" : "s"}`));
       if (l.files > 0)
         parts.push(t.fg("dim" as never, `${l.files} file${l.files === 1 ? "" : "s"}`));
       if (l.errors > 0)
@@ -244,7 +248,7 @@ export default function (pi: ExtensionAPI) {
         dispose() {
           stopTimer();
         },
-        invalidate() {},
+        invalidate() { },
         render(width: number): string[] {
           return renderLine(theme as Theme, width);
         },

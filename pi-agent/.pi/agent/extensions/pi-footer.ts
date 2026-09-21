@@ -27,11 +27,11 @@ const POLL_MS = 5000;
 const USE_NERD = true;
 
 const ICON = {
-	folder: USE_NERD ? " " : "",
+	folder: USE_NERD ? " " : "",
 	branch: USE_NERD ? " " : "",
 	ahead: USE_NERD ? " " : "↑",
 	behind: USE_NERD ? " " : "↓",
-	dirty: USE_NERD ? "󱀲 " : "*",
+	dirty: USE_NERD ? "󰈢 " : "*",
 	conflict: USE_NERD ? " " : "!",
 	added: USE_NERD ? " " : "+",
 	removed: USE_NERD ? " " : "-",
@@ -40,10 +40,10 @@ const ICON = {
 	stashed: USE_NERD ? " " : "s",
 	model: USE_NERD ? "󰚩 " : "ai ",
 	effort: USE_NERD ? " " : "",
-	context: USE_NERD ? "󰅺 " : "ctx ",
-	tokens: USE_NERD ? "󰄨 " : "tok ",
-	cacheRead: USE_NERD ? "󰃨 " : "",
-	cacheHit: USE_NERD ? "󰓾 " : "",
+	context: USE_NERD ? "󰒋 " : "ctx ",
+	tokens: USE_NERD ? " " : "tok ",
+	cacheRead: USE_NERD ? " " : "",
+	cacheHit: USE_NERD ? " " : "",
 } as const;
 
 // ---------------------------------------------------------------------------
