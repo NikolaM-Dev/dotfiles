@@ -1,182 +1,77 @@
 ---
 name: markdown-tasks
-description: Create, update, schedule, and cancel tasks in any markdown file using the Tasks emoji convention (➕ ⏳ 🛫 📅 ✅ ❌ 🔁). Use when working with checklists, TODOs, ROADMAPs, or task lists in any markdown file, repo, or notes folder.
+description:
+  "Trigger: task list, list tasks, TODO, checklist, ROADMAP, schedule task, mark done, cancel task, session recap, what did we do, summarize tasks. Create, update, schedule, cancel, and list tasks in markdown files using the Tasks emoji convention."
 ---
 
 # Markdown Tasks
 
-Manage tasks in any markdown file using the Tasks emoji convention (sourced from the Obsidian Tasks plugin, but vault-agnostic). Works in any repo, docs folder, `TODO.md`, daily note, or ad-hoc markdown file. Covers creation, scheduling, updates, and cancellation with the mandatory checked `**Why?:**` sub-task for canceled tasks.
+## Activation Contract
 
-## Emoji convention (canonical)
+Use when the user works with tasks in any markdown file (`TODO.md`,
+`ROADMAP.md`, daily note, repo docs, ad-hoc file). Also use when the user asks
+to list, recap, or summarize tasks from the session or from files ("list tasks",
+"what did we do", "session recap"). Operate on the file the user points to. Ask
+if ambiguous. Read `references/convention.md` before the first
+create/update/cancel/list in a session.
 
-Copy this table exactly. Do not invent emojis.
+## Hard Rules
 
-### Status (checkbox)
+- Copy emojis exactly: `➕ ⏳ 🛫 📅 ✅ ❌ 🔁 ⏫ 🔼 🔽 ⏬ 🔺`. Never invent,
+  never use `:x:` style or `~~strikethrough~~`.
+- Use `YYYY-MM-DD` after the emoji, single spaces, canonical order:
+  `Description ➕ … ⏳ … 🛫 … 📅 … 🔁 … priority 🏁 … 🆔 … ⛔ … ✅/❌ …`. Omit
+  unused fields, never leave blank, never append a duplicate emoji.
+- Always set `➕ <today>` on creation using the real current date (`date +%F`).
+  Never add `✅`/`❌` on creation.
+- Preserve `➕` and untouched fields on every edit. Replace date values in
+  place.
+- Mark done only as `- [x]` + trailing `✅ <today>`. Never add a `Why?` to done
+  tasks.
+- Cancel only as `- [-]` + trailing `❌ <today>` + mandatory checked sub-task
+  below. A canceled task without it is invalid.
+- Cancel sub-task format (2-space indent, `✅` date matches `❌` date):
+  `  - [x] **Why?:** <full sentence reason> ✅ YYYY-MM-DD`
 
-| Mark    | Meaning                        |
-| ------- | ------------------------------ |
-| `- [ ]` | Todo / open                    |
-| `- [x]` | Done                           |
-| `- [-]` | Canceled                       |
-| `- [/]` | In progress (if vault uses it) |
+## Decision Gates
 
-Only use `- [-]` for canceled tasks. Never use strikethrough or plain text `CANCELED`.
+| User says                                              | Action                                       |
+| ------------------------------------------------------ | -------------------------------------------- |
+| schedule / show me on X                                | Set `⏳ X`                                   |
+| due / deadline X                                       | Set `📅 X`                                   |
+| start / cannot start before X                          | Set `🛫 X`                                   |
+| done / finished                                        | `- [x]` + `✅`                               |
+| cancel / drop / no longer doing                        | `- [-]` + `❌` + `Why?` sub-task             |
+| priority high/medium/low                               | Swap `⏫/🔼/🔽/⏬/🔺`, remove for Normal     |
+| repeat / every …                                       | Add `🔁 <rule>` after dates, before priority |
+| list / show / recap / what did we do / summarize tasks | List tasks, do not edit files unless asked   |
 
-### Dates - all `YYYY-MM-DD`
+## Execution Steps
 
-| Emoji | Field     | Meaning                                                                   |
-| ----- | --------- | ------------------------------------------------------------------------- |
-| `➕`  | Created   | When the task was created. Always set on creation.                        |
-| `⏳`  | Scheduled | When the task is scheduled to be available/worked on. Use for scheduling. |
-| `🛫`  | Start     | When work can start. Task hides before this date in queries.              |
-| `📅`  | Due       | When the task is due. Deadline.                                           |
-| `✅`  | Done      | When completed. Added only when marking `[x]`.                            |
-| `❌`  | Cancelled | When canceled. Added only when marking `[-]`.                             |
+1. Parse the target file first. Do not duplicate emojis or dates.
+2. Create: `- [ ] <imperative description> ➕ <today>` plus only requested
+   scheduling/priority/recurrence. One task per line.
+3. Reschedule/update: edit in place, keep `➕`, replace the date value.
+4. Done: flip to `- [x]`, append `✅ <today>` at end.
+5. Cancel:
+   1. Flip to `- [-]`, keep `➕/⏳/🛫/📅/🔁` intact, append `❌ <today>`.
+   2. Append
+      `  - [x] **Why?:** <specific sentence: scope change, duplicate of X, blocked by Y, replaced by Z> ✅ <today>`.
+   3. If no reason given, ask for it. Propose a specific draft, confirm, never
+      invent a vague reason. Never delete the parent line.
+6. Keep one task per line, preserve surrounding markdown.
+7. List/recap: collect tasks created, updated, done, and canceled in this
+   session plus matching lines from target files if given. Output grouped as
+   Open / Done / Canceled (keep `Why?` line with its parent), in canonical emoji
+   format. Do not edit files unless the user asks to write the list down.
 
-### Priority
+## Output Contract
 
-| Emoji    | Priority |
-| -------- | -------- |
-| `🔺`     | Highest  |
-| `⏫`     | High     |
-| `🔼`     | Medium   |
-| _(none)_ | Normal   |
-| `🔽`     | Low      |
-| `⏬`     | Lowest   |
+Return: file edited, lines added/updated, open questions (e.g. missing cancel
+reason or ambiguous date). For list/recap: grouped task list, no file edit
+unless requested.
 
-### Other signifiers
+## References
 
-| Emoji  | Field                 | Example                                                     |
-| ------ | --------------------- | ----------------------------------------------------------- |
-| `🔁`   | Recurrence            | `🔁 every day`, `🔁 every week`, `🔁 every month when done` |
-| `🏁`   | On completion         | `🏁 keep` or `🏁 delete`                                    |
-| `🆔`   | ID (for dependencies) | `🆔 abc123`                                                 |
-| `⛔`   | Depends on            | `⛔ abc123,def456`                                          |
-
-### Canonical order on one line
-
-Keep emojis in this order after the description:
-
-```
-- [ ] Description ➕ YYYY-MM-DD ⏳ YYYY-MM-DD 🛫 YYYY-MM-DD 📅 YYYY-MM-DD 🔁 ... ⏫/🔼/🔽/⏬ 🏁 ... 🆔 ... ⛔ ... ✅/❌ YYYY-MM-DD
-```
-
-Only include fields that apply. Dates not needed are omitted, never blank. Use a single space between each signifier. Do not reorder.
-
-## Creating tasks
-
-1. Use `- [ ]` as prefix.
-2. Write description as imperative, specific. Start with verb. Include context if needed.
-3. Always add `➕ YYYY-MM-DD` with today's date (or provided creation date).
-4. Add scheduling/priority/recurrence only if requested.
-5. Never add `✅` or `❌` on creation.
-
-Example:
-
-```md
-- [ ] Write interview question about state machine ➕ 2026-07-30 📅 2026-08-05 ⏫
-- [ ] Review vault daily notes query 🔁 every day ➕ 2026-07-30
-```
-
-When creating many tasks, one per line, no bullet sub-lists unless the task itself needs detail.
-
-## Scheduling tasks
-
-Distinguish the three date types:
-
-- `⏳ Scheduled` - "show me this on this day" / planned work day. Use for `schedule` requests.
-- `🛫 Start` - "cannot start before this" - task hidden until this date.
-- `📅 Due` - hard deadline.
-
-Rules:
-
-- If user says "schedule for 2026-08-01" with no qualifier, use `⏳ 2026-08-01`.
-- If user says "due 2026-08-01", use `📅 2026-08-01`.
-- If user says "start 2026-08-01", use `🛫 2026-08-01`.
-- User may set multiple dates: `- [ ] Draft post ➕ 2026-07-30 🛫 2026-08-01 ⏳ 2026-08-02 📅 2026-08-05`
-- Always keep `➕` (created) unchanged when rescheduling.
-- When rescheduling, replace the old date value, do not append a second `⏳`/`📅`/`🛫`.
-
-## Updating tasks
-
-- Keep the same line, edit in place.
-- Preserve `➕` and other unchanged emojis.
-- Priority change: swap emoji (or remove for Normal).
-- Date change: replace `YYYY-MM-DD` after the same emoji.
-- Marking done: change `- [ ]` to `- [x]` and append `✅ YYYY-MM-DD` at end.
-- Never add a Why? sub-list for done tasks.
-
-Example update (reschedule):
-
-```md
-# before
-
-- [ ] Write blog post ➕ 2026-07-30 ⏳ 2026-08-01
-
-# after - moved to 2026-08-03
-
-- [ ] Write blog post ➕ 2026-07-30 ⏳ 2026-08-03
-```
-
-Example done:
-
-```md
-- [x] Write blog post ➕ 2026-07-30 ⏳ 2026-08-03 ✅ 2026-08-03
-```
-
-## Canceling tasks - strict rule
-
-This is mandatory. A canceled task without a reason is invalid.
-
-1. Change `- [ ]` or `- [/]` to `- [-]`.
-2. Append `❌ YYYY-MM-DD` (cancellation date, today unless specified).
-3. Immediately below, add a checked sub-task with the reason:
-
-```md
-- [-] Tell me about a time you solved a difficult problem ➕ 2026-07-30 ❌ 2026-07-31
-  - [x] **Why?:** Because was too broad, I need to focus on the problem and not the solution. ✅ 2026-07-31
-```
-
-Rules:
-
-- Sub-list must be `- [x] **Why?:** <reason> ✅ YYYY-MM-DD` indented by 2 spaces. The `✅` date matches the `❌` date (today unless specified).
-- Reason must be a full sentence, explaining why it was canceled, not just "no longer needed". Push for specifics: scope change, duplicate, blocked, deprioritized, replaced by X.
-- Keep original emojis (`➕`, `⏳`, `📅`, etc.) on the parent line intact. Only add `❌`.
-- Never delete the canceled task line. Keep it for history.
-- If task had sub-bullets before cancellation, keep them and add the Why? as the last sub-bullet.
-
-Additional examples:
-
-```md
-- [-] How to train martial arts ➕ 2026-09-02 ❌ 2026-09-03
-  - [x] **Why?:** This is a whole new area, right now it's not my priority. ✅ 2026-09-03
-
-- [-] Migrate vault to Dataview queries ➕ 2026-07-28 ⏳ 2026-08-01 ❌ 2026-07-30
-  - [x] **Why?:** Decided to stay on Tasks plugin, Dataview migration adds no value for current queries. ✅ 2026-07-30
-
-- [-] Schedule weekly review 🔁 every Monday ➕ 2026-07-30 ❌ 2026-07-31
-  - [x] **Why?:** Duplicate of existing recurring task `🆔 abc123`. ✅ 2026-07-31
-```
-
-When user asks to cancel without giving a reason, ask for the reason. Do not invent a vague reason. Propose a draft if needed and confirm.
-
-## Recurrence
-
-- Format: `🔁 <rule>` e.g. `🔁 every day`, `🔁 every week`, `🔁 every 2 weeks`, `🔁 every month when done`, `🔁 every weekday`
-- Place right after dates, before priority.
-- Do not add `✅`/`❌` to recurring templates; those are added to instances when completed/canceled.
-
-## Querying and maintenance
-
-- The emoji format is designed to be queryable (e.g. by Obsidian Tasks, Dataview, or scripts). A missing `➕` or wrong emoji breaks parsing, so treat the convention as a contract even outside Obsidian.
-- When reading a file, parse existing tasks before editing to avoid duplicate emoji or date.
-- Batch edits: keep one task per line, preserve surrounding markdown.
-- Works with any markdown file path — do not assume a vault structure, daily notes folder, or specific file name. Operate on the file the user points to, or ask if ambiguous.
-
-## Anti-patterns - never do
-
-- Never use `:x:` style or unicode alternatives for emojis. Copy exactly: `➕ ⏳ 🛫 📅 ✅ ❌ 🔁 ⏫ 🔼 🔽 ⏬ 🔺`.
-- Never put dates as `(2026-07-30)` or `[due:: 2026-07-30]`. Only `📅 2026-07-30`.
-- Never use `~~strikethrough~~` to cancel.
-- Never create a canceled task without `❌` and the checked `**Why?:**` sub-task (`  - [x] **Why?:** <reason> ✅ YYYY-MM-DD`).
-- Never drop `➕` when rescheduling.
+- Full emoji tables, order, examples, anti-patterns:
+  [convention.md](references/convention.md)
