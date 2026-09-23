@@ -6,21 +6,8 @@ fi
 CONFIG_FILES=(
 	env
 	keymaps
-	# keymaps2 # loaded before starship, so vi-prompt is set correctly
 	plugins
-	# cli_settings
-	#
-	# options
-	# navigation
-	# completion
-	# terminal_utils
 	aliases
-	# docs_man
-	# ai_help
-	#
-	# git_github
-	# homebrew
-	# python
 	functions
 )
 
