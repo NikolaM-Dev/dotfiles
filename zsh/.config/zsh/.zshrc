@@ -5,6 +5,8 @@ fi
 
 CONFIG_FILES=(
 	env
+	options
+	history
 	keymaps
 	plugins
 	aliases
