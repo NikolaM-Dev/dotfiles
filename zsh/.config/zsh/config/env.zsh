@@ -32,10 +32,6 @@ if [ -d "$XDG_DATA_HOME/bob/nvim-bin" ]; then
 	unset _bob_path _clean_path
 fi
 
-# Lang
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 # Preferences
 export EDITOR="nvim"
 export FILE="yazi"
