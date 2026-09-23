@@ -23,17 +23,3 @@ if [[ -n "$ZSH_PROFILE" ]]; then
 	end=$(date +%s.%N)
 	echo "[DEBUG] zsh startup: $(echo "$end - $start" | bc)s"
 fi
-
-# bun completions
-[ -s "/home/nikola/.bun/_bun" ] && source "/home/nikola/.bun/_bun"
-
-# pnpm
-export PNPM_HOME="/home/nikola/.local/share/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# Vite+ bin (https://viteplus.dev)
-. "$HOME/.vite-plus/env"
