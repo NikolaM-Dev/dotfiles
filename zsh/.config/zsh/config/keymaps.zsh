@@ -3,6 +3,10 @@
 # - `bindkey -M main` to show existing keybinds
 # - some bindings with '^' are reserved (^M=enter, ^I=tab)
 #───────────────────────────────────────────────────────────────────────────────
+# TERMINAL
+stty -ixon 2>/dev/null # disable XON/XOFF flow-control so ^S reaches zsh
+
+#───────────────────────────────────────────────────────────────────────────────
 # VI MODE (default). Insert mode keeps emacs-style keys (below),
 # normal mode is vim. One default, both muscle memories.
 bindkey -v # enable vi mode
@@ -43,6 +47,7 @@ function _open_yazi() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
 
 	command rm -f -- "$tmp"
+	zle reset-prompt
 }
 zle -N _open_yazi
 bindkey '^O' _open_yazi # CONFIRMED exception: overrides emacs `open-line`
@@ -53,6 +58,16 @@ function _yupdate() {
 }
 zle -N _yupdate
 bindkey '^U' _yupdate # CONFIRMED exception: overrides emacs `universal-argument`
+
+# _open_zoxide: jump directories with zoxide interactive picker (fzf)
+function _open_zoxide() {
+	local dir
+	dir="$(zoxide query --interactive)" || return # ESC aborts, stay put
+	[[ -n "$dir" ]] && builtin cd -- "$dir"
+	zle reset-prompt
+}
+zle -N _open_zoxide
+bindkey '^S' _open_zoxide
 
 #───────────────────────────────────────────────────────────────────────────────
 # EMACS-STYLE KEYS (insert mode). Standards kept; customs need confirmation.
