@@ -7,6 +7,7 @@ CONFIG_FILES=(
 	env
 	options
 	history
+	completion
 	keymaps
 	plugins
 	aliases
