@@ -6,6 +6,7 @@
  */
 
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { execFile } from "node:child_process";
 import { existsSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
@@ -186,12 +187,10 @@ function notifyOSC99(title: string, body: string): void {
 }
 
 function notifyWindows(title: string, body: string): void {
-  const { execFile } = require("child_process");
   execFile("powershell.exe", ["-NoProfile", "-Command", windowsToastScript(title, body)]);
 }
 
 function notifyLinux(title: string, body: string): void {
-  const { execFile } = require("child_process");
   execFile("notify-send", [sanitizeNotifySend(title), sanitizeNotifySend(body)], () => { });
 }
 
@@ -209,7 +208,6 @@ function getTuturuPath(): string | undefined {
 function playTuturu(): void {
   const soundPath = getTuturuPath();
   if (!soundPath) return;
-  const { execFile } = require("child_process");
   const players: Array<[string, string[]]> = [
     ["paplay", [soundPath]],
     ["pw-play", [soundPath]],
