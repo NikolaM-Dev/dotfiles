@@ -1,0 +1,4 @@
+# vendored zsh plugins (self-clone via _ensure_plugin)
+zsh/.config/zsh/plugins/
+# zsh completion cache
+zsh/.config/zsh/.zcompdump

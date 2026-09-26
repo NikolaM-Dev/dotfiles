@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Configs
 alias A="cd ~/.config/alacritty && nvim alacritty.toml"
 alias C="cd ~/.config"
@@ -20,7 +18,8 @@ alias ncache="rm -rf ~/.cache/nvim/lazy"
 alias pacman-cfg="sudoedit /etc/pacman.conf"
 alias P="cd ~/Pictures"
 alias R="cd ~/workspace/react"
-alias sb="cd $SECOND_BRAIN_PATH && nvim"
+alias sb="cd $SECOND_BRAIN_PATH/src && nvim"
+alias gsb="cd $SECOND_BRAIN_PATH/src"
 alias ss="sudo -E -s"
 alias V="cd ~/.config/nvim && nvim"
 alias W="cd ~/w"
@@ -31,8 +30,8 @@ alias zc="nvim ~/.zshrc"
 alias padd="sudo pacman -S"
 alias pfind="sudo pacman -Ss"
 alias prm="sudo pacman -Rsun"
-alias prmu="sudo pacman -Rns $(pacman -Qtdq)"
-alias pupdate="sudo pacman -Syu && yay -Syu && omz update && ysc"
+alias prmu='sudo pacman -Rns $(pacman -Qtdq)'
+alias pupdate="sudo pacman -Syu && yay -Syu && ysc"
 
 # Yay
 alias yadd="yay -S"
@@ -45,7 +44,6 @@ alias ..="cd .."
 alias ctrash="gio trash --empty"
 alias gt="gio trash"
 alias rmf="rm -rf"
-alias to="touch $1; nvim $1"
 alias trash="cd ~/.local/share/Trash/files; yazi"
 
 # Git
@@ -93,7 +91,7 @@ alias gtest="go test -v -cover ./..."
 
 # IDE
 alias compile-dwm="cd ~/.config/dwm && sudo make clean install && cd -"
-alias cva="yarn create vite"
+alias cva="bun create vite"
 alias dautotime="sudo timedatectl set-ntp 0"
 alias disable-suspend="sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target"
 alias eautotime="sudo timedatectl set-ntp 1"
@@ -105,10 +103,9 @@ alias install-ex-dependencies="sudo pacman -Syu p7zip unrar tar rsync unzip"
 alias keysoup="sudo systemctl restart keyd && sudo systemctl enable keyd && sudo systemctl start keyd && setxkbmap -option compose:menu"
 alias l="eza -ahl --group-directories-first --icons"
 alias lg="lazygit"
-alias mnvmrc="node -v >> .nvmrc"
-alias pdfs="~/grey/ && ranger && cd -"
+alias mknv="node -v > .node-version"
 alias sfeh="source ~/.fehbg"
-alias szsh="omz reload"
+alias szsh="exec zsh"
 alias tree="eza -hT --group-directories-first --icons"
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -136,7 +133,7 @@ alias dcb="docker-compose build"
 alias dcd="docker-compose down"
 alias dcps="docker-compose ps"
 alias dcu="docker-compose up"
-alias dcupd="docker-compose up -d"
+alias dcud="docker-compose up -d"
 alias dps="docker ps"
 alias ssd="systemctl start docker.service"
 
@@ -154,6 +151,7 @@ alias ytmp4="yt-dlp --format 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]'"
 alias ytplaylist="yt-dlp -f 'ba' -x"
 
 # Utility
+alias sc="sesh connect ."
 alias dir-size="du -sh"
 alias kill_hpp="pgrep -f 'n-hpp' | xargs kill"
 alias net="fast --upload"
@@ -176,3 +174,21 @@ alias nr="n-js-run"
 # Python
 alias python_serve="python -m http.server"
 alias uvr="uv run"
+
+# Calibre
+alias update_calibre="sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin"
+
+alias termux_ssh="ssh -p 8022 u0_a443@192.168.1.1"
+alias ssN="sudo shutdown now"
+alias sR="sudo reboot"
+alias pn="pnpm"
+alias pnx="pnpm dlx"
+alias npm="pnpm"
+alias npx="pnpm dlx"
+alias oc="opencode2"
+alias pifs="pi --tui-mode fullscreen"
+
+# Pi Agent
+alias pic="pi -c"
+alias pir="pi -r"
+alias piu="pi update --all"
