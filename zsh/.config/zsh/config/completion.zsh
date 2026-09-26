@@ -1,3 +1,4 @@
+# Initializes compinit first, then configures zstyle format, color, sort and ignore rules.
 # DOCS
 # official docs https://zsh.sourceforge.io/Guide/zshguide06.html
 # zstyle        https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Standard-Styles
@@ -50,12 +51,12 @@ zstyle ':completion:*' ignored-patterns \
 	".git" ".DS_Store" ".localized" "node_modules" "__pycache__"
 
 #───────────────────────────────────────────────────────────────────────────────
-# JUST — dynamic recipe completion (needs compinit above)
+# JUST, dynamic recipe completion. Needs compinit above.
 if (( $+commands[just] )); then
 	source <(JUST_COMPLETE=zsh just)
 fi
 
-# VP — dynamic command completion (needs autocomplete above)
+# VP, dynamic command completion. Needs autocomplete above.
 if (( $+commands[vp] )); then
 	source <(VP_COMPLETE=zsh vp)
 fi

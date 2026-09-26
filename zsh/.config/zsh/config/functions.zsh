@@ -1,4 +1,8 @@
-# TODO: Add docs
+# Project helpers for repos, archives, docker, backups and timers. Sourced last.
+# DOCS https://zsh.sourceforge.io/Doc/Release/Functions.html
+# @description Scaffold local repo plus GitHub remote via gh.
+# @arg $1 repo name (default: current dir name)
+# @example `create_repo my-proj`
 function create_repo {
 	local repo_name="${1:-${PWD:t}}"
 
@@ -17,7 +21,9 @@ function create_repo {
 	echo "Repository '$repo_name' created successfully and linked to the current directory."
 }
 
-# TODO: Add docs
+# @description Back up a file to <file>.bak (interactive mv).
+# @arg $1 file to back up
+# @example `bk .zshrc`
 function bk {
 	if [[ $# -ne 1 ]]; then
 		printf 'Usage: bk <file>\n' >&2
@@ -26,7 +32,8 @@ function bk {
 	mv --interactive "$1" "$1.bak"
 }
 
-# TODO: Add docs
+# @description Start Open WebUI container (detached, host network, Ollama backend).
+# @example `start_open_webui`
 function start_open_webui() {
 	docker run \
 		-d \
@@ -261,7 +268,9 @@ function gd {
 	git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock" | delta --side-by-side
 }
 
-## Change remote to ssh
+# @description Switch git origin remote to SSH form for a GitHub repo.
+# @arg $1 GitHub repo name (owner is NikolaM-Dev)
+# @example `change-remote-to-ssh dotfiles`
 function change-remote-to-ssh {
 	if [[ $# -ne 1 ]]; then
 		echo "Usage: $0 <project_name_in_github>"
@@ -281,7 +290,9 @@ function cdir {
 	fi
 }
 
-# to <file>: create and open in nvim (replaces the old broken `to` alias)
+# @description Create a file and open it in nvim (replaces the old broken `to` alias).
+# @arg $1 file to create and open
+# @example `to notes.md`
 function to {
 	if [[ $# -ne 1 ]]; then
 		printf 'Usage: to <file>\n' >&2
@@ -322,8 +333,9 @@ function nvims {
 	NVIM_APPNAME="$XDG_CONFIG_HOME/nvim-configs/$config" nvim "$@"
 }
 
-# # ex = EXtractor for all kinds of archives
-# # usage: ex <file>
+# @description EXtractor for archives (tar/zip/rar/7z/deb/...).
+# @arg $1 archive file to extract
+# @example `ex release.tar.gz`
 function ex {
 	if [ -f $1 ]; then
 		case $1 in

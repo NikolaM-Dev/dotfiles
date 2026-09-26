@@ -1,3 +1,4 @@
+# Shell behavior flags, sourced early. See CONFIG_FILES order in .zshrc.
 # DOCS
 # https://zsh.sourceforge.io/Doc/Release/Options.html
 # https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Used-By-The-Shell

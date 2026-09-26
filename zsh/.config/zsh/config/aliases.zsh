@@ -1,4 +1,6 @@
-# Configs
+# Short names for navigation, git, docker and multimedia. No logic here.
+# DOCS https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html (see `alias`)
+# CONFIGS
 alias A="cd ~/.config/alacritty && nvim alacritty.toml"
 alias C="cd ~/.config"
 alias csessions="gio trash ~/.local/share/nvim/sessions/"
@@ -26,19 +28,19 @@ alias W="cd ~/w"
 alias year='cal -mwy'
 alias zc="nvim ~/.zshrc"
 
-# Pacman
+# PACMAN
 alias padd="sudo pacman -S"
 alias pfind="sudo pacman -Ss"
 alias prm="sudo pacman -Rsun"
 alias prmu='sudo pacman -Rns $(pacman -Qtdq)'
 alias pupdate="sudo pacman -Syu && yay -Syu && ysc"
 
-# Yay
+# YAY
 alias yadd="yay -S"
 alias yfind="yay -Ss"
 alias ysc="yay -Sc --noconfirm"
 
-# Crud
+# CRUD
 alias ...="cd ../.."
 alias ..="cd .."
 alias ctrash="gio trash --empty"
@@ -46,7 +48,7 @@ alias gt="gio trash"
 alias rmf="rm -rf"
 alias trash="cd ~/.local/share/Trash/files; yazi"
 
-# Git
+# GIT
 alias ga="git add --all"
 alias gb="git branch -a"
 alias gca="git commit --amend"
@@ -77,13 +79,13 @@ alias gsw="git switch"
 alias gta="git tag -a"
 alias gtl="git tag -l"
 
-# yarn
+# YARN
 alias yad="yarn add -D -E"
 alias ya="yarn add -E"
 alias yi="npm init -y"
 alias yrm="yarn remove"
 
-# Golang
+# GOLANG
 alias gcoverage="go test -coverprofile=coverage.out; go tool cover -o coverage.html -html=coverage.out; google-chrome-stable coverage.html"
 alias gdtelemetry="go run golang.org/x/telemetry/cmd/gotelemetry@latest off"
 alias gmi="go mod init"
@@ -112,7 +114,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias v="nvim"
 alias zt="n-open-with-zathura"
 
-# Docker
+# DOCKER
 alias dclsa="docker container ls -a"
 alias dcls="docker container ls"
 alias dcr="docker container run"
@@ -128,7 +130,7 @@ alias dpull="docker pull"
 alias dcprune="docker container prune"
 alias diprune="docker image prune"
 
-# Docker Compose
+# DOCKER COMPOSE
 alias dcb="docker-compose build"
 alias dcd="docker-compose down"
 alias dcps="docker-compose ps"
@@ -137,45 +139,45 @@ alias dcud="docker-compose up -d"
 alias dps="docker ps"
 alias ssd="systemctl start docker.service"
 
-# Rclone
+# RCLONE
 alias rcsltr="rclone -v sync /home/nikola/Documents/drive drive:"
 alias rcsrtl="rclone -v sync drive: /home/nikola/Documents/drive"
 alias rcp="rclone -v copy /home/nikola/Documents/drive drive:"
 alias rcpl="rclone -v copy drive: /home/nikola/Documents/drive"
 
-# Youtube
+# YOUTUBE
 alias play="vlc -I ncurses --novideo --random --loop --playlist-autostart ."
 alias ytaudio="yt-dlp -f 'ba' -x --no-playlist"
 alias ytmp3="yt-dlp -x --audio-format mp3"
 alias ytmp4="yt-dlp --format 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]'"
 alias ytplaylist="yt-dlp -f 'ba' -x"
 
-# Utility
+# UTILITY
 alias sc="sesh connect ."
 alias dir-size="du -sh"
 alias kill_hpp="pgrep -f 'n-hpp' | xargs kill"
 alias net="fast --upload"
 alias mpvvr="mpv --script=~/.config/mpv/plugins/360plugin.lua --script-opts=360plugin-enabled=yes"
 
-# Time
+# TIME
 alias stopwatch="tclock -c '#9ccfd8' stopwatch"
 
-# Emacs
+# EMACS
 alias kem="killall emacs || echo 'Emacs server not running'"
 alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 alias em="emacsclient -c -a 'emacs'"
 
-# Yazi
+# YAZI
 alias yaziya="/usr/bin/ya"
 
 # JS
 alias nr="n-js-run"
 
-# Python
+# PYTHON
 alias python_serve="python -m http.server"
 alias uvr="uv run"
 
-# Calibre
+# CALIBRE
 alias update_calibre="sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin"
 
 alias termux_ssh="ssh -p 8022 u0_a443@192.168.1.1"
@@ -188,7 +190,7 @@ alias npx="pnpm dlx"
 alias oc="opencode2"
 alias pifs="pi --tui-mode fullscreen"
 
-# Pi Agent
+# PI AGENT
 alias pic="pi -c"
 alias pir="pi -r"
 alias piu="pi update --all"

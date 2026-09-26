@@ -1,3 +1,8 @@
+# Sets PATH and exports, then initializes starship, fnm, zoxide, fzf and conda. Sourced first.
+# DOCS https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Used-By-The-Shell
+# @description Prepend-or-keep PATH entry (no duplicates).
+# @arg $1 path entry to ensure in PATH
+# @example `add_to_path "$HOME/.local/bin"`
 function add_to_path() {
 	if [ -z "$1" ]; then
 		echo "Error: Path cannot be empty"
@@ -23,7 +28,7 @@ fi
 # Binaries
 add_to_path "$HOME/.local/bin"
 add_to_path "$XDG_DATA_HOME/nvim/mason/bin"
-# Bob - Neovim version manager (prepend to prioritize over system nvim)
+# Bob, Neovim version manager, prepended to prioritize over system nvim.
 if [ -d "$XDG_DATA_HOME/bob/nvim-bin" ]; then
 	_bob_path="$XDG_DATA_HOME/bob/nvim-bin"
 	# Remove any existing bob entries (zsh-safe via tr/grep) then prepend

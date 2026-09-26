@@ -1,3 +1,5 @@
+# Vi mode hybrid with emacs insert keys. Vim normal mode, plus tmux-safe duplicates.
+# DOCS https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html
 # INFO
 # - use `ctrl-v` or `cat -v` and then a key combination to get the shell binding
 # - `bindkey -M main` to show existing keybinds
@@ -50,14 +52,14 @@ function _open_yazi() {
 	zle reset-prompt
 }
 zle -N _open_yazi
-bindkey '^O' _open_yazi # CONFIRMED exception: overrides emacs `open-line`
+bindkey '^O' _open_yazi # CONFIRMED exception: overrides emacs `accept-line-and-down-history`
 
 # _yupdate, To easy update the system packages using yay
 function _yupdate() {
 	LBUFFER="${LBUFFER}yupdate --noconfirm"
 }
 zle -N _yupdate
-bindkey '^U' _yupdate # CONFIRMED exception: overrides emacs `universal-argument`
+bindkey '^U' _yupdate # CONFIRMED exception: overrides emacs `kill-whole-line` (^A^K emulates it)
 
 # _open_zoxide: jump directories with zoxide interactive picker (fzf)
 function _open_zoxide() {
@@ -67,33 +69,92 @@ function _open_zoxide() {
 	zle reset-prompt
 }
 zle -N _open_zoxide
-bindkey '^S' _open_zoxide
+bindkey '^S' _open_zoxide # CONFIRMED exception: overrides emacs `history-incremental-search-forward` (use ^X^S)
 
 #───────────────────────────────────────────────────────────────────────────────
-# EMACS-STYLE KEYS (insert mode). Standards kept; customs need confirmation.
+# EMACS-STYLE KEYS (insert mode, `bindkey -v` hybrid).
+# Standards kept; customs above need CONFIRMED exception.
+# Reference stock emacs map with: `zsh -f -c 'bindkey -e; bindkey -M main'`
+# Note: `^Y` yank lives here; plugins.zsh binds autosuggest to `^X^Y`
+# so it does not clobber yank (plugins loads after keymaps).
+
+# -- movement ---------------------------------------------------------------
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-bindkey '^N' undo
+bindkey '^B' backward-char
+bindkey '^F' forward-char # was edit-command-line, now ^X^E (readline standard)
+bindkey '^P' up-line # arrows own history
+bindkey '^N' down-line # arrows own history
+bindkey '^[b' backward-word
+bindkey '^[f' forward-word
 
-# ^K -> cut whole buffer to clipboard (deviates from emacs kill-line: whole buffer, not EOL)
+# -- deletion ----------------------------------------------------------------
+bindkey '^D' delete-char-or-list
+bindkey '^H' backward-delete-char
+bindkey -M viins '^?' backward-delete-char # fix backspace not being able to delete a line break
+bindkey '^W' backward-kill-word # replaces viins default vi-backward-kill-word for emacs WORD behavior
+bindkey '^[d' kill-word
+bindkey '^[^?' backward-kill-word
+bindkey '^[^H' backward-kill-word
+bindkey '^K' kill-line # restored to emacs; buffer-cut moved to ^X^K below
+
+# ^X^K -> cut whole buffer to clipboard (was ^K; matches emacs kill-buffer)
 function _cut-buffer {
 	print -n -- "$BUFFER" | xclip -selection clipboard
 	BUFFER=""
 }
 zle -N _cut-buffer
-bindkey '^K' _cut-buffer
-bindkey -M vicmd -s '^K' 'i^K' # make it work in normal mode as well
+bindkey '^X^K' _cut-buffer
+bindkey -M vicmd '^K' _cut-buffer
+
+# -- yank / transpose ---------------------------------------------------------
+bindkey '^Y' yank # restored to emacs; autosuggest-execute moved to ^X^Y in plugins.zsh
+bindkey '^[y' yank-pop
+bindkey '^T' transpose-chars
+bindkey '^[t' transpose-words
+
+# -- history search ------------------------------------------------------------
+bindkey '^R' history-incremental-search-backward # was redisplay in viins default
+bindkey '^X^S' history-incremental-search-forward # ^S kept for zoxide above
+bindkey '^[p' history-search-backward
+bindkey '^[n' history-search-forward
+
+# -- misc ----------------------------------------------------------------------
+bindkey '^L' clear-screen
+bindkey '^G' send-break # was list-expand in viins default (use ^Xg for that)
+bindkey '^V' quoted-insert
+bindkey '^Q' push-line # was vi-quoted-insert in viins default (^V covers quoting)
+bindkey '^_' undo
+bindkey '^X^U' undo
+bindkey '^[q' push-line
+bindkey '^[.' insert-last-word
+bindkey '^[_' insert-last-word
+bindkey '^[c' capitalize-word
+bindkey '^[l' down-case-word # dead in tmux (M-l resize), use ^[L below
+bindkey '^[L' down-case-word # tmux-safe duplicate (M-S-l distinct from M-l resize)
+bindkey '^[u' up-case-word
 
 #───────────────────────────────────────────────────────────────────────────────
-# EDIT COMMAND LINE
+# EDIT COMMAND LINE (readline C-x C-e standard)
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '^F' edit-command-line
+bindkey '^X^E' edit-command-line
 bindkey -M vicmd v edit-command-line
-
-# alt+arrows move between words
-bindkey "^[[1;3D" backward-word
-bindkey "^[[1;3C" forward-word
+#───────────────────────────────────────────────────────────────────────────────
+# TMUX COMPAT (prefix=C-z, nav=C-h/j/k/l, resize=M-h/j/k/l, all root/no-prefix).
+# tmux intercepts those keys before zsh, so bare emacs binds are dead inside
+# tmux. Duplicates below avoid C-h/j/k/l, C-z and M-h/j/k/l entirely
+# (C-x + plain letter is safe: tmux only watches bare C-k/C-l/etc).
+# Outside tmux the bare binds still work; inside tmux use the -tmux- ones.
+bindkey '^Xk' kill-line # tmux-safe ^K
+bindkey '^XK' _cut-buffer # tmux-safe ^X^K (C-k second key would nav pane)
+bindkey -M vicmd '^XK' _cut-buffer
+bindkey '^Xl' clear-screen # tmux-safe ^L
+bindkey '^[z' _crowbar # tmux-safe ^Z (C-z is prefix, never reaches zsh)
+bindkey '^Xz' _crowbar # tmux-safe ^Z alternative
+# ^H backward-delete-char is dead in tmux, C-h moves left. Backspace, ^?, covers it.
+# ^J accept-line: Enter (^M) covers it; bare C-j navs down in tmux.
+# M-h/j/k/l: untouched in zsh (tmux resize owns them); only M-l clashed, see ^[L above.
 
 #───────────────────────────────────────────────────────────────────────────────
 # VIM NORMAL-MODE BINDINGS
@@ -104,7 +165,6 @@ bindkey -M vicmd -s ' ' 'ciw' # -s flag sends direct keystrokes and therefore al
 bindkey -M vicmd 'U' redo
 bindkey -M vicmd 'm' vi-join
 bindkey -M vicmd -s 'Y' 'y$'
-bindkey -M viins '^?' backward-delete-char # fix backspace not being able to delete a line break
 
 #───────────────────────────────────────────────────────────────────────────────
 # YANK/DELETE TO SYSTEM CLIPBOARD (xclip)

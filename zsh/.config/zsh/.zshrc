@@ -1,4 +1,4 @@
-# Startup profiler — silent unless ZSH_PROFILE=1 (see bottom of file)
+# Startup profiler, silent unless ZSH_PROFILE=1. See bottom of file.
 if [[ -n "$ZSH_PROFILE" ]]; then
 	start=$(date +%s.%N)
 fi
