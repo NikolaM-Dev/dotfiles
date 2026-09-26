@@ -186,7 +186,7 @@ export default function (pi: ExtensionAPI) {
     if (!state.active && state.last) {
       const l = state.last;
       const ok = l.errors === 0;
-      const icon = t.fg((ok ? "success" : "warning") as never, "✓ ");
+      const icon = t.fg((ok ? "success" : "warning") as never, " ");
       const head = t.fg("muted" as never, `Done in ${formatElapsed(l.durationMs)}`);
       const parts: string[] = [head];
       if (l.tokens > 0) parts.push(t.fg("dim" as never, `+${formatTokens(l.tokens)}`));
