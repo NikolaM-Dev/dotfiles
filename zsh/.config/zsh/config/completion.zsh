@@ -54,3 +54,8 @@ zstyle ':completion:*' ignored-patterns \
 if (( $+commands[just] )); then
 	source <(JUST_COMPLETE=zsh just)
 fi
+
+# VP — dynamic command completion (needs autocomplete above)
+if (( $+commands[vp] )); then
+	source <(VP_COMPLETE=zsh vp)
+fi
