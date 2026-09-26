@@ -4,10 +4,10 @@
   "dependencies": {
     "@demigodmode/pi-web-agent": "^1.13.0",
     "@ff-labs/pi-fff": "^0.11.0",
-    "@llblab/pi-telegram": "^0.51.4",
+    "@llblab/pi-telegram": "^0.51.5",
     "@plannotator/pi-extension": "^0.27.20",
     "diffing": "^0.21.5",
-    "gentle-engram": "^0.1.15",
-    "pi-mcp-adapter": "^2.36.0"
+    "gentle-engram": "^0.1.16",
+    "pi-mcp-adapter": "^2.38.0"
   }
 }
