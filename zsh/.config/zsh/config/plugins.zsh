@@ -32,6 +32,9 @@ fi
 _ensure_plugin zsh-history-substring-search https://github.com/zsh-users/zsh-history-substring-search zsh-history-substring-search.zsh
 [[ -f "$ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" ]] && source "$ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
-# fast-syntax-highlighting — https://github.com/zdharma-continuum/fast-syntax-highlighting
-_ensure_plugin fast-syntax-highlighting https://github.com/zdharma-continuum/fast-syntax-highlighting fast-syntax-highlighting.plugin.zsh
-[[ -f "$ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] && source "$ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+# zsh-syntax-highlighting — MUST BE LAST (https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file)
+# DOCS https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/regexp.md
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets regexp)
+typeset -A ZSH_HIGHLIGHT_REGEXP # actual highlights defined in other files
+_ensure_plugin zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting.zsh
+[[ -f "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
