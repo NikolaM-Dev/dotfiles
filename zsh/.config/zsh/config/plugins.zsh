@@ -23,7 +23,7 @@ if [[ -f "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
 	export ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c50,)" # ignores long history items
 	export ZSH_AUTOSUGGEST_STRATEGY=(history)
 	export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
-	bindkey '^X^Y' autosuggest-execute # ^Y kept for emacs yank (see keymaps.zsh)
+	bindkey '^Y' autosuggest-execute
 	# do not accept autosuggestion when using vim's `A`
 	if ((${+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS})); then
 		ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(${ZSH_AUTOSUGGEST_ACCEPT_WIDGETS:#vi-add-eol})

@@ -5,10 +5,10 @@
 #───────────────────────────────────────────────────────────────────────────────
 
 # GENERAL
-setopt INTERACTIVE_COMMENTS # comments in interactive mode, useful for copypasting
 setopt GLOB_DOTS            # glob includes dotfiles
-setopt PIPE_FAIL            # tracebility: exit if pipeline failed
+setopt INTERACTIVE_COMMENTS # comments in interactive mode, useful for copypasting
 setopt NO_BANG_HIST         # don't expand `!`
+setopt PIPE_FAIL            # tracebility: exit if pipeline failed
 
 # LANGUAGE
 # set English everywhere, fixes encoding issues
