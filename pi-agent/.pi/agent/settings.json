@@ -7,9 +7,8 @@
     "opencode-go/muse-spark-1.3-contributor",
     "opencode-go/deepseek-v4.1-flash"
   ],
-  "extensions": [
-    "!extensions/pi-auto-update.ts"
-  ],
+  "extensions": ["!extensions/pi-auto-update.ts"],
+  "followUpMode": "all",
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.87.1",
   "packages": [
@@ -22,8 +21,6 @@
     "https://github.com/umputun/revdiff",
     "https://github.com/robzolkos/pi-slopchop"
   ],
-  "theme": "cendre",
-  "tuiMode": "fullscreen",
   "steeringMode": "all",
-  "followUpMode": "all"
+  "theme": "cendre"
 }
