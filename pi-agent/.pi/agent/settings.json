@@ -6,7 +6,7 @@
     "meta/muse-spark-1.3-contributor",
     "opencode-go/muse-spark-1.3-contributor",
     "opencode-go/deepseek-v4.1-flash"
-],
+  ],
   "extensions": [
     "!extensions/pi-auto-update.ts"
   ],
@@ -17,9 +17,10 @@
     "npm:@demigodmode/pi-web-agent",
     "npm:gentle-engram@latest",
     "npm:pi-mcp-adapter",
-    "npm:diffing",
     "npm:@plannotator/pi-extension",
-    "npm:@llblab/pi-telegram"
+    "npm:@llblab/pi-telegram",
+    "https://github.com/umputun/revdiff",
+    "https://github.com/robzolkos/pi-slopchop"
   ],
   "theme": "cendre",
   "tuiMode": "fullscreen",
