@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# n-note: take a note via dmenu/rofi and append using a template
+# Usage: n-note [output_file]
+# Environment:
+#   NOTE_TEMPLATE - override template path
+#   NOTE_FILE - default output file
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TEMPLATE="${NOTE_TEMPLATE:-$SCRIPT_DIR/n-note.tpl}"
+OUT_FILE="${1:-${NOTE_FILE:-$SECOND_BRAIN_PATH/src/Inbox/Ideas.md}}"
+
+# helper: prompt using rofi (preferred) with a very compact inline theme, fallback to dmenu, otherwise read from stdin
+get_input() {
+	local prompt="$1"
+	# minimal rofi theme; avoid loading the user's global config with -no-config
+	local rofi_theme="window { height: 100px; location: center; padding: 6px; }"
+	if command -v rofi >/dev/null 2>&1; then
+		# provide a leading newline so the input area is visible
+		printf '\n' | rofi -dmenu -p "$prompt" -theme-str "$rofi_theme"
+	elif command -v dmenu >/dev/null 2>&1; then
+		# fallback to dmenu with a leading newline
+		printf '' | dmenu -p "$prompt"
+	else
+		printf "%s" "$prompt: " >&2
+		read -r input
+		printf "%s" "$input"
+	fi
+}
+
+# Ensure template exists
+if [ ! -f "$TEMPLATE" ]; then
+	echo "Template not found: $TEMPLATE" >&2
+	echo "Create a template at that path or set NOTE_TEMPLATE to point to one." >&2
+	exit 2
+fi
+
+# Prompt for title and tags
+TITLE=$(get_input "💡 Idea ")
+if [ -z "$TITLE" ]; then
+	echo "Empty title; aborting." >&2
+	exit 1
+fi
+
+# Prepare date
+# DATE=$(date +"%F, %T")
+DATE=$(date +"%F")
+
+# RAW_TAGS=$(get_input "Tags (comma-separated)")
+# # Split by comma, trim whitespace, and format as #tag1 #tag2
+# IFS=',' read -r -a __n_tags_array <<<"$RAW_TAGS"
+# tags_out=()
+# for __t in "${__n_tags_array[@]}"; do
+# 	# trim leading/trailing whitespace
+# 	__t="${__t#"${__t%%[![:space:]]*}"}"
+# 	__t="${__t%"${__t##*[![:space:]]}"}"
+# 	[ -z "${__t}" ] && continue
+# 	# remove leading '#'
+# 	__t="${__t#\#}"
+# 	tags_out+=("#$__t")
+# done
+# TAGS="${tags_out[*]}"
+#
+# # Get body via editor
+# BODY=$(get_input "Description")
+
+# Export variables and use envsubst to safely expand template placeholders
+# export TITLE DATE TAGS BODY
+export TITLE DATE
+
+# Create output directory if needed
+mkdir -p "$(dirname "$OUT_FILE")"
+
+# Insert idea at the first placeholder in the output file
+# Render the TEMPLATE with TITLE and DATE, then insert the rendered block
+# replacing the first occurrence of "- idea". If the
+# placeholder isn't found, append the rendered block and placeholder.
+# Ensure file exists
+touch "$OUT_FILE"
+# Render template to a temp file (convert {{title}}/{{date}} to env vars for envsubst)
+_tmp_rendered="$(mktemp)"
+sed -e 's/{{title}}/$TITLE/g' -e 's/{{date}}/$DATE/g' "$TEMPLATE" | envsubst >"$_tmp_rendered"
+# Update OUT_FILE in-place using awk which inserts the rendered content
+_tmp_file="$(mktemp)"
+awk -v rfile="$_tmp_rendered" '{
+	if(!done && $0 ~ /^[-[:space:]]*- idea/) {
+		# print rendered file
+		while((getline line < rfile) > 0) print line
+		print "- idea"
+		done=1
+	} else {
+		print
+	}
+}
+END {
+	if(!done) {
+		# placeholder not found; append a blank line then rendered block + placeholder
+		print ""
+		while((getline line < rfile) > 0) print line
+		print "- idea"
+	}
+	close(rfile)
+}' "$OUT_FILE" >"$_tmp_file" && mv "$_tmp_file" "$OUT_FILE"
+# clean up
+rm -f "$_tmp_rendered"
+
+# Notification: configurable timeout via NOTE_NOTIFY_TIMEOUT (ms), improved title and message
+NOTIFY_TIMEOUT="${NOTE_NOTIFY_TIMEOUT:-2000}"
+OUT_BASENAME="$(basename "$OUT_FILE")"
+# Use a clearer title and include the filename where it was saved
+notify-send -i obsidian -u low -t "$NOTIFY_TIMEOUT" "Idea captured" "$TITLE — saved to $OUT_BASENAME"
