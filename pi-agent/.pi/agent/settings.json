@@ -16,11 +16,10 @@
     "npm:@demigodmode/pi-web-agent",
     "npm:gentle-engram@latest",
     "npm:pi-mcp-adapter",
-    "npm:@plannotator/pi-extension",
     "npm:@llblab/pi-telegram",
-    "https://github.com/umputun/revdiff",
-    "https://github.com/robzolkos/pi-slopchop"
+    "https://github.com/umputun/revdiff"
   ],
   "steeringMode": "all",
-  "theme": "cendre"
+  "theme": "cendre",
+  "tuiMode": "fullscreen"
 }
