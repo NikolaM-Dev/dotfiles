@@ -38,10 +38,17 @@ mainbox {
     background-color: @bg-col;
 }
 
+icon-search {
+  expand   : false;
+  filename : "search-symbolic";
+  // size     : 24px;
+  background-color: @bg-col;
+}
+
 inputbar {
     background-color: @bg-col;
     border-radius: 5px;
-    children: [prompt,entry];
+    children: [ entry ];
     padding: 2px;
 }
 
@@ -60,8 +67,10 @@ textbox-prompt-colon {
 
 entry {
     background-color: @bg-col;
-    margin: 20px 0px 0px 10px;
-    padding: 6px;
+    margin: 20px 20px 0px 20px;
+    padding: 0;
+    placeholder-color : @grey;
+    placeholder: "Search…";
     text-color: @fg-col;
 }
 
@@ -69,13 +78,13 @@ listview {
     background-color: @bg-col;
     border: 0px 0px 0px;
     columns: 3;
-    margin: 10px 0px 0px 20px;
+    margin: 20px;
     padding: 6px 0px 0px;
 }
 
 element {
     background-color: @bg-col;
-    padding: 5px;
+    padding: 2px;
     text-color: @fg-col;
 }
 
