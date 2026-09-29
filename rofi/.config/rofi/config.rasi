@@ -88,7 +88,7 @@ listview {
     columns: 1;
     lines: 5;
     spacing: 4px;
-    padding: 4px 0px 0px;
+    padding: 7px 0px 0px;
 }
 
 element {
@@ -127,7 +127,6 @@ textbox {
 
 mode-switcher {
     background-color: transparent;
-    spacing: 4px;
 }
 
 button {
