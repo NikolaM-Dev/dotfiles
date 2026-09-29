@@ -33,14 +33,14 @@ readonly DURATION_RE='^[0-9]+(\.[0-9]+)?[smhd]$'
 readonly RUNNING_RE='^[0-9]+:[0-9]+(:[0-9]+)?$'
 readonly EXPIRED_RE='^0+:0+(:0+)?$'
 
-# One quoted string max in -theme-str: rofi 2.0 silently discards the whole
-# theme when it holds two (font lives in -font for the same reason).
-readonly ROFI_FONT="Maple Mono NF Medium 12"
-ROFI_THEME='window {width: 480px; border-radius: 8px; background-color: #0f0c0a; border: 1px; border-color: #463e3a; padding: 12px;} '
-ROFI_THEME+='mainbox {background-color: transparent; children: [inputbar];} '
-ROFI_THEME+='inputbar {children: [prompt, entry]; background-color: #171311; border: 1px; border-color: #362f2c; border-radius: 6px; padding: 8px 12px;} '
-ROFI_THEME+='prompt {background-color: transparent; text-color: #ea9875;} '
-ROFI_THEME+='entry {background-color: transparent; text-color: #e6d5c2; placeholder: "25m Focus"; placeholder-color: #73665b; cursor-color: #ea9875; selection-background: #2a2422; selection-foreground: #e6d5c2;} '
+# Colors, font and radius come from config.rasi (@theme "cendre").
+# Only prompt-only layout lives here — and it must stay a single -theme-str
+# string: rofi 2.0 silently discards the theme when it holds two.
+ROFI_THEME='window {width: 480px;} '
+ROFI_THEME+='mainbox {children: [inputbar];} '
+ROFI_THEME+='inputbar {children: [prompt, entry];} '
+ROFI_THEME+='prompt {background-color: transparent; text-color: @primary;} '
+ROFI_THEME+='entry {placeholder: "25m Focus";} '
 ROFI_THEME+='listview {enabled: false;} element {enabled: false;}'
 
 usage() {
@@ -64,7 +64,7 @@ prompt_input() {
   local input status
   input=""
   status=0
-  input=$(rofi -dmenu -i -no-config -font "$ROFI_FONT" -p "Timer " -l 0 -theme-str "$ROFI_THEME") || status=$?
+  input=$(rofi -dmenu -i -p "Timer " -l 0 -theme-str "$ROFI_THEME") || status=$?
   if [[ $status -ne 0 ]]; then
     log_info "cancelled"
     exit 0
