@@ -1,0 +1,76 @@
+/* cendre (hard) — ash-bed dark. Default depth: plugin, landing page,
+ * and unsuffixed file in every extras/ directory.
+ *
+ * shadcn/ui roles map onto ash only; pigments stay out of the chrome:
+ *   background/popover -> bg-deep   card/input -> bg1
+ *   border             -> bg4        input-border -> bg3
+ *   accent/secondary   -> bg2        muted-foreground -> comment
+ *   primary/ring       -> ember      destructive -> error
+ *
+ * Legacy names (bg-col, blue, grey, …) are kept so the existing
+ * config.rasi selectors keep working. New code should use the
+ * cendre/shadcn names below them.
+ */
+* {
+    /* grounds — hue 43°, wood ash under a 1300 K flame */
+    bg-deep: #0f0c0a;
+    bg0:     #171311;
+    bg1:     #201b19;
+    bg2:     #2a2422;
+    bg3:     #362f2c;
+    bg4:     #463e3a;
+    bg5:     #5a504c;
+
+    /* ink — shared by every depth */
+    fg:      #e6d5c2;
+    fg-dim:  #a09384;
+    comment: #73665b;
+    gutter:  #4e4641;
+
+    /* pigments — syntax roles, not chrome */
+    brass:  #fcba81;
+    ember:  #ea9875;
+    sap:    #99af6b;
+    cinder: #d1766e;
+    frost:  #4e89a2;
+
+    /* diagnostics — higher chroma than any pigment, never clash */
+    error: #d25780;
+    warn:  #f4a21c;
+    ok:    #43b16a;
+    hint:  #20c9cb;
+    info:  #58bdff;
+
+    /* tinted grounds for visual / diff */
+    vis: #2f1e17;
+    add: #202515;
+    del: #301d1b;
+    mod: #12262e;
+
+    /* shadcn/ui aliases */
+    background:    @bg-deep;
+    card:          @bg1;
+    popover:       @bg-deep;
+    foreground:    @fg;
+    muted:         @bg2;
+    muted-fg:      @comment;
+    border:        @bg4;
+    input-border:  @bg3;
+    accent:        @bg2;
+    accent-fg:     @fg;
+    primary:       @ember;
+    ring:          @ember;
+    destructive:   @error;
+
+    /* legacy config.rasi names — do not add new uses */
+    bg-col:       #0f0c0a;
+    bg-col-light: #201b19;
+    border-col:   #463e3a;
+    selected-col: #2a2422;
+    blue:         #ea9875;
+    fg-col:       #e6d5c2;
+    fg-col2:      #e6d5c2;
+    grey:         #73665b;
+    width: 1000;
+    height: 500;
+}
