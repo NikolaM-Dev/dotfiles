@@ -10,14 +10,12 @@
   "extensions": ["!extensions/pi-auto-update.ts"],
   "followUpMode": "all",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "0.99.1",
   "packages": [
     "npm:@ff-labs/pi-fff",
     "npm:@demigodmode/pi-web-agent",
     "npm:gentle-engram@latest",
-    "npm:pi-mcp-adapter",
-    "npm:@llblab/pi-telegram",
-    "https://github.com/umputun/revdiff"
+    "npm:pi-mcp-adapter"
   ],
   "steeringMode": "all",
   "theme": "cendre",
