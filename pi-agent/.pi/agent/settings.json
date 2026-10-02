@@ -7,17 +7,15 @@
     "opencode-go/muse-spark-1.3-contributor",
     "opencode-go/deepseek-v4.1-flash"
   ],
-  "extensions": ["!extensions/pi-auto-update.ts"],
+  "extensions": [],
   "followUpMode": "all",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "1.0.0",
   "packages": [
     "npm:@ff-labs/pi-fff",
     "npm:@demigodmode/pi-web-agent",
-    "npm:gentle-engram@latest",
-    "npm:pi-mcp-adapter"
+    "npm:gentle-engram@latest"
   ],
   "steeringMode": "all",
-  "theme": "cendre",
-  "tuiMode": "fullscreen"
+  "theme": "cendre"
 }
