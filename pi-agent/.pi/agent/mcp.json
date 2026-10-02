@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "engram": {
+      "command": "/home/nikola/go/bin/engram",
+      "args": ["mcp", "--tools=agent"]
+    },
+    "ticktick": {
+      "url": "https://mcp.ticktick.com/",
+      "headers": {
+        "Authorization": "Bearer ${TICKTICK_TOKEN}"
+      }
+    }
+  }
+}
