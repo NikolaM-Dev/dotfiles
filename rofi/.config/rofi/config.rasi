@@ -20,21 +20,34 @@ configuration {
 @import "textbox-icons"
 //
 
+/* Layout tokens: radius pair plus Tailwind width scale.
+ * Window currently uses @w-sm. Swap one name to rescale. */
+* {
+  radius-lg: 8px;
+  radius-md: 6px;
+  w-xs: 480px;
+  w-sm: 640px;
+  w-md: 768px;
+  w-lg: 1024px;
+  w-xl: 1280px;
+  w-2xl: 1536px;
+}
+
 /* shadcn/ui command-palette: flat popover, 1px border, 8px shell / 6px rows,
  * ash-only chrome, ember reserved for focus + active tab. Single column —
  * set listview columns back to 3 for the old app-grid. */
 window {
-  background-color: @bg-col;
+  background-color: @popover;
   border: 1px;
-  border-color: @border-col;
-  border-radius: 8px;
+  border-color: @border;
+  border-radius: @radius-lg;
   padding: 12px;
-  width: 640px;
+  width: @w-sm;
   height: 0px;
 }
 
 mainbox {
-  background-color: @bg-col;
+  background-color: @popover;
   spacing: 12px;
 }
 
@@ -44,10 +57,10 @@ icon-search {
 }
 
 inputbar {
-  background-color: @bg-col-light;
+  background-color: @card;
   border: 1px;
   border-color: @input-border;
-  border-radius: 6px;
+  border-radius: @radius-md;
   children:
     [ textbox-icon-search,
     entry];
@@ -64,33 +77,33 @@ textbox-prompt-colon {
 }
 
 entry {
-  background-color: @bg-col-light;
+  background-color: @card;
   placeholder: "Search…";
-  placeholder-color: @grey;
+  placeholder-color: @muted-fg;
   cursor-color: @primary;
-  selection-background: @selected-col;
-  selection-foreground: @fg-col;
-  text-color: @fg-col;
+  selection-background: @accent;
+  selection-foreground: @foreground;
+  text-color: @foreground;
 }
 
 /* Single column here; emoji gets its grid via its own launcher
  * (dwm config.def.h emojis[] adds -theme-str 'listview {columns: 3;}').
  * RASI has no per-modi conditional, so this can't live in the theme. */
 listview {
-  background-color: @bg-col;
+  background-color: @popover;
   columns: 1;
   lines: 8;
 }
 
 element {
-  background-color: @bg-col;
-  border-radius: 6px;
+  background-color: @popover;
+  border-radius: @radius-md;
   padding: 8px 10px;
-  text-color: @fg-col;
+  text-color: @foreground;
 }
 
 element-icon {
-  background-color: @bg-col;
+  background-color: @popover;
   size: 22px;
 }
 
@@ -100,11 +113,11 @@ element-text {
 }
 
 element-icon selected {
-  background-color: @selected-col;
+  background-color: @accent;
 }
 
 element selected {
-  background-color: @selected-col;
+  background-color: @accent;
   text-color: @fg;
 }
 
@@ -114,7 +127,7 @@ element urgent {
 
 element selected.urgent {
   background-color: @destructive;
-  text-color: @bg-col;
+  text-color: @popover;
 }
 
 textbox {
@@ -122,19 +135,19 @@ textbox {
 }
 
 button {
-  border-radius: 6px;
+  border-radius: @radius-md;
   horizontal-align: 0.5;
   padding: 8px;
-  text-color: @grey;
+  text-color: @muted-fg;
   vertical-align: 0.5;
 }
 
 button selected {
-  background-color: @selected-col;
+  background-color: @accent;
   text-color: @primary;
 }
 
 scrollbar {
-  handle-color: @border-col;
+  handle-color: @border;
   handle-width: 4px;
 }

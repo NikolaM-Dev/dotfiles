@@ -51,16 +51,4 @@
   primary: @ember;
   ring: @ember;
   destructive: @error;
-
-  /* legacy config.rasi names — do not add new uses */
-  bg-col: #1a1716;
-  bg-col-light: #2d2725;
-  border-col: #554c48;
-  selected-col: #37312e;
-  blue: #ea9875;
-  fg-col: #e6d5c2;
-  fg-col2: #e6d5c2;
-  grey: #73665b;
-  width: 1000;
-  height: 500;
 }

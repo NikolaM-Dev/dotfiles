@@ -2,14 +2,12 @@
  * and unsuffixed file in every extras/ directory.
  *
  * shadcn/ui roles map onto ash only; pigments stay out of the chrome:
- *   background/popover -> bg-deep   card/input -> bg1
+ *   background/popover -> bg-deep    card/input -> bg1
  *   border             -> bg4        input-border -> bg3
  *   accent/secondary   -> bg2        muted-foreground -> comment
  *   primary/ring       -> ember      destructive -> error
  *
- * Legacy names (bg-col, blue, grey, …) are kept so the existing
- * config.rasi selectors keep working. New code should use the
- * cendre/shadcn names below them.
+ * Use the cendre/shadcn names below.
  */
 * {
   /* grounds — hue 43°, wood ash under a 1300 K flame */
@@ -61,16 +59,4 @@
   primary: @ember;
   ring: @ember;
   destructive: @error;
-
-  /* legacy config.rasi names — do not add new uses */
-  bg-col: #0f0c0a;
-  bg-col-light: #201b19;
-  border-col: #463e3a;
-  selected-col: #2a2422;
-  blue: #ea9875;
-  fg-col: #e6d5c2;
-  fg-col2: #e6d5c2;
-  grey: #73665b;
-  width: 1000;
-  height: 500;
 }
