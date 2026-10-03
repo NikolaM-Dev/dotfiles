@@ -1,14 +1,21 @@
 {
   "mcpServers": {
-    "engram": {
-      "command": "/home/nikola/go/bin/engram",
-      "args": ["mcp", "--tools=agent"]
-    },
     "ticktick": {
       "url": "https://mcp.ticktick.com/",
       "headers": {
         "Authorization": "Bearer ${TICKTICK_TOKEN}"
       }
+    },
+    "shodh-memory": {
+      "command": "/home/nikola/.local/bin/shodh",
+      "args": ["serve"],
+      "env": {
+        "SHODH_API_URL": "http://127.0.0.1:3030",
+        "SHODH_API_KEY": "${SHODH_API_KEY}",
+        "SHODH_USER_ID": "nikola"
+      },
+      "exposure": "deferred",
+      "description": "Persistent cognitive memory: remember and recall decisions, facts, and context across sessions"
     }
   }
 }

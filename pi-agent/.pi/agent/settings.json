@@ -7,15 +7,14 @@
     "opencode-go/muse-spark-1.3-contributor",
     "opencode-go/deepseek-v4.1-flash"
   ],
-  "extensions": [],
+  "extensions": [
+    "!npm:gentle-engram@latest",
+    "!extensions/pi-engram-session-end.ts"
+  ],
   "followUpMode": "all",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "1.0.0",
-  "packages": [
-    "npm:@ff-labs/pi-fff",
-    "npm:@demigodmode/pi-web-agent",
-    "npm:gentle-engram@latest"
-  ],
+  "lastChangelogVersion": "1.0.1",
+  "packages": ["npm:@ff-labs/pi-fff", "npm:@demigodmode/pi-web-agent"],
   "steeringMode": "all",
   "theme": "cendre"
 }
