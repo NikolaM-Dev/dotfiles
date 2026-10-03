@@ -1,124 +1,140 @@
 /* [Rofi Documentation](https://davatorium.github.io/rofi/) */
-configuration{
-    disable-history: false;
-    display-calc: " Calc";
-    display-drun: " Apps";
-    display-emoji: "󰞅 Emojis";
-    display-run: " Commands";
-    display-window: " Windows";
-    drun-display-format: "{icon} {name}";
-    font: "Maple Mono NF 12";
-    hide-scrollbar: true;
-    modes: "drun";
-    show-icons: true;
-    terminal: "ghostty";
-    window-format: "{icon} {t}";
+configuration {
+  disable-history: false;
+  display-calc: " Calc";
+  display-drun: " Apps";
+  display-emoji: "󰞅 Emojis";
+  display-run: " Commands";
+  display-window: " Windows";
+  drun-display-format: "{icon} {name}";
+  font: "Maple Mono NF 12";
+  hide-scrollbar: true;
+  modes: "drun";
+  terminal: "ghostty";
+  window-format: "{icon} {t}";
 }
 
+//
 @import "normalize"
 @theme "cendre"
 @import "textbox-icons"
+//
 
 /* shadcn/ui command-palette: flat popover, 1px border, 8px shell / 6px rows,
  * ash-only chrome, ember reserved for focus + active tab. Single column —
  * set listview columns back to 3 for the old app-grid. */
-
 window {
-    background-color: @bg-col;
-    border: 1px;
-    border-color: @border-col;
-    border-radius: 8px;
-    padding: 12px;
-    width: 640px;
-    height: 0px;
+  background-color: @bg-col;
+  border: 1px;
+  border-color: @border-col;
+  border-radius: 8px;
+  padding: 12px;
+  width: 640px;
+  height: 0px;
 }
 
 mainbox {
-    spacing: 12px;
+  background-color: @bg-col;
+  spacing: 12px;
 }
 
 icon-search {
-    expand: false;
-    filename: "search-symbolic";
+  expand: false;
+  filename: "search-symbolic";
 }
 
 inputbar {
-    background-color: @bg-col-light;
-    border: 1px;
-    border-color: @input-border;
-    border-radius: 6px;
-    children: [ textbox-icon-search, entry ];
-    padding: 10px 12px;
+  background-color: @bg-col-light;
+  border: 1px;
+  border-color: @input-border;
+  border-radius: 6px;
+  children:
+    [ textbox-icon-search,
+    entry];
+  padding: 10px 12px;
 }
 
 prompt {
-    text-color: @primary;
+  text-color: @primary;
 }
 
 textbox-prompt-colon {
-    expand: false;
-    str: ":";
+  expand: false;
+  str: ":";
 }
 
 entry {
-    placeholder: "Search…";
-    placeholder-color: @grey;
-    cursor-color: @primary;
-    selection-background: @selected-col;
-    selection-foreground: @fg-col;
-    text-color: @fg-col;
+  background-color: @bg-col-light;
+  placeholder: "Search…";
+  placeholder-color: @grey;
+  cursor-color: @primary;
+  selection-background: @selected-col;
+  selection-foreground: @fg-col;
+  text-color: @fg-col;
 }
 
 /* Single column here; emoji gets its grid via its own launcher
  * (dwm config.def.h emojis[] adds -theme-str 'listview {columns: 3;}').
  * RASI has no per-modi conditional, so this can't live in the theme. */
 listview {
-    columns: 1;
-    lines: 8;
+  background-color: @bg-col;
+  columns: 1;
+  lines: 8;
 }
 
 element {
-    border-radius: 6px;
-    padding: 8px 10px;
-    text-color: @fg-col;
+  background-color: @bg-col;
+  border-radius: 6px;
+  padding: 8px 10px;
+  text-color: @fg-col;
 }
 
 element-icon {
-    size: 22px;
+  background-color: @bg-col;
+  size: 22px;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+}
+
+element-icon selected {
+  background-color: @selected-col;
 }
 
 element selected {
-    background-color: @selected-col;
-    text-color: @fg;
+  background-color: @selected-col;
+  text-color: @fg;
 }
 
 element urgent {
-    text-color: @destructive;
+  text-color: @destructive;
 }
 
 element selected.urgent {
-    background-color: @destructive;
-    text-color: @bg-col;
+  background-color: @destructive;
+  text-color: @bg-col;
 }
 
 textbox {
-    text-color: @fg-dim;
+  text-color: @fg-dim;
 }
 
 button {
-    border-radius: 6px;
-    horizontal-align: 0.5;
-    padding: 8px;
-    text-color: @grey;
-    vertical-align: 0.5;
+  border-radius: 6px;
+  horizontal-align: 0.5;
+  padding: 8px;
+  text-color: @grey;
+  vertical-align: 0.5;
 }
 
 button selected {
-    background-color: @selected-col;
-    text-color: @primary;
+  background-color: @selected-col;
+  text-color: @primary;
 }
 
 scrollbar {
-    handle-color: @border-col;
-    handle-width: 4px;
+  handle-color: @border-col;
+  handle-width: 4px;
 }

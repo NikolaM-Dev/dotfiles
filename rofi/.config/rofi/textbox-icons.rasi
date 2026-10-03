@@ -1,31 +1,31 @@
 textbox-icon-search {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
+  background-color: transparent;
+  text-color: @primary;
+  expand: false;
+  content: "";
+  width: 28px;
 }
 
 textbox-icon-obsidian {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
+  background-color: transparent;
+  text-color: @primary;
+  expand: false;
+  content: "";
+  width: 28px;
 }
 
 textbox-icon-timer {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
+  background-color: transparent;
+  text-color: @primary;
+  expand: false;
+  content: "";
+  width: 28px;
 }
 
 textbox-icon-bookmarks {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
+  background-color: transparent;
+  text-color: @primary;
+  expand: false;
+  content: "";
+  width: 28px;
 }

@@ -4,116 +4,130 @@
  * config.rasi only adds intentional color, size, and layout on top. */
 
 * {
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 window {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 mainbox {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 inputbar {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    spacing: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  spacing: 0;
 }
 
-prompt, textbox-prompt-colon, entry {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    spacing: 0;
+prompt,
+textbox-prompt-colon,
+entry {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  spacing: 0;
 }
 
-overlay, case-indicator, num-rows, num-filtered-rows, textbox-num-sep {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    spacing: 0;
+overlay,
+case-indicator,
+num-rows,
+num-filtered-rows,
+textbox-num-sep {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 listview {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    spacing: 0;
-    scrollbar: false;
-    fixed-height: false;
-    dynamic: false;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  spacing: 0;
+  scrollbar: false;
+  fixed-height: false;
+  dynamic: false;
 }
 
 scrollbar {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 sidebar {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 message {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 textbox {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 element {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    spacing: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  spacing: 0;
 }
 
-element normal.normal, element normal.urgent, element normal.active,
-element alternate.normal, element alternate.urgent, element alternate.active,
-element selected.normal, element selected.urgent, element selected.active {
-    background-color: transparent;
-    text-color: inherit;
-    border: 0;
+element normal.normal,
+element normal.urgent,
+element normal.active,
+element alternate.normal,
+element alternate.urgent,
+element alternate.active,
+element selected.normal,
+element selected.urgent,
+element selected.active {
+  background-color: transparent;
+  text-color: inherit;
+  border: 0;
 }
 
-element-icon, element-text, mode-switcher {
-    background-color: inherit;
-    text-color: inherit;
-    border: 0;
-    padding: 0;
-    spacing: 0;
+element-icon,
+element-text,
+mode-switcher {
+  background-color: inherit;
+  text-color: inherit;
+  border: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 button {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    spacing: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 button selected {
-    background-color: transparent;
-    border: 0;
+  background-color: transparent;
+  border: 0;
 }
 
 icon-search {
-    background-color: transparent;
-    border: 0;
+  background-color: transparent;
+  border: 0;
 }

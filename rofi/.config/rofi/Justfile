@@ -1,0 +1,7 @@
+# List available recipes
+default:
+    just --list
+
+# Format the rasi configuration using prettier
+fmt:
+    prettier --write "**/*.rasi" --parser css

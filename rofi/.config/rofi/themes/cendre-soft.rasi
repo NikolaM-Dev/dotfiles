@@ -2,65 +2,65 @@
  * Installs under its own name so two depths never collide on one entry.
  */
 * {
-    /* grounds — soft */
-    bg-deep: #1a1716;
-    bg0:     #231f1d;
-    bg1:     #2d2725;
-    bg2:     #37312e;
-    bg3:     #443c39;
-    bg4:     #554c48;
-    bg5:     #695e5a;
+  /* grounds — soft */
+  bg-deep: #1a1716;
+  bg0: #231f1d;
+  bg1: #2d2725;
+  bg2: #37312e;
+  bg3: #443c39;
+  bg4: #554c48;
+  bg5: #695e5a;
 
-    /* ink — shared by every depth */
-    fg:      #e6d5c2;
-    fg-dim:  #a09384;
-    comment: #73665b;
-    gutter:  #4e4641;
+  /* ink — shared by every depth */
+  fg: #e6d5c2;
+  fg-dim: #a09384;
+  comment: #73665b;
+  gutter: #4e4641;
 
-    /* pigments — syntax roles, not chrome */
-    brass:  #fcba81;
-    ember:  #ea9875;
-    sap:    #99af6b;
-    cinder: #d1766e;
-    frost:  #4e89a2;
+  /* pigments — syntax roles, not chrome */
+  brass: #fcba81;
+  ember: #ea9875;
+  sap: #99af6b;
+  cinder: #d1766e;
+  frost: #4e89a2;
 
-    /* diagnostics — higher chroma than any pigment, never clash */
-    error: #d25780;
-    warn:  #f4a21c;
-    ok:    #43b16a;
-    hint:  #20c9cb;
-    info:  #58bdff;
+  /* diagnostics — higher chroma than any pigment, never clash */
+  error: #d25780;
+  warn: #f4a21c;
+  ok: #43b16a;
+  hint: #20c9cb;
+  info: #58bdff;
 
-    /* tinted grounds for visual / diff */
-    vis: #3d2b23;
-    add: #2d3221;
-    del: #3e2a28;
-    mod: #1f333b;
+  /* tinted grounds for visual / diff */
+  vis: #3d2b23;
+  add: #2d3221;
+  del: #3e2a28;
+  mod: #1f333b;
 
-    /* shadcn/ui aliases */
-    background:    @bg-deep;
-    card:          @bg1;
-    popover:       @bg-deep;
-    foreground:    @fg;
-    muted:         @bg2;
-    muted-fg:      @comment;
-    border:        @bg4;
-    input-border:  @bg3;
-    accent:        @bg2;
-    accent-fg:     @fg;
-    primary:       @ember;
-    ring:          @ember;
-    destructive:   @error;
+  /* shadcn/ui aliases */
+  background: @bg-deep;
+  card: @bg1;
+  popover: @bg-deep;
+  foreground: @fg;
+  muted: @bg2;
+  muted-fg: @comment;
+  border: @bg4;
+  input-border: @bg3;
+  accent: @bg2;
+  accent-fg: @fg;
+  primary: @ember;
+  ring: @ember;
+  destructive: @error;
 
-    /* legacy config.rasi names — do not add new uses */
-    bg-col:       #1a1716;
-    bg-col-light: #2d2725;
-    border-col:   #554c48;
-    selected-col: #37312e;
-    blue:         #ea9875;
-    fg-col:       #e6d5c2;
-    fg-col2:      #e6d5c2;
-    grey:         #73665b;
-    width: 1000;
-    height: 500;
+  /* legacy config.rasi names — do not add new uses */
+  bg-col: #1a1716;
+  bg-col-light: #2d2725;
+  border-col: #554c48;
+  selected-col: #37312e;
+  blue: #ea9875;
+  fg-col: #e6d5c2;
+  fg-col2: #e6d5c2;
+  grey: #73665b;
+  width: 1000;
+  height: 500;
 }
