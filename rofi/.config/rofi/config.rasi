@@ -16,6 +16,7 @@ configuration{
 }
 
 @theme "cendre"
+@import "textbox-icons"
 
 /* shadcn/ui command-palette: flat popover, 1px border, 8px shell / 6px rows,
  * ash-only chrome, ember reserved for focus + active tab. Single column —
@@ -47,30 +48,6 @@ icon-search {
     expand: false;
     filename: "search-symbolic";
     background-color: transparent;
-}
-
-textbox-icon-search {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
-}
-
-textbox-icon-obsidian {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
-}
-
-textbox-icon-timer {
-    background-color: transparent;
-    text-color: @primary;
-    expand: false;
-    content: "";
-    width: 28px;
 }
 
 inputbar {
