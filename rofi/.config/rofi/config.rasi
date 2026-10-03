@@ -1,3 +1,4 @@
+/* [Rofi Documentation](https://davatorium.github.io/rofi/) */
 configuration{
     disable-history: false;
     display-calc: " Calc";
@@ -8,13 +9,10 @@ configuration{
     drun-display-format: "{icon} {name}";
     font: "Maple Mono NF 12";
     hide-scrollbar: true;
-    icon-theme: "ePapirus-Dark";
-    lines: 5;
-    location: 0;
-    modi: "drun,window,emoji,run";
+    modes: "drun";
     show-icons: true;
-    sidebar-mode: true;
     terminal: "ghostty";
+    window-format: "{icon} {t}";
 }
 
 @theme "cendre"
@@ -36,12 +34,13 @@ window {
     border-color: @border-col;
     border-radius: 8px;
     padding: 12px;
-    width: 720px;
-    height: @height;
+    width: 640px;
+    height: 0px;
 }
 
 mainbox {
     background-color: transparent;
+    spacing: 12px;
 }
 
 icon-search {
@@ -50,12 +49,36 @@ icon-search {
     background-color: transparent;
 }
 
+textbox-icon-search {
+    background-color: transparent;
+    text-color: @primary;
+    expand: false;
+    content: "";
+    width: 28px;
+}
+
+textbox-icon-obsidian {
+    background-color: transparent;
+    text-color: @primary;
+    expand: false;
+    content: "";
+    width: 28px;
+}
+
+textbox-icon-timer {
+    background-color: transparent;
+    text-color: @primary;
+    expand: false;
+    content: "";
+    width: 28px;
+}
+
 inputbar {
     background-color: @bg-col-light;
     border: 1px;
     border-color: @input-border;
     border-radius: 6px;
-    children: [ entry ];
+    children: [ textbox-icon-search, entry ];
     padding: 10px 12px;
 }
 
@@ -86,9 +109,9 @@ listview {
     background-color: transparent;
     border: 0px 0px 0px;
     columns: 1;
-    lines: 5;
-    spacing: 4px;
-    padding: 7px 0px 0px;
+    lines: 8;
+    spacing: 0px;
+    padding: 0px 0px 0px;
 }
 
 element {
