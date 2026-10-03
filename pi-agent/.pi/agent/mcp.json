@@ -4,7 +4,9 @@
       "url": "https://mcp.ticktick.com/",
       "headers": {
         "Authorization": "Bearer ${TICKTICK_TOKEN}"
-      }
+      },
+      "exposure": "codemode",
+      "description": "TickTick tasks, projects, habits, focus sessions, tags and comments"
     },
     "shodh-memory": {
       "command": "/home/nikola/.local/bin/shodh",
