@@ -29,6 +29,8 @@ window {
     border-color: @border-col;
     border-radius: 8px;
     padding: 12px;
+    width: 640px;
+    height: 0px;
 }
 
 mainbox {
