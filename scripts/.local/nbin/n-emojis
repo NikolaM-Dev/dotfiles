@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# n-emojis - rofi emoji picker in emoji mode.
+#
+# Opens rofi in emoji mode as a 4-column grid at @w-lg width, 1024px,
+# without icons. Picking an entry copies it to the clipboard.
+# config.rasi under the cendre theme sets colors, font, borders and radius.
+# This script only overrides width and grid.
+#
+# dwm binds it to Mod+Shift+e, see dwm config.def.h.
+#
+# Usage: n-emojis [--help]
+#
+# Deps: rofi, rofi-emoji for emoji mode.
+# Exit codes: 0 ok / cancelled, 1 runtime error, 2 usage error.
+
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: n-emojis [--help]
+
+Opens rofi in emoji mode to pick an emoji. It copies to the clipboard.
+USAGE
+}
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "[ERROR] $1 not found" >&2
+    exit 1
+  }
+}
+
+main() {
+  if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    usage
+    return 0
+  fi
+  if [[ $# -gt 0 ]]; then
+    usage >&2
+    return 2
+  fi
+
+  require_cmd rofi
+
+  local ROFI_THEME='window {width: @w-lg;} listview {columns: 4;}'
+  rofi -show emoji -no-show-icons -theme-str "$ROFI_THEME"
+}
+
+main "$@"

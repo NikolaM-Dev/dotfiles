@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# n-windows - rofi window switcher in window mode.
+#
+# Opens rofi in window mode with icons at @w-md width, 768px.
+# config.rasi under the cendre theme sets colors, font, borders and radius.
+# This script only overrides width.
+#
+# dwm binds it to Mod+Shift+m, see dwm config.def.h.
+#
+# Usage: n-windows [--help]
+#
+# Deps: rofi.
+# Exit codes: 0 ok / cancelled, 1 runtime error, 2 usage error.
+
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: n-windows [--help]
+
+Opens rofi in window mode with icons to switch windows.
+USAGE
+}
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "[ERROR] $1 not found" >&2
+    exit 1
+  }
+}
+
+main() {
+  if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    usage
+    return 0
+  fi
+  if [[ $# -gt 0 ]]; then
+    usage >&2
+    return 2
+  fi
+
+  require_cmd rofi
+
+  local ROFI_THEME='window {width: @w-md;}'
+  rofi -show window -show-icons -theme-str "$ROFI_THEME"
+}
+
+main "$@"

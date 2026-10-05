@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# n-menu - rofi app launcher in drun mode.
+#
+# Opens rofi in drun mode with icons at @w-sm width, 640px.
+# config.rasi under the cendre theme sets colors, font, borders and radius.
+# This script only overrides width.
+#
+# dwm binds it to Mod+m, see dwm config.def.h.
+#
+# Usage: n-menu [--help]
+#
+# Deps: rofi.
+# Exit codes: 0 ok / cancelled, 1 runtime error, 2 usage error.
+
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: n-menu [--help]
+
+Opens rofi in drun mode with icons to launch apps.
+USAGE
+}
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "[ERROR] $1 not found" >&2
+    exit 1
+  }
+}
+
+main() {
+  if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    usage
+    return 0
+  fi
+  if [[ $# -gt 0 ]]; then
+    usage >&2
+    return 2
+  fi
+
+  require_cmd rofi
+
+  local ROFI_THEME='window {width: @w-sm;}'
+  rofi -show drun -show-icons -theme-str "$ROFI_THEME"
+}
+
+main "$@"
