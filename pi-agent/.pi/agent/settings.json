@@ -13,7 +13,7 @@
   ],
   "followUpMode": "all",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "1.0.1",
+  "lastChangelogVersion": "1.0.2",
   "packages": ["npm:@ff-labs/pi-fff", "npm:@demigodmode/pi-web-agent"],
   "steeringMode": "all",
   "theme": "cendre"
