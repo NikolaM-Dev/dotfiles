@@ -4,7 +4,7 @@ function main {
 	~/.config/dwm/status-bar/status-bar.sh &
 
 	while true; do
-		dwm 2>~/.config/dwm/dwm.log
+		dwm 2>~/.config/dwm/dwm.log || sleep 1
 	done
 }
 

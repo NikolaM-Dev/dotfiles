@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -exo pipefail
+
+sound="$HOME/backups/20260321T181304--winning-in-fortnite-be-like.mp3"
+notify-send -t 600000 "🍅 Pomodoro Ended"
+mpv "$sound"

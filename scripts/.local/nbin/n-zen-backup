@@ -121,7 +121,7 @@ main() {
 
   # remove trap and relaunch now (trap will also run on success, so disable)
   trap - EXIT
-  relaunch_zen
+  # relaunch_zen
 }
 
 main "$@"

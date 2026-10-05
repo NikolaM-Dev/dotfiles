@@ -7,7 +7,8 @@ default:
 # Example: add → ~/.config/qtile, ~/.vim, etc.
 add:
     cp ./.stow-global-ignore $HOME
-    stow --verbose --target=$HOME --restow */
+    mkdir -p $HOME/.local/bin $HOME/.local/nbin $HOME/.local/share
+    stow --no-folding --verbose --target=$HOME --restow */
 
 # Remove symlinks - cleans up the configs
 # This deletes the symlinks from your home directory

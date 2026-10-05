@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+# droidcam-check - pre-meeting sanity check for DroidCam on Arch
+# Usage: droidcam-check [--fix]
+set -u
+FIX=0
+[[ "${1:-}" == "--fix" || "${1:-}" == "-f" ]] && FIX=1
+PASS=0; FAIL=0
+ok()   { echo "  ✅ $1"; PASS=$((PASS+1)); }
+bad()  { echo "  ❌ $1"; FAIL=$((FAIL+1)); }
+info() { echo "     ↳ $1"; }
+
+echo "=== DroidCam pre-flight check ==="
+echo
+
+# 1. Kernel vs modules (pending reboot after update is #1 cause of "sudden" failure)
+echo "[1/5] Kernel / reboot check"
+RUNNING=$(uname -r)
+INSTALLED_MODDIR=$(ls -d /usr/lib/modules/* 2>/dev/null | sort -V | tail -1 | xargs basename 2>/dev/null || echo unknown)
+echo "  running kernel: $RUNNING"
+if [[ "$RUNNING" != "$INSTALLED_MODDIR"* ]] && [[ "$INSTALLED_MODDIR" != "unknown" ]]; then
+  bad "Kernel mismatch — you updated but haven't rebooted."
+  info "Installed modules are for: $INSTALLED_MODDIR"
+  info "Fix: sudo reboot now (nothing else will work reliably until then)."
+else
+  ok "Running kernel matches installed modules ($RUNNING)"
+fi
+echo
+
+# 2. DKMS module built for this kernel?
+echo "[2/5] DKMS module check"
+if modinfo v4l2loopback >/dev/null 2>&1; then
+  ok "v4l2loopback module exists for $RUNNING ($(modinfo -F version v4l2loopback 2>/dev/null))"
+else
+  bad "v4l2loopback module NOT found for $RUNNING"
+  info "Fix: sudo dkms autoinstall -k $RUNNING && sudo modprobe v4l2loopback"
+fi
+# also show dkms status if available
+if command -v dkms >/dev/null 2>&1; then
+  info "$(dkms status 2>&1 | grep -i v4l2loopback || echo 'dkms: no v4l2loopback entry')"
+fi
+echo
+
+# 3. Module loaded?
+echo "[3/5] Module loaded check"
+if lsmod | grep -q v4l2loopback; then
+  ok "v4l2loopback is loaded"
+else
+  bad "v4l2loopback is NOT loaded"
+  if [[ $FIX -eq 1 ]]; then
+    echo "  attempting: sudo modprobe v4l2loopback exclusive_caps=1 card_label=DroidCam"
+    if sudo modprobe v4l2loopback exclusive_caps=1 card_label="DroidCam" 2>&1; then
+      ok "modprobe succeeded"
+    else
+      info "modprobe failed — see errors above (often: wrong kernel + no reboot, or missing linux-headers)"
+    fi
+  else
+    info "Fix: run 'droidcam-check --fix' or: sudo modprobe v4l2loopback exclusive_caps=1 card_label=\"DroidCam\""
+  fi
+fi
+echo
+
+# 4. /dev/video device?
+echo "[4/5] Video device check"
+if ls /dev/video* >/dev/null 2>&1; then
+  ok "Video devices present: $(ls /dev/video* | tr '\n' ' ')"
+  if command -v v4l2-ctl >/dev/null 2>&1; then
+    v4l2-ctl --list-devices 2>&1 | sed 's/^/     /'
+    if v4l2-ctl --list-devices 2>&1 | grep -qi droidcam; then
+      ok "DroidCam label found"
+    else
+      bad "No device labeled DroidCam (options file may be wrong)"
+      info "Fix: ensure /etc/modprobe.d/droidcam.conf contains:"
+      info 'options v4l2loopback exclusive_caps=1 card_label="DroidCam"'
+    fi
+  fi
+else
+  bad "No /dev/video* devices"
+  info "This means the loopback module isn't loaded. Fix with step 3, then re-run."
+fi
+echo
+
+# 5. Boot persistence (the bug you actually had)
+echo "[5/5] Boot persistence check"
+if [[ -f /etc/modules-load.d/droidcam.conf ]]; then
+  CONTENT=$(cat /etc/modules-load.d/droidcam.conf)
+  echo "     /etc/modules-load.d/droidcam.conf: $(echo "$CONTENT" | tr '\n' ';')"
+  if grep -qx "v4l2loopback" /etc/modules-load.d/droidcam.conf || grep -q "^v4l2loopback$" /etc/modules-load.d/droidcam.conf; then
+    ok "Auto-load at boot is correct"
+  elif grep -q "v4l2loopback-dc" /etc/modules-load.d/droidcam.conf; then
+    bad "BROKEN: file contains 'v4l2loopback-dc' (module doesn't exist — this was your boot failure)"
+    info "Fix: printf 'v4l2loopback\n' | sudo tee /etc/modules-load.d/droidcam.conf"
+  else
+    bad "Unexpected content in modules-load file"
+    info "Fix: printf 'v4l2loopback\n' | sudo tee /etc/modules-load.d/droidcam.conf"
+  fi
+else
+  bad "/etc/modules-load.d/droidcam.conf missing (won't survive reboot)"
+  info "Fix: printf 'v4l2loopback\n' | sudo tee /etc/modules-load.d/droidcam.conf"
+fi
+echo
+
+echo "=== Result: $PASS passed, $FAIL failed ==="
+if [[ $FAIL -eq 0 ]]; then
+  echo "🎉 Ready. Open DroidCam app on phone + run 'droidcam' on PC."
+  echo "   Tip: run this 5 min before important meetings, not 30 seconds before."
+  exit 0
+else
+  echo "⚠️  Not ready. Fix the ❌ items above, then re-run 'droidcam-check'."
+  echo "   Quick self-heal attempt: 'droidcam-check --fix'"
+  exit 1
+fi

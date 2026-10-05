@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function main() {
+  if n-tmux-is-running; then
+    tmux attach
+
+    return
+  fi
+
+  # Create music session in background with startup command
+  tmux new-session -d -c ~/Music -s " music" \; send-keys 'just focus' Enter
+  tmux new-window -t " music" -c ~/Music \; send-keys "just flowstate" Enter
+  tmux new-session -d -c ~/w/a/second-brain.md/src -s " second brain" \; send-keys 'nvim' Enter
+  # tmux new-window -t " second brain" -c ~/w/a/second-brain.md -n "backup" \; send-keys "./backup/linux/backup.sh" Enter
+  # tmux select-window -t " second brain:1"
+
+  # Create home session and attach
+  tmux new-session -c ~ -s "󱂵 home"
+}
+
+main

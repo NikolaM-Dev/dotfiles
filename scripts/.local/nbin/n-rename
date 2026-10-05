@@ -46,8 +46,8 @@ function main() {
 			newname="${ID}--${fname}${tags}.${ext}"
 		fi
 
-		echo " [DEBUG] Renaming file "$file" -> $newname"
-		mv -i -- "$file" "$newname"
+		echo " [DEBUG] Renaming file \"$file\" -> $newname"
+		mv -i -- "$file" "$(dirname "$file")/$newname"
 
 	done
 

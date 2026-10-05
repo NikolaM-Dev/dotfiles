@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+REMOTE="https://${GITHUB_TOKEN}@github.com"
+AUTHOR="NikolaM-Dev"
+
+function main() {
+  PROJECT="$(basename "$(pwd)")"
+
+  # Prompt confirmation
+  read -rp "Detected project: $PROJECT. Use this? [Y/n] " answer
+  answer="${answer:-Y}"
+
+  if [[ "$answer" =~ ^[Nn]$ ]]; then
+    read -rp "Enter project name: " PROJECT
+  fi
+
+  URL="${REMOTE}/${AUTHOR}/${PROJECT}"
+  echo "Setting origin to: $URL"
+
+  git remote set-url origin "$URL"
+
+  echo "New remote configuration:"
+  git remote -v
+}
+
+main "$@"

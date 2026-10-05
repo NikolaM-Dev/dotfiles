@@ -15,7 +15,7 @@ OUT_FILE="${1:-${NOTE_FILE:-$SECOND_BRAIN_PATH/src/Inbox/Ideas.md}}"
 get_input() {
 	local prompt="$1"
 	# minimal rofi theme; avoid loading the user's global config with -no-config
-	local rofi_theme="window { height: 100px; location: center; padding: 6px; }"
+	local rofi_theme="listview {enabled: false;} element {enabled: false;} inputbar { children: [ textbox-icon-obsidian, entry];} entry { placeholder: 'Why…';} "
 	if command -v rofi >/dev/null 2>&1; then
 		# provide a leading newline so the input area is visible
 		printf '\n' | rofi -dmenu -p "$prompt" -theme-str "$rofi_theme"

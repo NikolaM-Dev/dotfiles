@@ -19,10 +19,12 @@
 
 set -euo pipefail
 
-if [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash" ]]; then
+if [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/n/lib/log.bash" ]]; then
+  source "${XDG_DATA_HOME:-$HOME/.local/share}/n/lib/log.bash"
+elif [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash" ]]; then
   source "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash"
 else
-  echo "[ERROR] n-log.bash not found" >&2
+  echo "[ERROR] log.bash not found" >&2
   exit 1
 fi
 
@@ -33,15 +35,13 @@ readonly DURATION_RE='^[0-9]+(\.[0-9]+)?[smhd]$'
 readonly RUNNING_RE='^[0-9]+:[0-9]+(:[0-9]+)?$'
 readonly EXPIRED_RE='^0+:0+(:0+)?$'
 
-# Colors, font and radius come from config.rasi (@theme "cendre").
+# Colors, font, borders and radius come from config.rasi (@theme "cendre").
 # Only prompt-only layout lives here — and it must stay a single -theme-str
 # string: rofi 2.0 silently discards the theme when it holds two.
-ROFI_THEME='window {width: 480px;} '
-ROFI_THEME+='mainbox {children: [inputbar];} '
-ROFI_THEME+='inputbar {children: [prompt, entry];} '
-ROFI_THEME+='prompt {background-color: transparent; text-color: @primary;} '
-ROFI_THEME+='entry {placeholder: "25m Focus";} '
-ROFI_THEME+='listview {enabled: false;} element {enabled: false;}'
+ROFI_THEME='window {width: 320px;}'
+ROFI_THEME+='mainbox {children: [inputbar];}'
+ROFI_THEME+='inputbar {children: [textbox-icon-timer, entry];}'
+ROFI_THEME+='entry {placeholder: "25m Focus…";}'
 
 usage() {
   cat <<'USAGE'
@@ -134,7 +134,6 @@ main() {
     usage
     return 0
   fi
-
   if [[ $# -gt 0 ]]; then
     usage >&2
     return 2

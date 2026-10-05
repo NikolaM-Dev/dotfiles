@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+function main() {
+  local duration="60s"
+  local description="🩷 English 🩷"
+  local start="$HOME/backups/20260321T181844--wow-quest-accepted.mp3"
+  local end="$HOME/backups/20260321T181304--winning-in-fortnite-be-like.mp3"
+
+  command -v mpv >/dev/null 2>&1 || {
+    echo "mpv not found" >&2
+    return 1
+  }
+
+  [[ -f $start ]] && mpv --no-video --really-quiet "$start" &
+
+  sleep "$duration" || return
+
+  notify-send -t 5000 "$description" 2>/dev/null || true
+  [[ -f $end ]] && mpv --no-video --really-quiet "$end" &
+}
+
+main

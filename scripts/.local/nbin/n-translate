@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Configuration
+# Change these to your preferred languages
+FROM_LANG="auto"
+TO_LANG="es"
+
+function main {
+  local text
+  text=$(from_clipboard)
+
+  # Exit if no text in clipboard
+  if [[ -z "$text" ]]; then
+    notify-send "n-translate" "No text in clipboard" 2>/dev/null || echo "No text in clipboard"
+    exit 1
+  fi
+
+  # URL encode the text
+  local encoded
+  encoded=$(printf '%s' "$text" | jq -sRr @uri)
+
+  # Option 1: Open Google Translate (good for longer text)
+  xdg-open "https://translate.google.com/?sl=${FROM_LANG}&tl=${TO_LANG}&text=${encoded}&op=translate"
+
+  # Option 2: For actual translation output in terminal, uncomment below:
+  # curl -s "https://translate.googleapis.com/translate_a/single?client=gtx&sl=${FROM_LANG}&tl=${TO_LANG}&dt=t&q=${encoded}" | \
+  #   jq -r '.[0][][0]' 2>/dev/null || echo "$text"
+}
+
+main "$@"

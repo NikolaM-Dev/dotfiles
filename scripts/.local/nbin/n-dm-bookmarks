@@ -10,7 +10,7 @@ declare -A BOOKMARKS=(
   ["Docs Go (Golang) Ardan Labs"]="https://www.ardanlabs.com/training/self-paced/individuals/bundles/go"
   ["Docs Go Verbs"]="https://pkg.go.dev/fmt#hdr-Printing"
   ["Docs Just"]="https://just.systems/man/en/introduction.html"
-  ["Docs Maple"]="https://github.com/subframe7536/maple-font/blob/variable/source/features/README.md"
+  ["Docs Maple"]="https://font.subf.dev/en/#features"
   ["Docs Obsidian Tasks"]="https://publish.obsidian.md/tasks/Introduction"
   ["Docs Obsidian"]="https://docs.obsidian.md/Home"
   ["Docs OpenCode"]="https://opencode.ai"
@@ -50,6 +50,9 @@ declare -A BOOKMARKS=(
   ["Nvim Stevearc"]="https://github.com/stevearc/dotfiles/tree/master/.config/nvim"
   ["Nvim Wuelner"]="https://github.com/wuelnerdotexe/nvim"
 
+  ["Tools OpenCode Go - OCG"]="https://opencode.ai/go"
+  ["Tools OpenCode Console"]="https://opencode.ai/console/wrk_01KACM11K104HG5XSRS83MJ535"
+  ["Tools Meta Console"]="https://dev.meta.ai/usage?team_id=1722430742317059&project_id=1057124703734804"
   ["Tools Bookmarks"]="https://app.raindrop.io"
   ["Tools Drive"]="https://drive.google.com/drive/u/0/my-drive"
   ["Tools Expenses"]="https://docs.google.com/spreadsheets/d/19guV9oKYXDY1Safkuk7r2G9Bvt5l8oon/edit?gid=931591167#gid=931591167"
@@ -133,7 +136,7 @@ declare -A BOOKMARKS=(
 
 function main() {
   # Show bookmarks in dmenu
-  choice=$(printf '%s\n' "${!BOOKMARKS[@]}" | sort | rofi -dmenu -i -l 12 -p "Bookmarks")
+  choice=$(printf '%s\n' "${!BOOKMARKS[@]}" | sort | rofi -dmenu -i -p "Bookmarks")
 
   # Open in default browser if valid
   if [[ -n "$choice" ]]; then

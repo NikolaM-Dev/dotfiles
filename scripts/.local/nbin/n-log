@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# n-log — wrapper, sources lib + provides CLI
+# Usage:
+#   source "$(command -v n-log)"  # lib mode
+#   n-log info "msg"               # CLI mode
+# Lib: ~/.local/share/n/lib/log.bash
+set -euo pipefail
+# shellcheck disable=SC1091
+
+# resolve lib via XDG, fallback to relative (for stow/dotfiles without install)
+# legacy path ~/.local/share/bash/lib/n-log.bash kept as fallback
+if [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/n/lib/log.bash" ]]; then
+  source "${XDG_DATA_HOME:-$HOME/.local/share}/n/lib/log.bash"
+elif [[ -f "$(dirname "${BASH_SOURCE[0]}")/../share/n/lib/log.bash" ]]; then
+  source "$(dirname "${BASH_SOURCE[0]}")/../share/n/lib/log.bash"
+elif [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash" ]]; then
+  source "${XDG_DATA_HOME:-$HOME/.local/share}/bash/lib/n-log.bash"
+else
+  echo "[ERROR] log.bash not found" >&2
+  exit 1
+fi
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  _n_log_usage() {
+    cat <<'USAGE'
+Usage: n-log <level> <message>
+       n-log --help
+
+Levels:
+  info | warn | error | step
+
+Examples:
+  n-log info "done"
+  n-log warn "disk almost full"
+  n-log error "failed to start"
+  n-log step "building..."
+  source "$(command -v n-log)" && log_info "hello"
+USAGE
+  }
+
+  case "${1:-}" in
+    -h|--help|help) _n_log_usage; exit 0 ;;
+    info)  shift; log_info "$*" ;;
+    warn)  shift; log_warn "$*" ;;
+    error) shift; log_error "$*" ;;
+    step)  shift; log_step "$*" ;;
+    "") _n_log_usage >&2; exit 1 ;;
+    *) log_info "$*" ;;
+  esac
+fi

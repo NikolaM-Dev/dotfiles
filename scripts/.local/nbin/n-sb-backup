@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function main() {
+  "$HOME/w/a/second-brain.md/backup/linux/backup.sh" &
+}
+
+main

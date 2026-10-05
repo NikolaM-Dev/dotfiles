@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# `n-mpv-toggle` - mute / unmute / toggle all current mpv instances via PipeWire.
+# Usage: n-mpv-toggle [toggle|mute|unmute] (default: toggle)
+
+set -euo pipefail
+
+mode="${1:-toggle}"
+
+case "$mode" in
+  toggle|mute|unmute) ;;
+  1) mode="mute" ;;
+  0) mode="unmute" ;;
+  *)
+    echo "Usage: $(basename "$0") [toggle|mute|unmute]" >&2
+    exit 2
+    ;;
+esac
+
+# Map mute/unmute to pactl 1/0, toggle stays as-is
+if [[ "$mode" == "mute" ]]; then
+  pactl_arg=1
+elif [[ "$mode" == "unmute" ]]; then
+  pactl_arg=0
+else
+  pactl_arg="toggle"
+fi
+
+# Collect sink-input IDs belonging to mpv
+mapfile -t ids < <(pactl list sink-inputs | awk '/^Sink Input #/{gsub(/#/, "", $3); id=$3} /application\.name = "mpv"/{print id}')
+
+if [[ ${#ids[@]} -eq 0 ]]; then
+  notify-send -t 3000 "mpv" "No mpv instances playing"
+  echo "No mpv sink-inputs found" >&2
+  exit 1
+fi
+
+for id in "${ids[@]}"; do
+  pactl set-sink-input-mute "$id" "$pactl_arg"
+done
+
+notify-send -t 2000 "mpv" "$mode (${#ids[@]} instance(s))"

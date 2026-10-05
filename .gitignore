@@ -2,3 +2,5 @@
 zsh/.config/zsh/plugins/
 # zsh completion cache
 zsh/.config/zsh/.zcompdump
+# stray package scaffold (stow treats every root dir as a package)
+/node_modules/
