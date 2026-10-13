@@ -28,7 +28,7 @@ const ICON = {
   thinking: USE_NERD ? " " : "",
   responding: USE_NERD ? " " : "",
   "tool-use": USE_NERD ? " " : "",
-  waiting: USE_NERD ? " " : "",
+  waiting: USE_NERD ? " " : "",
   compacting: USE_NERD ? "󰆼 " : "",
 } as const;
 
