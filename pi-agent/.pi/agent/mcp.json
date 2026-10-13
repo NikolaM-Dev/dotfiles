@@ -1,23 +1,30 @@
 {
   "mcpServers": {
+    "context7": {
+      "description": "Context7 brings up-to-date, version-specific library documentation into your AI coding assistant",
+      "exposure": "direct",
+      "headers": {
+        "Authorization": "Bearer ${CONTEXT7_API_KEY}"
+      },
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "shodh-memory": {
+      "args": ["/home/nikola/w/p/shodh-memory/mcp-server/dist/index.js"],
+      "command": "nub",
+      "description": "Persistent cognitive memory: remember and recall decisions, facts, and context across sessions",
+      "env": {
+        "SHODH_API_KEY": "${SHODH_API_KEY}",
+        "SHODH_API_URL": "http://127.0.0.1:3030",
+        "SHODH_USER_ID": "nikola"
+      }
+    },
     "ticktick": {
-      "url": "https://mcp.ticktick.com/",
+      "description": "TickTick tasks, projects, habits, focus sessions, tags and comments",
+      "exposure": "codemode",
       "headers": {
         "Authorization": "Bearer ${TICKTICK_TOKEN}"
       },
-      "exposure": "codemode",
-      "description": "TickTick tasks, projects, habits, focus sessions, tags and comments"
-    },
-    "shodh-memory": {
-      "command": "/home/nikola/.local/bin/shodh",
-      "args": ["serve"],
-      "env": {
-        "SHODH_API_URL": "http://127.0.0.1:3030",
-        "SHODH_API_KEY": "${SHODH_API_KEY}",
-        "SHODH_USER_ID": "nikola"
-      },
-      "exposure": "deferred",
-      "description": "Persistent cognitive memory: remember and recall decisions, facts, and context across sessions"
+      "url": "https://mcp.ticktick.com/"
     }
   }
 }
