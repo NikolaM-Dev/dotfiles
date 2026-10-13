@@ -230,6 +230,24 @@ export default function (pi: ExtensionAPI) {
     if (ctx.mode !== "tui") return;
     disposed = false;
 
+    // Session boundary (/new, resume, fork, reload, startup): drop all
+    // previous run state so the old "Done ..." line doesn't persist
+    // into the fresh session.
+    state.active = false;
+    state.phase = "requesting";
+    state.startedAt = 0;
+    state.lastProgressAt = 0;
+    state.outputTokens = 0;
+    state.toolTotal = 0;
+    state.files.clear();
+    state.errorTotal = 0;
+    state.tools.clear();
+    state.waiting = 0;
+    state.compacting = false;
+    state.retry = undefined;
+    state.retryAttempt = 0;
+    state.last = undefined;
+
     // Hide the built-in working row inside the editor top border.
     // pi-working replaces it with the widget above the input.
     ctx.ui.setWorkingVisible(false);
