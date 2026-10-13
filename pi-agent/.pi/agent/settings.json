@@ -13,8 +13,13 @@
   ],
   "followUpMode": "all",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "1.0.2",
-  "packages": ["npm:@ff-labs/pi-fff", "npm:@demigodmode/pi-web-agent"],
+  "lastChangelogVersion": "1.2.0",
+  "packages": [
+    "npm:@ff-labs/pi-fff",
+    "npm:@demigodmode/pi-web-agent",
+    "npm:pi-context-view",
+    "npm:pi-centered"
+  ],
   "steeringMode": "all",
   "theme": "cendre"
 }
