@@ -1,68 +1,225 @@
 ---
 name: shodh-memory
-description: "Trigger: remember this, do you remember, recall, shodh memory. Persist decisions and learnings across sessions — recall context at session start, store with remember, search with recall."
+description: Persistent memory system for AI agents. Use this skill to remember context across conversations, recall relevant information, and build long-term knowledge. Activate when you need to store decisions, learnings, errors, or context that should persist beyond the current session.
+version: 1.0.0
+author: Shodh AI
+tags:
+  - memory
+  - persistence
+  - context
+  - recall
+  - knowledge-management
 ---
 
-# Shodh Memory
+# Shodh Memory - Persistent Context for AI Agents
 
-## Activation Contract
+Shodh Memory gives you persistent memory across conversations. Unlike your context window which resets each session, memories stored here persist indefinitely and can be recalled semantically.
 
-Use when the user says remember, recall, forget, or "do you remember",
-when substantive work starts, or when a decision, preference, error fix,
-or reusable learning appears. Run step 1 at session start before answering
-from base knowledge alone.
+## When to Use Memory
 
-## Hard Rules
+**ALWAYS call `proactive_context` at the start of every conversation** with the user's first message. This surfaces relevant memories automatically.
 
-- Call `proactive_context` once per session with the opening message, not
-  once per user message. (The `pi-shodh-memory` extension already does this
-  on the first run — check the injected `Remembered context` block before
-  re-calling.) Use surfaced memories in the reply or proceed without them.
-- Only these MCP tools exist (prefix `mcp__shodh_memory__` in Pi):
-  `proactive_context`, `remember`, `recall`, `lineage_trace`,
-  `lineage_link`, `lineage_confirm`, `lineage_reject`, `lineage_stats`.
-  Never call `recall_by_tags`, `forget`, `memory_stats`,
-  `context_summary`, or `verify_index` — they do not exist on this server.
-- Store with `remember(content, type, tags)`: specific content plus
-  reasoning, never one-liners. See `assets/memory-template.md`.
-  Pick the type from `references/memory-types.md`.
-- Search with `recall(query, mode)` defaulting to `hybrid`. Never claim
-  nothing is remembered without calling `recall` first.
-- If `proactive_context` returns nothing despite stored memories, retry
-  with `semantic_threshold: 0.0` — the 0.2.0 default quality gate
-  over-filters, dropping even near-verbatim matches.
-- If the server is unreachable, read `references/setup.md` and report.
-  Do not invent workarounds.
+### Store memories (`remember`) when:
 
-## Decision Gates
+- User makes a **decision** ("Let's use PostgreSQL for this project")
+- You **learn** something new ("The codebase uses a monorepo structure")
+- An **error** occurs and you find the fix
+- You discover a **pattern** in the user's preferences
+- Important **context** that will be useful later
 
-| Signal                                       | Action                                                                            |
-| -------------------------------------------- | --------------------------------------------------------------------------------- |
-| Session start or new topic                   | `proactive_context`, then answer with surfaced context                            |
-| Decision, preference, fix, reusable learning | `remember` immediately, with tags                                                 |
-| "Do you remember" or past-context question   | `recall` (hybrid), then synthesize                                                |
-| "Why did we" or recurring issue              | `recall`, then `lineage_trace` on the best hit                                    |
-| Wrong or stale memory surfaced               | State the correction and `remember` it; link with `lineage_link` (`SupersededBy`) |
+### Recall memories (`recall`) when:
 
-## Execution Steps
+- User asks about past decisions or context
+- You need to remember project-specific information
+- Looking for patterns in how problems were solved before
 
-1. Send the opening message to `proactive_context` (`max_results: 5`).
-   Skip if the extension already injected a `Remembered context` block.
-2. For questions about the past, `recall` before answering.
-3. After each durable outcome, `remember` it with type and tags.
-   (Session exit is captured automatically — add only high-value items.)
-4. For cause-and-effect pairs (error to fix, decision to outcome),
-   connect them with `lineage_link`.
-5. Keep working; do not narrate memory calls unless asked.
+## Memory Types
 
-## Output Contract
+Choose the right type for better retrieval:
 
-- Replies incorporate remembered context without exposing raw IDs.
-- Corrections to past memories are confirmed in one line.
-- Memory tool failures are reported, never hidden.
+| Type          | When to Use                           | Example                                           |
+| ------------- | ------------------------------------- | ------------------------------------------------- |
+| `Decision`    | User choices, architectural decisions | "User chose React over Vue for the frontend"      |
+| `Learning`    | New knowledge gained                  | "This API requires OAuth2 with PKCE flow"         |
+| `Error`       | Bugs found and fixes                  | "TypeError in auth.js fixed by null check"        |
+| `Discovery`   | Insights, aha moments                 | "The performance issue was caused by N+1 queries" |
+| `Pattern`     | Recurring behaviors                   | "User prefers functional components over classes" |
+| `Context`     | Background information                | "Working on e-commerce platform for client X"     |
+| `Task`        | Work in progress                      | "Currently refactoring the payment module"        |
+| `Observation` | General notes                         | "User typically works in the morning"             |
 
-## References
+## Best Practices
 
-- `references/memory-types.md` — types, tags, recall modes.
-- `references/setup.md` — server setup and troubleshooting.
-- `assets/memory-template.md` — store format.
+### 1. Call `proactive_context` First
+
+```
+Every user message → call proactive_context with the message
+```
+
+This automatically:
+
+- Retrieves relevant memories
+- Stores the conversation context
+- Builds association graph over time
+
+### 2. Write Rich, Searchable Memories
+
+**Good:**
+
+```
+"Decision: Use PostgreSQL with pgvector extension for the RAG application.
+Reasoning: Need vector similarity search, user already has Postgres expertise,
+avoids adding new infrastructure. Alternative considered: Pinecone (rejected
+due to cost)."
+```
+
+**Bad:**
+
+```
+"Use postgres"
+```
+
+### 3. Use Tags for Organization
+
+Tags enable fast filtering without semantic search:
+
+```json
+{
+  "content": "API rate limit is 100 requests/minute",
+  "tags": ["api", "rate-limit", "backend", "project-x"]
+}
+```
+
+Later recall with: `recall_by_tags(["project-x", "api"])`
+
+### 4. Memory Types Affect Importance
+
+The system automatically weights memory types:
+
+- `Decision` and `Error` → Higher importance, slower decay
+- `Context` and `Observation` → Lower importance, faster decay
+
+Choose types accurately for better long-term retention.
+
+### 5. Leverage Different Recall Modes
+
+| Mode          | When to Use                                            |
+| ------------- | ------------------------------------------------------ |
+| `semantic`    | Pure meaning-based search ("database optimization")    |
+| `associative` | Follow learned connections ("what else relates to X?") |
+| `hybrid`      | Best of both (default, recommended)                    |
+
+## Common Patterns
+
+### Starting a Session
+
+```
+1. User sends first message
+2. Call proactive_context(context: user_message)
+3. Review surfaced memories
+4. Respond with relevant context
+```
+
+### After Making Progress
+
+```
+1. Complete a significant task
+2. Call remember() with:
+   - What was done
+   - Why it was done
+   - Key decisions made
+   - Any gotchas discovered
+```
+
+### When User Asks "Do you remember..."
+
+```
+1. Call recall(query: "what user is asking about")
+2. Also try recall_by_tags if you know relevant tags
+3. Synthesize memories into response
+```
+
+### Debugging a Recurring Issue
+
+```
+1. recall(query: "error in [component]")
+2. Check if similar errors were solved before
+3. Apply previous fix or note new solution
+4. remember() the resolution
+```
+
+## Memory Lifecycle
+
+```
+New Memory → Working Memory (hot, fast access)
+            ↓ (consolidation)
+         Session Memory (warm, recent context)
+            ↓ (importance threshold)
+         Long-term Memory (persistent, searchable)
+```
+
+The system automatically:
+
+- Strengthens frequently-accessed memories
+- Decays unused memories (but never fully forgets)
+- Forms associations between co-retrieved memories
+- Replays important memories during maintenance
+
+## API Quick Reference
+
+### Core Tools
+
+| Tool                | Purpose                                                            |
+| ------------------- | ------------------------------------------------------------------ |
+| `proactive_context` | **Call every message.** Surfaces relevant memories, stores context |
+| `remember`          | Store a new memory                                                 |
+| `recall`            | Search memories by meaning                                         |
+| `recall_by_tags`    | Filter memories by tags                                            |
+| `recall_by_date`    | Filter memories by time range                                      |
+| `forget`            | Delete a specific memory                                           |
+| `forget_by_tags`    | Delete memories matching tags                                      |
+
+### Diagnostic Tools
+
+| Tool                   | Purpose                                      |
+| ---------------------- | -------------------------------------------- |
+| `memory_stats`         | Get counts and health status                 |
+| `context_summary`      | Quick overview of recent learnings/decisions |
+| `consolidation_report` | See what the memory system is learning       |
+| `verify_index`         | Check index health                           |
+| `repair_index`         | Fix orphaned memories                        |
+
+## Example Workflow
+
+```
+User: "Let's start building the user authentication system"
+
+You:
+1. proactive_context("Let's start building the user authentication system")
+   → Surfaces: Previous auth decisions, security preferences, tech stack
+
+2. Response incorporates remembered context:
+   "Based on our earlier decision to use PostgreSQL and your preference
+   for JWT tokens, I'll set up auth with..."
+
+3. After implementation:
+   remember(
+     content: "Implemented JWT authentication with refresh token rotation.
+               Used bcrypt for password hashing (cost factor 12).
+               Tokens expire in 15 minutes, refresh tokens in 7 days.",
+     type: "Learning",
+     tags: ["auth", "jwt", "security", "user-system"]
+   )
+```
+
+## Tips for Effective Memory
+
+1. **Be specific** - "React 18 with TypeScript" not "frontend framework"
+2. **Include reasoning** - Why decisions were made, not just what
+3. **Tag consistently** - Use a tagging convention across the project
+4. **Review periodically** - Use `context_summary` to see what's accumulated
+5. **Trust the system** - It strengthens useful memories automatically
+
+---
+
+_Shodh Memory: Because context shouldn't reset with every conversation._
