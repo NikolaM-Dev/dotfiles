@@ -1,44 +1,77 @@
 /**
- * pi-shodh-memory — automatic Shodh memory recall and capture.
+ * pi-shodh-memory — lean automatic recall and capture.
  *
- * - `before_agent_start` (first run per session): fetches `proactive_context`
- *   for the current prompt and appends a compact block to the system prompt.
- *   Later runs reuse the cached block (no refetch, no prompt-loop cost).
- * - `session_shutdown` + `session_before_switch` (quit/new/resume/fork):
- *   stores one extractive `session-summary` memory (first request, tools
- *   used, files touched, outcome). Duplicate-safe per session.
- * - `/shodh-status`: health check against the supervised server.
+ * - before_agent_start, first run per session only. Fetches proactive_context
+ *   once and reuses the cached block. No per-turn refetch.
+ * - tool_result, bash errors only. Fire and forget store, never awaits.
+ * - session_shutdown, switch, fork, compact. One extractive session-summary,
+ *   fire and forget, no UI toast.
+ * - session_start. Quiet auth probe, warns only when debug is on.
+ * - shodh-status. Manual health check.
  *
- * Talks HTTP directly to the supervised `shodh server` so it works even when
- * the MCP server is disabled. Best-effort with short timeouts: it never
- * blocks the agent run, session switch, or quit, and never throws.
+ * Quiet by design. No stderr writes unless SHODH_DEBUG is set. Never blocks
+ * the agent run, session switch, or quit, and never throws. Talks HTTP
+ * directly to the supervised shodh server so it works even when MCP is off.
  */
 
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { readFileSync } from "node:fs";
+import { homedir } from "node:os";
+import { join } from "node:path";
 
-const FETCH_TIMEOUT_MS = 8000;
+const RECALL_TIMEOUT_MS = 1500;
+const REMEMBER_TIMEOUT_MS = 1500;
+const AUTH_TIMEOUT_MS = 3000;
 const MAX_MEMORIES = 5;
 const MAX_BLOCK_CHARS = 2000;
 const MAX_TEXT_CHARS = 400;
+const CIRCUIT_BREAKER_THRESHOLD = 3;
 
 function apiUrl(): string {
   const configured = process.env.SHODH_API_URL?.trim();
   return (configured || "http://127.0.0.1:3030").replace(/\/+$/, "");
 }
 
-function apiKey(): string {
+type KeySource = "env" | "shared-key-file" | "none";
+
+function resolveApiKey(): { key: string; source: KeySource } {
   const single = process.env.SHODH_API_KEY?.trim();
-  if (single) return single;
+  if (single) return { key: single, source: "env" };
   const plural = process.env.SHODH_API_KEYS?.trim();
-  if (plural) return plural.split(",")[0]?.trim() || "";
-  return "";
+  const first = plural?.split(",")[0]?.trim();
+  if (first) return { key: first, source: "env" };
+
+  const roots: string[] = [];
+  if (process.env.SHODH_MEMORY_PATH?.trim()) roots.push(process.env.SHODH_MEMORY_PATH.trim());
+  const home = homedir();
+  if (process.platform === "win32") {
+    roots.push(join(process.env.APPDATA || join(home, "AppData", "Roaming"), "shodh-memory"));
+  } else if (process.platform === "darwin") {
+    roots.push(join(home, "Library", "Application Support", "shodh-memory"));
+  } else {
+    roots.push(join(process.env.XDG_DATA_HOME || join(home, ".local", "share"), "shodh-memory"));
+  }
+  for (const root of roots) {
+    try {
+      const raw = readFileSync(join(root, ".api-key"), "utf-8").trim();
+      if (raw) return { key: raw, source: "shared-key-file" };
+    } catch {
+      // Absent or unreadable, try next.
+    }
+  }
+  return { key: "", source: "none" };
 }
 
 function userId(): string {
   return process.env.SHODH_USER_ID?.trim() || "nikola";
 }
 
+function isDebug(): boolean {
+  return process.env.SHODH_DEBUG?.trim() === "1";
+}
+
 function diag(message: string): void {
+  if (!isDebug()) return;
   try {
     process.stderr.write(`[pi-shodh-memory] ${message}\n`);
   } catch {
@@ -47,16 +80,19 @@ function diag(message: string): void {
 }
 
 let warnedNoKey = false;
-function warnNoKeyOnce(): void {
+function warnNoKeyOnce(source: KeySource): void {
   if (warnedNoKey) return;
   warnedNoKey = true;
-  diag("SHODH_API_KEY is not set; memory recall/capture disabled for this process.");
+  if (source === "none") diag("No API key found, recall and capture disabled.");
 }
 
-async function postJson<T>(path: string, body: unknown): Promise<T | null> {
-  const key = apiKey();
+let consecutiveFailures = 0;
+
+async function postJson<T>(path: string, body: unknown, timeoutMs: number): Promise<T | null> {
+  if (consecutiveFailures >= CIRCUIT_BREAKER_THRESHOLD) return null;
+  const { key, source } = resolveApiKey();
   if (!key) {
-    warnNoKeyOnce();
+    warnNoKeyOnce(source);
     return null;
   }
   try {
@@ -64,16 +100,34 @@ async function postJson<T>(path: string, body: unknown): Promise<T | null> {
       method: "POST",
       headers: { "Content-Type": "application/json", "X-API-Key": key },
       body: JSON.stringify(body),
-      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
     });
     if (!res.ok) {
-      diag(`POST ${path} -> HTTP ${res.status}`);
+      consecutiveFailures++;
+      diag(`POST ${path} -> HTTP ${res.status} via ${source}`);
       return null;
     }
+    consecutiveFailures = 0;
     return (await res.json()) as T;
   } catch (error) {
+    consecutiveFailures++;
     diag(`POST ${path} failed: ${error instanceof Error ? error.message : String(error)}`);
     return null;
+  }
+}
+
+async function verifyServerAuth(): Promise<"ok" | "unauthorized" | "unreachable" | "no-key"> {
+  const { key } = resolveApiKey();
+  if (!key) return "no-key";
+  try {
+    const res = await fetch(`${apiUrl()}/api/users`, {
+      headers: { "X-API-Key": key },
+      signal: AbortSignal.timeout(AUTH_TIMEOUT_MS),
+    });
+    if (res.status === 401 || res.status === 403) return "unauthorized";
+    return "ok";
+  } catch {
+    return "unreachable";
   }
 }
 
@@ -104,13 +158,11 @@ function trimText(value: unknown, max = MAX_TEXT_CHARS): string {
   return flat.length > max ? `${flat.slice(0, max)}…` : flat;
 }
 
-/** Accepts both proactive_context (flat) and recall (nested) memory shapes. */
 function memoryText(memory: unknown): { type: string; content: string } | null {
   if (typeof memory !== "object" || memory === null) return null;
   const m = memory as Record<string, unknown>;
   const nested = m["experience"] as Record<string, unknown> | undefined;
-  const content =
-    trimText(m["content"]) || (nested ? trimText(nested["content"]) : "");
+  const content = trimText(m["content"]) || (nested ? trimText(nested["content"]) : "");
   if (!content) return null;
   const type =
     (typeof m["memory_type"] === "string" && m["memory_type"]) ||
@@ -130,6 +182,16 @@ function itemText(item: unknown): string {
   );
 }
 
+function factText(item: unknown): string | null {
+  if (typeof item !== "object" || item === null) return null;
+  const o = item as Record<string, unknown>;
+  const fact = trimText(o["fact"], 200);
+  if (!fact) return null;
+  const confidence = typeof o["confidence"] === "number" ? o["confidence"] : 0;
+  if (confidence > 0) return `[Fact ${Math.round(confidence * 100)}%] ${fact}`;
+  return `[Fact] ${fact}`;
+}
+
 function formatRecallBlock(data: unknown): string | null {
   if (typeof data !== "object" || data === null) return null;
   const d = data as Record<string, unknown>;
@@ -139,6 +201,12 @@ function formatRecallBlock(data: unknown): string | null {
   for (const memory of memories.slice(0, MAX_MEMORIES)) {
     const parsed = memoryText(memory);
     if (parsed) lines.push(`- [${parsed.type}] ${parsed.content}`);
+  }
+
+  const facts = Array.isArray(d["relevant_facts"]) ? d["relevant_facts"] : [];
+  for (const item of facts.slice(0, 3)) {
+    const text = factText(item);
+    if (text) lines.push(`- ${text}`);
   }
 
   const reminders = [
@@ -162,27 +230,29 @@ function formatRecallBlock(data: unknown): string | null {
   return block;
 }
 
+function toolResultText(content: unknown): string {
+  if (!Array.isArray(content)) return "";
+  return content
+    .filter(
+      (c): c is { type: "text"; text: string } =>
+        typeof c === "object" &&
+        c !== null &&
+        (c as { type?: unknown }).type === "text" &&
+        typeof (c as { text?: unknown }).text === "string",
+    )
+    .map((c) => c.text)
+    .join("\n");
+}
+
 function entryText(entry: Record<string, unknown>): string {
   const message = entry["message"] as Record<string, unknown> | undefined;
   if (!message || typeof message !== "object") return "";
   const content = message["content"] as unknown;
   if (typeof content === "string") return content;
-  if (Array.isArray(content)) {
-    return content
-      .filter(
-        (c): c is { type: "text"; text: string } =>
-          typeof c === "object" &&
-          c !== null &&
-          (c as { type?: unknown }).type === "text" &&
-          typeof (c as { text?: unknown }).text === "string",
-      )
-      .map((c) => c.text)
-      .join("\n");
-  }
+  if (Array.isArray(content)) return toolResultText(content);
   return "";
 }
 
-/** Extractive session summary. Returns null when the session did nothing worth storing. */
 function buildSessionSummary(
   entries: Array<Record<string, unknown>>,
   cwd: string,
@@ -209,7 +279,6 @@ function buildSessionSummary(
         tools.add(name);
       }
     }
-    // Nested tool calls surface on assistant messages in some transcripts.
     const nested = message["nestedCalls"];
     if (Array.isArray(nested)) {
       for (const call of nested) {
@@ -235,36 +304,62 @@ function buildSessionSummary(
   return parts.join("\n");
 }
 
+function rememberMinimal(content: string, memoryType: string, tags: string[]): void {
+  void postJson<{ id?: string }>("/api/remember", {
+    user_id: userId(),
+    content,
+    memory_type: memoryType,
+    tags,
+  }, REMEMBER_TIMEOUT_MS).then(() => undefined, () => undefined);
+}
+
 export default function piShodhMemory(pi: ExtensionAPI) {
-  // Recalled block per session id (null = recalled, nothing relevant).
   const recalled = new Map<string, string | null>();
-  // Sessions already captured in this process (shutdown + before_switch converge).
   const captured = new Set<string>();
+
+  pi.on("session_start", async () => {
+    const probe = await verifyServerAuth();
+    if (probe === "unauthorized") diag("Server rejected API key.");
+    else if (probe === "unreachable") diag("Memory server unreachable, will retry per event.");
+    else if (probe === "no-key") warnNoKeyOnce("none");
+  });
 
   pi.on("before_agent_start", async (event, ctx) => {
     const sid = sessionIdOf(ctx as SessionCtx);
-    if (!recalled.has(sid)) {
-      const prompt = typeof event.prompt === "string" ? event.prompt : "";
-      if (!prompt.trim()) {
-        recalled.set(sid, null);
-        return;
-      }
-      const data = await postJson<unknown>("/api/proactive_context", {
-        user_id: userId(),
-        context: prompt.slice(0, 2000),
-        max_results: MAX_MEMORIES,
-        auto_ingest: false,
-        // 0.2.0 quirk: the default quality gate (threshold 0.05) filters out
-        // even near-verbatim matches, so disable it and rely on top-K
-        // ranking plus the model's own judgment of the labeled block.
-        semantic_threshold: 0.0,
-      });
-      recalled.set(sid, data ? formatRecallBlock(data) : null);
+    if (recalled.has(sid)) {
+      const cached = recalled.get(sid);
+      if (cached) return { systemPrompt: `${event.systemPrompt}\n\n${cached}` };
+      return;
     }
-    const block = recalled.get(sid);
-    if (block) {
-      return { systemPrompt: `${event.systemPrompt}\n\n${block}` };
+    const prompt = typeof event.prompt === "string" ? event.prompt : "";
+    if (prompt.trim().length < 10) {
+      recalled.set(sid, null);
+      return;
     }
+    const data = await postJson<unknown>("/api/proactive_context", {
+      user_id: userId(),
+      context: prompt.slice(0, 2000),
+      max_results: MAX_MEMORIES,
+      auto_ingest: false,
+      semantic_threshold: 0.0,
+    }, RECALL_TIMEOUT_MS);
+    const block = data ? formatRecallBlock(data) : null;
+    recalled.set(sid, block);
+    diag(block ? `recall ok, ${block.length} chars` : "recall empty");
+    if (block) return { systemPrompt: `${event.systemPrompt}\n\n${block}` };
+  });
+
+  pi.on("tool_result", async (event) => {
+    if (event.toolName.startsWith("mcp__shodh")) return;
+    if (event.toolName !== "bash") return;
+    if (!event.isError) return;
+    const command = typeof event.input["command"] === "string" ? event.input["command"] : "";
+    const output = toolResultText(event.content);
+    rememberMinimal(
+      `Command failed: ${command.slice(0, 100)} -> ${output.slice(0, 200)}`,
+      "Error",
+      ["tool:bash", "error"],
+    );
   });
 
   async function capture(ctx: SessionCtx): Promise<void> {
@@ -279,15 +374,8 @@ export default function piShodhMemory(pi: ExtensionAPI) {
     }
     const summary = buildSessionSummary(entries, ctx.cwd);
     if (!summary) return;
-    const saved = await postJson<{ id?: string }>("/api/remember", {
-      user_id: userId(),
-      content: summary,
-      memory_type: "Context",
-      tags: ["session-summary", `project:${projectName(ctx.cwd)}`],
-    });
-    if (saved && ctx.hasUI) {
-      ctx.ui.notify("Session saved to Shodh memory.", "info");
-    }
+    rememberMinimal(summary, "Context", ["session-summary", `project:${projectName(ctx.cwd)}`]);
+    diag(`summary queued, ${summary.length} chars`);
   }
 
   pi.on("session_shutdown", async (_event, ctx) => {
@@ -298,12 +386,20 @@ export default function piShodhMemory(pi: ExtensionAPI) {
     await capture(ctx as SessionCtx);
   });
 
+  pi.on("session_before_fork", async (_event, ctx) => {
+    await capture(ctx as SessionCtx);
+  });
+
+  pi.on("session_before_compact", async (_event, ctx) => {
+    await capture(ctx as SessionCtx);
+  });
+
   pi.registerCommand("shodh-status", {
     description: "Check Shodh memory server health",
     handler: async (_args, ctx) => {
       try {
         const res = await fetch(`${apiUrl()}/health`, {
-          signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+          signal: AbortSignal.timeout(AUTH_TIMEOUT_MS),
         });
         if (!res.ok) {
           ctx.ui.notify(`Shodh server unhealthy: HTTP ${res.status}`, "error");
