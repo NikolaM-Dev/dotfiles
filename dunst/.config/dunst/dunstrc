@@ -8,34 +8,33 @@
     progress_bar_max_width = 300
     progress_bar_min_width = 250
 
-    corner_radius = 5
+    corner_radius = 6
     frame_width = 1
     gap_size = 6
     horizontal_padding = 10
-    padding = 8
+    padding = 12
 
     font = "Maple Mono NF 11"
 
     icon_theme = "Papirus-Dark"
     enable_recursive_icon_lookup = true
 
-    background = "#282828"
-    foreground = "#d4be98"
+    background = "#171311"
+    foreground = "#e6d5c2"
 
 [urgency_low]
-    format = "<b><span foreground='#a9b665'>%s</span></b>\n%b"
-    frame_color = "#a9b665"
-    highlight = "#a9b665"
+    format = "<b><span foreground='#43b16a'>%s</span></b>\n%b"
+    frame_color = "#43b16a"
+    highlight = "#43b16a"
 
 [urgency_normal]
-    format = "<b><span foreground='#7daea3'>%s</span></b>\n%b"
-    frame_color = "#7daea3"
-    highlight = "#7daea3"
-    timeout = 86400000 # To keep my TickTick web app notifications
+    format = "<b><span foreground='#58bdff'>%s</span></b>\n%b"
+    frame_color = "#58bdff"
+    highlight = "#58bdff"
 
 [urgency_critical]
-    format = "<b><span foreground='#ea6962'>%s</span></b>\n%b"
-    frame_color = "#ea6962"
-    highlight = "#ea6962"
+    format = "<b><span foreground='#d25780'>%s</span></b>\n%b"
+    frame_color = "#d25780"
+    highlight = "#d25780"
 
 # vim: filetype=conf
