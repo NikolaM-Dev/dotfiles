@@ -1,0 +1,44 @@
+/* cendre hard for shadcn/ui. Copy into globals.css inside `.dark`. */
+/* Source: palette.lua hard. Pigments fixed, only ground moves per depth. */
+.dark {
+  --background: #171311;
+  --foreground: #e6d5c2;
+
+  --card: #0f0c0a;
+  --card-foreground: #e6d5c2;
+  --popover: #0f0c0a;
+  --popover-foreground: #e6d5c2;
+
+  --primary: #ea9875;
+  --primary-foreground: #171311;
+  --secondary: #2a2422;
+  --secondary-foreground: #e6d5c2;
+  --muted: #201b19;
+  --muted-foreground: #a09384;
+  --accent: #fcba81;
+  --accent-foreground: #171311;
+
+  --destructive: #d25780;
+  --destructive-foreground: #e6d5c2;
+
+  --border: #362f2c;
+  --input: #463e3a;
+  --ring: #ea9875;
+
+  --chart-1: #fcba81;
+  --chart-2: #ea9875;
+  --chart-3: #99af6b;
+  --chart-4: #d1766e;
+  --chart-5: #4e89a2;
+
+  --sidebar: #0f0c0a;
+  --sidebar-foreground: #e6d5c2;
+  --sidebar-primary: #ea9875;
+  --sidebar-primary-foreground: #171311;
+  --sidebar-accent: #2a2422;
+  --sidebar-accent-foreground: #e6d5c2;
+  --sidebar-border: #362f2c;
+  --sidebar-ring: #ea9875;
+
+  --radius: 0.5rem;
+}

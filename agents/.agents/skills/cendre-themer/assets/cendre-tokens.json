@@ -1,0 +1,89 @@
+{
+  "source": "~/.local/share/nvim/lazy/cendre/lua/cendre/palette.lua",
+  "default": "hard",
+  "name_for": {
+    "hard": "cendre",
+    "medium": "cendre-medium",
+    "soft": "cendre-soft"
+  },
+  "grounds": {
+    "hard": {
+      "bg_deep": "#0f0c0a",
+      "bg0": "#171311",
+      "bg1": "#201b19",
+      "bg2": "#2a2422",
+      "bg3": "#362f2c",
+      "bg4": "#463e3a",
+      "bg5": "#5a504c"
+    },
+    "medium": {
+      "bg_deep": "#141110",
+      "bg0": "#1d1917",
+      "bg1": "#26211f",
+      "bg2": "#312a28",
+      "bg3": "#3d3633",
+      "bg4": "#4e4541",
+      "bg5": "#625753"
+    },
+    "soft": {
+      "bg_deep": "#1a1716",
+      "bg0": "#231f1d",
+      "bg1": "#2d2725",
+      "bg2": "#37312e",
+      "bg3": "#443c39",
+      "bg4": "#554c48",
+      "bg5": "#695e5a"
+    }
+  },
+  "ink": {
+    "fg": "#e6d5c2",
+    "fg_dim": "#a09384",
+    "comment": "#73665b",
+    "gutter": "#4e4641"
+  },
+  "pigments": {
+    "brass": "#fcba81",
+    "ember": "#ea9875",
+    "sap": "#99af6b",
+    "cinder": "#d1766e",
+    "frost": "#4e89a2",
+    "potassium": "#9480ba",
+    "potassium_bright": "#a692cd"
+  },
+  "semantic": {
+    "error": "#d25780",
+    "warn": "#f4a21c",
+    "ok": "#43b16a",
+    "hint": "#20c9cb",
+    "info": "#58bdff",
+    "info_bright": "#8bcfff"
+  },
+  "tints": {
+    "hard": { "vis": "#2f1e17", "add": "#202515", "del": "#301d1b", "mod": "#12262e" },
+    "medium": { "vis": "#36241d", "add": "#262c1b", "del": "#372321", "mod": "#182c35" },
+    "soft": { "vis": "#3d2b23", "add": "#2d3221", "del": "#3e2a28", "mod": "#1f333b" }
+  },
+  "terminal": {
+    "black": "bg1",
+    "red": "cinder",
+    "green": "sap",
+    "yellow": "brass",
+    "blue": "info",
+    "magenta": "potassium",
+    "cyan": "frost",
+    "white": "fg_dim",
+    "bright_black": "comment",
+    "bright_red": "error",
+    "bright_green": "ok",
+    "bright_yellow": "warn",
+    "bright_blue": "info_bright",
+    "bright_magenta": "potassium_bright",
+    "bright_cyan": "hint",
+    "bright_white": "fg"
+  },
+  "contrast_hard": {
+    "fg_on_bg0": "12.89:1",
+    "comment_on_bg0": "3.32:1",
+    "fg_dim_on_bg0": "6.15:1"
+  }
+}
