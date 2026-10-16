@@ -15,7 +15,11 @@ Diagnose then fix in the same session, root to leaves, one node at a time.
 
 - Plain chat only, no extension, no popup, no subagent.
 - One question per round, then wait for the full reply.
+- Ask first, define after. Never state a term's meaning or the rule under test before the question. Definitions belong in the teach step.
+- Plain words. Define each term on first use in the teach step.
+- A term the user never met in their source is given, not a blind spot. Name it, define it, do not grade it as wrong.
 - Skipped means missing, not wrong. Grade answered only.
+- Grade the outcome and the reason apart. A right result with a wrong reason is shaky, not solid.
 - Teach before retest. Explain shaky nodes before rechecking.
 - Keep map internal. Show it only on request or stop.
 
@@ -33,10 +37,10 @@ Diagnose then fix in the same session, root to leaves, one node at a time.
 
 1. Lock goal. State done in one line.
 2. Order nodes root first. Start at closest weak root.
-3. Check one node. Ask one question covering prediction.
-4. Grade fast. Give verdict, reason, root link.
+3. Check one node. Ask one question covering prediction. State no rule and define no term here.
+4. Grade fast. Give verdict, reason, root link. Judge outcome and reason separately.
 5. Teach if shaky or missing. Give rule, minimal example, contrast break case.
-   Ask one recheck.
+   Define each term here, on first use. Ask one recheck on a fresh snippet, not the one just shown.
 6. Close. Require rederivation without notes. Mark solid only if it holds.
 
 ## Output Contract
