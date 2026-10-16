@@ -1,7 +1,7 @@
 ---
 name: understand
 description:
-  "Trigger: understand, test my understanding, diagnose gaps, find weak spots. Diagnose any topic with fast plain text probe then fix closest weak root first."
+  "Trigger: understand, test my understanding, diagnose gaps, find weak spots. Check one root at a time, teach gaps with examples, recheck until solid."
 disable-model-invocation: true
 ---
 
@@ -9,43 +9,40 @@ disable-model-invocation: true
 
 ## Activation Contract
 
-Diagnose then fix in the same session.
+Diagnose then fix in the same session, root to leaves, one node at a time.
 
 ## Hard Rules
 
 - Plain chat only, no extension, no popup, no subagent.
-- One ordered list per round, then wait for the full reply.
-- Skipped number means missing, not wrong. Grade answered numbers only.
-- Fast feedback after each reply with verdict, reason and root link.
-- Fix closest weak root first, never leaves before roots lock.
-- Test derivation with root, motive, prediction and break case.
-- Label claims as user material, web checked or memory.
+- One question per round, then wait for the full reply.
+- Skipped means missing, not wrong. Grade answered only.
+- Teach before retest. Explain shaky nodes before rechecking.
+- Keep map internal. Show it only on request or stop.
 
 ## Decision Gates
 
-| User says           | Action                             |
-| ------------------- | ---------------------------------- |
-| names a topic       | Lock goal in one line, then probe  |
-| answers, skips some | Grade answered, mark skips missing |
-| asks to go on       | Fix next closest weak root         |
-| asks to stop        | Return map and fix order           |
+| User says                               | Action                                    |
+| --------------------------------------- | ----------------------------------------- |
+| names a topic                           | Lock goal in one line, start at root node |
+| answers                                 | Grade, teach if shaky, move on if solid   |
+| asks to go on                           | Move to next dependent node               |
+| pauses, questions a term, reports noise | Pause quiz, resolve meta, then resume     |
+| asks to stop                            | Return status and fix order               |
 
 ## Execution Steps
 
-1. Lock goal. Ask what done looks like in one line.
-2. Probe. Send one ordered list, one idea per number. Cover root, motive,
-   prediction, break case. Wait.
-3. Map. Return node, status, depends on. Status is solid, shaky or missing.
-   Update each round.
-4. Fix. Take closest weak root on path to goal. Motivate why now, state plainly,
-   link to roots, ask one recheck.
-5. Close. Ask for rederivation without notes from roots toward answer. Mark
-   solid only if it holds.
+1. Lock goal. State done in one line.
+2. Order nodes root first. Start at closest weak root.
+3. Check one node. Ask one question covering prediction.
+4. Grade fast. Give verdict, reason, root link.
+5. Teach if shaky or missing. Give rule, minimal example, contrast break case.
+   Ask one recheck.
+6. Close. Require rederivation without notes. Mark solid only if it holds.
 
 ## Output Contract
 
-Return map, fix order root first, gaps, source labels. No file edit unless
-asked.
+Keep internal map with status and dependencies. Show it only on request or stop.
+No file edit unless asked.
 
 ## References
 
