@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# Print the current LAN address of the Termux sshd.
+#
+# Scans the local /24 for port 8022, then confirms each hit by comparing the
+# SSH host key against the phone's known ED25519 key. That way a random device
+# with sshd on 8022 doesn't get mistaken for the phone.
+#
+# If you reinstall Termux the host key is regenerated. Update KEY below
+# (get it with: ssh-keyscan -t ed25519 -p 8022 <ip>).
+set -euo pipefail
+
+PORT=8022
+KEY='AAAAC3NzaC1lZDI1NTE5AAAAIDeaL6BovXNxooW7RTdsHmU4uv+gju+X27lK5e8sSLxD'
+
+subnet_prefix() {
+  ip -4 route get 1.1.1.1 2>/dev/null |
+    awk '{for (i=1; i<=NF; i++) if ($i=="src") {split($(i+1), a, "."); print a[1]"."a[2]"."a[3]; exit}}'
+}
+
+port_open() {
+  timeout 1 bash -c "exec 3<>/dev/tcp/$1/$PORT" 2>/dev/null
+}
+
+host_key_matches() {
+  local out blob
+  out=$(timeout 5 ssh-keyscan -t ed25519 -p "$PORT" "$1" 2>/dev/null) || return 1
+  blob=$(printf '%s\n' "$out" | awk '$2 == "ssh-ed25519" {print $3; exit}')
+  [[ -n "$blob" && "$blob" == "$KEY" ]]
+}
+
+main() {
+  local prefix hits ip found=
+  prefix=$(subnet_prefix)
+  if [[ -z "$prefix" ]]; then
+    echo "n-termux-ip: no default route, are you online?" >&2
+    exit 1
+  fi
+
+  # Parallel connect sweep. Every open port 8022 shows up, we filter below.
+  hits=$(
+    for ip in $(seq 1 254); do
+      ( port_open "$prefix.$ip" && echo "$prefix.$ip" ) &
+    done
+    wait
+  )
+
+  for ip in $hits; do
+    if host_key_matches "$ip"; then
+      found=$ip
+      break
+    fi
+  done
+
+  if [[ -z "$found" ]]; then
+    echo "n-termux-ip: phone not found on $prefix.0/24." >&2
+    echo "  is sshd running in Termux?  (run 'sshd' there)" >&2
+    echo "  is the phone on this same Wi-Fi network?" >&2
+    exit 1
+  fi
+
+  echo "$found"
+}
+
+main "$@"
