@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# n-herdr-update — update Herdr in a fresh Ghostty window.
+#
+# Usage:
+#   n-herdr-update
+#
+# What it does:
+#   1. Opens a new Ghostty window (detached from the current Herdr session).
+#   2. Runs `herdr update --handoff` there.
+#   3. Only if the update succeeds, attaches to Herdr (`herdr`).
+#   4. Always ends in a shell so the window never vanishes
+#      (Ghostty is configured with `confirm-close-surface = false`,
+#      so a window whose child exits closes instantly).
+#
+# Why we clear HERDR_*:
+#   When launched from inside Herdr, the child inherits HERDR_ENV and friends,
+#   and Herdr refuses with "nested herdr is disabled / run update outside herdr".
+#   Unsetting them makes the new window count as "outside herdr".
+#
+# Why --handoff and no `server stop`:
+#   `server stop` kills the running server, which disconnects *all* Herdr
+#   windows — including the one you launched from — so terminals appear to
+#   "disappear". `--handoff` does a live handoff without killing the session.
+
+set -euo pipefail
+
+function main() {
+  # Silence Ghostty's own startup logs (info:/warning: lines) so they
+  # don't pollute the terminal you launch from, and detach immediately.
+  ghostty -e bash -c '
+    set -eu
+    # Detach from the parent Herdr session (see header comment).
+    unset HERDR_ENV HERDR_SOCKET_PATH HERDR_PANE_ID HERDR_TAB_ID HERDR_WORKSPACE_ID HERDR_BIN_PATH
+
+    if herdr update --handoff; then
+      # Everything went well — attach to the freshly updated Herdr.
+      # No `exec`: when you quit Herdr you fall through to the shell below,
+      # so the window stays open instead of vanishing.
+      herdr
+    else
+      status=$?
+      printf "\n[n-herdr-update] update failed (exit %d). Leaving shell open.\n" "$status"
+    fi
+
+    exec bash
+  ' >/dev/null 2>&1 & disown
+}
+
+main "$@"
