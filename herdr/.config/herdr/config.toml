@@ -1,0 +1,238 @@
+# ── General ───────────────────────────────────────────────────────────
+onboarding = false
+
+# ── Nightly features ──────────────────────────────────────────────────
+[experimental]
+pane_history = true
+
+# ── Appearance ────────────────────────────────────────────────────────
+[theme]
+name = "terminal"
+auto_switch = false
+
+[theme.custom]
+accent = "#99af6b" # interactive UI / primary
+panel_bg = "#171311" # tab bar bg
+surface0 = "#201b19" # inactive tab / secondary
+surface_dim = "#2a2422" # sidebar borders
+active_row_bg = "#2a2422" # active workspace bg
+overlay0 = "#73665b" # menu / tab labels / muted colors
+overlay1 = "#73665b" # menu tabs / secondary
+text = "#e6d5c2" # active workspace fg / text
+subtext0 = "#a09384" # inactive workspace fg / subtext
+mauve = "#a692cd" # git branch
+red = "#d25780" # errors
+green = "#99af6b" # git status / agent status idle
+teal = "#8bcfff" # agent status done
+yellow = "#ea9875" # agent status working
+
+# ── Unused Colors ─────────────────────────────────────────────────────
+surface1 = "#2a2422"
+blue = "#4e89a2"
+peach = "#ea9875"
+
+# ── Interface ────────────────────────────────────────────────────────
+[ui]
+accent = "green"
+agent_panel_sort = "priority"
+# agent_priority_tokens = ["space_priority"]
+pane_borders = "auto"
+pane_gaps = false
+pane_outer_borders = true
+pane_scrollbars = false
+prompt_new_tab_name = false
+sidebar_max_width = 60
+sidebar_width = 40
+status_indicators = "dots"
+
+# ── Notifications ─────────────────────────────────────────────────────
+[ui.toast]
+delivery = "system"
+
+[ui.toast.clipboard]
+position = "top-right"
+
+[ui.toast.herdr]
+position = "top-right"
+
+[ui.sound]
+enabled = true
+
+# ── Sidebar ───────────────────────────────────────────────────────────
+[ui.sidebar.spaces]
+rows = [
+  [
+    "state_icon",
+    { token = "$hint", fg = "#ea9875", bold = true },
+    "workspace",
+    { token = "$sesh", fg = "#a692cd" },
+    { token = "$sesh_last", fg = "#fcba81", dim = true },
+  ],
+  [
+    "branch",
+    "git_status",
+  ],
+]
+
+[ui.sidebar.agents]
+rows = [
+  [
+    "state_icon",
+    { token = "$hint", fg = "#ea9875", bold = true },
+    "workspace",
+    { token = "tab", dim = true },
+  ],
+  [
+    "agent",
+    { token = "state_text", fg = "#99af6b", dim = true },
+  ],
+]
+
+# ── Keybinds ──────────────────────────────────────────────────────────
+[keys]
+prefix = "ctrl+z"
+close_workspace = "prefix+q"
+edit_scrollback = "prefix+shift+e"
+new_workspace = "prefix+shift+C"
+next_tab = "ctrl+shift+j"
+previous_tab = "ctrl+shift+k"
+settings = "prefix+ctrl+,"
+split_horizontal = "prefix+s"
+switch_tab = "ctrl+1..9"
+toggle_sidebar = "prefix+alt+b"
+zoom = 'ctrl+shift+z'
+
+# ── Neovim Navigation ─────────────────────────────────────────────────
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "local.vim-navigator.left"
+description = "Vim-aware pane left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "local.vim-navigator.down"
+description = "Vim-aware pane down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "local.vim-navigator.up"
+description = "Vim-aware pane up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "local.vim-navigator.right"
+description = "Vim-aware pane right"
+
+# ── Sesh ──────────────────────────────────────────────────────────────
+[[keys.command]]
+key = "prefix+j"
+type = "plugin_action"
+command = "fullerzz.sesh.open-picker"
+description = "open Sesh picker"
+
+[[keys.command]]
+key = "prefix+ctrl+b"
+type = "plugin_action"
+command = "fullerzz.sesh.last"
+description = "switch to previous session"
+
+[[keys.command]]
+key = "prefix+ctrl+v"
+command = "herdr-sesh connect ' nvim'"
+description = "Go to [nvim] session"
+
+[[keys.command]]
+key = "prefix+ctrl+s"
+command = "herdr-sesh connect 'shodh'"
+description = "Go to [shodh] session"
+
+[[keys.command]]
+key = "prefix+b"
+command = "herdr-sesh connect ' second brain'"
+description = "Go to [second brain] session"
+
+[[keys.command]]
+key = "prefix+m"
+command = "herdr-sesh connect ' music'"
+description = "Go to [music] session"
+
+[[keys.command]]
+key = "prefix+ctrl+d"
+command = "herdr-sesh connect ' dotfiles'"
+description = "Go to [dotfiles] session"
+
+# [[keys.command]]
+# key = "prefix+e"
+# command = "herdr-sesh connect '󰊿 english'"
+# description = "Go to [english] session"
+
+[[keys.command]]
+key = "prefix+shift+b"
+command = "herdr-sesh connect '󰯊 notes'"
+description = "Go to [notes] session"
+
+[[keys.command]]
+key = "prefix+ctrl+h"
+command = "herdr-sesh connect '󱂵 home'"
+description = "Go to [home] session"
+
+# ── Easyjump ──────────────────────────────────────────────────────────
+[[keys.command]]
+key = "prefix+f"
+type = "plugin_action"
+command = "xzedx.easyjump.open"
+description = "easyjump: hint jump"
+
+[[keys.command]]
+key = "prefix+shift+f"
+type = "plugin_action"
+command = "xzedx.easyjump.open-list"
+description = "easyjump: list popup"
+
+# ── Neovim ────────────────────────────────────────────────────────────
+[[keys.command]]
+key = "prefix+e"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.toggle"
+description = "nvim sidebar"
+
+[[keys.command]]
+key = "ctrl+."
+type = "plugin_action"
+command = "chmarax.herdr-nvim.toggle"
+description = "nvim sidebar"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.pick-file"
+description = "open file from agent output"
+
+# ── TUIs ──────────────────────────────────────────────────────────────
+[[keys.command]]
+key = "prefix+ctrl+t"
+type = "shell"
+command = "herdr pane run \"$(herdr tab create --focus --label ' *' | jq -r .result.root_pane.pane_id)\" 'btop; exit'"
+description = " Btop"
+
+[[keys.command]]
+key = "prefix+shift+d"
+type = "shell"
+command = "herdr pane run \"$(herdr tab create --focus --label ' *' | jq -r .result.root_pane.pane_id)\" 'lazydocker; exit'"
+description = " Lazy Docker"
+
+[[keys.command]]
+key = "prefix+shift+g"
+type = "shell"
+command = "herdr pane run \"$(herdr tab create --focus --label ' *' | jq -r .result.root_pane.pane_id)\" 'lazygit; exit'"
+description = " Lazy Git"
+
+[[keys.command]]
+key = "prefix+ctrl+e"
+type = "shell"
+command = "herdr pane run \"$(herdr tab create --focus --label '󰇥 *' | jq -r .result.root_pane.pane_id)\" 'yazi; exit'"
+description = "󰇥 Yazi"
