@@ -4,3 +4,6 @@ zsh/.config/zsh/plugins/
 zsh/.config/zsh/.zcompdump
 # stray package scaffold (stow treats every root dir as a package)
 /node_modules/
+
+# OpenCode background service config (local API password)
+opencode/.config/opencode/service.json
