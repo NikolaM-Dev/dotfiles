@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "session": {
+    "thinking": "hide"
+  },
+  "theme": {
+    "name": "opencode"
+  },
+  "diffs": {
+    "view": "unified",
+    "tree": true
+  },
+  "keybinds": {
+    "input.newline": "shift+return,ctrl+return,alt+return",
+    "session.last": "ctrl+alt+g,end,ctrl+shift+e",
+    "session.page.down": "pagedown,ctrl+alt+f,ctrl+]",
+    "session.page.up": "pageup,ctrl+alt+b,ctrl+["
+  }
+}
