@@ -8,16 +8,6 @@
       },
       "url": "https://mcp.context7.com/mcp"
     },
-    "shodh-memory": {
-      "args": ["/home/nikola/w/p/shodh-memory/mcp-server/dist/index.js"],
-      "command": "nub",
-      "description": "Persistent cognitive memory: remember and recall decisions, facts, and context across sessions",
-      "env": {
-        "SHODH_API_KEY": "${SHODH_API_KEY}",
-        "SHODH_API_URL": "http://127.0.0.1:3030",
-        "SHODH_USER_ID": "nikola"
-      }
-    },
     "ticktick": {
       "description": "TickTick tasks, projects, habits, focus sessions, tags and comments",
       "exposure": "codemode",

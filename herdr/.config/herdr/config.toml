@@ -146,11 +146,6 @@ command = "herdr-sesh connect ' nvim'"
 description = "Go to [nvim] session"
 
 [[keys.command]]
-key = "prefix+ctrl+s"
-command = "herdr-sesh connect 'shodh'"
-description = "Go to [shodh] session"
-
-[[keys.command]]
 key = "prefix+b"
 command = "herdr-sesh connect ' second brain'"
 description = "Go to [second brain] session"
