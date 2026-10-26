@@ -265,7 +265,8 @@ function gbp2 {
 }
 
 function gd {
-	git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock" | delta --side-by-side
+	git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
+	# | delta --side-by-side
 }
 
 # @description Switch git origin remote to SSH form for a GitHub repo.
@@ -386,3 +387,181 @@ function react_testing {
 	bun i
 	sesh connect .
 }
+
+# @description Update engram from source (beta path).
+# @example `engram_update`
+# Stable installs should use `gentle-ai update --engram` (checksummed release
+# asset). This builds `@latest` via `go install` (upstream module is v2:
+# `.../engram/v2/cmd/engram`), resolves the output with
+# `go env GOBIN/GOPATH` (not hardcoded `~/go/bin`), backs the current binary
+# up to `engram.bak`, and publishes with an atomic `cp -> chmod 755 -> mv` so
+# a running engram MCP server never sees a truncated binary. No-op when source
+# and dest are the same file. Verifies the installed file directly (`dest
+# version`) and warns when PATH resolves `engram` elsewhere (brew,
+# /usr/local/bin).
+function engram_update {
+	emulate -L zsh
+	setopt nounset pipefail
+
+	# 1. Build from source.
+	if ! command -v go >/dev/null; then
+		print -u2 "engram_update: go not found"
+		return 1
+	fi
+
+	local module="github.com/Gentleman-Programming/engram/v3"
+	local pkg="$module/cmd/engram@latest"
+
+	if ! GOPRIVATE="$module" \
+		GONOSUMDB="$module" \
+		GONOPROXY="$module" \
+		go install "$pkg"; then
+		print -u2 "engram_update: go install $pkg failed"
+		return 1
+	fi
+
+	# 2. Locate the built binary (honors `go env -w GOBIN`).
+	local gobin gopath src
+	gobin="$(go env GOBIN)"
+	gopath="$(go env GOPATH)"
+	src="${gobin:-$gopath/bin}/engram"
+
+	if [[ ! -x "$src" ]]; then
+		print -u2 "engram_update: missing $src"
+		return 1
+	fi
+
+	# 3. Publish atomically so a running MCP server is never truncated.
+	local dest="$HOME/.local/bin/engram"
+	mkdir -p "${dest:h}"
+
+	if [[ -e "$dest" ]] && [[ "$src" -ef "$dest" ]]; then
+		"$dest" version
+		return 0
+	fi
+
+	if [[ -e "$dest" ]] && ! cp -p "$dest" "${dest}.bak"; then
+		print -u2 "engram_update: backup to ${dest}.bak failed"
+		return 1
+	fi
+
+	local tmp="${dest}.$$.tmp"
+	if ! cp -p "$src" "$tmp"; then
+		rm -f "$tmp"
+		print -u2 "engram_update: copy to $tmp failed"
+		return 1
+	fi
+	if ! chmod 755 "$tmp"; then
+		rm -f "$tmp"
+		print -u2 "engram_update: chmod $tmp failed"
+		return 1
+	fi
+	if ! mv -f "$tmp" "$dest"; then
+		rm -f "$tmp"
+		print -u2 "engram_update: move to $dest failed (backup at ${dest}.bak)"
+		return 1
+	fi
+
+	# 4. Verify the installed file, not whatever PATH resolves.
+	"$dest" version
+
+	local resolved
+	resolved="$(command -v engram)"
+	if [[ "$resolved" != "$dest" ]]; then
+		print -u2 "engram_update: warning: PATH resolves engram to $resolved, not $dest"
+	fi
+}
+
+# @description Run npm, ask to use vp instead for install, run, exec, dlx.
+# @example `npm install`
+function npm {
+	case "${1:-}" in
+	install | i | run | exec | dlx)
+		if [[ -o interactive && -t 0 && -t 1 ]] && command -v vp >/dev/null 2>&1; then
+			local ans
+			read -r "ans?Use vp instead? [y/N] "
+			if [[ "$ans" == [Yy]* ]]; then
+				command vp "$@"
+				return $?
+			fi
+		fi
+		;;
+	esac
+	command npm "$@"
+}
+
+# @description Run npx, ask to use vpx instead.
+# @example `npx prettier --check .`
+function npx {
+	if [[ -o interactive && -t 0 && -t 1 ]] && command -v vpx >/dev/null 2>&1; then
+		local ans
+		read -r "ans?Use vpx instead? [y/N] "
+		if [[ "$ans" == [Yy]* ]]; then
+			command vpx "$@"
+			return $?
+		fi
+	fi
+	command npx "$@"
+}
+
+# @description Index ~/w projects into zoxide so `z <name>` works without visiting first.
+# Indexes group/project dirs (depth <= 2) plus nested git repos at depth 3.
+# Only adds dirs missing from the db, so ranks of visited dirs never inflate.
+# @example `zindex-w` or `zindex-w ~/w`
+function zindex-w {
+	emulate -L zsh
+	local root="${1:-$HOME/w}"
+	[[ -d "$root" ]] || return 0
+	command -v zoxide >/dev/null 2>&1 || return 0
+
+	local -A seen
+	local line
+	while IFS= read -r line; do
+		[[ -n "$line" ]] && seen[${line%/}]=1
+	done < <(zoxide query -l 2>/dev/null)
+
+	local -a candidates
+	if command -v fd >/dev/null 2>&1; then
+		local -a top
+		top=(${(f)"$(fd -t d --max-depth 2 -E node_modules -E .git -E target -E __pycache__ -E .venv -E venv . "$root" 2>/dev/null)"}")
+		candidates+=("${top[@]}")
+		local dir
+		local -a nested
+		nested=(${(f)"$(fd -t d --exact-depth 3 -E node_modules -E .git -E target -E __pycache__ -E .venv -E venv . "$root" 2>/dev/null)"}")
+		for dir in "${nested[@]}"; do
+			[[ -e "${dir%/}/.git" ]] && candidates+=("$dir")
+		done
+	else
+		while IFS= read -r line; do
+			candidates+=("$line")
+		done < <(find "$root" -maxdepth 2 -type d \
+			-not -path '*/node_modules*' \
+			-not -path '*/.git*' \
+			-not -path '*/target*' \
+			-not -path '*/__pycache__*' \
+			-not -path '*/.venv*' 2>/dev/null)
+		while IFS= read -r line; do
+			[[ -e "${line%/}/.git" ]] && candidates+=("$line")
+		done < <(find "$root" -mindepth 3 -maxdepth 3 -type d \
+			-not -path '*/node_modules*' \
+			-not -path '*/.git*' \
+			-not -path '*/target*' \
+			-not -path '*/__pycache__*' \
+			-not -path '*/.venv*' 2>/dev/null)
+	fi
+
+	local -a missing
+	local dir
+	for dir in "${candidates[@]}"; do
+		dir=${dir%/}
+		[[ -n "$dir" && -z "${seen[$dir]}" ]] && missing+=("$dir")
+	done
+
+	if (( ${#missing[@]} )); then
+		zoxide add "${missing[@]}"
+	fi
+}
+
+# Keep ~/w indexed for zoxide. Async so shell start never blocks.
+# Manual refresh: `zindex-w`.
+zindex-w >/dev/null 2>&1 &!
