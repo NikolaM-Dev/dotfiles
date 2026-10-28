@@ -118,14 +118,45 @@
     "key": "ctrl+shift+n",
     "command": "explorer.newFolder"
   },
-  {
-    "key": "ctrl+n",
-    "command": "explorer.newFile"
-  },
+  // {
+  //   "key": "ctrl+n",
+  //   "command": "explorer.newFile"
+  // },
 
   {
     "key": "ctrl+n",
     "command": "-workbench.action.files.newUntitledFile"
+  },
+  // Menu navigation like Neovim: C-n down, C-p up
+  {
+    "key": "ctrl+n",
+    "command": "list.focusDown",
+    "when": "listFocus && !inQuickOpen && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "list.focusUp",
+    "when": "listFocus && !inQuickOpen && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
   },
   {
     "key": "shift+alt+w",
