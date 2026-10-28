@@ -33,6 +33,15 @@ function _obs() {
   printf ""
 }
 
+function _dictate() {
+  local s
+  s=$(cat "${XDG_RUNTIME_DIR:-/tmp}/deepgram-dictate-state" 2>/dev/null) || return
+  case "$s" in
+  recording) printf "^c$palette0^ REC " ;;
+  transcribing) printf "^c$palette3^ … " ;;
+  esac
+}
+
 function _pomo() {
   printf "$(pomodoro status --format "🍅 %!r")"
 }
@@ -81,7 +90,7 @@ function main() {
     [ $INTERVAL = 0 ] || [ $((INTERVAL % 60)) = 0 ] && connection=$(_connection)
     INTERVAL=$((INTERVAL + 1))
 
-    sleep 1 && xsetroot -name "$packages_updates$connection $(_obs) $(_pomo) $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
+    sleep 1 && xsetroot -name "$packages_updates$connection $(_obs) $(_dictate)$(_pomo) $(_volume) $(_cpu) $(_memory) $(_disk) $(_date_time)"
   done
 }
 
