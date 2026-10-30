@@ -1,0 +1,12 @@
+agent_notes = false
+animations = false
+copy_decorations = false
+cursor_line = "row"
+hunk_headers = false
+line_numbers = true
+menu_bar = false
+mode = "auto"
+theme = "vitesse-black"
+wrap_lines = false
+
+prompt_save_view_preferences = false
