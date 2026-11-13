@@ -15,7 +15,7 @@ window-padding-x = 3
 window-padding-y = 3
 window-save-state = always
 
-# keybinds
+# ── keybindings ───────────────────────────────────────────────────────
 keybind=clear
 keybind=ctrl+equal=increase_font_size:1
 keybind=ctrl+minus=decrease_font_size:1
