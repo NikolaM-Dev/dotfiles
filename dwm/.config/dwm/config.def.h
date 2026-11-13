@@ -12,9 +12,10 @@ static const int vertpadbar  = 8;   /* vertical padding for statusbar */
 static const char *fonts[]    = { "JetBrainsMono NF:size=10:weight=medium", "Symbols Nerd Font Mono:size=10" };
 
 static const char *colors[][3] = {
-	/*               fg,        bg,        border */
-	[SchemeNorm] = { "#717171", "#1b1b1b", "#1b1b1b" },
-	[SchemeSel]  = { "#717171", "#1b1b1b", "#717171"  },
+	/*               fg,        bg,        border   */
+	/* cendre hard: Norm fg_dim/bg0/bg0, Sel fg/bg2/ember */
+	[SchemeNorm] = { "#a09384", "#171311", "#171311" },
+	[SchemeSel]  = { "#e6d5c2", "#2a2422", "#5A504C" },
 };
 
 /* Systray */
@@ -33,16 +34,16 @@ static const unsigned int ulinestroke  = 2;   /* thickness / height of the under
 static const unsigned int ulinevoffset = 0;   /* how far above the bottom of the bar the line should appear */
 
 static const char *tagsel[][2] = {
-	/* fg,       bg */
-	{ "#bb7c72", "#1b1b1b" },
-	{ "#6d956f", "#1b1b1b" },
-	{ "#9f8a51", "#1b1b1b" },
-	{ "#758fc1", "#1b1b1b" },
-	{ "#6196a0", "#1b1b1b" },
-	{ "#a185b6", "#1b1b1b" },
-	{ "#bb7c72", "#1b1b1b" },
-	{ "#6d956f", "#1b1b1b" },
-	{ "#9f8a51", "#1b1b1b" },
+	/* fg (pigments), bg (bg0) */
+	{ "#d1766e", "#171311" }, /* 1 cinder */
+	{ "#99af6b", "#171311" }, /* 2 sap */
+	{ "#fcba81", "#171311" }, /* 3 brass */
+	{ "#4e89a2", "#171311" }, /* 4 frost */
+	{ "#ea9875", "#171311" }, /* 5 ember */
+	{ "#9480ba", "#171311" }, /* 6 potassium */
+	{ "#d1766e", "#171311" }, /* 7 cinder */
+	{ "#99af6b", "#171311" }, /* 8 sap */
+	{ "#fcba81", "#171311" }, /* 9 brass */
 };
 
 static const Rule rules[] = {
