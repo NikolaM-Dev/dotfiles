@@ -56,18 +56,21 @@ static const Rule rules[] = {
 	 * Use `n-dwm-xprop` instead
 	 */
 
-	/* class,          instance,        title, tags mask, isfloating, monitor */
-	{ "Pcmanfm",       "pcmanfm",       NULL,  0,         1,          -1 },
-	{ "Qalculate-gtk", "qalculate-gtk", NULL,  0,         1,          -1 },
-	{ "Zotero",        "Zotero",        NULL,  0,         1,          -1 },
-	{ "ticktick",      "ticktick",      NULL,  0,         0,          -1 },
-  { "Gpick",         "gpick",         NULL,  0,         1,          -1 },
-  { "Handy",         "handy",         NULL,  1 << 4,    0,          -1 },
-  { "StayFree",      "stayfree",      NULL,  1 << 7,    0,          -1 },
-  { "discord",       "discord",       NULL,  1 << 1,    0,          -1 },
-  { "vesktop",       "vesktop",       NULL,  1 << 1,    0,          -1 },
-  { "feh",           "feh",           NULL,  0,         1,          -1 },
-  { "obsidian",      "obsidian",      NULL,  1 << 3,    0,          -1 },
+	/* class,                 instance,               title, tags mask, isfloating, monitor */
+	{ "Pcmanfm",              "pcmanfm",              NULL,  0,         1,          -1 },
+	{ "Qalculate-gtk",        "qalculate-gtk",        NULL,  0,         1,          -1 },
+	{ "Zotero",               "Zotero",               NULL,  0,         1,          -1 },
+	{ "ticktick",             "ticktick",             NULL,  0,         0,          -1 },
+  { "Gpick",                "gpick",                NULL,  0,         1,          -1 },
+  { "Handy",                "handy",                NULL,  1 << 4,    0,          -1 },
+  { "StayFree",             "stayfree",             NULL,  1 << 7,    0,          -1 },
+  { "anomaly.hex",          "anomaly.hex",          NULL,  1 << 4,    0,          -1 },
+  { "com.t3tools.T3Code",   "com.t3tools.t3code",   NULL,  1 << 1,    0,          -1 },
+  { "discord",              "discord",              NULL,  1 << 1,    0,          -1 },
+  { "feh",                  "feh",                  NULL,  0,         1,          -1 },
+  { "md.obsidian.Obsidian", "md.obsidian.obsidian", NULL,  1 << 3,    0,          -1 },
+  { "vesktop",              "vesktop",              NULL,  1 << 1,    0,          -1 },
+  { "zen",                  "Navigator",            NULL,  1 << 0,    0,          -1 },
 };
 
 /* layout(s) */
