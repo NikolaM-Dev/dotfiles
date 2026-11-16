@@ -5,6 +5,7 @@ Alvar
 Aoi
 Arepa
 Arteaga
+Astro
 B1
 Barad
 BiliBili
@@ -70,14 +71,17 @@ NodeJS
 Noela
 OS
 OpenCode
+PJ
 PLPGSQL
 Pikaboo
 Planification
 Pocock
 Pomodoro
 Preply
+ROI
 RSC
 Reins
+Rofi
 SP
 SQLite3
 SSR
@@ -88,6 +92,7 @@ TLDR
 TailwindCSS
 TanStack
 TankStack
+Templater
 Termux
 Theo
 Theo's
@@ -101,6 +106,7 @@ ViteJS
 Wezterm
 Woogie
 ZMK
+ZSH
 Zotero
 autocmd
 automaticity
@@ -111,9 +117,11 @@ createContext
 createReducer
 csv
 cwd
+distilled
 distilling
 drunch
 e2e
+empanadas
 env
 gx
 immer
@@ -134,6 +142,7 @@ re-run
 re-running
 re-runs
 readonly
+shodh
 solidarity
 structuredClone
 stylua
