@@ -22,7 +22,7 @@ prompt_save_view_preferences = false
 # like the line they sit on. Upstream uses bg3 gray here.
 
 [custom_theme]
-base = "github-dark-default" # only supplies scopes not overridden below
+base = "vitesse-black" # only supplies scopes not overridden below
 label = "cendre"
 
 background = "#171311"
