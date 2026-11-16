@@ -47,7 +47,7 @@ status_indicators = "dots"
 
 # ── Notifications ─────────────────────────────────────────────────────
 [ui.toast]
-delivery = "system"
+delivery = "off"
 
 [ui.toast.clipboard]
 position = "top-right"
