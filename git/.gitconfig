@@ -1,6 +1,3 @@
-[include]
-path = ~/.config/delta/delta.gitconfig
-
 [user]
 name = Juan David Merchan Torres
 email = juan1014166@gmail.com
@@ -8,6 +5,7 @@ email = juan1014166@gmail.com
 [core]
 editor = nvim
 excludesFile = ~/.config/git/ignore
+pager = hunk pager
 
 [init]
 defaultBranch = main
@@ -20,6 +18,15 @@ prune = true
 
 [push]
 autoSetupRemote = true
+
+[diff]
+tool = hunk
+
+[difftool "hunk"]
+cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+
+[difftool]
+prompt = false
 
 [credential "https://github.com"]
 helper =
